@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Navbar from './elements/Navbar'
 import Footer from './elements/Footer'
+import Navigation from './elements/Navigation'
 export default function Layer({ children }) {
     return (
         <>
@@ -12,6 +13,7 @@ export default function Layer({ children }) {
             </Head>
             <Navbar />
             <main className="container">
+            <Navigation/>
                 {children}
             </main>
 
