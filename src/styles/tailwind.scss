@@ -1,0 +1,10 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// 
+button,
+input{
+    @apply selection:active:focus:bg-transparent focus:outline-none
+}
