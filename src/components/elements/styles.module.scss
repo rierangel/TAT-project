@@ -1,0 +1,44 @@
+@use '@/styles/vars' as v;
+
+.footer {
+    margin-top: 120px;
+    border-top: 2px solid v.$ligh-hover;
+    padding: 64px 0px 100px;
+    .footerContent {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5%;
+        .col{
+            display: flex;
+            flex-direction: column;
+            li{
+                margin-bottom: 12px;
+                a{
+                    text-transform: capitalize;
+                }
+            }
+            :last-child{
+                margin-bottom: 0px;
+            }
+            
+        }
+    }
+}
+
+.img {
+    width: 100%;
+
+    &img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+.copyright {
+    color: v.$gray;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+}
+

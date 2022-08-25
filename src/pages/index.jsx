@@ -36,6 +36,9 @@ export default function Home() {
         Descargar CSV
       </button>
 
+
+      <input type="text" placeholder="excribe un texto"/>
+
     </Layer>
   )
 }
