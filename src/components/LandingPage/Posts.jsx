@@ -1,9 +1,10 @@
-
 import styles from './styles.module.scss'
+
 export default function Posts() {
   return (
     <div className="grid grid-cols-2 gap-6">
-      <div className="flex flex-col h-[628px] space-y-[12px]">
+
+      <div className="flex flex-col h-[628px] space-y-[12px] hover1">
 
         <div className={styles.img}>
           <img src="/img/post/post1.png" alt="" />
@@ -16,35 +17,28 @@ export default function Posts() {
 
       </div>
 
-      <div className="grid grid-cols-2 gap-6 h-[550px] ">
+      <div className="grid grid-cols-2 gap-6 h-[550px]  ">
 
-        <div className="">
-          <div>
+        <div className="hover1">
+          <div className={styles.img2}>
             <img src="/img/post/post2.png" alt="" />
           </div>
           <h2 className='mt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
         </div>
 
-        <div className="">
-          <div>
+        <div className="hover1">
+          <div className={styles.img2}>
             <img src="/img/post/post2.png" alt="" />
           </div>
-          <h2 className='mt-4'>Lorem ipsum dolor sit amet consectetur adipisicing eliipsum dolor sit amet consectetur adipisicing elit.</h2>
+          <h2 className='mt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
         </div>
 
-        <div className="">
-          <div>
+        <div className="hover1">
+          <div className={styles.img2}>
             <img src="/img/post/post2.png" alt="" />
           </div>
           <h2 className='mt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
         </div>
-        <div className="">
-          <div>
-            <img src="/img/post/post2.png" alt="" />
-          </div>
-          <h2 className='mt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-        </div>
-       
 
       </div>
     </div>

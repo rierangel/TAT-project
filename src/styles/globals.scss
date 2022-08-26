@@ -31,6 +31,7 @@ main {
   border: 1px solid white;
 }
 
+// STYLES
 .title {
   background: radial-gradient(143.01% 142.92% at 0.56% 109.68%, #FEC053 0%, #F2203E 33%, #B729A8 65%, #5342D6 100%);
   -webkit-background-clip: text;
@@ -43,11 +44,16 @@ h1 {
   line-height: 44px;
 }
 h2 {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 33px;
+  
+}
+h3 {
   font-size: 20px;
   font-weight: 700;
   line-height: 27px;
 }
-
 
 h6 {
   font-size: 40px;
@@ -56,48 +62,12 @@ h6 {
 }
 
 
-a {
-  color: v.$primary;
 
-  &:hover {
-    color: v.$primary-dark;
-    text-decoration-line: underline;
-    text-underline-offset: 2px;
-  }
-}
-
-.border1 {
-  border: 2px solid v.$ligh;
-
-  &:hover {
-    border: 2px solid transparent;
-  }
-}
-
-.border1 {
-  border: 2px solid v.$ligh;
-
-  &:hover {
-    border: 2px solid transparent;
-  }
-}
-
-
-.border2 {
-  border: 2px solid v.$ligh;
-
-  &:hover,&:target,&:focus {
-    border: 2px solid v.$primary-ligh;
-  }
-}
- 
-
-
+//  TAGS
 button {
   border: none;
   text-align: center;
   text-decoration: none;
-  margin: 15px;
   padding: 12px 16px;
   border-radius: 8px;
   outline: 3px solid transparent;
@@ -200,10 +170,47 @@ input {
   }
 }
 
+li{
+  text-transform: capitalize;
+}
+
 .container{
   // @extend .border1;
   width: v.$width;
   margin-left: auto;
   margin-right: auto;
   height: auto;
+}
+
+
+// BORDERS
+a {
+  color: v.$primary;
+  &:hover {
+    color: v.$primary-dark;
+
+  }
+}
+
+.border1 {
+  border: 2px solid v.$ligh;
+  &:hover {
+    border: 2px solid transparent;
+  }
+}
+
+.border2 {
+  border: 2px solid v.$ligh;
+
+  &:hover,&:target,&:focus {
+    border: 2px solid v.$primary-ligh;
+  }
+}
+
+.hover1{
+  color: black;
+  &:hover,&:target,&:focus {
+    color: v.$primary;
+  }
+
 }

@@ -29,6 +29,12 @@
 
                 a {
                     text-transform: capitalize;
+
+                    &:hover {
+                        text-decoration-line: underline;
+                        text-underline-offset: 2px;
+                    }
+
                 }
             }
 
@@ -67,30 +73,40 @@
         padding: 16px 0px;
 
         ul {
-            li {
+            li {               
                 @apply border-b-4 border-b-transparent hover:border-b-[#0054A4] py-4 px-1;
-
-                a {
-                    text-decoration-line: none;
+                
+                .border:hover{
+                    @apply hover:border-b-transparent
                 }
+            
             }
         }
     }
 }
 
 .drop {
+    margin: 0px;
+
     position: relative;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    a {
-        text-decoration-line: none;
-    }
-    svg {
-        margin-left: 11px;
 
+    .drop-item {
+        cursor: pointer;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            text-decoration-line: none;
+        }
+
+        svg {
+            margin-left: 11px;
+        }
     }
-    ul{
+
+
+    ul {
         padding: 12px 0px;
         position: absolute;
         top: 60px;
@@ -99,24 +115,22 @@
         white-space: nowrap;
         border-radius: 12px;
         background-color: v.$white;
-        li{
+
+        li {
             cursor: pointer;
             border: none;
-            a{
-                padding: 12px 24px;
+            a {
                 color: black;
-                &:hover{
-                    color: v.$primary;
-                }
-                
+                padding: 12px 24px;
             }
-            &:hover{
+            &:hover {
                 background-color: v.$white-hover;
+                a{
+                    color: v.$primary;
+                    
+                }
             }
         }
     }
-
-
-
 
 }
