@@ -107,8 +107,6 @@ export default function LastResolutions() {
             </a>
           </Link>
         ))}
-
-
       </div>
     </>
 

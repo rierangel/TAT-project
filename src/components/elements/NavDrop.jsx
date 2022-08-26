@@ -4,7 +4,7 @@ import styles from './styles.module.scss'
 import slugify from '/src/lib/slugify'
 
 
-export default function NavDrop({ title, data }) {
+export default function NavDrop({ title, slug, data }) {
 
   const [active, setActive] = useState(false)
   
@@ -19,12 +19,12 @@ export default function NavDrop({ title, data }) {
         </svg>
       </div>
 
-      <div className={active ? "hidden" : "visible"}>
+      <div className={active ?  "visible": "hidden" }>
         <ul className='border' >
           {data.map((e, i) => (
             <li key={i} className="group">
-              <Link href={slugify(e)}>
-                <a className='' >{e}</a>
+              <Link href={`/${slug}/${e.link}`}>
+                <a className='' >{e.name}</a>
               </Link>
             </li>
           ))}        

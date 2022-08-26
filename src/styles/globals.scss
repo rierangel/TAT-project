@@ -4,6 +4,7 @@
 * {
   box-sizing: border-box;
   padding: 0;
+  // border: solid 1px red;
 }
 
 html,
@@ -24,167 +25,15 @@ body {
   flex-direction: column;
 }
 
-
-
 main {
   height: 100vh;
   border: 1px solid white;
 }
 
-// STYLES
 .title {
   background: radial-gradient(143.01% 142.92% at 0.56% 109.68%, #FEC053 0%, #F2203E 33%, #B729A8 65%, #5342D6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-h1 {
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 44px;
-}
-h2 {
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 33px;
-  
-}
-h3 {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 27px;
-}
-
-h6 {
-  font-size: 40px;
-  font-weight: 800;
-  line-height: 54px;
-}
-
-
-
-//  TAGS
-button {
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  padding: 12px 16px;
-  border-radius: 8px;
-  outline: 3px solid transparent;
-  outline-offset: 2px;
-  display: flex;
-  align-items: center;
-
-  svg {
-    margin-right: 14px;
-  }
-
-  &:hover {
-    box-shadow: 0px 8px 8px rgba(23, 113, 199, 0.04), 0px 12px 36px rgba(23, 113, 199, 0.12);
-  }
-
-
-  &.primary {
-    background-color: v.$primary;
-    color: white;
-
-    &:hover {
-      background-color: v.$primary-dark;
-    }
-  }
-
-  &.contact{
-    @apply rounded-full;    
-    background-color: v.$primary;
-    color: white;
-    padding: 12px 24px;
-    display: flex;
-    align-items: center;
-    &:hover {
-      background-color: v.$primary-dark;
-    }
-
-  }
-
-  &.outline {
-    @extend .border1;
-    background-color: v.$white;
-    color: v.$black;
-
-    &:hover {
-      color: v.$white;
-      background-color: v.$primary;
-    }
-  }
-
-  &.xls {
-    @extend .border1;
-
-    svg {
-      fill: v.$green;
-    }
-
-    &:hover {
-      color: v.$white;
-      background-color: v.$green;
-
-      svg {
-        fill: v.$white;
-      }
-    }
-  }
-
-  &.pdf {
-    @extend .border1;
-
-    svg {
-      fill: v.$red;
-    }
-
-    &:hover {
-      color: v.$white;
-      background-color: v.$red;
-
-      svg {
-        fill: v.$white;
-      }
-    }
-  }
-
-  &.cvs {
-    @extend .border1;
-
-    svg {
-      fill: v.$blue;
-    }
-
-    &:hover {
-      color: v.$white;
-      background-color: v.$blue;
-
-      svg {
-        fill: v.$white;
-      }
-    }
-  }
-
-}
-
-input {
-  @extend .border2;
-  text-align: left;
-  border-radius: 12px;
-  padding: 12px 16px;
-  color: v.$gray;
-  background-color: transparent;
-  &:target,&:focus{
-    color: v.$black;
-
-  }
-}
-
-li{
-  text-transform: capitalize;
 }
 
 .container{
@@ -200,35 +49,3 @@ li{
   align-items: center;
 }
 
-
-// BORDERS
-a {
-  color: v.$primary;
-  &:hover {
-    color: v.$primary-dark;
-
-  }
-}
-
-.border1 {
-  border: 2px solid v.$ligh;
-  &:hover {
-    border: 2px solid transparent;
-  }
-}
-
-.border2 {
-  border: 3px solid v.$ligh-hover;
-
-  &:hover,&:target,&:focus {
-    border: 3px solid v.$primary-ligh;
-  }
-}
-
-.hover1{
-  color: black;
-  &:hover,&:target,&:focus {
-    color: v.$primary;
-  }
-
-}

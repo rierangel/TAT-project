@@ -1,14 +1,6 @@
 @use '@/styles/vars' as v;
 
-.img {
-    width: 100%;
 
-    &img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-}
 
 .footer {
     margin-top: 120px;
@@ -18,11 +10,14 @@
     .footerContent {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        gap: 5%;
+        gap: 87px;
 
         .col {
             display: flex;
             flex-direction: column;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 20px;
 
             li {
                 margin-bottom: 12px;
@@ -71,15 +66,15 @@
 
     .bottom {
         padding: 16px 0px;
-
+        display: flex;
         ul {
-            li {               
+            li {
                 @apply border-b-4 border-b-transparent hover:border-b-[#0054A4] py-4 px-1;
-                
-                .border:hover{
+
+                .border:hover {
                     @apply hover:border-b-transparent
                 }
-            
+
             }
         }
     }
@@ -125,9 +120,10 @@
             }
             &:hover {
                 background-color: v.$white-hover;
-                a{
+
+                a {
                     color: v.$primary;
-                    
+
                 }
             }
         }
