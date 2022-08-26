@@ -19,6 +19,7 @@
 .img2 {
     width: 302px;
     height: 190px;
+
     img {
         border-radius: 8px;
         width: 100%;
@@ -41,6 +42,7 @@
     justify-content: space-between;
     gap: 24px;
     margin: 64px 0px 80px;
+
     a {
         border-radius: 12px;
         padding: 36px;
@@ -53,6 +55,7 @@
     justify-content: space-between;
     gap: 24px;
     margin: 64px 0px 80px;
+
     a {
         border-radius: 12px;
         padding: 36px;
@@ -67,9 +70,38 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin: 24px 0px 80px;
+
     a {
         border-radius: 12px;
         padding: 36px;
+
+    }
+
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 24px 0px 80px;
+
+    a {
+        border-radius: 12px;
+        padding: 47px 52px;
+        svg {
+            fill: #6B7380;
+        }
+        &:hover {
+            svg {
+
+                fill: v.$primary;
+            }
+        }
+        p{
+            width: 189px;
+        }
+
+       
     }
 
 }
