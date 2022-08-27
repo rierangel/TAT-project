@@ -24,11 +24,11 @@ export default function Navbar() {
             name: "Competencias",
             link: "/competencias/"
         },
-       [ {
+        {
             name: "Normativa",
             link: "/normativa/",
             sub: true
-        }]
+        }
 
     ]
 
@@ -48,7 +48,7 @@ export default function Navbar() {
                 </div>
 
                 <div className={styles.bottom}>
-                    <ul className='flex space-x-10'>
+                    <ul className='flex gap-7'>
                         <li >
                             <Link className='mb-auto' href="/">
                                 <a className=''>inicio</a>
@@ -58,6 +58,46 @@ export default function Navbar() {
                         <NavDrop title={"nosotros"} slug={"nosotros"} data={nosotros} />
 
                         <NavDrop title={"Marco Normativo"} slug={"marco-normativo"} data={marco} />
+
+                   
+
+                        <li >
+                            <Link className='mb-auto' href="/noticias">
+                                <a className=''>Noticias</a>
+                            </Link>
+                        </li>
+
+                        <li >
+                            <Link className='mb-auto' href="/transparencia">
+                                <a className=''>Transparencia</a>
+                            </Link>
+                        </li>
+
+                        <li >
+                            <Link className='mb-auto' href="/noticias">
+                                <a className=''>Noticias</a>
+                            </Link>
+                        </li>
+
+                        <NavDrop title={"Marco Normativo"} slug={"marco-normativo"} data={marco} />
+
+
+                        <li >
+                            <Link className='mb-auto' href="/tramites">
+                                <a className=''>Trámites</a>
+                            </Link>
+                        </li>
+                        <li >
+                            <Link className='mb-auto' href="/vacantes">
+                                <a className=''>Vacantes</a>
+                            </Link>
+                        </li>
+
+                        <li >
+                            <Link className='mb-auto' href="/contacto">
+                                <a className=''>Contacto</a>
+                            </Link>
+                        </li>
 
 
                     </ul>

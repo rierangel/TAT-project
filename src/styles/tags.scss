@@ -206,20 +206,21 @@ button {
 
 }
 
-input {
+select ,input {
     @extend .border2;
     text-align: left;
     border-radius: 12px;
     padding: 12px 16px;
     color: v.$gray;
     background-color: transparent;
-
+    &:empty,
     &:target,
     &:focus {
         color: v.$black;
-
     }
 }
+
+
 
 li {
     text-transform: capitalize;

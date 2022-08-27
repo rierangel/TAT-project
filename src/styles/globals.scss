@@ -37,7 +37,7 @@ main {
   -webkit-text-fill-color: transparent;
 }
 
-.container{
+.container {
   // @extend .border1;
   width: v.$width;
   margin-left: auto;
@@ -45,8 +45,66 @@ main {
   height: auto;
 }
 
-.center{
+.center {
   display: flex;
   align-items: center;
 }
 
+.file-list {
+  li {
+    display: flex;
+    padding: 12px;
+
+    button {
+      margin-left: auto;
+    }
+
+    &:nth-child(even) {
+      background: v.$white-hover;
+    }
+
+  }
+}
+
+
+.border2 {
+  z-index: 100;
+  border: 3px solid v.$ligh-hover;
+  position: relative;
+
+  &:hover,
+  &:target,
+  &:focus {
+    z-index: 100;
+    border: 3px solid v.$primary-ligh;
+  }
+}
+
+.pagination {
+
+
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: v.$primary;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+
+    &:nth-child(1n) {
+
+      &:nth-child(even) {
+        background: v.$white-hover;
+      }
+      &:last-child{
+        background-color: white;
+      }
+
+    }
+
+
+  }
+
+}

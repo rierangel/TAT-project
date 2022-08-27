@@ -7,14 +7,20 @@ export default function index() {
 
             <form action="" className='flex gap-[24px] mt-2'>
 
-                <input className='w-full' 
-                type="text"
-                placeholder='Escriba su búsqueda'
+                <input className='w-full'
+                    type="text"
+                    placeholder='Escriba su búsqueda'
                 />
 
                 <div className="relative">
+
                     <label htmlFor="seccion" className='absolute bottom-[55px] font-bold'>Sección</label>
-                    <input type="text" id="seccion" />
+                    <select className='w-[240px]' name="" id="">
+
+                            <option className='w-full' value="select">sadsad</option>
+                            <option className='w-full' value="select">sadsad</option>
+                            <option className='w-full' value="select">sadsad</option>
+                    </select>
                 </div>
 
                 <button className='primary px-6'> <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
