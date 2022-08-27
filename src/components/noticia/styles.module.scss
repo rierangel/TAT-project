@@ -1,0 +1,14 @@
+@use '@/styles/vars' as v;
+
+.carrusel{
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    button{
+        svg{
+            margin: 0px;
+        }
+    }
+}   
