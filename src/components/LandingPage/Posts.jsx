@@ -25,7 +25,7 @@ export default function Posts() {
       <div className="grid grid-cols-2 grid-rows-2 gap-6 h-[550px]  ">
 
         {cont.map((e, i) => (          
-          <div className="hover1">
+          <div key={i} className="hover1">
             <div className={styles.posts}>
               <img src="/img/post/post2.png" alt="" />
             </div>

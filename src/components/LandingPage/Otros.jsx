@@ -9,7 +9,7 @@ export default function Otros() {
       <h1 className='mt-20 mb-9'>Otras Instituciones</h1>
       <div className="flex justify-between">
         {images.map((e, i) => (
-          <div keys={i}>
+          <div key={i}>
 
             <img src={`/img/inst/${e}.png`} alt="" />
           </div>

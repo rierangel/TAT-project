@@ -5,7 +5,7 @@ export default function Competencias() {
     <>
 
 
-      <div className="relative w-ful p-9 border2 rounded-xl">
+      <div className="relative w-ful p-9 border2 rounded-xl z-0">
         <h2 className='marco mb-4'>ley 8 - 2010</h2>
 
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi tenetur libero dolorem mollitia temporibus eos cum provident autem quod odio. Voluptates dolores odio ullam dolore autem inventore, sed nam vel!

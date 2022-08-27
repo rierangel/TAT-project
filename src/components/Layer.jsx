@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Navbar from './elements/Navbar'
 import Footer from './elements/Footer'
-import Navigation from './elements/Navigation'
+import Path from './elements/Path'
 export default function Layer({ children }) {
     return (
         <>
@@ -12,8 +12,8 @@ export default function Layer({ children }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
-            <main className="container">
-                <Navigation />
+            <main className="container">                
+                <Path />                
                 {children}
             </main>
 

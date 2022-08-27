@@ -36,21 +36,21 @@ export default function NavDrop({ title, slug, data }) {
         }
       </div>
 
-      <div ref={select} className={active ? "visible z-0" : "hidden"}>
+      <div ref={select} className={active ? "visible z-[1]" : "hidden"}>
         <ul className='border' >
           {data.map((e, i) =>
             Array.isArray(e) ?
-              <li>
+              <li key={i}>
                 <ul>
                   {console.log(e)}
                 </ul>
               </li>
               :
-              <li key={i} >
-                <Link href={`/${slug}${e.link}`}>
-                  <a >{e.name}</a>
-                </Link>
-              </li>
+              <Link key={i} href={`/${slug}${e.link}`}>
+                <li >
+                  {e.name}
+                </li>
+              </Link>
           )}
         </ul>
 
