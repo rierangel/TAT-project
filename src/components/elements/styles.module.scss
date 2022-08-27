@@ -1,7 +1,5 @@
 @use '@/styles/vars' as v;
 
-
-
 .footer {
     margin-top: 120px;
     border-top: 2px solid v.$ligh-hover;
@@ -48,85 +46,4 @@
             }
         }
     }
-}
-
-
-.navbar {
-    border-bottom: 1px solid v.$gray-ligh;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
-
-    .top {
-        margin-top: 48px;
-        margin-bottom: 36px;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .bottom {
-        padding: 16px 0px;
-        display: flex;
-        ul {
-            li {
-                @apply border-b-4 border-b-transparent hover:border-b-[#0054A4] py-4 px-1;
-
-                .border:hover {
-                    @apply hover:border-b-transparent
-                }
-
-            }
-        }
-    }
-}
-
-.drop {
-    margin: 0px;
-
-    position: relative;
-    display: flex;
-
-    .drop-item {
-        cursor: pointer;
-        justify-content: space-between;
-        align-items: center;
-
-        a {
-            text-decoration-line: none;
-        }
-
-        svg {
-            margin-left: 11px;
-        }
-    }
-
-
-    ul {
-        padding: 12px 0px;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: auto;
-        white-space: nowrap;
-        border-radius: 12px;
-        background-color: v.$white;
-
-        li {
-            cursor: pointer;
-            border: none;
-            a {
-                color: black;
-                padding: 12px 24px;
-            }
-            &:hover {
-                background-color: v.$white-hover;
-
-                a {
-                    color: v.$primary;
-
-                }
-            }
-        }
-    }
-
 }

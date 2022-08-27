@@ -12,9 +12,9 @@ export default function autoridades() {
       <div className="mt-16 mb-20 grid grid-cols-3 gap-7">
 
         <Link href={"autoridades/fulano/"}>
-          <a className="group h-[453px] border2 rounded-xl ">
-            <div syles="w-full h-[320px]">
-              <img className='rounded-t-xl ' src="/img/autoridad.png" alt="" />
+          <a className="group h-[453px] hover1 border2 rounded-xl ">
+            <div syles="w-full ">
+              <img className='h-[320px] object-top rounded-t-xl ' src="/img/autoridad.png" alt="" />
             </div>
             <div className="p-9 group-hover:text-[#0054A4]">
               <h3>Rafael Karl Brown Rangel</h3>

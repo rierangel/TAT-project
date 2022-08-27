@@ -55,7 +55,7 @@ export default function Socials() {
 
     return (
 
-        <div className='flex space-x-[28px]'>
+        <div className='flex items-center space-x-[28px]'>
 
             {socialsItens.map((e, i) => (
                 <a key={i} href={e.link} className='relative group cursor-pointer'>

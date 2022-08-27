@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import styles from './styles.module.scss'
 import NavDrop from './NavDrop'
-import Socials from './Socials'
+import Socials from '../Socials'
 export default function Navbar() {
 
     const nosotros = [
-
         {
             name: "Quiénes Somos",
             link: "/quienes-somos/"
@@ -18,8 +17,21 @@ export default function Navbar() {
             name: "Equipo Gerencial",
             link: "/equipo-gerencial/"
         },
+    ]
+
+    const marco = [
+        {
+            name: "Competencias",
+            link: "/competencias/"
+        },
+       [ {
+            name: "Normativa",
+            link: "/normativa/",
+            sub: true
+        }]
 
     ]
+
 
     // const nosotros = ["quienes Somos", "autoridades", "equipo gerencial"]
 
@@ -36,8 +48,7 @@ export default function Navbar() {
                 </div>
 
                 <div className={styles.bottom}>
-                    <ul className='flex space-x-[40px]'>
-
+                    <ul className='flex space-x-10'>
                         <li >
                             <Link className='mb-auto' href="/">
                                 <a className=''>inicio</a>
@@ -45,6 +56,8 @@ export default function Navbar() {
                         </li>
 
                         <NavDrop title={"nosotros"} slug={"nosotros"} data={nosotros} />
+
+                        <NavDrop title={"Marco Normativo"} slug={"marco-normativo"} data={marco} />
 
 
                     </ul>

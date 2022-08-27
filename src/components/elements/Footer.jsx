@@ -4,6 +4,8 @@ import slugify from 'src/lib/slugify'
 import Socials from './Socials'
 import styles from './styles.module.scss'
 
+
+
 export default function Footer() {
 
 

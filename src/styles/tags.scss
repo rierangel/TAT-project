@@ -12,11 +12,14 @@
 }
 
 .border2 {
+    z-index: 100;
     border: 3px solid v.$ligh-hover;
-
+    position: relative;
     &:hover,
     &:target,
     &:focus {
+    z-index: 100;
+
         border: 3px solid v.$primary-ligh;
     }
 }
@@ -24,6 +27,7 @@
 .hover1 {
     color: black;
     cursor: pointer;
+    transition: all .1s ease;
 
     &:hover,
     &:target,
@@ -40,11 +44,21 @@ a {
     }
 }
 
+hr {
+
+    &.sub {
+        margin-top: 24px;
+        @apply border-t-4 border-[#0054A4] w-[64px]
+    }
+}
+
+
 // STYLES
 h1 {
     font-size: 32px;
     font-weight: 800;
     line-height: 44px;
+
     &.post {
         font-weight: 700;
     }
@@ -55,13 +69,29 @@ h2 {
     font-weight: 800;
     line-height: 33px;
 
-    
+    &.article {
+        font-weight: 700;
+
+    }
+
+    &.marco {
+        color: #0054A4;
+        font-weight: 700;
+
+    }
+
+
 }
 
 h3 {
     font-size: 20px;
     font-weight: 700;
     line-height: 27px;
+
+    &.article {
+        margin-top: 24px;
+        margin-bottom: 16px;
+    }
 }
 
 h6 {
@@ -202,5 +232,6 @@ p {
 img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    // object-fit: cover;
+    object-fit: none;
 }

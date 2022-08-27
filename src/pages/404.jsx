@@ -1,8 +1,8 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
 
-export default function page() {
+export default function mapa() {
   return (
-    <Layer>quienes-somos</Layer>
+    <Layer>mapa</Layer>
   )
 }

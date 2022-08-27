@@ -9,7 +9,7 @@ export default function Otros() {
       <h1 className='mt-20 mb-9'>Otras Instituciones</h1>
       <div className="flex justify-between">
         {images.map((e, i) => (
-          <div>
+          <div keys={i}>
 
             <img src={`/img/inst/${e}.png`} alt="" />
           </div>
@@ -35,7 +35,7 @@ export default function Otros() {
       <div className="flex gap-6 ">
 
         <div className="w-full  border2">
-          <iframe width="100%" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.875474099567!2d-79.52399448570355!3d8.983604792173047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8e4bce9708b%3A0xbf9d5b7bd5b19015!2sTribunal%20Administrativo%20Tributario!5e0!3m2!1ses-419!2sve!4v1661480954020!5m2!1ses-419!2sve" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe width="100%" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.875474099567!2d-79.52399448570355!3d8.983604792173047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8e4bce9708b%3A0xbf9d5b7bd5b19015!2sTribunal%20Administrativo%20Tributario!5e0!3m2!1ses-419!2sve!4v1661480954020!5m2!1ses-419!2sve" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           <div className="m-9 space-y-[18px]">
             <h4 className='text-[24px] font-bold'>Sede Central</h4>
             <p className='center gap-[15.5px]'>
@@ -68,7 +68,7 @@ export default function Otros() {
 
 
         <div className="w-full  border2">
-          <iframe width="100%" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.875474099567!2d-79.52399448570355!3d8.983604792173047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8e4bce9708b%3A0xbf9d5b7bd5b19015!2sTribunal%20Administrativo%20Tributario!5e0!3m2!1ses-419!2sve!4v1661480954020!5m2!1ses-419!2sve" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe width="100%" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.875474099567!2d-79.52399448570355!3d8.983604792173047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8e4bce9708b%3A0xbf9d5b7bd5b19015!2sTribunal%20Administrativo%20Tributario!5e0!3m2!1ses-419!2sve!4v1661480954020!5m2!1ses-419!2sve" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           <div className="m-9 space-y-[18px]">
             <h4 className='text-[24px] font-bold'>Sede Central</h4>
             <p className='center gap-[15.5px]'>
