@@ -7,7 +7,33 @@ export default function Content({ data }) {
 
     useEffect(() => {
 
-      console.log(content.current)
+        
+
+        for (let index = 0; index < content.current.children.length; index++) {
+            const element = content.current.children[index];
+            
+            if(element.tagName == "FIGURE"){
+                if(element.children[0].tagName == "IMG"){
+                    console.log(element)
+                }else{
+                    for (let ifigure = 0; ifigure < element.children.length; ifigure++) {
+                        const subfigure = element.children[ifigure];
+                        console.log(subfigure)
+                        
+                    }
+
+
+                }
+            }
+
+           
+
+            
+        }
+
+        // const algo = document.getElementsByClassName("wp-block-image")
+        // console.log(algo.tagName)
+
 
       
     }, [content])
