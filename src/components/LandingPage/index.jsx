@@ -13,7 +13,7 @@ export default function Index() {
       <Convocatoria />
       <LastResolutions />
       <Paginas />
-      <Otros />
+      {/* <Otros /> */}
     </>
   )
 }

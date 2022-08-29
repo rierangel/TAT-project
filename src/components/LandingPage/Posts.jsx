@@ -1,41 +1,75 @@
-import styles from './styles.module.scss'
-
+import useGql from 'src/lib/useGql';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function Posts() {
 
+  const query = `
+  query{
+    posts(where: {categoryName: "noticia"} first:5) {
+      nodes {
+        title
+        slug
+        excerpt
+        date
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+  `
+  const [posts, isLoading, refetch] = useGql(query, "posts")
 
-  const cont = [...Array(4).keys()];
+  const [first, setFirst] = useState()
+  const [second, setSecond] = useState()
+
+  useEffect(() => {
+
+    if (!isLoading && posts) {
+      setFirst(posts[0])
+      setSecond(posts.filter((e) => e !== posts[0]))
+    }
+    console.log(second);
+  }, [isLoading, posts])
+
 
   return (
     <div className="grid grid-cols-2 gap-6">
+      {/* left */}
+      <Link href={`/noticias/2022/noticia`}>
+        <a className="h-auto flex flex-col  space-y-[12px] hover1 ">
+          {first &&
+            <>
+              <div className="box w-[628px] h-[320px]">
+                <img className='post max-w-[628px] max-h-[320px]' src={first.featuredImage ? first.featuredImage.node.mediaItemUrl : "/img/logo.png"} alt={first.title} />
+              </div>
+              <div className='text-clip overflow-hidden h-[224px]'>
+                <h1 className='post' >{first.title}</h1>
+                <p className='' dangerouslySetInnerHTML={{ __html: first.excerpt }}></p>
+              </div>
+            </>
+          }
+        </a>
 
-      <div className="flex flex-col  space-y-[12px] hover1 ">
+      </Link>
 
-        <div className={styles.posts}>
-          <img src="/img/post/post1.png" alt="" />
-        </div>
-        <h1 className='post' >Comunicado cierre Sede Central del TAT en Agosto de 2022</h1>
-        <p  >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, nihil dolores rem eligendi, doloremque, nulla odio aut assumenda repudiandae enim eveniet asperiores nesciunt tempore aperiam? Exercitationem nostrum voluptates pariatur! Facere.
-          Porro ut quo aperiam. Odit, vero cumque. Dicta tempora earum iste accusamus culpa maxime fugiat, itaque voluptate quaerat facilis in tempore quo exercitationem, laudantium repellat iusto? Placeat quam facilis doloremque!
-        </p>
-
-      </div>
-
+      {/* right */}
       <div className="grid grid-cols-2 grid-rows-2 gap-6 h-[550px]  ">
-
-        {cont.map((e, i) => (          
-          <div key={i} className="hover1">
-            <div className={styles.posts}>
-              <img src="/img/post/post2.png" alt="" />
-            </div>
-            <h3 className='mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-          </div>
+        {second && second.map((e, i) => (!isLoading &&
+          <Link href={`/noticias/2022/noticia`}>
+            <a key={i} className="hover1">
+              <div className="box w-[302px] h-[190px]">
+                <img className='post object-bottom max-w-[302px] max-h-[190px]' src={e.featuredImage ? e.featuredImage.node.mediaItemUrl : "/img/logo.png"} alt={e.title} />
+              </div>
+              <h3 className='mt-3'>{e.title}</h3>
+            </a>
+          </Link>
         ))}
-
-
-
       </div>
+
     </div>
   )
 }

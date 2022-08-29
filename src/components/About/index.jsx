@@ -139,7 +139,7 @@ export default function index() {
 
         Cada colaborador ha sido seleccionado por sus competencias, capacidad y años de experiencia; con el fin de cumplir la misión del tribunal, y promover la excelencia en la prestación del servicio que brindamos a la sociedad panameña.</p>
 
-      <img className='mb-20 mt-12' src="/img/flujograma.png" alt="" />
+      <img className='mb-20 mt-12 custom' src="/img/flujograma.png" alt="" />
 
 
       <div className="rounded-xl bg-[#EBF5FF]  flex justify-between my-20">

@@ -6,7 +6,6 @@ import styles from './styles.module.scss'
 
 export default function path() {
   const rute = useRouter()
-  console.log(rute)
   return ( rute.route != "/404"  &&
     <div className="mt-3 mb-16 h-[52px] flex items-center border-b py-4 px-2">
 
