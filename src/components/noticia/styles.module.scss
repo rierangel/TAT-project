@@ -12,3 +12,29 @@
         }
     }
 }   
+
+// #__next > main > p > figure.wp-block-image
+
+.article{
+    margin: 48px 0px 64px;
+    height: auto;
+
+
+
+    figure{
+        display: flex;
+        padding: 0px;    
+        img{
+            object-fit: contain;
+        }   
+        figure{           
+            img{
+                margin: 0px;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+    }
+
+}
+
