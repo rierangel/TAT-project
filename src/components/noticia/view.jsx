@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import useFetcher from 'src/lib/useFetcher'
+import useGql from 'src/lib/useGql'
 import Content from './Content'
 
 export default function () {
@@ -10,6 +11,38 @@ export default function () {
   const [post, isLoading, refetch] = useFetcher(path)
 
 
+
+  const query = `
+  query{
+    posts(
+      where:{
+        categoryName: "noticia", 
+        orderby:{field:DATE order:DESC}
+        }
+      first:5
+    ){
+      nodes {
+        title
+        slug
+        date
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+  `
+  const [posts] = useGql(query, "posts")
+
+  const [More, setMore] = useState()
+
+  useEffect(() => {
+    if (posts) {
+      setMore(posts.posts.nodes.filter((e) => rute.query.view !== e.slug))
+    }
+  }, [posts])
 
   const cont = [...Array(4).keys()]
   return (
@@ -22,17 +55,21 @@ export default function () {
       </>
       }
 
+      <hr className='mb-20' />
+
+
       <div >
         <h1>Más Noticias</h1>
         <div className="flex gap-6 my-6">
 
-          {cont.map((e, i) => (
-            <div key={i}>
-              <div className="w-[302px] h-[190px]  ">
-                <img className='cover rounded-lg' src="/img/tat.png" alt="" />
+          {More && More.map((e, i) => (
+            <div className='hover1' key={i}>
+              <div className="w-[302px] h-[190px] mb-4 ">
+                <img className='cover rounded-lg'
+                  src={e.featuredImage ? e.featuredImage.node.mediaItemUrl : "/img/logo.png"} alt={e.title} />
               </div>
 
-              <h3 className='w-[90%] '>Barrido de pruebas voluntarias COVID-19</h3>
+              <h3 className='w-[90%] '>{e.title}</h3>
 
             </div>
           ))}

@@ -1,7 +1,7 @@
 import useGql from 'src/lib/useGql';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import slugify from 'src/lib/slugify';
+
 
 export default function Posts() {
 
