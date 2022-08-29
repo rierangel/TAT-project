@@ -3,6 +3,9 @@ import styles from './styles.module.scss'
 
 export default function Carrusel({ data }) {
   const galeryRef = useRef()
+
+  console.log(data[0].outerHTML)
+  
   return (
     <div>
       <img className='w-full' src="/img/tat.png" alt="" />
@@ -15,9 +18,10 @@ export default function Carrusel({ data }) {
         </button>
 
         {data.map((e, i) => (
-          <div key={i} className="w-[193px] h-[130px]  ">
-            <img className='cover rounded-lg' src="/img/tat.png" alt="" />
-          </div>
+          <div key={i} ref={galeryRef} dangerouslySetInnerHTML={{ __html: e.outerHTML }} />
+          // <div key={i} className="w-[193px] h-[130px]  ">
+          //   <img className='cover rounded-lg' src="/img/tat.png" alt="" />
+          // </div>
         ))}
 
         <button className='border1'>
