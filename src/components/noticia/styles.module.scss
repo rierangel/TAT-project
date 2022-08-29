@@ -16,9 +16,12 @@
 // #__next > main > p > figure.wp-block-image
 
 .article{
-    margin: 48px 0px 64px;
-    height: auto;
-
+    margin: -88px 0px -64px;
+    padding: 0px; 
+    p{
+        padding: 0px;
+        margin: 0px;
+    }
 
 
     figure{
