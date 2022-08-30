@@ -1,21 +1,22 @@
-import Link from 'next/link'
-import Content from './Content'
+import Layer from "src/components/Layer";
 
-export default function ({data, more}) {
-
+export default function page({ data, more }) {
   return (
-    <>
-        <h1 className='mb-9'>{data.title.rendered}</h1>
-        <Content data={data.content.rendered} />
-     
-      <hr className='mb-20' />
+    <Layer>
+      {/* {post && <NoticiaView data={post} more={posts && posts.posts.nodes.filter((e) => path !== e.slug)}/>} */}
 
+      {false &&
+        <h1 className='mb-9'>{data.title.rendered}</h1>
+        // {/* <Content data={data.content.rendered} /> */}
+      }
+
+      <hr className='mb-20' />
 
       <div >
         <h1>Más Noticias</h1>
         <div className="flex gap-6 my-6">
 
-          {more && more.map((e, i) => (
+          {false && more.map((e, i) => (
             <Link key={i} href={`/noticias/${e.date.split("-")[0]}/${e.slug}`} >
               <a className='hover1' >
                 <div className="w-[302px] h-[190px] mb-4 ">
@@ -28,10 +29,6 @@ export default function ({data, more}) {
           ))}
         </div>
       </div>
-
-    </>
-
+    </Layer>
   )
 }
-
-

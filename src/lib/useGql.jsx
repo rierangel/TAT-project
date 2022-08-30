@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 export default function useGql(query, name = "") {
 
     const Gql = async (query, vars = null) => {
+
         const bodyData = JSON.stringify({ query, vars })//
         try {
             const resApi = await fetch(`${process.env.NEXT_PUBLIC_URL_BACKEND}/graphql`, {
@@ -39,7 +40,6 @@ export default function useGql(query, name = "") {
     }, [isLoading, data])
 
   
-
     return [res, isLoading]
 
 }

@@ -35,6 +35,7 @@ export default function useGql(path, name = "") {
 
     useEffect(() => {
         refetch()
+
         if (!isLoading) {
             if (data) {
                 setRes(data[0])
@@ -42,12 +43,6 @@ export default function useGql(path, name = "") {
         }
 
     }, [isLoading, data])
-    const refrech = () => {
-        console.log(isLoading, isFetching, isRefetching)
-        refetch()
-        console.log(isLoading, isFetching, isRefetching)
-
-    }
 
     return [res, isLoading, isFetching, refetch]
 }
