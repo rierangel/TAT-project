@@ -48,6 +48,7 @@ export default function ContentRef({ data }) {
     }, [contentRef])
 
 
+
     return (
         <>
             {galeryImgs.length > 0 && <Carrusel data={galeryImgs} /> }

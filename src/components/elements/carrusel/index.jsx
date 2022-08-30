@@ -4,31 +4,40 @@ import styles from './carrusel.module.scss'
 export default function index({ data }) {
     // const data = [...Array(8).keys()];
 
+    const [images, setImages] = useState(data)
+
     const [current, setCurrent] = useState(0)
 
     const mainRef = useRef()
     const controlersRef = useRef()
 
 
-    useEffect(() => {
-        const ptn = mainRef.current.children
+    const handleClickControler=(e)=>{
+        // const widthSlider = (controlersRef.current.children[0].offsetWidth + 24);
+        const id = e.target.parentNode.parentNode.id
+        const key = parseInt(id.split("#")[1])
+        setCurrent(key)
+    }
 
+    useEffect(() => {
+        const main = mainRef.current.children
         const controler = controlersRef.current.children
 
-        for (let i = 0; i < ptn.length; i++) {
-            controler[i].className = "hover:opacity-60"
+        for (let i = 0; i < controlersRef.current.children.length; i++) {
+            controler[i].className = ""
+            controler[i].id = `controler#${i}`
 
             controler[i].className = controler[i].className.replace("opacity-40", "");
-            ptn[i].className = ptn[i].className.replace(" hidden", "");
-            ptn[i].className = ptn[i].className += " hidden"
+            main[i].className = main[i].className.replace(" hidden", "");
+            main[i].className = main[i].className += " hidden"
 
-            controler[i].onclick = (e) => console.log(e.target)
+            controler[i].onclick = (e) => handleClickControler(e)
         }
-        ptn[current].className = ptn[current].className.replace("hidden", "");
+        main[current].className = main[current].className.replace("hidden", "");
         controler[current].className = "opacity-40" //controler[current].children.className +=" hidden"
 
 
-    }, [mainRef, current])
+    }, [current, data])
 
 
     const btnControler = (bol) => {
@@ -36,7 +45,11 @@ export default function index({ data }) {
         const maxWidth = controlersRef.current.children.length * widthSlider
 
         if (bol) {
+            console.log(controlersRef.current.children[current], current, current + 1 < data.length)
+
             if (current + 1 < data.length) {
+                console.log(current)
+
                 setCurrent(current + 1)
                 if (current > 2) {
                     controlersRef.current.scrollLeft += widthSlider
@@ -55,15 +68,14 @@ export default function index({ data }) {
                 setCurrent(data.length - 1)
             }
         }
-        console.log(current)
 
     }
 
-    return (
+    return (data &&
         <div className={styles.carrusel}>
 
             <div ref={mainRef}>
-                {data.map((e, i) => (
+                {images.map((e, i) => (
                     <div className={styles.main} key={i} dangerouslySetInnerHTML={{ __html: e.outerHTML }} />
                 ))}
             </div>
@@ -77,7 +89,7 @@ export default function index({ data }) {
                     </svg>
                 </button>
                 <div className={styles.menu} ref={controlersRef}>
-                    {data.map((e, i) => (
+                    {images.map((e, i) => (
                         <div key={i} dangerouslySetInnerHTML={{ __html: e.outerHTML }} />
                     ))}
 

@@ -46,6 +46,11 @@
                             order: 3;
                             flex-grow: 0;
                             object-fit: cover;
+                            cursor: pointer;
+
+                            &:hover{
+                                opacity: 0.6;
+                            }
                         }
                     }
                 }

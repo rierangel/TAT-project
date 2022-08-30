@@ -18,6 +18,7 @@ export default function Posts() {
         title
         slug
         date
+        excerpt
         featuredImage {
           node {
             mediaItemUrl

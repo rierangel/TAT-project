@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 
 
-export default function useGql(path, name="") {
+export default function useGql(path, name = "") {
     const fetcher = async (path) => {
         try {
             const resApi = await fetch(path, {
@@ -16,21 +16,38 @@ export default function useGql(path, name="") {
             console.log("network error")
             return { data: error }
         }
-      }
-    
+    }
 
-    const { data, error, isLoading, refetch } = useQuery([name], async () => fetcher(path));
+
+    const {
+        data,
+        error,
+        isLoading,
+        refetch,
+        isRefetching,
+        isFetching } = useQuery([name], async () => fetcher(path), {
+            refetchOnWindowFocus: false,
+            enabled: false
+        });
+
+
     const [res, setRes] = useState()
 
     useEffect(() => {
+        refetch()
         if (!isLoading) {
             if (data) {
-                setRes(data[0])                
-            }           
+                setRes(data[0])
+            }
         }
-        refetch()
+
     }, [isLoading, data])
+    const refrech = () => {
+        console.log(isLoading, isFetching, isRefetching)
+        refetch()
+        console.log(isLoading, isFetching, isRefetching)
 
+    }
 
-    return [ res, isLoading, refetch]
+    return [res, isLoading, isFetching, refetch]
 }

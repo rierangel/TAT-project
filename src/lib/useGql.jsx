@@ -26,7 +26,7 @@ export default function useGql(query, name = "") {
     }
 
 
-    const { data, isLoading, refetch, isError, fetchStatus } = useQuery([name], async () => Gql(query));
+    const { data, isLoading } = useQuery([name], async () => Gql(query));
     const [res, setRes] = useState()
 
     useEffect(() => {
@@ -35,9 +35,11 @@ export default function useGql(query, name = "") {
                 setRes(data.data)
             }
         }
-        refetch()
+
     }, [isLoading, data])
 
-    return [res, isLoading, refetch]
+  
+
+    return [res, isLoading]
 
 }
