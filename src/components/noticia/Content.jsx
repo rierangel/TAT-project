@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Carrusel from './Carrusel'
+import Carrusel from '../elements/carrusel'
 import styles from './styles.module.scss'
 
 export default function ContentRef({ data }) {
@@ -46,8 +46,6 @@ export default function ContentRef({ data }) {
         //     }
         // }
     }, [contentRef])
-
-
 
 
     return (

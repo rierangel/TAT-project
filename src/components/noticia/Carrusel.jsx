@@ -28,7 +28,6 @@ export default function Carrusel({ data }) {
 
         <div className={styles.menu}>
           {data.map((e, i) => (
-
             <div  key={i} ref={galeryRef} dangerouslySetInnerHTML={{ __html: e.outerHTML }} />
           ))}
         </div>

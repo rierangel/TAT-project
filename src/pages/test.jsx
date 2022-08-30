@@ -1,5 +1,5 @@
 import Layer from "src/components/Layer";
-import Carrusel from "src/components/carrusel";
+import Carrusel from "src/components/elements/carrusel";
 
 
 export default function Home() {

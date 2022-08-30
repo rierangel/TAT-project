@@ -33,10 +33,9 @@
                 @apply snap-x scroll-smooth h-full flex items-center justify-start;
                 overflow: hidden;
                 width: 844px;
-
+                gap: 24px;
                 div {
-                    gap: 24px;
-                    @apply snap-start flex flex-shrink-0 w-auto mx-4;
+                    @apply snap-start flex flex-shrink-0 w-auto;
 
                     figure {
                         img {
