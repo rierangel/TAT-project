@@ -52,7 +52,7 @@ export default function ContentRef({ data }) {
 
     return (
         <>
-            <Carrusel data={galeryImgs} />
+            {galeryImgs.length > 0 && <Carrusel data={galeryImgs} /> }
 
             <p className={styles.article} ref={contentRef} dangerouslySetInnerHTML={{ __html: data }} />
         </>

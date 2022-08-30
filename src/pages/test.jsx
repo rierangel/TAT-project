@@ -1,9 +1,11 @@
 import Layer from "src/components/Layer";
+import Carrusel from "src/components/carrusel";
 
 
 export default function Home() {
   return (
     <Layer>
+      <Carrusel/>
       <h1 className="title"> hola mundo</h1>
 
       <a href="" >
