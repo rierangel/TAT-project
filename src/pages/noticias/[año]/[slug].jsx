@@ -32,3 +32,18 @@ export default function page({ data, more }) {
     </Layer>
   )
 }
+
+
+
+
+export async function getServerSideProps({params}) {
+  const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/wp-json/wp/v2/posts?slug=${params.slug}`
+  fetch(path, {
+    method: "GET",
+    headers: { 'Content-Type': 'application/json' },
+  })
+
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+}
