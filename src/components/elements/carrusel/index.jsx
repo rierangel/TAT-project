@@ -20,6 +20,7 @@ export default function index({ data }) {
     }
 
     useEffect(() => {
+        console.log(images)
         const main = mainRef.current.children
         const controler = controlersRef.current.children
 

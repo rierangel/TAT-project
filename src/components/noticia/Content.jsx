@@ -6,52 +6,45 @@ export default function ContentRef({ data }) {
     const contentRef = useRef()
     const [galeryImgs, setGaleryImgs] = useState([])
 
-    useEffect(() => {
+    if(galeryImgs.current){
         for (let index = 0; index < contentRef.current.children.length; index++) {
             const element = contentRef.current.children[index];
             if (element.tagName == "FIGURE") {
-                if (element.children[0].tagName == "IMG") {
-                    let arry = galeryImgs
-                    arry.push(element)
-                    setGaleryImgs(arry)
-                } else {
-                    for (let ifigure = 0; ifigure < element.children.length; ifigure++) {
-                        let subfigure = element.children[ifigure];
+                if (element.children[0]) {
+                    if (element.children[0].tagName == "IMG") {
                         let arry = galeryImgs
-                        arry.push(subfigure)
+                        arry.push(element)
                         setGaleryImgs(arry)
+                    } else {
+                        for (let ifigure = 0; ifigure < element.children.length; ifigure++) {
+                            let subfigure = element.children[ifigure];
+                            let arry = galeryImgs
+                            arry.push(subfigure)
+                            setGaleryImgs(arry)
+                        }
                     }
                 }
             }
         }
-        const data = [...galeryImgs];
-        const result = data.filter((item, index) => {
-            return data.indexOf(item) === index;
+        const imgs = [...galeryImgs];
+        const result = imgs.filter((item, index) => {
+            return imgs.indexOf(item) === index;
         })
         setGaleryImgs(result)
+    }
 
-        setTimeout(() => {
-            for (let index = 0; index < contentRef.current.children.length; index++) {
-                const element = contentRef.current.children[index];
-                if (element.tagName == "FIGURE") {
-                    contentRef.current.removeChild(element)
-                }
+    if(galeryImgs.length > 0){
+        for (let index = 0; index < contentRef.current.children.length; index++) {
+            const element = contentRef.current.children[index];
+            if (element.tagName == "FIGURE") {
+                contentRef.current.removeChild(element)
             }
-        }, 100);
-
-        // for (let index = 0; index < contentRef.current.children.length; index++) {
-        //     const element = contentRef.current.children[index];
-        //     if(element.tagName == "FIGURE"){
-        //         contentRef.current.removeChild(element)            
-        //     }
-        // }
-    }, [contentRef])
-
-
+        }
+    }
 
     return (
         <>
-            {galeryImgs.length > 0 && <Carrusel data={galeryImgs} /> }
+            {galeryImgs.length > 0 && <Carrusel data={galeryImgs} />}
 
             <p className={styles.article} ref={contentRef} dangerouslySetInnerHTML={{ __html: data }} />
         </>

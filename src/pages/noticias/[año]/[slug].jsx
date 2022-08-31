@@ -1,13 +1,59 @@
+import { useEffect, useState } from "react";
 import Layer from "src/components/Layer";
+import { useFetch ,useGql} from "src/lib/Fetcher";
+import Link from "next/link";
+import Content from 'src/components/noticia/Content'
 
-export default function page({ data, more }) {
+const query = `
+query{
+  posts(
+    where:{
+      categoryName: "noticia", 
+      orderby:{field:DATE order:DESC}
+      }
+    first:5
+  ){
+    nodes {
+      title
+      slug
+      date
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
+      }
+    }
+  }
+}
+`
+
+export default function page({ slug }) {
+
+  const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/wp-json/wp/v2/posts?slug=${slug}`
+  const [res, isLoading, isFetching, refetch] = useFetch(path, slug, "GET")
+
+  const [posts, isLoadingPost, isFetchingPost, refetchPost] = useGql(query, "posts")
+  
+  const [MorePosts, setMorePosts] = useState()
+
+  useEffect(() => {
+    refetchPost()
+    if (posts) {
+      setMorePosts(posts.posts.nodes.filter((e) => e !== posts.posts.nodes[0]))
+    }
+  }, [posts,posts, isLoadingPost])
+
+
+
+
   return (
     <Layer>
       {/* {post && <NoticiaView data={post} more={posts && posts.posts.nodes.filter((e) => path !== e.slug)}/>} */}
-
-      {false &&
-        <h1 className='mb-9'>{data.title.rendered}</h1>
-        // {/* <Content data={data.content.rendered} /> */}
+      {res &&
+        <>
+          <h1 onClick={() => refetch()} className='mb-9'>{res.title.rendered}</h1>
+          <Content data={res.content.rendered} />
+        </>
       }
 
       <hr className='mb-20' />
@@ -16,7 +62,7 @@ export default function page({ data, more }) {
         <h1>Más Noticias</h1>
         <div className="flex gap-6 my-6">
 
-          {false && more.map((e, i) => (
+          {MorePosts && MorePosts.map((e, i) => (
             <Link key={i} href={`/noticias/${e.date.split("-")[0]}/${e.slug}`} >
               <a className='hover1' >
                 <div className="w-[302px] h-[190px] mb-4 ">
@@ -34,16 +80,7 @@ export default function page({ data, more }) {
 }
 
 
+export async function getServerSideProps({ params }) {
 
-
-export async function getServerSideProps({params}) {
-  const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/wp-json/wp/v2/posts?slug=${params.slug}`
-  fetch(path, {
-    method: "GET",
-    headers: { 'Content-Type': 'application/json' },
-  })
-
-  return {
-    props: {}, // will be passed to the page component as props
-  }
+  return { props: { slug: params.slug } }
 }

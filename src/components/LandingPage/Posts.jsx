@@ -1,10 +1,9 @@
-import useGql from 'src/lib/useGql';
+import {useGql} from 'src/lib/Fetcher';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 
 export default function Posts() {
-
   const query = `
   query{
     posts(
