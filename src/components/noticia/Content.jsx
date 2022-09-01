@@ -59,9 +59,7 @@ export default function ContentRef({ data }) {
 
     return (
         <>
-            { galeryImgs.length > 0 && <Carrusel data={galeryImgs} />}
-
-            <button onClick={() => setGaleryImgs([])}>recet</button>
+            {galeryImgs.length > 0 && <Carrusel data={galeryImgs} />}
             {content}
         </>
     )

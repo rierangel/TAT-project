@@ -40,6 +40,7 @@ export default function index({ data }) {
 
     const btnControler = (bol) => {
         // console.log(controlersRef.current.style);
+        // idea** buscar el tamaño del gap para sacarlo por calculo
         const widthSlider = (controlersRef.current.children[0].offsetWidth + 24);
         const maxWidth = controlersRef.current.children.length * widthSlider
 

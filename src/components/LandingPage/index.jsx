@@ -9,7 +9,6 @@ export default function Index() {
   return (
     <>
       <Posts />
-      <Giras />
       <Convocatoria />
       <LastResolutions />
       <Paginas />
