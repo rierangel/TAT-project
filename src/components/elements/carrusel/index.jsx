@@ -20,7 +20,6 @@ export default function index({ data }) {
     }
 
     useEffect(() => {
-        console.log(images)
         const main = mainRef.current.children
         const controler = controlersRef.current.children
 
@@ -31,26 +30,21 @@ export default function index({ data }) {
             controler[i].className = controler[i].className.replace("opacity-40", "");
             main[i].className = main[i].className.replace(" hidden", "");
             main[i].className = main[i].className += " hidden"
-
             controler[i].onclick = (e) => handleClickControler(e)
         }
         main[current].className = main[current].className.replace("hidden", "");
         controler[current].className = "opacity-40" //controler[current].children.className +=" hidden"
 
-
     }, [current, data])
 
 
     const btnControler = (bol) => {
+        // console.log(controlersRef.current.style);
         const widthSlider = (controlersRef.current.children[0].offsetWidth + 24);
         const maxWidth = controlersRef.current.children.length * widthSlider
 
         if (bol) {
-            console.log(controlersRef.current.children[current], current, current + 1 < data.length)
-
             if (current + 1 < data.length) {
-                console.log(current)
-
                 setCurrent(current + 1)
                 if (current > 2) {
                     controlersRef.current.scrollLeft += widthSlider

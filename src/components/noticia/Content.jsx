@@ -23,8 +23,10 @@ export default function ContentRef({ data }) {
                     if (element.children[0]) {
                         if (element.children[0].tagName == "IMG") {
                             const newArry = galeryImgs
+                            console.log("here")
                             newArry.push(element)
                             setGaleryImgs(newArry)
+
                         } else if (element.children[0].tagName == "FIGURE") { // esto es una galeria                        
                             for (let ifigure = 0; ifigure < element.children.length; ifigure++) {
                                 const subfigure = element.children[ifigure];
@@ -35,15 +37,20 @@ export default function ContentRef({ data }) {
                         }
                     }
                 }
-                console.log(galeryImgs)
-                // for (let index = 0; index < content.ref.current.children.length; index++) {
-                //     const element = content.ref.current.children[index];
-                //     if (element.tagName == "FIGURE") {
-                //         console.log("asda")
-                //         content.ref.current.removeChild(element)
-                //     }
-                // }
 
+                if (content.ref.current.children[0]) {
+                    let borrables = []
+                    for (let i of content.ref.current.children) {
+                        if (i.tagName == "FIGURE") {
+                            borrables.push(i)
+                        }
+                        console.log(borrables);
+                    }
+                    for (let figure of borrables) {
+                        content.ref.current.removeChild(figure)
+                    }
+
+                }
             }
 
         }
@@ -52,9 +59,9 @@ export default function ContentRef({ data }) {
 
     return (
         <>
-            {false && galeryImgs.length > 0 && <Carrusel data={galeryImgs} />}
+            { galeryImgs.length > 0 && <Carrusel data={galeryImgs} />}
 
-            <button onClick={()=>setGaleryImgs([])}>recet</button>
+            <button onClick={() => setGaleryImgs([])}>recet</button>
             {content}
         </>
     )
