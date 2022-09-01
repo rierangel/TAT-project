@@ -44,7 +44,10 @@ export function useFetch(path, name = "", method) {
     //         enabled: false
     //     });
 
-    const { data, isLoading, isFetching, refetch } = useQuery([name], async () => fetcher(path, method));
+    const { data, isLoading, isFetching, refetch } = useQuery([name], async () => fetcher(path, method), {
+        refetchOnWindowFocus: false,
+        enabled: false 
+      });
 
 
     const [res, setRes] = useState()
@@ -63,7 +66,11 @@ export function useFetch(path, name = "", method) {
 
 
 export function useGql(query, name = "") {
-    const { data, isLoading, isFetching, refetch } = useQuery([name], async () => Gql(query));
+    const { data, isLoading, isFetching, refetch } = useQuery([name], async () => Gql(query), {
+        refetchOnWindowFocus: false,
+        enabled: false 
+      });
+
     const [res, setRes] = useState()
     useEffect(() => {
         if (!isLoading) {

@@ -1,16 +1,19 @@
 import Link from 'next/link'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { useGql } from 'src/lib/Fetcher'
-import Pagination from '../Pagination'
+import Pagination from 'src/components/Pagination'
 
 export default function index({ slug }) {
-  const queryslug =  `dateQuery:{year:${slug}}`
-  console.log(queryslug)
   const rute = useRouter()
+
+  const [search, setSearch] = useState()
+
   const query = ` query{
     posts(
       where:{
+        ${search ? `search:"${search}"`: ""}
+        ${slug ? `dateQuery:{year:${slug}}`: ""}
         categoryName: "noticia", 
         orderby:{field:DATE order:DESC}
         }
@@ -42,6 +45,7 @@ export default function index({ slug }) {
   const [dates, setDates] = useState()
 
   useEffect(() => {
+    refetch()
     if (noticias) {
       if (noticias.dates) {
         const d = noticias.dates.nodes.map((e) => e.date.split("-")[0])
@@ -51,11 +55,11 @@ export default function index({ slug }) {
         setDates(result)
       }
     }
-  }, [noticias,isLoading])
+    console.log(query, isfeching,isLoading);
+  }, [noticias, isLoading, rute, search, query])
 
 
-  const handlerYear=(e)=>{
-    console.log(e)
+  const handlerYear = (e) => {
     rute.push(`/noticias/${e}`)
   }
 
@@ -67,6 +71,8 @@ export default function index({ slug }) {
         <input className='w-1/2'
           type="text"
           placeholder='Escriba su búsqueda'
+          value={search}
+          onChange={(e)=>setSearch(e.target.value)}
         />
         <div className="relative">
           <label htmlFor="seccion" className='absolute bottom-[55px] font-bold'>Sección</label>
