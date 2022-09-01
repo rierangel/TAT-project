@@ -2,15 +2,14 @@ import Link from 'next/link'
 import Router, { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { useGql } from 'src/lib/Fetcher'
-import Pagination from '../Pagination'
+import Pagination from 'src/components/Pagination'
 
 export default function index({ slug }) {
-  const queryslug =  `dateQuery:{year:${slug}}`
-  console.log(queryslug)
   const rute = useRouter()
   const query = ` query{
     posts(
       where:{
+        ${slug ? `dateQuery:{year:${slug}}`: ""}
         categoryName: "noticia", 
         orderby:{field:DATE order:DESC}
         }
@@ -42,6 +41,7 @@ export default function index({ slug }) {
   const [dates, setDates] = useState()
 
   useEffect(() => {
+    refetch()
     if (noticias) {
       if (noticias.dates) {
         const d = noticias.dates.nodes.map((e) => e.date.split("-")[0])
@@ -51,11 +51,10 @@ export default function index({ slug }) {
         setDates(result)
       }
     }
-  }, [noticias,isLoading])
+  }, [noticias, isLoading, rute])
 
 
-  const handlerYear=(e)=>{
-    console.log(e)
+  const handlerYear = (e) => {
     rute.push(`/noticias/${e}`)
   }
 
@@ -104,4 +103,9 @@ export default function index({ slug }) {
       <Pagination />
     </>
   )
+}
+
+
+export async function getServerSideProps({ params }) {
+  return { props: { slug: params.year } }
 }
