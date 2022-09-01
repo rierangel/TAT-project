@@ -28,17 +28,18 @@ export default function Posts() {
     }
   }
   `
-  const [posts, isLoading, refetch] = useGql(query, "posts", "nodes")
+  const [posts, isLoading,isFetching, refetch] = useGql(query, "posts", "nodes")
 
   const [right, setRight] = useState()
   const [bottom, setBottom] = useState()
 
   useEffect(() => {
+    refetch()
     if (!isLoading && posts) {
       setRight(posts.posts.nodes.filter((e, i) => i > 0 && i < 5))
       setBottom(posts.posts.nodes.filter((e, i) => i > 4))
     }
-    console.log(bottom)
+    console.log(posts)
   }, [isLoading, posts])
   return (posts &&
     <>
@@ -77,7 +78,7 @@ export default function Posts() {
         {bottom && bottom.map((e, i) => (
           <Link key={i} href={`/noticias/${e.date.split("-")[0]}/${e.slug}`} >
             <a className='hover1 border2 p-9 rounded-xl w-1/4 '>
-              <h2>{e.title}</h2>
+              <h3>{e.title}</h3>
             </a>
           </Link>
         ))}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Layer from "src/components/Layer";
-import { useFetch ,useGql} from "src/lib/Fetcher";
+import { useFetch, useGql } from "src/lib/Fetcher";
 import Link from "next/link";
 import Content from 'src/components/noticia/Content'
 
@@ -33,15 +33,16 @@ export default function page({ slug }) {
   const [res, isLoading, isFetching, refetch] = useFetch(path, slug, "GET")
 
   const [posts, isLoadingPost, isFetchingPost, refetchPost] = useGql(query, "posts")
-  
+
   const [MorePosts, setMorePosts] = useState()
 
   useEffect(() => {
+    refetch()
     refetchPost()
     if (posts) {
       setMorePosts(posts.posts.nodes.filter((e) => e !== posts.posts.nodes[0]))
     }
-  }, [posts,posts, isLoadingPost])
+  }, [res, posts, slug])
 
 
 
