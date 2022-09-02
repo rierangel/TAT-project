@@ -3,9 +3,8 @@ export default function viewAutoridad() {
     return (
         <div className="flex gap-6">
             <div className="w-1/3">
-                <img className='h-auto  rounded-t-xl ' src="/img/autoridad.png" alt="" />
+                <img className='h-auto  rounded-xl ' src="/img/autoridad.png" alt="" />
             </div>
-
 
             <div className="w-2/3">
                 <h1>Ana Teresa Paz Reina</h1>

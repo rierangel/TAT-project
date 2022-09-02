@@ -206,6 +206,7 @@ button {
 
 }
 
+textarea,
 select,
 input {
     @extend .border2;
@@ -218,10 +219,22 @@ input {
     &:empty,
     &:target,
     &:focus {
+        outline-color: v.$primary-ligh;
         color: v.$black;
     }
 }
 
+label {
+    font-weight: 700;
+
+}
+
+small {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+}
 
 
 li {
@@ -238,7 +251,7 @@ img {
     // object-fit: cover;
     object-fit: none;
 
-    &.custom{
+    &.custom {
         object-fit: cover;
     }
 
@@ -247,14 +260,15 @@ img {
         object-fit: cover;
         display: block;
     }
-    &.post{
+
+    &.post {
         border-radius: 8px;
-        object-fit: cover;        
+        object-fit: cover;
         object-position: center;
     }
 }
 
-.box{
+.box {
     box-shadow: 0px 8px 8px rgba(10, 76, 138, 0.04), 0px 12px 36px rgba(10, 76, 138, 0.12);
     border-radius: 8px;
 }
