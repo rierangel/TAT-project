@@ -1,0 +1,19 @@
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 88.2%;
+    position: relative;
+  height: auto;
+
+
+    @media (min-width: v.$lg ) {
+        width: 1360px;
+    }
+
+}

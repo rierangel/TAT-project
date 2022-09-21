@@ -3,9 +3,9 @@
 
 
 .navbar {
-    border-bottom: 1px solid v.$gray-ligh;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
-
+    background-color: v.$primary;
+    color: white;
     .top {
         margin-top: 48px;
         margin-bottom: 36px;
@@ -16,7 +16,14 @@
 
     .bottom {
         padding: 16px 0px;
-        display: flex;
+        display: hidden;
+        
+        color: white;
+        
+        // @media (min-width:780px) {
+        //     display: flex;
+        // }
+
 
         ul {
             li {
@@ -46,7 +53,7 @@
     margin: 0px;
     position: relative;
     display: flex;
-    
+
     ul {
         padding: 12px 0px;
         position: absolute;
@@ -54,7 +61,7 @@
         left: 0;
         white-space: nowrap;
         border-radius: 12px;
-        background-color: v.$white;
+        background-color: white;
 
         li {
             cursor: pointer;
@@ -68,7 +75,7 @@
             }
 
             &:hover {
-                background-color: v.$white-hover;
+                background-color: black;
 
                 a {
                     color: v.$primary;

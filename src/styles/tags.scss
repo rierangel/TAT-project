@@ -4,7 +4,7 @@
 // BORDERS
 
 .border1 {
-    border: 2px solid v.$ligh;
+    border: 2px solid v.$ligh1;
 
     &:hover {
         border: 2px solid transparent;
@@ -12,14 +12,14 @@
 }
 
 .border2 {
-    border: 3px solid v.$ligh-hover;
+    border: 3px solid v.$ligh3;
     position: relative;
 
     &:hover,
     &:target,
     &:focus {
 
-        border: 3px solid v.$primary-ligh;
+        border: 3px solid v.$ligh3;
     }
 }
 
@@ -35,13 +35,13 @@
     }
 }
 
-a {
-    color: v.$primary;
+// a {
+//     color: v.$primary;
 
-    &:hover {
-        color: v.$primary-dark;
-    }
-}
+//     &:hover {
+//         color: v.$primary-dark;
+//     }
+// }
 
 hr {
 
@@ -144,11 +144,11 @@ button {
 
     &.outline {
         @extend .border1;
-        background-color: v.$white;
-        color: v.$black;
+        background-color: white;
+        color: black;
 
         &:hover {
-            color: v.$white;
+            color: white;
             background-color: v.$primary;
         }
     }
@@ -161,11 +161,11 @@ button {
         }
 
         &:hover {
-            color: v.$white;
+            color: white;
             background-color: v.$green;
 
             svg {
-                fill: v.$white;
+                fill: white;
             }
         }
     }
@@ -178,11 +178,11 @@ button {
         }
 
         &:hover {
-            color: v.$white;
+            color: white;
             background-color: v.$red;
 
             svg {
-                fill: v.$white;
+                fill: white;
             }
         }
     }
@@ -195,11 +195,11 @@ button {
         }
 
         &:hover {
-            color: v.$white;
+            color: white;
             background-color: v.$blue;
 
             svg {
-                fill: v.$white;
+                fill: white;
             }
         }
     }
@@ -213,14 +213,14 @@ input {
     text-align: left;
     border-radius: 12px;
     padding: 12px 16px;
-    color: v.$gray;
+    color: v.$Gray1;
     background-color: transparent;
 
     &:empty,
     &:target,
     &:focus {
-        outline-color: v.$primary-ligh;
-        color: v.$black;
+        outline-color: v.$primary;
+        color: black;
     }
 }
 
