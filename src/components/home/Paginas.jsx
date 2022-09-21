@@ -98,7 +98,7 @@ export default function LastResolutions() {
   return (
     <>
       <h1>Páginas de Interés</h1>
-      <div className={styles.grid2}>
+      <div className={styles.interes}>
         {pages.map((e, i) => (
           <Link key={i} href="" >
             <a className='group hover1 border2 flex  items-center gap-[28px] text-color-[#6B7380]'>

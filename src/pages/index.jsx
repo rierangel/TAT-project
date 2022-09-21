@@ -1,5 +1,5 @@
 import Layer from "src/components/Layer";
-import LandingPage from "src/components/LandingPage"
+import LandingPage from "src/components/home"
 
 export default function Home() {
 

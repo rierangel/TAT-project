@@ -6,81 +6,75 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
     background-color: v.$primary;
     color: white;
+
     .top {
         margin-top: 48px;
         margin-bottom: 36px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @media (min-width:v.$md) {
+            justify-content: space-between;
+
+        }
     }
 
     .bottom {
+ 
         padding: 16px 0px;
-        display: hidden;
-        
         color: white;
-        
-        // @media (min-width:780px) {
-        //     display: flex;
-        // }
+        display: flex;
+        gap: 24px;
 
+        li {
+            padding: 16px 1px;
+            border-bottom-width: 4px;
+            border-bottom-color: transparent;
 
-        ul {
-            li {
-                border-bottom-width: 4px;
-                border-bottom-color: transparent;
-                display: flex;
-                align-items: center;
+            align-items: center;
+            border-bottom: 4px solid transparent;
 
-                &:hover {
-                    border-bottom-color: #0054A4;
-                }
-
-                &a {
-                    padding: 16px 1px;
-                }
-
-                @apply border-b-4 border-b-transparent hover:border-b-[#0054A4] py-4 px-1;
-
-
-
+            &:hover {
+                border-bottom-color: white;
             }
+
+
         }
+
     }
 }
 
-.drop {
+.tooltip {
+
     margin: 0px;
     position: relative;
     display: flex;
 
-    ul {
-        padding: 12px 0px;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        white-space: nowrap;
-        border-radius: 12px;
-        background-color: white;
+    >div {
 
-        li {
-            cursor: pointer;
-            border: none;
-            width: 100%;
+        ul {
+            padding: 12px 0px;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            white-space: nowrap;
+            border-radius: 12px;
+            background-color: v.$primary;
 
-            a {
+            .item {
+                padding: 12px;
+                cursor: pointer;
+                border: none;
                 width: 100%;
-                color: black;
-                padding: 0px 16px;
-            }
-
-            &:hover {
-                background-color: black;
 
                 a {
-                    color: v.$primary;
-
+                    border: white 1px solid;
+                    width: 100%;
+                    color: white;
                 }
+
+
             }
         }
     }

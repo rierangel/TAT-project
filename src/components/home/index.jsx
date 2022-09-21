@@ -8,11 +8,11 @@ import Posts from './Posts'
 export default function Index() {
   return (
     <>
-      <Posts />
-      <Convocatoria />
+      {/* <Posts /> */}
+      {/* <Convocatoria /> */}
       <LastResolutions />
       <Paginas />
-      <Otros />
+      {/* <Otros /> */}
     </>
   )
 }

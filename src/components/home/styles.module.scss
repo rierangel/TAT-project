@@ -2,24 +2,10 @@
 
 
 
-.gira {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    margin: 64px 0px 80px;
 
-    a {
-        border-radius: 12px;
-        padding: 36px;
-
-    }
-
-}
-
-
-.grid {
+.resoluciones {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 24px;
     margin: 24px 0px 80px;
 
@@ -28,12 +14,16 @@
         padding: 36px;
 
     }
+    @media (min-width: v.$md) {
+    grid-template-columns: repeat(3, 1fr);
+        
+    }
 
 }
 
-.grid2 {
+.interes {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 24px;
     margin: 24px 0px 80px;
 

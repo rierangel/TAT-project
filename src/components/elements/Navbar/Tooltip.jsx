@@ -21,7 +21,7 @@ export default function NavDrop({ title, slug, data }) {
 
 
   return (
-    <li className={styles.drop} >
+    <li className={styles.tooltip} >
 
       <div className="cursor-pointer flex justify-center items-center" onClick={() => setActive(!active)}>
         <a>{title}</a>
@@ -39,15 +39,8 @@ export default function NavDrop({ title, slug, data }) {
       <div ref={select} className={active ? "visible z-[1]" : "hidden"}>
         <ul className='border' >
           {data.map((e, i) =>
-            Array.isArray(e) ?
-              <li key={i}>
-                <ul>
-                  {console.log(e)}
-                </ul>
-              </li>
-              :
               <Link key={i} href={`/${slug}${e.link}`}>
-                <li >
+                <li className={styles.item} >
                   {e.name}
                 </li>
               </Link>
