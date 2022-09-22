@@ -46,7 +46,8 @@
       &:nth-child(even) {
         background: v.$Gray3;
       }
-      &:last-child{
+
+      &:last-child {
         background-color: white;
       }
 
@@ -56,3 +57,72 @@
   }
 
 }
+
+
+footer {
+  background: v.$primary;
+  color: white;
+
+  img {
+    height: 64px;
+    width: 205px;
+    left: 24px;
+    top: 24px;
+    border-radius: 0px;
+
+  }
+
+  ul {
+
+    li {
+      margin-bottom: 16px;
+
+      a {
+        text-transform: capitalize;
+
+        &:hover {
+          text-decoration-line: underline;
+          text-underline-offset: 2px;
+        }
+
+      }
+    }
+
+    :last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+
+
+  .copyright {
+    color: v.$ligh3;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+
+.interes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.9rem;
+  padding: 41px 0px;
+
+  p {
+    width: 314.67px;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    font-feature-settings: 'ss02' on;
+  }
+}
+

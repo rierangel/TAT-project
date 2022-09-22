@@ -1,47 +1,6 @@
 @use 'vars' as v;
 
 
-// BORDERS
-
-.border1 {
-    border: 2px solid v.$ligh1;
-
-    &:hover {
-        border: 2px solid transparent;
-    }
-}
-
-.border2 {
-    border: 3px solid v.$ligh3;
-    position: relative;
-
-    &:hover,
-    &:target,
-    &:focus {
-
-        border: 3px solid v.$ligh3;
-    }
-}
-
-.hover1 {
-    color: black;
-    cursor: pointer;
-    transition: all .1s ease;
-
-    &:hover,
-    &:target,
-    &:focus {
-        color: v.$primary;
-    }
-}
-
-// a {
-//     color: v.$primary;
-
-//     &:hover {
-//         color: v.$primary-dark;
-//     }
-// }
 
 hr {
 
@@ -104,14 +63,14 @@ button {
     border: none;
     text-align: center;
     text-decoration: none;
-    padding: 12px 16px;
+    padding: 20px 26px;
     border-radius: 8px;
     outline: 3px solid transparent;
     outline-offset: 2px;
     display: flex;
     align-items: center;
 
-    svg {
+    div {
         margin-right: 14px;
     }
 
@@ -143,14 +102,7 @@ button {
     }
 
     &.outline {
-        @extend .border1;
-        background-color: white;
-        color: black;
-
-        &:hover {
-            color: white;
-            background-color: v.$primary;
-        }
+        @extend .card-hover;
     }
 
     &.xls {
@@ -245,28 +197,28 @@ p {
     white-space: pre-wrap;
 }
 
-img {
-    width: 100%;
-    height: auto;
-    // object-fit: cover;
-    object-fit: none;
+// img {
+//     width: 100%;
+//     height: auto;
+//     // object-fit: cover;
+//     object-fit: none;
 
-    &.custom {
-        object-fit: cover;
-    }
+//     &.custom {
+//         object-fit: cover;
+//     }
 
-    &.cover {
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
+//     &.cover {
+//         height: 100%;
+//         object-fit: cover;
+//         display: block;
+//     }
 
-    &.post {
-        border-radius: 8px;
-        object-fit: cover;
-        object-position: center;
-    }
-}
+//     &.post {
+//         border-radius: 8px;
+//         object-fit: cover;
+//         object-position: center;
+//     }
+// }
 
 .box {
     box-shadow: 0px 8px 8px rgba(10, 76, 138, 0.04), 0px 12px 36px rgba(10, 76, 138, 0.12);
