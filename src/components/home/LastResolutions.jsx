@@ -12,7 +12,7 @@ export default function LastResolutions() {
           </svg>
 
           <h1>Últimas Resoluciones <span className='hidden md:inline-flex'>Emitidas</span>
-             </h1>
+          </h1>
         </div>
         <Link href="/">
           <a className="flex items-center gap-4">
@@ -68,7 +68,7 @@ export default function LastResolutions() {
           </a>
         </Link>
 
-       
+
 
       </div>
     </>

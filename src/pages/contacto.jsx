@@ -1,6 +1,6 @@
-import Contact from 'src/components/Contact'
+import Contact from 'src/components/contacto'
+import Oficinas from 'src/components/contacto/oficinas'
 import Layer from 'src/components/Layer'
-import Mapas from 'src/components/home/Mapas'
 
 export default function contacto() {
 
@@ -10,8 +10,7 @@ export default function contacto() {
 
     <Contact/>
 
-    <h1>Nuestras Oficinas</h1>
-    <Mapas/>
+    <Oficinas/>
     </Layer>
   )
 }

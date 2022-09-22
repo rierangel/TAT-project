@@ -1,3 +1,4 @@
+import Oficinas from '../contacto/oficinas'
 import LastResolutions from './LastResolutions'
 import Paginas from './Paginas'
 
@@ -51,6 +52,7 @@ export default function Index() {
       </div>
       <LastResolutions />
       <Paginas />
+      <Oficinas/>
 
     </>
   )

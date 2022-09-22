@@ -85,7 +85,6 @@ export default function Contact() {
             </form>
 
 
-        <button className='primary'>enviar</button>
         </>
     )
 }

@@ -69,7 +69,7 @@ export default function LastResolutions() {
         <h1>Páginas de Interés</h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 mt-6 mb-28 gap-y-3">
 
         {pages.map((e, i) => (
           <Link key={i} href="" >
