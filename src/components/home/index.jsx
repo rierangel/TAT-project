@@ -46,7 +46,6 @@ export default function Index() {
             <img className='scale-[110%]' src="img/index/mv0.png" alt="" />
           </picture>
         </div>
-        <img className='scale-[110%]' src="/img/index/mv0.png" alt="" />
 
 
       </div>

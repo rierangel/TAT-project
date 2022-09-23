@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import styles from './styles.module.scss'
-import Tooltip from './Tooltip'
+import Tooltip from './toggle'
 import Socials from '../Socials'
 import Buscador from './Buscador'
 import { useState } from 'react'

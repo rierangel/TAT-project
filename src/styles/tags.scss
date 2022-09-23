@@ -103,14 +103,19 @@ h2 {
 
 }
 
-h3,.h3 {
+h3,
+.h3 {
     font-weight: 800;
     font-size: 16px;
     line-height: 22px;
+    margin-top: 16px;
+    margin-bottom: 12px;
 
-    &.article {
+    @media (min-width:v.$lg) {
+
         margin-top: 24px;
         margin-bottom: 16px;
+
     }
 }
 
@@ -151,7 +156,8 @@ h6 {
         line-height: 33px;
     }
 
-    h3,.h3 {
+    h3,
+    .h3 {
         font-size: 20px;
         font-weight: 700;
         line-height: 27px;
@@ -161,6 +167,7 @@ h6 {
         font-weight: 700;
         font-size: 16px;
         line-height: 22px;
+        margin-bottom: 12px;
     }
 
     h6 {
