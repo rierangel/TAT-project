@@ -75,6 +75,7 @@
 }
 
 .card-hover {
+
     color: black;
     cursor: pointer;
     transition: all .1s ease;
@@ -101,5 +102,14 @@
 
 
 div.subtitle {
-    @apply flex gap-4 items-center mb-6
+    @apply flex gap-4 items-center mb-6 
+}
+
+.bg-primary{
+    background-color: v.$primary;
+    color: white;
+}
+
+.img {
+    object-fit: cover;
 }

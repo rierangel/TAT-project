@@ -1,11 +1,11 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
-import ViewAutoridad from 'src/components/About/viewAutoridad'
+import ViewEquipo from 'src/components/About/viewEquipo'
 
 export default function autoridad() {
   return (
     <Layer>
-        <ViewAutoridad/>
+        <ViewEquipo/>
     </Layer>
   )
 }

@@ -41,12 +41,12 @@ export default function Index() {
         </div>
 
         <div className='relative  '>
-
           <picture className='inset-0 w-full h-full object-cover '>
-            <source media="(min-width:768px)" srcset="img/index/0.png" />
+            <source media="(min-width:768px)" srcset="/img/index/0.png" />
             <img className='scale-[110%]' src="img/index/mv0.png" alt="" />
           </picture>
         </div>
+        <img className='scale-[110%]' src="/img/index/mv0.png" alt="" />
 
 
       </div>

@@ -8,7 +8,34 @@ import Socials from './Socials'
 export default function Footer() {
 
 
-  const col1 = ["nosotros", "competencias", "transparencia", "leyes y decretos", "acuerdos", "convenios"]
+  const col1 = [
+    {
+      name:"nosotros",
+      link:"nosotros",
+    },
+    {
+      name:"competencias",
+      link:"/marco-normativo/competencias"
+    },
+    {
+      name:"transparencia",
+      link:"/transparencia",
+    },
+    {
+      name:"leyes y decretos",
+      link:"/leyes-y-decretos",
+    },
+    {
+      name:"acuerdos",
+      link:"/acuerdos",
+    },
+    {
+      name:"convenios",
+      link:"/convenios",
+    },
+   
+  ]
+
   const col2 = ["Noticias", "Ponencias del Congreso", "revista justicia tributaria", "memorias",  "resoluciones emitidas", "Haciendo la Diferencia",]
   const col3 = [  "Congreso Int. de Derecho Tributario", "Vacantes", "Formulario del Banco de Peritos","Otras Instituciones" ,"Contacto", "Mapa del sitio",]
   const col4 = [ "Declaración de privacidad","Preguntas Frecuentes",]
@@ -25,7 +52,7 @@ export default function Footer() {
             <img className="w-52 h-16 md:w-56 md:h-[70px] object-cover" src="/img/logo.png" alt="" />
             {/* <img className="w-32 h-10 md:w-auto md:h-auto object-cover" src="/img/logo.png" alt="" /> */}
 
-            <p className="absolute bottom-[60px] md:bottom-0 right-0 left-0 text-center md:text-left copyright ">
+            <p className="absolute md:relative bottom-[60px] md:bottom-0 right-0 left-0 text-center md:text-left copyright ">
               Copyright © 2022. <br className='hidden md:flex'/>
               Tribunal Administrativo Tributario. <br />
               Todos los derechos reservados
@@ -37,8 +64,8 @@ export default function Footer() {
             <ul >
               {col1.map((e, i) => (
                 <li key={i}>
-                  <Link href={slugify(e)}>
-                    <a>{e}</a>
+                  <Link href={e.link}>
+                    <a>{e.name}</a>
                   </Link>
                 </li>
               ))}

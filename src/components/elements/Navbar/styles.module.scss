@@ -17,8 +17,8 @@
         align-items: center;
 
         @media (min-width:v.$md) {
-        margin-top: 48px;
-        margin-bottom: 36px;
+            margin-top: 48px;
+            margin-bottom: 36px;
 
             justify-content: space-between;
 
@@ -26,7 +26,11 @@
     }
 
     .bottom {
- 
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+  
+
         padding: 16px 0px;
         color: white;
         display: flex;
