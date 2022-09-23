@@ -8,6 +8,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
     background-color: v.$primary;
     color: white;
+    z-index: 40;
 
     .top {
         margin-top: 16px;
@@ -60,32 +61,31 @@
     position: relative;
     display: flex;
 
-    >div {
 
-        ul {
-            padding: 12px 0px;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            white-space: nowrap;
-            border-radius: 12px;
-            background-color: v.$primary;
+    ul.toggle {
+        padding: 12px 0px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        white-space: nowrap;
+        border-radius: 12px;
+        background-color: v.$primary;
 
-            .item {
-                padding: 12px;
-                cursor: pointer;
-                border: none;
+        li {
+            padding: 12px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+
+            a {
+                // border: white 1px solid;
                 width: 100%;
-
-                a {
-                    border: white 1px solid;
-                    width: 100%;
-                    color: white;
-                }
-
-
+                color: white;
             }
+
+
         }
     }
+
 
 }

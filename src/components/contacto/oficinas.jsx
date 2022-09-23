@@ -13,8 +13,11 @@ export default function Oficinas() {
                 <h1>Nuestras Oficinas</h1>
             </div>
 
-            <div className='flex justify-between lg:gap-6 border lg:border-transparent border-[#E0EAF4]  flex-col lg:flex-row h-full rounded-xl'>
-                <img src="img/oficinas.png" alt="" />
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 border lg:border-transparent border-[#E0EAF4] h-full rounded-xl'>
+               <div className='w-full'>
+
+                <img classname="w-full object-contain object-center" src="img/oficinas.png" alt="" />
+               </div>
 
                 <div className='space-y-4 p-5 lg:p-9 flex flex-col justify-between border_contact rounded-xl'>
                     <h2>Sede Central</h2>

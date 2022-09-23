@@ -1,9 +1,15 @@
 import Link from 'next/link'
-import styles from './styles.module.scss'
-import Tooltip from './toggle'
 import Socials from '../Socials'
 import Buscador from './Buscador'
 import { useState } from 'react'
+import styles from './styles.module.scss'
+
+
+import Tooltip from './Tooltip'
+
+
+
+
 export default function Navbar() {
 
     const nosotros = [
@@ -27,11 +33,21 @@ export default function Navbar() {
             link: "/competencias/"
         },
         {
-            name: "Normativa",
-            link: "/normativa/",
-            sub: true
-        }
-
+            name: "Leyes y Decretos",
+            link: "/normativa/leyes-y-decretos/",
+        },
+        {
+            name: "Acuerdos",
+            link: "/normativa/acuerdos/",
+        },
+        {
+            name: "Convenios",
+            link: "/normativa/convenios/",
+        },
+        {
+            name: "Edictos",
+            link: "/normativa/edictos/",
+        }  
     ]
 
 
@@ -43,7 +59,6 @@ export default function Navbar() {
         <nav className={styles.navbar}>
 
             <div className="container ">
-
                 <div className={styles.top}>
 
                     <div className='md:hidden flex py-6 px-4'>
@@ -84,8 +99,45 @@ export default function Navbar() {
                                 </Link>
                             </li>
 
-                            <Tooltip title={"nosotros"} slug={"nosotros"} data={nosotros} />
-                            <Tooltip title={"nosotros"} slug={"nosotros"} data={nosotros} />
+
+                            <li >
+                                <Tooltip title="Nosotros">
+                                    <Link href="/quienes-somos">
+                                        <li >
+                                            <a>Quiénes somos</a>
+                                        </li>
+                                    </Link>
+                                    <Link href="/autoridades">
+                                        <li >
+                                            <a>Autoridades</a>
+                                        </li>
+                                    </Link>
+
+                                    <Link href="/equipo-gerencial">
+                                        <li >
+                                            <a>Equipo Gerencial</a>
+                                        </li>
+                                    </Link>
+                                </Tooltip>
+                            </li>
+
+
+
+                            <li >
+                                <Tooltip title="Marco Normativo">
+                                    {marco.map((e, i) => (
+
+                                        <Link href={`/marco-normativo${e.link}`}>
+                                            <li >
+                                                <a>{e.name}</a>
+                                            </li>
+                                        </Link>
+                                    ))}
+
+                                </Tooltip>
+                            </li>
+
+
 
                             <li >
                                 <Link href="/transparencia">

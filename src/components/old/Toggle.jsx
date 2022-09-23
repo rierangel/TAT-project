@@ -46,8 +46,8 @@ export default function NavDrop({ title, slug, data }) {
               </Link>
           )}
         </ul>
-
       </div>
+      
     </li>
   )
 }
