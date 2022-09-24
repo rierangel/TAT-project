@@ -6,12 +6,11 @@ import styles from './styles.module.scss'
 
 export default function path() {
   const rute = useRouter()
-  return ( rute.route != "/404"  &&
+  return (rute.route != "/404" &&
     <div className="mt-3 mb-16 h-[52px] flex items-center border-b py-4 px-2">
 
 
       {rute.route != "/" &&
-
         < div className={styles.path}>
 
           {rute.asPath.split("/").map((e, i) => (

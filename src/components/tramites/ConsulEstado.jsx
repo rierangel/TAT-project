@@ -4,6 +4,10 @@ export default function ConsulEstado() {
 
     const {scrollSliderRef, handleControlSlider} = useScrollSlider()
 
+    const handleChange = (bool)=>{
+        handleControlSlider(bool)
+    }
+
     return (
         <section className='mt-16 lg:mt-6'>
             <div className="subtitle">
@@ -20,17 +24,17 @@ export default function ConsulEstado() {
 
                     {/* select form */}
                     <div className='slect-form-consulta'>
-                        <div onClick={() => handleControlSlider(false)} className=''>Trámites</div>
-                        <div onClick={() => handleControlSlider(true)} className='active'>Expedientes</div>
+                        <div onClick={(e) => handleChange(e, false)} className=''>Trámites</div>
+                        <div onClick={(e) => handleChange(e, true)} className='active'>Expedientes</div>
                     </div>
 
                     <div ref={scrollSliderRef} className="scroll-slider">
                         <form className='form slider' action="">
-                            <div className='col1 '>
+                            <div className='single'>
                                 <label htmlFor="name">Ingrese PIN</label>
                                 <input type="text" placeholder='Ingrese el PIN que recibió' />
                             </div>
-                            <div className='col1 '>
+                            <div className='single'>
                                 <label htmlFor="name">Nro. de Expediente</label>
                                 <input type="text" placeholder='1234567' />
                             </div>
@@ -50,12 +54,11 @@ export default function ConsulEstado() {
                             </button>
                         </form>
                         <form className='form slider' action="">
-                            <h1>form2</h1>
-                            <div className='col1 '>
+                            <div className='single'>
                                 <label htmlFor="name">Ingrese PIN</label>
                                 <input type="text" placeholder='Ingrese el PIN que recibió' />
                             </div>
-                            <div className='col1 '>
+                            <div className='single'>
                                 <label htmlFor="name">Nro. de Expediente</label>
                                 <input type="text" placeholder='1234567' />
                             </div>

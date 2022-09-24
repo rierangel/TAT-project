@@ -42,7 +42,7 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    <div className='col2'>
+                    <div className='group-inline'>
                         <div className='form-control '>
                             <label htmlFor="name">Nombre y Apellido</label>
                             <input type="text" name="" id="name" />
@@ -53,7 +53,7 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    <div className='col2'>
+                    <div className='group-inline'>
                         <div className='form-control'>
                             <label htmlFor="name">Nombre y Apellido</label>
                             <input type="text" name="" id="name" />
@@ -64,7 +64,7 @@ export default function Contact() {
                             <input type="text" name="" id="name" />
                         </div>
                     </div>
-                    <div className='col1 '>
+                    <div className='single'>
                         <label htmlFor="name">Nombre y Apellido</label>
                         <textarea name="" id="" cols="30" rows="10"></textarea>
                     </div>

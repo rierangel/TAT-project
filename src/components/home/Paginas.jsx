@@ -73,7 +73,7 @@ export default function LastResolutions() {
 
         {pages.map((e, i) => (
           <Link key={i} href="" >
-            <a className='interes'>
+            <a className='paginas-interes'>
               {e.svg}
               <p className='font-bold'>{e.name}</p>
             </a>

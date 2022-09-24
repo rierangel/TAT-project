@@ -109,7 +109,7 @@ export default function Navbar() {
                                 <Tooltip title="Nosotros">
                                     {nosotros.map((e, i) => (
 
-                                        <Link href={`/nosotros${e.link}`}>
+                                        <Link key={i} href={`/nosotros${e.link}`}>
                                             <a>
                                                 <li >
                                                     {e.name}
@@ -127,7 +127,7 @@ export default function Navbar() {
                                 <Tooltip title="Marco Normativo">
                                     {marco.map((e, i) => (
 
-                                        <Link href={`/marco-normativo${e.link}`}>
+                                        <Link  key={i} href={`/marco-normativo${e.link}`}>
                                             <li >
                                                 <a>{e.name}</a>
                                             </li>

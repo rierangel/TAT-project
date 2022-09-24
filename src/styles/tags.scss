@@ -348,43 +348,7 @@ p {
 //     }
 // }
 
-form {
-    &.form {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
 
-        .col1 {
-            display: flex;
-            flex-direction: column;
-
-            label {
-                @apply mb-1 lg:mb-2
-            }
-        }
-
-        .col2 {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            @apply lg:flex-row;
-
-        }
-
-        .form-control {
-            @apply flex flex-col w-1/2;
-
-            label {
-                @apply mb-1 lg:mb-2
-            }
-        }
-
-        textarea,
-        input {
-            border: solid 1.5px v.$ligh1;
-        }
-    }
-}
 
 footer {
     background: v.$primary;

@@ -35,7 +35,7 @@
 
 
 
-.interes {
+.paginas-interes {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -134,4 +134,46 @@
   }
 
   // bg-[#EBF5FF] gap-3 p-6 flex items-center
+}
+
+
+form {
+  &.form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+
+   
+
+      .group-inline {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          margin-bottom: 0.75rem;
+          @apply lg:flex-row ;
+
+      }
+
+      .form-control {
+          @apply flex flex-col w-full lg:w-1/2;
+          label {
+              @apply mb-1 lg:mb-2
+          }
+      }
+    
+      .single {
+        display: flex;
+        flex-direction: column;
+        label {
+            @apply mb-1 lg:mb-2
+        }
+    }
+
+      select,
+      textarea,
+      input {
+          border: solid 1.5px v.$ligh1;
+      }
+  }
 }
