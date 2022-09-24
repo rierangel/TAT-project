@@ -5,7 +5,7 @@ import { useState } from 'react'
 import styles from './styles.module.scss'
 
 
-import Tooltip from './Tooltip'
+import Tooltip from 'src/lib/Tooltip'
 
 
 

@@ -39,9 +39,13 @@
 
 .border1 {
     border: 2px solid v.$ligh1;
-
-    &:hover {
-        border: 2px solid transparent;
+    background-color: white;
+    &.border1_form{
+        border-radius: 12px;
+        padding: 20px;
+        @media (min-width:v.$lg) {
+            padding: 2rem;
+        }
     }
 }
 
@@ -103,14 +107,36 @@
 
 
 div.subtitle {
-    @apply flex gap-4 items-center mb-6 
+    @apply flex gap-4 items-center mb-6;
+
+    &.text {
+        margin-bottom: 0px;
+    }
 }
 
-.bg-primary{
+.bg-primary {
     background-color: v.$primary;
     color: white;
 }
 
 .img {
     object-fit: cover;
+}
+
+
+.slect-form-consulta{
+    @apply flex border-b mb-9;
+
+    >div{
+        width: 100%;
+        padding: 16px;
+        @extend .center
+    }
+    .active{
+        background-color: v.$Gray1;
+        color: v.$primary;
+        font-weight: 700;
+        border-bottom: 3px solid v.$primary;
+
+    }
 }

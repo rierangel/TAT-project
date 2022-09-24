@@ -1,0 +1,40 @@
+.scroll-slider{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    // flex flex-nowrap overflow-hidden
+    .slider{
+        flex-shrink: 0;
+        width: 100%;
+
+
+    }
+}
+
+.pagination {
+    li {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      color: v.$primary;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 22px;
+  
+      &:nth-child(1n) {
+  
+        &:nth-child(even) {
+          background: v.$Gray3;
+        }
+  
+        &:last-child {
+          background-color: white;
+        }
+  
+      }
+  
+  
+    }
+  
+  }
