@@ -17,7 +17,9 @@
 
 
 .file-list {
-  li {
+
+  li,tr {
+    background-color: white;
     display: flex;
     padding: 12px;
 

@@ -35,8 +35,39 @@ export default function Footer() {
     },
    
   ]
+  const col2 = [
+    {
+      name:"Noticias",
+      link:"noticias",
+    },
+    {
+      name:"Ponencias del Congreso",
+      link:"/publicaciones/ponencias"
+    },
+    {
+      name:"revista justicia tributaria",
+      link:"/publicaciones/revista-tributaria",
+    },
+    {
+      name:"memorias",
+      link:"/publicaciones/memorias",
+    },
+    {
+      name:"resoluciones emitidas",
+      link:"/publicaciones/resoluciones",
+    },
+    {
+      name:"Haciendo la Diferencia",
+      link:"/noticias",
+    },
+    {
+      name:"Vacantes",
+      link:"/vacantes",
+    },
+   
+  ]
 
-  const col2 = ["Noticias", "Ponencias del Congreso", "revista justicia tributaria", "memorias",  "resoluciones emitidas", "Haciendo la Diferencia",]
+  // const col2 = ["Noticias", "Ponencias del Congreso", "revista justicia tributaria", "memorias",  "resoluciones emitidas", "Haciendo la Diferencia",]
   const col3 = [  "Congreso Int. de Derecho Tributario", "Vacantes", "Formulario del Banco de Peritos","Otras Instituciones" ,"Contacto", "Mapa del sitio",]
   const col4 = [ "Declaración de privacidad","Preguntas Frecuentes",]
 
@@ -74,15 +105,13 @@ export default function Footer() {
 
           <div className="">
             <ul >
-              <ul >
-                {col2.map((e, i) => (
-                  <li key={i}>
-                    <Link href={slugify(e)}>
-                      <a>{e}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              {col2.map((e, i) => (
+                <li key={i}>
+                  <Link href={e.link}>
+                    <a>{e.name}</a>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

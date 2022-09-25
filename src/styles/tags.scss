@@ -281,7 +281,7 @@ button {
 textarea,
 select,
 input {
-    @extend .border2;
+    @extend .border1;
     text-align: left;
     border-radius: 12px;
     padding: 12px 16px;

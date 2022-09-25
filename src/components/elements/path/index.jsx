@@ -12,7 +12,6 @@ export default function path() {
 
       {rute.route != "/" &&
         < div className={styles.path}>
-
           {rute.asPath.split("/").map((e, i) => (
             <div className='hover:underline' key={i} >
               <Link href={`/${e}`}>

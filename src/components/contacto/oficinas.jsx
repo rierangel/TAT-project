@@ -15,15 +15,16 @@ export default function Oficinas() {
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 border lg:border-transparent border-[#E0EAF4] h-full rounded-xl'>
                 <div className='min-h-[327px] w-full  sm:h-full  '>
-{/* h-[200px]  */}
                     <div
                         style={{ backgroundImage: `url("img/oficinas.png")` }}
                         className='w-full h-full bg-cover bg-center bg-no-repeat rounded-t-xl sm:rounded-xl' >
-                        {/* <img classname="w-full bg-red-500 " src="img/oficinas.png" alt="" /> */}
                     </div>
                 </div>
 
-                <div className='space-y-4 p-5 lg:p-9 flex flex-col justify-between border_contact rounded-xl'>
+                <div className='
+                space-y-4 p-5 lg:p-9 flex flex-col justify-between  rounded-xl
+                border border-transparent lg:border-[#E0EAF4] 
+                '>
                     <h2>Sede Central</h2>
                     <div className='subtitle'>
                         <div className='w-auto h-5'>
