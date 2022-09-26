@@ -78,7 +78,7 @@ export default function index() {
             El TAT viene a remplazar a la Comisión de Apelaciones de la Dirección General de Ingresos del Ministerio de Economía y Finanzas.
             Mediante Acuerdo n.°4 del 25 de febrero de 2011, se establece como fecha de inicio de las labores del Tribunal para efectos del cumplimiento de los términos y trámites fijados por la Ley 8/2010 de 15 de marzo, el día 1 de junio de 2011.
           </p>
-          <div className='md:w-4/5 center order-0 md:order-1 min-h-min my-12 md:mt-0' >
+          <div className='md:w-4/5 flex-center order-0 md:order-1 min-h-min my-12 md:mt-0' >
 
             <SvgLogo width={"100%"} height={"130%"} fill="#0054A4" />
           </div>

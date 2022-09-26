@@ -1,4 +1,4 @@
-.center {
+.flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,7 +124,7 @@
     >div{
         width: 100%;
         padding: 16px;
-        @extend .center
+        @extend .flex-center
     }
     .active{
         background-color: v.$Gray1;
