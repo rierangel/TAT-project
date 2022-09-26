@@ -13,6 +13,13 @@ button {
     display: flex;
     align-items: center;
 
+    &.icon{
+        gap: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     div {
         margin-right: 14px;
     }
