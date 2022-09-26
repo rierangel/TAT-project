@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
 
-export default function toggleList({ children }) {
+export default function toggleList({ children, title }) {
     const [active, setactive] = useState()
 
     return (
         <div>
             <div className='w-full flex justify-between items-center cursor-pointer' onClick={() => setactive(!active)}>
-                <h3>Artículo 9</h3>
+                <h3 className='m-cero'>{title}</h3>
                 <div>
                     {active ?
                         <svg className='ml-4' width="16" height="9" viewBox="0 0 12 7" fill="#0F1620" xmlns="http://www.w3.org/2000/svg">

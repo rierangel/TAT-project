@@ -106,13 +106,7 @@
 }
 
 
-div.subtitle {
-    @apply flex gap-4 items-center mb-6;
 
-    &.text {
-        margin-bottom: 0px;
-    }
-}
 
 .bg-primary {
     background-color: v.$primary;

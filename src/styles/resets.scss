@@ -1,0 +1,190 @@
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    transition: all .5s ease;
+    // border: solid 1px red;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+    font-feature-settings: 'ss02' on;
+    position: relative;
+}
+
+#__next {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+
+
+}
+
+main {
+    height: 100vh;
+}
+
+section {
+    margin-bottom: 100px;
+}
+
+hr {
+
+    &.sub {
+        margin-top: 24px;
+        @apply border-t-4 border-[#0054A4] w-[64px]
+    }
+
+    &.subline {
+        margin: 8px 0px;
+        width: 48px;
+        height: 4px;
+        background: #FFFFFF;
+
+        @media (min-width:v.$md) {
+            width: 64px;
+
+        }
+    }
+}
+
+
+
+// STYLES
+
+p,
+html,
+body {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    font-feature-settings: 'ss02' on;
+
+}
+
+
+
+h1 {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+h2 {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 27px;
+
+
+    &.article {
+        font-weight: 700;
+
+    }
+
+    &.marco {
+        color: #0054A4;
+        font-weight: 700;
+
+    }
+
+
+}
+
+h3,
+.h3 {
+    &.m-cero {
+        @apply m-0 md:m-0;
+
+    }
+
+
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+
+    @media (min-width:v.$lg) {
+        margin-top: 24px;
+        margin-bottom: 16px;
+    }
+
+
+
+}
+
+h4 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+
+}
+
+h5 {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+h6 {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+}
+
+@media (min-width:v.$md) {
+    p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    h1 {
+        font-size: 32px;
+        line-height: 44px;
+    }
+
+    h2 {
+
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 33px;
+    }
+
+    h3,
+    .h3 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 27px;
+    }
+
+    h5 {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 12px;
+    }
+
+    h6 {
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+}
+
+small {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+}

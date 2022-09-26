@@ -1,4 +1,4 @@
-import ToggleList from './toggleList'
+import ToggleList from '../../lib/ToggleList'
 export default function index() {
 
     return (
@@ -28,9 +28,9 @@ export default function index() {
 
             <section className='mt-6 space-y-6'>
 
-                <div className='px-9 border1 rounded-xl'>
-                    <ToggleList>
-                        <ul className='pb-9 gap-3 space-y-3'>
+                <div className='p-9 border1 rounded-xl'>
+                    <ToggleList title={"Artículo 9"}>
+                        <ul className='pt-9 gap-3 space-y-3'>
                             <li>
                                 <a href="" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
@@ -60,9 +60,9 @@ export default function index() {
                     </ToggleList>
                 </div>
 
-                <div className='px-9 border1 rounded-xl'>
-                    <ToggleList>
-                        <ul className='pb-9 gap-3 space-y-3'>
+                <div className='p-9 border1 rounded-xl'>
+                    <ToggleList title={"Artículo 10"}>
+                        <ul className='pt-9 gap-3 space-y-3'>
                             <li>
                                 <a href="" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
@@ -92,9 +92,74 @@ export default function index() {
                     </ToggleList>
                 </div>
 
-                <div className='px-9 border1 rounded-xl'>
-                    <ToggleList>
-                        <ul className='pb-9 gap-3 space-y-3'>
+                <div className='p-9 border1 rounded-xl'>
+                    <ToggleList title={"Artículo 11"}>
+                        <ul className='pt-9 gap-3 space-y-3'>
+                            <li>
+                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                    <span className='font-bold text-[16px] text-black'>9.1</span>
+                                    <p>Reglamento interno</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                    <span className='font-bold text-[16px] text-black'>9.1</span>
+                                    <p>Reglamento interno</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                    <span className='font-bold text-[16px] text-black'>9.1</span>
+                                    <p>Reglamento interno</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                    <span className='font-bold text-[16px] text-black'>9.1</span>
+                                    <p>Reglamento interno</p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </ToggleList>
+                </div>
+
+                
+                <div className='p-9 border1 rounded-xl'>
+                    <ToggleList title={"Artículo 26"}>
+                        <ul className='pt-9 gap-3 space-y-3'>
+                            <li>
+                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                    <span className='font-bold text-[16px] text-black'>9.1</span>
+                                    <p>Reglamento interno</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                    <span className='font-bold text-[16px] text-black'>9.1</span>
+                                    <p>Reglamento interno</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                    <span className='font-bold text-[16px] text-black'>9.1</span>
+                                    <p>Reglamento interno</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                    <span className='font-bold text-[16px] text-black'>9.1</span>
+                                    <p>Reglamento interno</p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </ToggleList>
+                </div>
+                
+                <div className='p-9 border1 rounded-xl'>
+                    <ToggleList title={"Artículo 27"}>
+                        <ul className='pt-9 gap-3 space-y-3'>
                             <li>
                                 <a href="" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
