@@ -32,25 +32,25 @@ export default function index() {
                     <ToggleList title={"Artículo 9"}>
                         <ul className='pt-9 gap-3 space-y-3'>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
@@ -64,25 +64,25 @@ export default function index() {
                     <ToggleList title={"Artículo 10"}>
                         <ul className='pt-9 gap-3 space-y-3'>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
@@ -96,25 +96,25 @@ export default function index() {
                     <ToggleList title={"Artículo 11"}>
                         <ul className='pt-9 gap-3 space-y-3'>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
@@ -129,25 +129,25 @@ export default function index() {
                     <ToggleList title={"Artículo 26"}>
                         <ul className='pt-9 gap-3 space-y-3'>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
@@ -161,25 +161,25 @@ export default function index() {
                     <ToggleList title={"Artículo 27"}>
                         <ul className='pt-9 gap-3 space-y-3'>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="" className='text-[#0054A4] flex gap-2 items-center'>
+                                <a href="transparencia/article/informes-de-viajes-nacionales" className='text-[#0054A4] flex gap-2 items-center'>
                                     <span className='font-bold text-[16px] text-black'>9.1</span>
                                     <p>Reglamento interno</p>
                                 </a>

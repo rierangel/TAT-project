@@ -1,6 +1,6 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
-import DataGrid from 'src/lib/DataGrid'
+import DataGrid from 'src/components/DataGrid'
 
 export default function informes_nacionales() {
 
@@ -14,7 +14,7 @@ export default function informes_nacionales() {
             Regreso:"02/07/2022",
             Costo:"10.00",
             Viático	:"106.00",
-            Informe:"Jorge",
+            Informe:"http://www.tribunaltributario.gob.pa/transparencia/download-convenio/Convenio_Marco_MEF-TAT.pdf",
 
         },
         {
@@ -26,7 +26,7 @@ export default function informes_nacionales() {
             Regreso:"02/07/2022",
             Costo:"10.00",
             Viático	:"106.00",
-            Informe:"Jorge",
+            Informe:"http://www.tribunaltributario.gob.pa/transparencia/download-convenio/Convenio_Marco_MEF-TAT.pdf",
 
         },
         {
@@ -38,7 +38,7 @@ export default function informes_nacionales() {
             Regreso:"02/07/2022",
             Costo:"10.00",
             Viático	:"106.00",
-            Informe:"Jorge",
+            Informe:"http://www.tribunaltributario.gob.pa/transparencia/download-convenio/Convenio_Marco_MEF-TAT.pdf",
 
         }
         ,
@@ -51,7 +51,7 @@ export default function informes_nacionales() {
             Regreso:"02/07/2022",
             Costo:"10.00",
             Viático	:"106.00",
-            Informe:"Jorge",
+            Informe:"http://www.tribunaltributario.gob.pa/transparencia/download-convenio/Convenio_Marco_MEF-TAT.pdf",
 
         }
         ,
@@ -64,7 +64,7 @@ export default function informes_nacionales() {
             Regreso:"02/07/2022",
             Costo:"10.00",
             Viático	:"106.00",
-            Informe:"Jorge",
+            Informe:"http://www.tribunaltributario.gob.pa/transparencia/download-convenio/Convenio_Marco_MEF-TAT.pdf",
 
         }
     ]
@@ -91,7 +91,7 @@ export default function informes_nacionales() {
                 </div>
             </div>
 
-            <DataGrid data={data}/>
+            <DataGrid data={data} btn={["Informe"]} downld={true}/>
 
 
         </Layer>

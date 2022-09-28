@@ -30,10 +30,11 @@ query{
 export default function page({ slug }) {
 
   const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/wp-json/wp/v2/posts?slug=${slug}`
+
   const [res, isLoading, isFetching, refetch] = useFetch(path, slug, "GET")
 
-  const [posts, isLoadingPost, isFetchingPost, refetchPost] = useGql(query, "posts")
 
+  const [posts, isLoadingPost, isFetchingPost, refetchPost] = useGql(query, "posts")
   const [MorePosts, setMorePosts] = useState()
 
   useEffect(() => {
@@ -42,6 +43,7 @@ export default function page({ slug }) {
     if (posts) {
       setMorePosts(posts.posts.nodes.filter((e) => e !== posts.posts.nodes[0]))
     }
+
   }, [res, posts, slug])
 
 
@@ -57,7 +59,7 @@ export default function page({ slug }) {
         </>
       }
 
-      <hr className='mb-20' />
+      <hr className='my-16' />
 
       <div >
         <h1>Más Noticias</h1>

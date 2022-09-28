@@ -4,7 +4,7 @@ import Noticia from "src/components/noticia";
 export default function page() {
   return (
     <Layer>
-        <Noticia/>
+        <Noticia />
     </Layer>
   )
 }

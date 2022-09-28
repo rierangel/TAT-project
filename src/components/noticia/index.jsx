@@ -55,8 +55,7 @@ export default function index({ slug }) {
         setDates(result)
       }
     }
-    console.log(query, isfeching, isLoading);
-  }, [noticias, isLoading, rute, search, query])
+  }, [noticias, search, query])
 
 
   const handlerYear = (e) => {
@@ -64,9 +63,10 @@ export default function index({ slug }) {
   }
 
   return (
-    <>
+    <section>
       <h1 className="mb-5">Noticias</h1>
 
+      {/* searsh form */}
       <form action="" className='flex gap-[24px] mt-2 pb-9 border-b'>
         <input className='w-1/2'
           type="text"
@@ -79,7 +79,7 @@ export default function index({ slug }) {
           <select onChange={(e) => handlerYear(e.target.value)} name="" id="" className='inset-0 h-full'>
             <option className='hidden' >Seleccione año</option>
             {dates && dates.map((e, i) => (
-              <option className='bg-[#F7F8FB]' value={e}>{e}</option>
+              <option key={i} className='bg-[#F7F8FB]' value={e}>{e}</option>
             ))}
           </select>
           <label htmlFor="seccion" className='absolute left-0 -top-8 '>Sección</label>
@@ -93,12 +93,12 @@ export default function index({ slug }) {
         </button>
       </form>
 
-
+      {/* noticias */}
       {noticias && noticias.posts.nodes.map((e, i) => (
         <Link key={i} href={`/noticias/${e.date.split("-")[0]}/${e.slug}`}>
           <div className="py-6 border-b px-3 flex space-x-[24px] hover1">
             <div className="w-[193px] h-[142px]  ">
-              <img className='cover rounded-lg' src="/img/tat.png" alt="" />
+              <img className='cover rounded-lg' src={e.featuredImage ? e.featuredImage.node.mediaItemUrl : "/img/logo.png"} alt="" />
             </div>
             <div className="w-full flex flex-col justify-between items-start h-[142px] ">
               <h2>{e.title}</h2>
@@ -110,6 +110,6 @@ export default function index({ slug }) {
       ))}
 
       <Pagination />
-    </>
+    </section>
   )
 }
