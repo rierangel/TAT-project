@@ -22,7 +22,7 @@ export function SliderCarrusel({ children, dot_control = false }) {
                 for (let index = 0; index < slider.children.length; index++) {
                     const element = slider.children[index]
                     element.classList.add(style.item_slider)
-                    // sliderRef.current.appendChild(element)
+                    //slider.appendChild(element)
                 }
                 slider.className = style.slider
             }
@@ -33,8 +33,8 @@ export function SliderCarrusel({ children, dot_control = false }) {
 
 
     const getWidth = () => {
-        const widthChild = sliderRef.current.children[0].offsetWidth
-        const cols = sliderRef.current.offsetWidth / widthChild
+        const widthChild = slider.children[0].offsetWidth
+        const cols = slider.offsetWidth / widthChild
         return widthChild * cols
     }
 
@@ -53,26 +53,26 @@ export function SliderCarrusel({ children, dot_control = false }) {
         const index = Array.prototype.indexOf.call(e.target.parentElement.children, e.target);
         current = index
         reSetDot(index)
-        sliderRef.current.scrollLeft = getWidth() * index
+        slider.scrollLeft = getWidth() * index
     }
 
 
     const arrowControl = (bool) => {
         if (bool == true) {
-            if (current + 1 >= sliderRef.current.children.length) {
-                sliderRef.current.scrollLeft = 0
+            if (current + 1 >= slider.children.length) {
+                slider.scrollLeft = 0
                 current = 0
             } else {
                 current++
-                sliderRef.current.scrollLeft += getWidth()
+                slider.scrollLeft += getWidth()
             }
 
         } else {
             if (current < 1) {
-                sliderRef.current.scrollLeft = sliderRef.current.children.length * getWidth()
-                current = sliderRef.current.children.length - 1
+                slider.scrollLeft = slider.children.length * getWidth()
+                current = slider.children.length - 1
             } else {
-                sliderRef.current.scrollLeft -= getWidth()
+                slider.scrollLeft -= getWidth()
                 current = current - 1
             }
 
@@ -91,8 +91,8 @@ export function SliderCarrusel({ children, dot_control = false }) {
 
 
         //arrow controls
-        const arrow_control_cont = carrusel_slider_Ref.current.querySelector("arrow_control")
-        if(arrow_control_cont){
+        const arrow_control_cont = carrusel_slider_Ref.current.querySelector(".arrow_control")
+        if (arrow_control_cont) {
 
             arrow_control_cont.querySelector(".left_arrow_control").onclick = () => arrowControl(false)
             arrow_control_cont.querySelector(".right_arrow_control").onclick = () => arrowControl(true)
