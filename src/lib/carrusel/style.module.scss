@@ -18,6 +18,7 @@ $dot_control_color: pink;
         overflow: hidden;
         scroll-behavior: smooth;
         z-index: 100;
+        @apply snap-start;
 
         &.slider-grid {
             --n: 2;

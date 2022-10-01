@@ -11,58 +11,58 @@ export default function Footer() {
   const col1 = [
     {
       name:"nosotros",
-      link:"nosotros",
+      link:"/nosotros/",
     },
     {
       name:"competencias",
-      link:"/marco-normativo/competencias"
+      link:"/marco-normativo/competencias/",
     },
     {
       name:"transparencia",
-      link:"/transparencia",
+      link:"/transparencia/",
     },
     {
       name:"leyes y decretos",
-      link:"/leyes-y-decretos",
+      link:"/leyes-y-decretos/",
     },
     {
       name:"acuerdos",
-      link:"/acuerdos",
+      link:"/acuerdos/",
     },
     {
       name:"convenios",
-      link:"/convenios",
+      link:"/convenios/",
     },
    
   ]
   const col2 = [
     {
       name:"Noticias",
-      link:"noticias",
+      link:"/noticias/",
     },
     {
       name:"Ponencias del Congreso",
-      link:"/publicaciones/ponencias"
+      link:"/publicaciones/ponencias/",
     },
     {
       name:"revista justicia tributaria",
-      link:"/publicaciones/revista-tributaria",
+      link:"/publicaciones/revista-tributaria/",
     },
     {
       name:"memorias",
-      link:"/publicaciones/memorias",
+      link:"/publicaciones/memorias/",
     },
     {
       name:"resoluciones emitidas",
-      link:"/publicaciones/resoluciones",
+      link:"/publicaciones/resoluciones/",
     },
     {
       name:"Haciendo la Diferencia",
-      link:"/noticias",
+      link:"/noticias/",
     },
     {
       name:"Vacantes",
-      link:"/vacantes",
+      link:"/vacantes/",
     },
    
   ]

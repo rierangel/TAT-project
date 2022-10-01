@@ -13,7 +13,7 @@ export default function index() {
         <>
 
             {/* hora */}
-            {/* <section className=''>
+            <section className=''>
                 <div className='
         bg-primary relative color-white gap-6 py-[55px] px-12 rounded-xl  
         flex flex-col
@@ -40,7 +40,7 @@ export default function index() {
                 </div>
 
             </section>
-            <ConsulEstado /> */}
+            <ConsulEstado />
 
             <section>
                 <div className="subtitle">
