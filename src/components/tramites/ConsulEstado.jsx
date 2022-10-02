@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import useScrollSlider from 'src/lib/useScrollSlider'
+import useScrollSlider from 'src/lib/carrusel/useScrollSlider'
 export default function ConsulEstado() {
 
     const {scrollSliderRef, handleControlSlider} = useScrollSlider()

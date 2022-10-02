@@ -7,11 +7,12 @@ $xl: 1360px;
 $dot_control_color: pink;
 
 
+
 .carrusel_slider {
     // transition: all 0s ease;
 
-    position: relative;
-
+    // position: relative;
+    display: hidden;
     .slider {
         display: flex;
         flex-wrap: nowrap;
@@ -19,6 +20,10 @@ $dot_control_color: pink;
         scroll-behavior: smooth;
         z-index: 100;
         @apply snap-start;
+
+        &.hidden{
+            display: hidden;
+        }
 
         &.slider-grid {
             --n: 2;
@@ -84,4 +89,8 @@ $dot_control_color: pink;
 
 
 
+}
+
+.hidden{
+    display: none;
 }
