@@ -1,45 +1,9 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
-import {SliderCarrusel} from 'src/lib/carrusel/SliderCarrusel'
 
 export default function vacantes() {
     return (
         <Layer>
-
-            <section>
-                <SliderCarrusel dot_control={true}>
-                    <div>
-                        <h1>cuadro 1</h1>
-                    </div>
-
-                    <div>
-                        <h1>cuadro 2</h1>
-                    </div>
-                    <h1>cuadro 3</h1>
-
-                    <h1>cuadro 4</h1>
-
-                    <h1>cuadro 5</h1>
-
-                </SliderCarrusel>
-
-                <SliderCarrusel dot_control={true}>
-                    <div>
-                        <h1>cuadro 1</h1>
-                    </div>
-
-                    <div>
-                        <h1>cuadro 2</h1>
-                    </div>
-                    <h1>cuadro 3</h1>
-
-                    <h1>cuadro 4</h1>
-
-                    <h1>cuadro 5</h1>
-
-                </SliderCarrusel>
-
-            </section>
 
             <section>
                 <div className="subtitle">
