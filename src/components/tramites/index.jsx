@@ -5,7 +5,7 @@ import SvgFondo from '../icons/fondo'
 import SvgFondo2 from '../icons/fondo2'
 import ConsulEstado from './ConsulEstado'
 
-export default function index() {
+export default function Index() {
 
     const [imageFile, setImageFile] = useState()
     const [imageFile2, setImageFile2] = useState()

@@ -26,7 +26,7 @@ export default function Buscador({ data }) {
                 <select onChange={(e)=>console.log(e.target.value)} name="" id="">
                     <option className='hidden' >Seleccione año</option>
                     {dates && dates.map((e, i) => (
-                        <option className='bg-[#F7F8FB]' value={e}>{e} {i}</option>
+                        <option key={i} className='bg-[#F7F8FB]' value={e}>{e} {i}</option>
                     ))}
                 </select>
             </div>

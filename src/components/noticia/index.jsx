@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useGql } from 'src/lib/Fetcher'
 import Pagination from 'src/components/Pagination'
 
-export default function index({ slug }) {
+export default function Index({ slug }) {
   const rute = useRouter()
 
   const [search, setSearch] = useState()

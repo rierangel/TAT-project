@@ -63,7 +63,7 @@ export default function Socials() {
 
         <div className='flex items-center gap-7 justify-center md:justify-start'>
             {socialsItens.map((e, i) => (
-                <a key={i} href={e.link} target="_blank" className='cursor-pointer h-[30px] md:h-5 w-auto  svg_rp'>
+                <a key={i} href={e.link} rel="noreferrer" target="_blank"  className='cursor-pointer h-[30px] md:h-5 w-auto  svg_rp'>
                         {e.svg}
                 </a>
             ))}

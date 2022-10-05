@@ -159,7 +159,7 @@ export default function index() {
 
           {valores.map((e, i) => (
 
-            <div className="flex flex-col items-center p-5 md:p-9">
+            <div key={i} className="flex flex-col items-center p-5 md:p-9">
               <div className='svg_rp w-auto h-[30px] md:h-[53px]'>
 
                 {e.svg}

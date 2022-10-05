@@ -8,25 +8,23 @@ export default function SliderCarrusel({ children, dot_control }) {
 
     const caruselRef = useRef(null)
     const [slider, setSlider] = useState(null)
+    const [current, setCurrent] = useState(0)
+    const dotRef = useRef()
 
-    /**
-     * agrega los estilos correspondientes a los elementos del carrusel
-     */
-
+    const [cols, setCols] = useState(1)
 
     const getWidth = () => {
         const slider = caruselRef.current.querySelector(".slider_container")
 
         const widthChild = slider.children[0].offsetWidth
         const cols = slider.offsetWidth / widthChild
+        console.log("cols", cols);
         return widthChild * cols
     }
 
 
     // let current = 0
 
-    const [current, setCurrent] = useState(0)
-    const dotRef = useRef()
 
     const reSetDot = (i) => {
         for (let dot of dotRef.current.children) {
@@ -89,15 +87,15 @@ export default function SliderCarrusel({ children, dot_control }) {
             arrow_control_cont.querySelector(".left_arrow_control").onclick = () => arrowControl(false)
             arrow_control_cont.querySelector(".right_arrow_control").onclick = () => arrowControl(true)
         }
-    },)
+    },[])
 
 
     useEffect(() => {
-        if (dot_control && dotRef.current.children[0] !== undefined ) {
+        if (dotRef.current.children[0] !== undefined) {
             reSetDot(current)
         }
     }, [current])
-    
+
 
 
     return (
@@ -109,8 +107,12 @@ export default function SliderCarrusel({ children, dot_control }) {
             {/* dotControl */}
             {dot_control &&
                 <div ref={dotRef} className={style.dot_control}>
-                    {caruselRef.current != undefined && [...Array(caruselRef.current.querySelector(".slider_container").children.length).keys()].map((e, i) => (
-                        <div key={i} onClick={(e) => handleDot(e)} />
+                    {caruselRef.current != undefined && [...Array(caruselRef.current.querySelector(".slider_container").offsetWidth, caruselRef.current.querySelector(".slider_container").children[0].offsetWidth).keys()].map((e, i) => (
+                        <>
+                            {console.log()}
+
+                            <div key={i} onClick={(e) => handleDot(e)} />
+                        </>
                     ))}
                 </div>
             }

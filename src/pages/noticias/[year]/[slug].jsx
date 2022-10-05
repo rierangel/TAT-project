@@ -27,7 +27,7 @@ query{
 }
 `
 
-export default function page({ slug }) {
+export default function Page({ slug }) {
 
   const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/wp-json/wp/v2/posts?slug=${slug}`
 

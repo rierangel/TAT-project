@@ -61,7 +61,7 @@ export default function page() {
 
           <div className="lg:h-[454px] lg:-translate-y-12 order-2 ">
             <picture >
-              <source media="(min-width:1024px)" srcset="/img/ab/0.png" />
+              <source media="(min-width:1024px)" srcSet="/img/ab/0.png" />
               <img className='scale-[110%] lg:scale-100 w-auto -my-6 lg:my-0 ' src="/img/ab/1.png" alt="" />
             </picture>
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-export default function toggleList({ children, title }) {
+export default function ToggleList({ children, title }) {
     const [active, setactive] = useState()
 
     return (

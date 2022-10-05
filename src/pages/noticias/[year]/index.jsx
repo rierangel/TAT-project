@@ -1,7 +1,7 @@
 import Layer from "src/components/Layer";
 import Noticia from "src/components/noticia";
 
-export default function page({slug}) {
+export default function Page({slug}) {
   return (
     <Layer>
         <Noticia slug={slug}/>

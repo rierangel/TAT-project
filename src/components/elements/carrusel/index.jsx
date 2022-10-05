@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './carrusel.module.scss'
 
-export default function index({ data }) {
+export default function Index({ data }) {
     // const data = [...Array(8).keys()];
 
     const [images, setImages] = useState(data)
