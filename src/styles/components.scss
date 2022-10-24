@@ -115,7 +115,7 @@ ul.list{
 }
 
 .dot_gray{
-  @apply bg-[#EBEDF0] rounded-full py-[10px] px-[17px] flex w-max gap-2
+  @apply bg-[#EBEDF0] rounded-full py-[10px] px-[17px] flex gap-2 w-max whitespace-nowrap
 
 }
 

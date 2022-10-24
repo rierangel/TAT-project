@@ -12,7 +12,7 @@ export default function index() {
                     type="text"
                     placeholder='Escriba su búsqueda'
                 />
-                <div className='relative w-1/3'>
+                <div className='relative w-full md:w-1/3'>
 
                     <label htmlFor="seleccion" className='absolute top-[-10px] md:top-[-30px]'>Sección</label>
                     <select name="" id="seleccion" className='input-buscador mt-3 md:mt-0 w-full h-full'>

@@ -35,3 +35,52 @@
 
 
 }
+
+
+.tooltipNavbar {
+
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: v.$primary;
+    width: 100%;
+    @media (min-width:v.$md) {
+        position: relative;
+    }
+    .toggle {
+        padding: 12px 0px;
+        top: 20px;
+        left: 0;
+        white-space: nowrap;
+        border-radius: 12px;
+        background-color: v.$primary;
+        position: relative;
+
+        @media (min-width:v.$md) {
+            top: 20px;
+            position: absolute;
+        }
+
+        a {
+               // border: white 1px solid;
+               width: 100%;
+               color: white;
+            li {
+                padding: 12px;
+                cursor: pointer;
+                border: none;
+                width: 100%;
+                
+             
+            }
+
+        }
+
+        div {
+            padding: 0px 4px;
+
+        }
+    }
+
+
+}
