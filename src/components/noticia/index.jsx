@@ -70,8 +70,7 @@ export default function Index({ slug }) {
 
           {noticias && noticias.posts.nodes.map((e, i) => (
             <div key={i}>
-            </div>
-          ))}
+            </div>))}
 
       </section>
 

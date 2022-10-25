@@ -23,15 +23,15 @@ export default function Footer() {
     },
     {
       name:"leyes y decretos",
-      link:"/leyes-y-decretos/",
+      link:"/marco-normativo/normativa/leyes-y-decretos/",
     },
     {
       name:"acuerdos",
-      link:"/acuerdos/",
+      link:"/marco-normativo/normativa/acuerdos/",
     },
     {
       name:"convenios",
-      link:"/convenios/",
+      link:"/marco-normativo/normativa/convenios/",
     },
    
   ]

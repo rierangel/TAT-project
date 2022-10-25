@@ -56,7 +56,8 @@ hr {
 }
 
 
-// STYLES
+// ***********  font styles ************ // 
+
 p,
 html,
 body {
@@ -174,6 +175,9 @@ span {
     color: v.$primary;
 }
 
+// ***********  end font styles ************ // 
+
+
 
 table {
     width: 100%;
@@ -216,18 +220,20 @@ i {
     }
 }
 
+// ***********  buttons ************ // 
 
 button,
 .btn {
     border: none;
     text-align: center;
     text-decoration: none;
-    padding: 20px 26px;
     border-radius: 8px;
     outline: 3px solid transparent;
     outline-offset: 2px;
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    padding: 20px 26px;
 
     &.btn-sm {
         padding: 16px 24px;
@@ -342,6 +348,8 @@ button,
 
 }
 
+// ***********  inputs ************ // 
+
 textarea,
 select,
 input {
@@ -377,13 +385,13 @@ li {
 }
 
 
-.list{
+.list {
     li {
-      list-style: disc ;
-      margin-left: 20px;
+        list-style: disc;
+        margin-left: 20px;
     }
-  }
-  
+}
+
 .custom-list {
     li {
         position: relative;
@@ -405,12 +413,12 @@ li {
     }
 
     &.list-dorado {
-        li{
+        li {
 
-        &::before {
-            color: #A39161;
+            &::before {
+                color: #A39161;
+            }
+
         }
-
     }
-}
 }
