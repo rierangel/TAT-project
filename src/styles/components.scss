@@ -135,10 +135,10 @@ div.subtitle {
 
   .slider {
       // grid
-      --n: 2;
+      --n: 1;
       --g: 0px;
       @media (min-width: v.$md ) {
-          --n: 2;
+          --n: 1;
       }
 
       overflow: hidden;
@@ -176,13 +176,12 @@ div.subtitle {
           height: 8px;
           width: 8px;
           border-radius: 50%;
-          background-color: gray;
+          background-color: v.$Gray2;
           cursor: pointer;
 
           &:hover,
-
           &.active {
-              background-color: red;
+              background-color: v.$primary;
           }
       }
 

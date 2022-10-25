@@ -69,17 +69,25 @@ export default function Index({ slug }) {
     <>
 
 
-
+      <hr className='my-12 invisible' />
       {/* searsh form */}
-      <form action="" className='flex gap-[24px] mt-2 pb-9 border-b'>
-        <input className='w-1/2'
-          type="text"
-          placeholder='Escriba su búsqueda'
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <div className="relative">
 
+      <form action="" className='flex gap-[24px] pb-9 border-b'>
+
+        <div className='relative'>
+          <label htmlFor="text-input" className='absolute left-0 -top-8 '>Buscar</label>
+
+          <input className='w-1/2'
+            id='text-input'
+            type="text"
+            placeholder='Escriba su búsqueda'
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+        </div>
+
+        <div className="relative">
           <select onChange={(e) => handlerYear(e.target.value)} name="" id="" className='inset-0 h-full'>
             <option className='hidden' >Seleccione año</option>
             {dates && dates.map((e, i) => (

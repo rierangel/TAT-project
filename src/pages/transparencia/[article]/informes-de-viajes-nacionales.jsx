@@ -1,6 +1,6 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
-import DataGrid from 'src/components/DataGrid'
+import DataGrid from 'src/components/data_display/DataGrid'
 
 export default function informes_nacionales() {
 
