@@ -217,7 +217,8 @@ i {
 }
 
 
-button,.btn {
+button,
+.btn {
     border: none;
     text-align: center;
     text-decoration: none;
@@ -228,15 +229,16 @@ button,.btn {
     display: flex;
     align-items: center;
 
-    &.btn-sm{
+    &.btn-sm {
         padding: 16px 24px;
     }
-    &.btn-xs{
+
+    &.btn-xs {
         padding: 12px 16px;
 
     }
 
-    &.icon{
+    &.icon {
         gap: 11px;
         display: flex;
         align-items: center;
@@ -259,6 +261,7 @@ button,.btn {
             background-color: v.$primary-dark;
         }
     }
+
     &.white {
         background-color: white;
         color: v.$primary;
@@ -366,9 +369,48 @@ label {
 }
 
 
+// ***********  LIST ************ // 
+
 
 li {
     text-transform: capitalize;
 }
 
 
+.list{
+    li {
+      list-style: disc ;
+      margin-left: 20px;
+    }
+  }
+  
+.custom-list {
+    li {
+        position: relative;
+        margin-top: 1rem;
+        margin-left: 2rem;
+
+        &::before {
+            position: absolute;
+            top: -10px;
+            content: "\2022";
+            color: v.$primary;
+            font-weight: bold;
+            font-size: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            width: 1em;
+            margin-left: -1em;
+        }
+    }
+
+    &.list-dorado {
+        li{
+
+        &::before {
+            color: #A39161;
+        }
+
+    }
+}
+}

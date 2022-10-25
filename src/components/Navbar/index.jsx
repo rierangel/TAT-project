@@ -104,7 +104,7 @@ export default function Navbar() {
                                 </a>
                             </Link>
 
-                            <div  className='md:mt-6 flex items-start'>
+                            <div className='md:mt-6 flex items-start'>
                                 <Tooltip title="Nosotros">
                                     {nosotros.map((e, i) => (
                                         <Link key={i} href={`/nosotros${e.link}`}>
@@ -118,41 +118,38 @@ export default function Navbar() {
                                 </Tooltip>
                             </div>
 
+                            {/* marco normativo */}
                             <div className='md:mt-6 flex items-start' >
                                 <Tooltip title="Marco Normativo">
-                                    <Link href={`/marco-normativo/marco-normativo`}>
+                                    <Link href={`/marco-normativo/competencias`}>
                                         <a>
                                             <li >
-                                                quienes somos
+                                                Competencias
                                             </li>
                                         </a>
                                     </Link>
 
-                                    <Link href={`/marco-normativo/autoridades`}>
-                                        <a>
-                                            <li >
-                                                autoridades
-                                            </li>
-                                        </a>
-                                    </Link>
+
 
                                     <div className='my-4 ' >
                                         <Tooltip title="normativa">
-                                            <Link href={`/marco-normativo/marco-normativo`}>
+                                            <Link href={`/marco-normativo/normativa/leyes-y-decretos`}>
                                                 <a>
                                                     <li >
-                                                        quienes somos
+                                                        leyes y decretos
                                                     </li>
                                                 </a>
                                             </Link>
+                                            <Link href={`/marco-normativo/normativa/ponencias`}>
+                                                <a>
+                                                    <li >
+                                                        ponencias
+                                                    </li>
+                                                </a>
+                                            </Link>
+                               
 
-                                            <Link href={`/marco-normativo/autoridades`}>
-                                                <a>
-                                                    <li >
-                                                        autoridades
-                                                    </li>
-                                                </a>
-                                            </Link>
+                                         
 
                                         </Tooltip>
                                     </div>

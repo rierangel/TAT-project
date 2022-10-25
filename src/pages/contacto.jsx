@@ -10,6 +10,7 @@ export default function contacto() {
 
     <Contact/>
 
+    <hr className='my-16 invisible'/>
     <Oficinas/>
     </Layer>
   )

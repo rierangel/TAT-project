@@ -4,6 +4,6 @@ import FileList from 'src/components/FileList'
 
 export default function index() {
   return (
-    <Layer><FileList/></Layer>
+    <Layer><FileList buscador={true}/></Layer>
   )
 }

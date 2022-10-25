@@ -52,6 +52,7 @@
     }
 
     &:nth-child(even) {
+      @extend .border1;
       background: v.$Gray1;
     }
 
@@ -107,12 +108,6 @@
 }
 
 
-ul.list{
-  li {
-    list-style: disc ;
-    margin-left: 20px;
-  }
-}
 
 .dot_gray{
   @apply bg-[#EBEDF0] rounded-full py-[10px] px-[17px] flex gap-2 w-max whitespace-nowrap

@@ -3,7 +3,6 @@
 
 @import 'tailwind';
 @import 'styles';
-@import 'tags';
 @import 'utils';
 @import 'components';
 
@@ -83,7 +82,7 @@ form {
     }
 
     .form-control {
-      @apply flex flex-col w-full lg:w-1/2;
+      @apply flex flex-col w-full ;
       label {
         @apply mb-1 lg:mb-2
       }

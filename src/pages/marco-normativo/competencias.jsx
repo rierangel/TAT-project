@@ -19,38 +19,44 @@ export default function competencias() {
         <div className='space-y-9 mt-6'>
 
           <div className="p-9 border2 rounded-xl bg-white">
-            <h2 className='marco mb-4'>ley 8 - 2010</h2>
+            <h2 className='marco mb-4 text-[#0054A4]'>ley 8 - 2010</h2>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi tenetur libero dolorem mollitia temporibus eos cum provident autem quod odio. Voluptates dolores odio ullam dolore autem inventore, sed nam vel!
-              Velit, eveniet? Recusandae officiis nulla adipisci. Doloribus aliquid quis atque quod amet fuga porro, consequuntur ut repellendus a distinctio! Enim sed totam aliquid accusantium, nam magnam cumque similique maiores laborum.
-              Adipisci fugiat doloremque quo consectetur temporibus dolor dignissimos dicta neque ipsum, sint autem sunt saepe, iure porro quisquam impedit reprehenderit voluptatum. Doloremque quos mollitia blanditiis modi eius ipsum explicabo est.
-              Omnis impedit, magni ducimus dolorem assumenda repudiandae maiores nisi! Iusto quas quos doloribus, ipsa magnam totam nulla, aliquam illum dolor deleniti delectus eligendi voluptatibus aperiam est dicta aspernatur harum vitae?
-              Aliquam laborum repellat dicta quo culpa, consequatur maxime similique? Ratione obcaecati alias voluptatem culpa dolore sint molestiae quae consectetur, magnam reiciendis unde sapiente. Sequi, nesciunt voluptate. Ratione adipisci accusantium excepturi.
-              Laboriosam quidem mollitia, voluptate placeat maiores asperiores nam velit, autem ducimus fuga, officiis perferendis sed corporis distinctio cum animi temporibus. Obcaecati nostrum nobis ipsam laudantium, accusamus tempore sit dolorum corporis?
-              Sint vel repellat totam ullam ipsam hic quod non inventore voluptas nesciunt ipsum illum dolore a obcaecati soluta distinctio, eaque quas, possimus quis, quos sit autem ipsa molestias. Veniam, obcaecati.
-              Numquam quas aperiam ipsum facere consequatur suscipit mollitia unde, quasi eaque? Optio assumenda natus asperiores deleniti corporis at quae in qui non numquam, iste amet accusamus eligendi quis aliquam delectus!</p>
-            orro maxime deleniti laboriosam repellat, fugiat assumenda ex facilis suscipit natus. Placeat, eos nobis optio veniam adipisci esse suscipit? Eaque iure laboriosam fugit nam ipsa?
-            Quod dignissimos neque repellat necessitatibus vel asperiores, modi architecto dolorum repudiandae, consequuntur iste? Eaque, natus. Nam, nostrum, odio doloribus repellendus quaerat ipsum obcaecati quasi vitae ab harum at veritatis soluta?
-            Eligendi odit dolor labore saepe dolore nemo, laboriosam blanditiis minima unde inventore perferendis suscipit tempore fugiat mollitia omnis in? Cum, numquam ullam! Molestias illum iure maxime illo magni consequatur voluptates.
-            Debitis itaque eaque quidem, necessitatibus voluptatem, illum, reprehenderit voluptatum unde tenetur accusamus neque labore qui eos excepturi rem explicabo exercitationem? Tenetur harum aperiam deleniti sed, dolor ipsa sint magni architecto!
+
+            <div className='custom-list list-primary'>
+
+              <p>Mediante el artículo 156 de la Ley 8 de 15 de marzo de 2010, se creó el Tribunal Administrativo Tributario y se le otorgó competencia para:</p>
+              <ul>
+                <li>Conocer y resolver los recursos de apelación en contra de reclamaciones no contenciosas vinculadas a la determinación de la obligación tributaria.</li>
+                <li>Conocer y resolver en última instancia administrativa las apelaciones contra las resoluciones de la Dirección General de Ingresos y de las Administraciones Provinciales de Ingresos a nivel nacional, que resuelven reclamaciones de devoluciones de tributos nacionales, a excepción de los aduaneros; resoluciones relativas a liquidaciones adicionales, resoluciones de multas y sanciones así como cualquier otro acto administrativo que tenga relación directa con la determinación de tributos bajo competencia de dichas entidades en forma cierta o presuntiva.</li>
+                <li>Conocer y resolver los recursos de apelación contra los actos administrativos o resoluciones que afecten los derechos de los contribuyentes y de los responsables.</li>
+                <li>Resolver los recursos de apelación que presenten los contribuyentes contra los autos dictados por la Dirección General de Ingresos que nieguen o no admitan pruebas en primera instancia.Resolver los recursos de apelación que presenten los contribuyentes contra los autos dictados por la Dirección General de Ingresos que nieguen o no admitan pruebas en primera instancia.</li>
+                <li>Resolver en única instancia las tercerías, excepciones, nulidades e incidentes que se interpongan con motivo del procedimiento de cobro coactivo cursado ante la Dirección General de Ingresos.</li>
+                <li>Proponer al Ministro de Economía y Finanzas las normas que juzgue necesarias para suplir las deficiencias en la legislación tributaria.</li>
+                <li>Uniformar la jurisprudencia en las materias de su competencia.</li>
+              </ul>
+            </div>
+
+
+
           </div>
 
 
           <div className="p-9 border2 rounded-xl bg-white">
-            <h2 className='marco mb-4'>ley 8 - 2010</h2>
+            <h2 className='mb-4 text-[#A39161]'>ley 76 - 2019</h2>
+            <div className='custom-list list-dorado'>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi tenetur libero dolorem mollitia temporibus eos cum provident autem quod odio. Voluptates dolores odio ullam dolore autem inventore, sed nam vel!
-              Velit, eveniet? Recusandae officiis nulla adipisci. Doloribus aliquid quis atque quod amet fuga porro, consequuntur ut repellendus a distinctio! Enim sed totam aliquid accusantium, nam magnam cumque similique maiores laborum.
-              Adipisci fugiat doloremque quo consectetur temporibus dolor dignissimos dicta neque ipsum, sint autem sunt saepe, iure porro quisquam impedit reprehenderit voluptatum. Doloremque quos mollitia blanditiis modi eius ipsum explicabo est.
-              Omnis impedit, magni ducimus dolorem assumenda repudiandae maiores nisi! Iusto quas quos doloribus, ipsa magnam totam nulla, aliquam illum dolor deleniti delectus eligendi voluptatibus aperiam est dicta aspernatur harum vitae?
-              Aliquam laborum repellat dicta quo culpa, consequatur maxime similique? Ratione obcaecati alias voluptatem culpa dolore sint molestiae quae consectetur, magnam reiciendis unde sapiente. Sequi, nesciunt voluptate. Ratione adipisci accusantium excepturi.
-              Laboriosam quidem mollitia, voluptate placeat maiores asperiores nam velit, autem ducimus fuga, officiis perferendis sed corporis distinctio cum animi temporibus. Obcaecati nostrum nobis ipsam laudantium, accusamus tempore sit dolorum corporis?
-              Sint vel repellat totam ullam ipsam hic quod non inventore voluptas nesciunt ipsum illum dolore a obcaecati soluta distinctio, eaque quas, possimus quis, quos sit autem ipsa molestias. Veniam, obcaecati.
-              Numquam quas aperiam ipsum facere consequatur suscipit mollitia unde, quasi eaque? Optio assumenda natus asperiores deleniti corporis at quae in qui non numquam, iste amet accusamus eligendi quis aliquam delectus!</p>
-            orro maxime deleniti laboriosam repellat, fugiat assumenda ex facilis suscipit natus. Placeat, eos nobis optio veniam adipisci esse suscipit? Eaque iure laboriosam fugit nam ipsa?
-            Quod dignissimos neque repellat necessitatibus vel asperiores, modi architecto dolorum repudiandae, consequuntur iste? Eaque, natus. Nam, nostrum, odio doloribus repellendus quaerat ipsum obcaecati quasi vitae ab harum at veritatis soluta?
-            Eligendi odit dolor labore saepe dolore nemo, laboriosam blanditiis minima unde inventore perferendis suscipit tempore fugiat mollitia omnis in? Cum, numquam ullam! Molestias illum iure maxime illo magni consequatur voluptates.
-            Debitis itaque eaque quidem, necessitatibus voluptatem, illum, reprehenderit voluptatum unde tenetur accusamus neque labore qui eos excepturi rem explicabo exercitationem? Tenetur harum aperiam deleniti sed, dolor ipsa sint magni architecto!
+              <p>A través de la Ley 76 de 13 de febrero de 2019, que aprueba el Código de Procedimiento Tributario de la República de Panamá, se le confieren las siguientes competencias al TAT.</p>
+              <ul>
+                <li>Decidir si la Dirección General de Ingresos deba remitir al Ministerio Público las denuncias por defraudación fiscal penal, evaluando si existen los elementos mínimos probatorios de la supuesta comisión del delito.</li>
+                <li>Resolver los recursos de apelación contra las resoluciones administrativas de determinación, cuando exista disconformidad con la propuesta de regularización tributaria.</li>
+                <li>Autorizar la sanción de cierre temporal del establecimiento por la comisión de ilícitos tributarios.</li>
+                <li>Conocer los procesos abreviados por indemnización de los contribuyentes afectados por actuaciones de la Administración Tributaria.</li>
+                <li>Conocer los recursos de apelación interpuesto por solicitudes de error evidente.</li>
+                <li>Conocer los recursos de apelación interpuesto por solicitudes de error matemático o aritmético o de imputación de créditos o débitos en la cuenta corriente.</li>
+              </ul>
+            </div>
+
+
           </div>
         </div>
       </section>

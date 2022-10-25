@@ -1,4 +1,4 @@
-import Oficinas from './oficinas'
+import Oficinas from '../contacto/oficinas'
 import LastResolutions from './LastResolutions'
 import Paginas from './Paginas'
 import Posts from './Posts'
