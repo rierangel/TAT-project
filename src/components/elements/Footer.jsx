@@ -10,66 +10,66 @@ export default function Footer() {
 
   const col1 = [
     {
-      name:"nosotros",
-      link:"/nosotros/",
+      name: "nosotros",
+      link: "/nosotros/",
     },
     {
-      name:"competencias",
-      link:"/marco-normativo/competencias/",
+      name: "competencias",
+      link: "/marco-normativo/competencias/",
     },
     {
-      name:"transparencia",
-      link:"/transparencia/",
+      name: "transparencia",
+      link: "/transparencia/",
     },
     {
-      name:"leyes y decretos",
-      link:"/marco-normativo/normativa/leyes-y-decretos/",
+      name: "leyes y decretos",
+      link: "/marco-normativo/normativa/leyes-y-decretos/",
     },
     {
-      name:"acuerdos",
-      link:"/marco-normativo/normativa/acuerdos/",
+      name: "acuerdos",
+      link: "/marco-normativo/normativa/acuerdos/",
     },
     {
-      name:"convenios",
-      link:"/marco-normativo/normativa/convenios/",
+      name: "convenios",
+      link: "/marco-normativo/normativa/convenios/",
     },
-   
+
   ]
   const col2 = [
     {
-      name:"Noticias",
-      link:"/noticias/",
+      name: "Noticias",
+      link: "/noticias/",
     },
     {
-      name:"Ponencias del Congreso",
-      link:"/publicaciones/ponencias/",
+      name: "Ponencias del Congreso",
+      link: "/publicaciones/ponencias/",
     },
     {
-      name:"revista justicia tributaria",
-      link:"/publicaciones/revista-tributaria/",
+      name: "revista justicia tributaria",
+      link: "/publicaciones/revista-tributaria/",
     },
     {
-      name:"memorias",
-      link:"/publicaciones/memorias/",
+      name: "memorias",
+      link: "/publicaciones/memorias/",
     },
     {
-      name:"resoluciones emitidas",
-      link:"/publicaciones/resoluciones/",
+      name: "resoluciones emitidas",
+      link: "/publicaciones/resoluciones/",
     },
     {
-      name:"Haciendo la Diferencia",
-      link:"/noticias/",
+      name: "Haciendo la Diferencia",
+      link: "/noticias/",
     },
     {
-      name:"Vacantes",
-      link:"/vacantes/",
+      name: "Vacantes",
+      link: "/vacantes/",
     },
-   
+
   ]
 
   // const col2 = ["Noticias", "Ponencias del Congreso", "revista justicia tributaria", "memorias",  "resoluciones emitidas", "Haciendo la Diferencia",]
-  const col3 = [  "Congreso Int. de Derecho Tributario", "Vacantes", "Formulario del Banco de Peritos","Otras Instituciones" ,"Contacto", "Mapa del sitio",]
-  const col4 = [ "Declaración de privacidad","Preguntas Frecuentes",]
+  const col3 = ["Congreso Int. de Derecho Tributario", "Vacantes", "Formulario del Banco de Peritos", "Otras Instituciones", "Contacto", "Mapa del sitio",]
+  const col4 = ["Declaración de privacidad", "Preguntas Frecuentes",]
 
   return (
     <footer className="pt-6 pb-24 md:pt-16 md:pb-24 ">
@@ -80,11 +80,14 @@ export default function Footer() {
 
           <div className="flex flex-col justify-between">
 
-            <img className="w-52 h-16 md:w-56 md:h-[70px] object-cover" src="/img/logo.png" alt="" />
+            <div className='w-52 h-16 md:w-full md:h-auto mb-14 md:mb-0 '>
+
+              <img className="w-full h-full object-contain" src="/img/logo.png" alt="" />
+            </div>
             {/* <img className="w-32 h-10 md:w-auto md:h-auto object-cover" src="/img/logo.png" alt="" /> */}
 
             <p className="absolute md:relative bottom-[60px] md:bottom-0 right-0 left-0 text-center md:text-left copyright ">
-              Copyright © 2022. <br className='hidden md:flex'/>
+              Copyright © 2022. <br className='hidden md:flex' />
               Tribunal Administrativo Tributario. <br />
               Todos los derechos reservados
             </p>

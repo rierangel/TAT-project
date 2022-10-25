@@ -2,7 +2,9 @@ import ToggleList from '../../lib/ToggleList'
 export default function index() {
 
     return (
-        <>
+        <>  
+        <div className='flex justify-between flex-col md:flex-row'>
+
             <div className="subtitle">
                 <i>
                     <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,6 +20,8 @@ export default function index() {
                     <p>Actualizado al mes de julio del 2022</p>
                 </div>
             </div>
+        </div>
+
             <p>
                 En cumplimiento a la Ley n.°6/2002 6 de 22 de enero que dicta normas para la transparencia en la gestión pública, el Tribunal Administrativo Tributario publica la documentación correspondiente.
                 En caso de que requiera alguna otra información, consulte la sección de reglas de procedimientos.
@@ -55,7 +59,7 @@ export default function index() {
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </ToggleList>
                 </div>
@@ -87,7 +91,7 @@ export default function index() {
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </ToggleList>
                 </div>
@@ -119,12 +123,12 @@ export default function index() {
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </ToggleList>
                 </div>
 
-                
+
                 <div className='p-9 border1 rounded-xl'>
                     <ToggleList title={"Artículo 26"}>
                         <ul className='pt-9 gap-3 space-y-3'>
@@ -152,11 +156,11 @@ export default function index() {
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </ToggleList>
                 </div>
-                
+
                 <div className='p-9 border1 rounded-xl'>
                     <ToggleList title={"Artículo 27"}>
                         <ul className='pt-9 gap-3 space-y-3'>
@@ -184,7 +188,7 @@ export default function index() {
                                     <p>Reglamento interno</p>
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </ToggleList>
                 </div>

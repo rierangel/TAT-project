@@ -235,6 +235,14 @@ button,
     gap: 0.5rem;
     padding: 20px 26px;
 
+    cursor: pointer;
+
+    &.border1{
+        background-color: v.$Gray1;
+
+    }
+
+
     &.btn-sm {
         padding: 16px 24px;
     }
