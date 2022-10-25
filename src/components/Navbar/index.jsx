@@ -136,7 +136,7 @@ export default function Navbar() {
                                         </a>
                                     </Link>
 
-                                    <div className='my-4' >
+                                    <div className='my-4 ' >
                                         <Tooltip title="normativa">
                                             <Link href={`/marco-normativo/marco-normativo`}>
                                                 <a>

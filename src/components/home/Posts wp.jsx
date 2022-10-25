@@ -40,6 +40,8 @@ export default function Posts() {
     }
     console.log(posts)
   }, [isLoading, posts])
+
+  right = []
   return (posts &&
     <>
       <div className="grid grid-cols-2 gap-6">

@@ -16,13 +16,13 @@ export default function Layer({ children }) {
 
             <div className='relative'>
 
-                <main className="container z-10 relative min-h-screen">
+                <main className="container relative min-h-screen">
                     <Path />
                     {children}
 
                 </main>
 
-                    <div className='hidden lg:flex absolute bottom-0 right-0 z-0'>
+                    <div className='hidden lg:flex absolute bottom-0 right-0 -z-50'>
                         <SvgFondo />
                     </div>
             </div>

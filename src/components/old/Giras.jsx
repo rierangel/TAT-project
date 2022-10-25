@@ -1,11 +1,12 @@
 import Link from 'next/link'
+import styles from './styles.module.scss'
 
 
 export default function Giras() {
 
   
   return (
-    <div className={styles.gira}>
+    <div className={styles.giras}>
 
       <Link href="" >
         <a className='hover1 border2'>

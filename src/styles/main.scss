@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 @import 'tailwind';
-@import 'resets';
+@import 'styles';
 @import 'tags';
 @import 'utils';
 @import 'components';
@@ -10,7 +10,7 @@
 
 .paginas-interes {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 1.9rem;
@@ -28,6 +28,8 @@
   }
 
   @media (min-width:v.$md) {
+    flex-direction: column;
+
     background-color: transparent;
     border: 2px solid transparent;
 
@@ -37,6 +39,13 @@
       color: v.$primary;
       border: 2px solid v.$ligh3;
       background-color: v.$ligh1;
+    }
+
+    p {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 19px;
     }
 
   }
@@ -75,7 +84,6 @@ form {
 
     .form-control {
       @apply flex flex-col w-full lg:w-1/2;
-
       label {
         @apply mb-1 lg:mb-2
       }

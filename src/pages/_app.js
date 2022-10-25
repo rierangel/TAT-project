@@ -1,4 +1,4 @@
-import 'src/styles/globals.scss'
+import 'src/styles/main.scss'
 
 import {
   QueryClient,
