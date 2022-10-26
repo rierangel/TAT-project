@@ -22,7 +22,7 @@ export default function Layer({ children }) {
 
                 </main>
 
-                    <div className='hidden lg:flex absolute bottom-0 right-0 -z-50'>
+                    <div className='hidden lg:flex fixed bottom-0 right-0 -z-50'>
                         <SvgFondo />
                     </div>
             </div>

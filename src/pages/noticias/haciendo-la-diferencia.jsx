@@ -16,7 +16,9 @@ export default function page() {
                 <h1 className="">Haciendo la Diferencia</h1>
             </div>
 
-            <p className="mt-6 mb-16">Como parte de nuestra "visión" encaminada a "Ser reconocidos por la calidad y efectividad de nuestras actuaciones y mantener un recurso humano calificado", el Tribunal Administrativo Tributario organiza y participa de distintas actividades que promueven la responsabilidad social de la institución.</p>
+            <p className="mt-6 mb-16">
+                {`Como parte de nuestra "visión" encaminada a "Ser reconocidos por la calidad y efectividad de nuestras actuaciones y mantener un recurso humano calificado", el Tribunal Administrativo Tributario organiza y participa de distintas actividades que promueven la responsabilidad social de la institución.`}
+                </p>
 
             <Noticia />
         </Layer>

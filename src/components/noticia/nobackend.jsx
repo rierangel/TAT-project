@@ -108,7 +108,7 @@ export default function Index({ slug }) {
       <section>
         {/* noticias */}
         {cont.map((e, i) => (
-          <div className="py-6 border-b px-3 flex space-x-[24px] hover1">
+          <div key={i} className="py-6 border-b px-3 flex space-x-[24px] hover1">
             <div className="w-[193px] h-[142px]  ">
               <img className='object-cover h-full w-full rounded-lg' src={"/img/tat.png"} alt="" />
             </div>
