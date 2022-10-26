@@ -1,5 +1,6 @@
 import Layer from "src/components/Layer";
-import NoticiaList from "src/components/nobackend";
+import NoticiaList from "src/components/noticia/nobackend";
+
 
 export default function Page({slug}) {
   return (
