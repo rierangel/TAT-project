@@ -1,5 +1,5 @@
 import Layer from "src/components/Layer";
-import Noticia from "src/components/noticia/nobackend";
+import NoticiaList from "src/components/noticia/nobackend";
 
 import SliderCarrusel from "./carrusel";
 
@@ -17,7 +17,7 @@ export default function page() {
         <h1 className="">Noticias</h1>
       </div>
 
-      <Noticia />
+      <NoticiaList />
     </Layer>
   )
 }

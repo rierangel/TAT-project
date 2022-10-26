@@ -82,7 +82,7 @@ export default function Index({ slug }) {
         <h1 className="mb-5">Noticias</h1>
         {/* searsh form */}
         <form action="" className='flex gap-[24px] mt-2 pb-9 border-b'>
-          <input className='w-1/2'
+          <input className='w-full'
             type="text"
             placeholder='Escriba su búsqueda'
             value={search}

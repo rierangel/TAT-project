@@ -93,7 +93,7 @@ export default function SliderCarrusel({ children, dot_control }) {
                 <div ref={sliderRef} className="slider w-full">
                     {cont.map((e, i) => (
                         <div className='flex flex-col justify-start' key={i}>
-                            <div className='relative z-50 w-full sm:h-[211px] md:h-[311px]  lg:h-[411px] overflow-hidden'>
+                            <div className='relative z-10 w-full sm:h-[211px] md:h-[311px]  lg:h-[411px] overflow-hidden'>
                                 <img className='w-full object-contain object-center' src="https://usercontent.one/wp/www.entornoestudiantil.com/wp-content/uploads/2018/03/La-clasificacion-de-las-empresas.jpg" alt="" />
                             </div>
                             <div className="border3 p-9 flex-col text-left justify-start -mt-4 ">

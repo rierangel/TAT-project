@@ -25,7 +25,7 @@ export default function Contact() {
     return (
         <>
             <h1>Contacto</h1>
-            <p>Si tiene dudas, consultas o comentarios, no dude en comunicarse con nosotros.</p>
+            <p className='my-4'>Si tiene dudas, consultas o comentarios, no dude en comunicarse con nosotros.</p>
 
             <div className='flex gap-6 flex-col md:flex-row'>
 
@@ -33,7 +33,7 @@ export default function Contact() {
 
                     <form action="" className='form'>
 
-                        <div className='dot_interes'>
+                        {/* <div className='dot_interes'>
                             <div className="subtitle text">
                                 <i>
                                     <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +42,7 @@ export default function Contact() {
                                 </i>
                                 <small>Los datos que proporcione serán almacenados y podrían ser usados para contactarnos con usted.</small>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className='form-control w-full'>
                             <label htmlFor="name">Nombre y Apellido</label>
@@ -72,7 +72,7 @@ export default function Contact() {
 
 
 
-                        <button className='primary' type="submit">Enviar mensaje</button>
+                        <button className='primary mt-4' type="submit">Enviar mensaje</button>
 
                     </form>
                 </div>
@@ -84,7 +84,7 @@ export default function Contact() {
                     <h2>Otros Departamentos</h2>
 
                     <div>
-                        <h4 className='mb-3'>Departamento 1</h4>
+                        <h3 className='mb-3'>Departamento 1</h3>
                         <div className='subtitle'>
                             <div className='w-auto h-5'>
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,9 +94,9 @@ export default function Contact() {
                             <p>504-3400 / 504-3401</p>
                         </div>
                     </div>
-
+                    
                     <div>
-                        <h4 className='mb-3'>Departamento 2</h4>
+                        <h3 className='mb-3'>Departamento 1</h3>
                         <div className='subtitle'>
                             <div className='w-auto h-5'>
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,9 +106,9 @@ export default function Contact() {
                             <p>504-3400 / 504-3401</p>
                         </div>
                     </div>
-
+                    
                     <div>
-                        <h4 className='mb-3'>Departamento 3</h4>
+                        <h3 className='mb-3'>Departamento 1</h3>
                         <div className='subtitle'>
                             <div className='w-auto h-5'>
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,8 +118,9 @@ export default function Contact() {
                             <p>504-3400 / 504-3401</p>
                         </div>
                     </div>
+                    
                     <div>
-                        <h4 className='mb-3'>Departamento 4</h4>
+                        <h3 className='mb-3'>Departamento 1</h3>
                         <div className='subtitle'>
                             <div className='w-auto h-5'>
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,8 +130,9 @@ export default function Contact() {
                             <p>504-3400 / 504-3401</p>
                         </div>
                     </div>
+                    
                     <div>
-                        <h4 className='mb-3'>Departamento 5</h4>
+                        <h3 className='mb-3'>Departamento 1</h3>
                         <div className='subtitle'>
                             <div className='w-auto h-5'>
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -140,7 +142,6 @@ export default function Contact() {
                             <p>504-3400 / 504-3401</p>
                         </div>
                     </div>
-
 
                 </div>
             </div>

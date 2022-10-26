@@ -1,10 +1,10 @@
 import Layer from "src/components/Layer";
-import Noticia from "src/components/noticia";
+import NoticiaList from "src/components/nobackend";
 
 export default function Page({slug}) {
   return (
     <Layer>
-        <Noticia slug={slug}/>
+        <NoticiaList slug={slug}/>
     </Layer>
   )
 }

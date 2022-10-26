@@ -1,5 +1,5 @@
 import Layer from "src/components/Layer";
-import Noticia from "src/components/noticia/nobackend";
+import NoticiaList from "src/components/noticia/nobackend";
 
 export default function page() {
     const cont = [...Array(10).keys()];
@@ -16,7 +16,7 @@ export default function page() {
                 <h1 className="">Congreso Internacional de Derecho Tributario</h1>
             </div>
 
-            <Noticia />
+            <NoticiaList />
         </Layer>
     )
 }
