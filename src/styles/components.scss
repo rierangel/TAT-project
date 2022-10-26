@@ -117,14 +117,22 @@
 div.subtitle {
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   gap: 1rem;
 
-  &.text {
-      margin-bottom: 0px;
+  &:first-child{
+    margin: 0px;
+    margin-bottom: auto;
   }
-  i,svg{
+
+
+  &:last-child{
+    margin: 0px;
+    margin-top: 5px;
   }
+ 
+
+
 }
 
 

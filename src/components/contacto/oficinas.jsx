@@ -70,18 +70,18 @@ export default function Oficinas() {
                         <p>central@tribunaltributario.gob.pa</p>
                     </div>
 
-                    <button className="outline btn-sm gap-4 w-auto lg:mr-auto flex-center">
+                    <a className="btn outline btn-sm gap-4 w-auto lg:mr-auto flex-center">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.9398 1V9.125C11.9398 9.37364 11.841 9.6121 11.6652 9.78791C11.4894 9.96373 11.2509 10.0625 11.0023 10.0625C10.7537 10.0625 10.5152 9.96373 10.3394 9.78791C10.1636 9.6121 10.0648 9.37364 10.0648 9.125V3.26562L1.66636 11.6641C1.48945 11.8387 1.25088 11.9366 1.0023 11.9366C0.753726 11.9366 0.515152 11.8387 0.338239 11.6641C0.250839 11.577 0.181492 11.4735 0.134175 11.3595C0.0868573 11.2456 0.0625 11.1234 0.0625 11C0.0625 10.8766 0.0868573 10.7544 0.134175 10.6405C0.181492 10.5265 0.250839 10.423 0.338239 10.3359L8.73668 1.9375H2.8773C2.62866 1.9375 2.3902 1.83873 2.21439 1.66291C2.03857 1.4871 1.9398 1.24864 1.9398 1C1.9398 0.75136 2.03857 0.512903 2.21439 0.337087C2.3902 0.161272 2.62866 0.0625 2.8773 0.0625H11.0023C11.2509 0.0625 11.4894 0.161272 11.6652 0.337087C11.841 0.512903 11.9398 0.75136 11.9398 1Z" fill="#0054A4" />
                         </svg>
                         Abrir Mapa
-                    </button>
+                    </a>
                 </div>
                 <div className='
                 space-y-4 p-5 lg:p-9 flex flex-col justify-between  rounded-xl
                 border border-transparent lg:border-[#E0EAF4] bg-white
                 '>
-                    <h2>Sede Central</h2>
+                    <h2>Sede Regional de Provincias Centrales</h2>
                     <div className='subtitle'>
                         <div className='w-auto h-5'>
                             <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,7 +89,7 @@ export default function Oficinas() {
                             </svg>
                         </div>
 
-                        <p>Calle 53 Este y Av. 3ra. Sur - Edificio Victoria Plaza, Obarrio, Piso 3.</p>
+                        <p>Calle Décima - Edificio Don Michelle, local #2, Santiago, Veraguas.</p>
                     </div>
                     <div className='subtitle'>
                         <div className='w-auto h-5'>
@@ -107,15 +107,15 @@ export default function Oficinas() {
                             </svg>
                         </div>
 
-                        <p>central@tribunaltributario.gob.pa</p>
+                        <p>provincias@tribunaltributario.gob.pa</p>
                     </div>
 
-                    <button className="outline btn-sm gap-4 w-auto lg:mr-auto flex-center">
+                    <a className="btn outline btn-sm gap-4 w-auto lg:mr-auto flex-center">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.9398 1V9.125C11.9398 9.37364 11.841 9.6121 11.6652 9.78791C11.4894 9.96373 11.2509 10.0625 11.0023 10.0625C10.7537 10.0625 10.5152 9.96373 10.3394 9.78791C10.1636 9.6121 10.0648 9.37364 10.0648 9.125V3.26562L1.66636 11.6641C1.48945 11.8387 1.25088 11.9366 1.0023 11.9366C0.753726 11.9366 0.515152 11.8387 0.338239 11.6641C0.250839 11.577 0.181492 11.4735 0.134175 11.3595C0.0868573 11.2456 0.0625 11.1234 0.0625 11C0.0625 10.8766 0.0868573 10.7544 0.134175 10.6405C0.181492 10.5265 0.250839 10.423 0.338239 10.3359L8.73668 1.9375H2.8773C2.62866 1.9375 2.3902 1.83873 2.21439 1.66291C2.03857 1.4871 1.9398 1.24864 1.9398 1C1.9398 0.75136 2.03857 0.512903 2.21439 0.337087C2.3902 0.161272 2.62866 0.0625 2.8773 0.0625H11.0023C11.2509 0.0625 11.4894 0.161272 11.6652 0.337087C11.841 0.512903 11.9398 0.75136 11.9398 1Z" fill="#0054A4" />
                         </svg>
                         Abrir Mapa
-                    </button>
+                    </a>
                 </div>
             </div>
 

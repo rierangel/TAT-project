@@ -148,3 +148,25 @@ footer {
     line-height: 19px;
   }
 }
+
+
+// ******** Tramites ***********//
+
+.slect-form-consulta{
+  @apply flex border-b mb-9;
+
+  >div{
+      width: 100%;
+      padding: 16px;
+      @extend .flex-center;
+      border-bottom: 3px solid transparent;
+
+  }
+  .active{
+      background-color: v.$Gray1;
+      color: v.$primary;
+      font-weight: 700;
+      border-bottom: 3px solid v.$primary;
+
+  }
+}

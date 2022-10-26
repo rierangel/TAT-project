@@ -1,15 +1,22 @@
 import React, { useRef } from 'react'
-import useScrollSlider from 'src/lib/carrusel/useScrollSlider'
 export default function ConsulEstado() {
 
-    const {scrollSliderRef, handleControlSlider} = useScrollSlider()
+    const scrollSliderRef = useRef()
 
-    const handleChange = (bool)=>{
-        handleControlSlider(bool)
+    const handleScroll = (e, value) => {
+        const widthScroll = scrollSliderRef.current.children[0].offsetWidth
+        scrollSliderRef.current.scrollLeft = widthScroll * value
+        console.log(widthScroll * value);
+
+        for (let index = 0; index < e.target.parentNode.children.length; index++) {
+            const element = e.target.parentNode.children[index];
+            element.className = ""
+        }
+
+        e.target.className = "active"
     }
-
     return (
-        <section className='mt-16 lg:mt-6'>
+        <section className='mt-16 lg:mt-6' id='t-estado'>
             <div className="subtitle">
                 <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M25.375 9.375C25.3772 9.22532 25.3484 9.07681 25.2903 8.93885C25.2322 8.80088 25.1461 8.67646 25.0375 8.57344L17.1766 0.698438L17.0922 0.628125H17.0641L16.9937 0.585938H16.9797L16.9094 0.529688H16.8953L16.8109 0.4875H16.7969L16.6984 0.445313H2.875C2.29025 0.445027 1.72835 0.672404 1.30836 1.07927C0.888369 1.48614 0.643273 2.04053 0.625 2.625V27.375C0.625 27.9717 0.862053 28.544 1.28401 28.966C1.70597 29.3879 2.27826 29.625 2.875 29.625H23.125C23.7217 29.625 24.294 29.3879 24.716 28.966C25.1379 28.544 25.375 27.9717 25.375 27.375V9.375ZM17.5 4.21406L21.5359 8.25H17.5V4.21406ZM23.125 27.375H2.875V2.625H15.25V9.375C15.25 9.67337 15.3685 9.95952 15.5795 10.1705C15.7905 10.3815 16.0766 10.5 16.375 10.5H23.125V27.375ZM16.7266 20.5125C17.2353 19.7041 17.5035 18.7676 17.5 17.8125C17.4987 16.4695 16.9682 15.1811 16.0234 14.2266C15.349 13.5542 14.4986 13.0857 13.5698 12.8749C12.6411 12.6641 11.6717 12.7195 10.7731 13.0348C9.87446 13.3501 9.08298 13.9125 8.48958 14.6574C7.89618 15.4023 7.52493 16.2995 7.41846 17.2458C7.31199 18.1922 7.47463 19.1494 7.88769 20.0076C8.30076 20.8657 8.94749 21.5899 9.75361 22.097C10.5597 22.6041 11.4925 22.8735 12.4449 22.8743C13.3972 22.8751 14.3305 22.6073 15.1375 22.1016L16.6703 23.6484C16.8863 23.8549 17.1731 23.9706 17.4719 23.9719C17.7701 23.9678 18.056 23.8525 18.2734 23.6484C18.4847 23.4351 18.6032 23.1471 18.6032 22.8469C18.6032 22.5467 18.4847 22.2586 18.2734 22.0453L16.7266 20.5125ZM10.4547 19.7953C10.0031 19.3372 9.72401 18.7368 9.66497 18.0961C9.60594 17.4555 9.77055 16.8142 10.1308 16.2813C10.4911 15.7483 11.0249 15.3565 11.6413 15.1725C12.2578 14.9886 12.9189 15.0237 13.5124 15.2721C14.1059 15.5204 14.595 15.9666 14.8967 16.5347C15.1985 17.1029 15.2941 17.7581 15.1675 18.3888C15.0408 19.0195 14.6997 19.587 14.202 19.9946C13.7043 20.4023 13.0808 20.625 12.4375 20.625C12.0684 20.6258 11.7029 20.5528 11.3623 20.4103C11.0218 20.2678 10.7133 20.0587 10.4547 19.7953Z" fill="#0054A4" />
@@ -24,11 +31,12 @@ export default function ConsulEstado() {
 
                     {/* select form */}
                     <div className='slect-form-consulta'>
-                        <div onClick={(e) => handleChange(e, false)} className=''>Trámites</div>
-                        <div onClick={(e) => handleChange(e, true)} className='active'>Expedientes</div>
+                        <div onClick={(e) => handleScroll(e, 0)} className='active'>Trámites</div>
+                        <div onClick={(e) => handleScroll(e, 1)} className=''>Expedientes</div>
                     </div>
 
                     <div ref={scrollSliderRef} className="scroll-slider">
+
                         <form className='form slider' action="">
                             <div className='single'>
                                 <label htmlFor="name">Ingrese PIN</label>
@@ -53,6 +61,7 @@ export default function ConsulEstado() {
                                 Consultar
                             </button>
                         </form>
+
                         <form className='form slider' action="">
                             <div className='single'>
                                 <label htmlFor="name">Ingrese PIN</label>
@@ -82,24 +91,37 @@ export default function ConsulEstado() {
                 </div>
 
                 <div className='dot_interes'>
-                    <div className="subtitle text mb-3">
-                        <i>
-                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10.5234 0.300049C8.52091 0.300049 6.56334 0.89387 4.89829 2.00642C3.23325 3.11897 1.9355 4.70028 1.16916 6.55038C0.402825 8.40048 0.202316 10.4363 0.592991 12.4003C0.983666 14.3644 1.94798 16.1685 3.36399 17.5845C4.77999 19.0005 6.58409 19.9648 8.54815 20.3555C10.5122 20.7462 12.548 20.5457 14.3981 19.7793C16.2482 19.013 17.8295 17.7152 18.9421 16.0502C20.0546 14.3851 20.6484 12.4276 20.6484 10.425C20.646 7.74049 19.5784 5.1666 17.6802 3.26833C15.7819 1.37007 13.208 0.302531 10.5234 0.300049ZM10.5234 18.3C8.96591 18.3 7.44336 17.8382 6.14833 16.9729C4.85329 16.1076 3.84393 14.8776 3.24789 13.4387C2.65185 11.9997 2.4959 10.4163 2.79976 8.88871C3.10362 7.36111 3.85364 5.95792 4.95498 4.85658C6.05631 3.75524 7.45951 3.00522 8.98711 2.70136C10.5147 2.39751 12.0981 2.55346 13.5371 3.1495C14.976 3.74554 16.2059 4.7549 17.0713 6.04993C17.9366 7.34497 18.3984 8.86752 18.3984 10.425C18.396 12.5129 17.5655 14.5145 16.0892 15.9908C14.6129 17.4671 12.6113 18.2976 10.5234 18.3ZM12.3984 14.925C12.3984 15.2234 12.2799 15.5096 12.0689 15.7205C11.858 15.9315 11.5718 16.05 11.2734 16.05H10.5234C10.2251 16.05 9.93892 15.9315 9.72795 15.7205C9.51697 15.5096 9.39844 15.2234 9.39844 14.925V11.1094C9.17854 11.0331 8.98801 10.89 8.85352 10.7C8.71903 10.5101 8.64732 10.2828 8.64844 10.05C8.64844 9.75168 8.76697 9.46553 8.97795 9.25455C9.18892 9.04358 9.47507 8.92505 9.77344 8.92505H10.5234C10.8218 8.92505 11.108 9.04358 11.3189 9.25455C11.5299 9.46553 11.6484 9.75168 11.6484 10.05V13.8657C11.8683 13.942 12.0589 14.0851 12.1934 14.2751C12.3279 14.465 12.3996 14.6923 12.3984 14.925ZM8.83594 6.30005C8.83594 6.00338 8.92391 5.71337 9.08874 5.46669C9.25356 5.22002 9.48783 5.02776 9.76192 4.91423C10.036 4.8007 10.3376 4.77099 10.6286 4.82887C10.9195 4.88675 11.1868 5.02961 11.3966 5.23939C11.6064 5.44917 11.7492 5.71644 11.8071 6.00741C11.865 6.29838 11.8353 6.59998 11.7218 6.87407C11.6082 7.14816 11.416 7.38243 11.1693 7.54725C10.9226 7.71208 10.6326 7.80005 10.3359 7.80005C9.93812 7.80005 9.55659 7.64201 9.27528 7.36071C8.99398 7.0794 8.83594 6.69787 8.83594 6.30005Z" fill="#0F1620" />
-                            </svg>
-                        </i>
-                        <h2>Pasos para consultar Trámites o Expedientes</h2>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>Posiciona la cámara  de manera que los datos de tu cédula se vean bien legibles al frente (adelante) y dorso (atrás).</li>
-                            <li>La fotografía de los datos de la cédula de identidad deben ser legibles. (No debe reflejar la luz, ni debe estar borrosa ya que se debe observar la fotografía y el texto legible).</li>
-                            <li>Posiciona la cámara  de manera que los datos de tu cédula se vean bien legibles al frente (adelante) y dorso (atrás).</li>
-                            <li>La fotografía de los datos de la cédula de identidad deben ser legibles. (No debe reflejar la luz, ni debe estar borrosa ya que se debe observar la fotografía y el texto legible).</li>
-                            <li>Posiciona la cámara  de manera que los datos de tu cédula se vean bien legibles al frente (adelante) y dorso (atrás).</li>
-                            <li>La fotografía de los datos de la cédula de identidad deben ser legibles. (No debe reflejar la luz, ni debe estar borrosa ya que se debe observar la fotografía y el texto legible).</li>
-                        </ul>
-                    </div>
+
+                        <div className="subtitle text">
+                            <i>
+                                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.5234 0.300049C8.52091 0.300049 6.56334 0.89387 4.89829 2.00642C3.23325 3.11897 1.9355 4.70028 1.16916 6.55038C0.402825 8.40048 0.202316 10.4363 0.592991 12.4003C0.983666 14.3644 1.94798 16.1685 3.36399 17.5845C4.77999 19.0005 6.58409 19.9648 8.54815 20.3555C10.5122 20.7462 12.548 20.5457 14.3981 19.7793C16.2482 19.013 17.8295 17.7152 18.9421 16.0502C20.0546 14.3851 20.6484 12.4276 20.6484 10.425C20.646 7.74049 19.5784 5.1666 17.6802 3.26833C15.7819 1.37007 13.208 0.302531 10.5234 0.300049ZM10.5234 18.3C8.96591 18.3 7.44336 17.8382 6.14833 16.9729C4.85329 16.1076 3.84393 14.8776 3.24789 13.4387C2.65185 11.9997 2.4959 10.4163 2.79976 8.88871C3.10362 7.36111 3.85364 5.95792 4.95498 4.85658C6.05631 3.75524 7.45951 3.00522 8.98711 2.70136C10.5147 2.39751 12.0981 2.55346 13.5371 3.1495C14.976 3.74554 16.2059 4.7549 17.0713 6.04993C17.9366 7.34497 18.3984 8.86752 18.3984 10.425C18.396 12.5129 17.5655 14.5145 16.0892 15.9908C14.6129 17.4671 12.6113 18.2976 10.5234 18.3ZM12.3984 14.925C12.3984 15.2234 12.2799 15.5096 12.0689 15.7205C11.858 15.9315 11.5718 16.05 11.2734 16.05H10.5234C10.2251 16.05 9.93892 15.9315 9.72795 15.7205C9.51697 15.5096 9.39844 15.2234 9.39844 14.925V11.1094C9.17854 11.0331 8.98801 10.89 8.85352 10.7C8.71903 10.5101 8.64732 10.2828 8.64844 10.05C8.64844 9.75168 8.76697 9.46553 8.97795 9.25455C9.18892 9.04358 9.47507 8.92505 9.77344 8.92505H10.5234C10.8218 8.92505 11.108 9.04358 11.3189 9.25455C11.5299 9.46553 11.6484 9.75168 11.6484 10.05V13.8657C11.8683 13.942 12.0589 14.0851 12.1934 14.2751C12.3279 14.465 12.3996 14.6923 12.3984 14.925ZM8.83594 6.30005C8.83594 6.00338 8.92391 5.71337 9.08874 5.46669C9.25356 5.22002 9.48783 5.02776 9.76192 4.91423C10.036 4.8007 10.3376 4.77099 10.6286 4.82887C10.9195 4.88675 11.1868 5.02961 11.3966 5.23939C11.6064 5.44917 11.7492 5.71644 11.8071 6.00741C11.865 6.29838 11.8353 6.59998 11.7218 6.87407C11.6082 7.14816 11.416 7.38243 11.1693 7.54725C10.9226 7.71208 10.6326 7.80005 10.3359 7.80005C9.93812 7.80005 9.55659 7.64201 9.27528 7.36071C8.99398 7.0794 8.83594 6.69787 8.83594 6.30005Z" fill="#0F1620" />
+                                </svg>
+                            </i>
+                            <h3>Cómo consultar trámites o expedientes del Tribunal</h3>
+                        </div>
+                            <ul  className='mt-6'>
+                                <li>La consulta está habilitada solo para los abogados representantes</li>
+                                <li>Al iniciar el trámite, si el abogado informa su correo electrónico, recibirá una notificación con el PIN (clave de acceso) para ese expediente.</li>
+                            </ul>
+
+                        <div className='mt-6'>
+                            <h4>Consultar trámites</h4>
+                            <ul  className='mt-3'>
+                                <li>La consulta está habilitada solo para los abogados representantes</li>
+                                <li>Al iniciar el trámite, si el abogado informa su correo electrónico, recibirá una notificación con el PIN (clave de acceso) para ese expediente.</li>
+                            </ul>
+                        </div>
+                        <div className='mt-6'>
+                            <h4>Consultar expediente</h4>
+                            <ul  className='mt-3'>
+                                <li>La consulta de expediente permite obtener una copia electrónica del expediente en su estado actual, el acceso a esta copia será enviada al correo electrónico registrado al momento de iniciar el trámite.</li>
+                                <li>Ingrese el PIN provisto y el número de expediente. Recibirá un mensaje de confirmación.</li>
+                                <li>Un funcionario del Tribunal validará su solicitud y la vigencia del expediente digitalizado, previamente a la aprobación. A su aprobación se enviará un correo con las instrucciones para acceder a la copia digital del expediente</li>
+                            </ul>
+
+                        </div>
+
                 </div>
             </div>
 

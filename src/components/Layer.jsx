@@ -28,7 +28,7 @@ export default function Layer({ children }) {
             </div>
 
 
-            <div className="fixed bottom-5 right-5 rounded-full z-20">
+            <div className=" hidden fixed bottom-5 right-5 rounded-full z-20">
                 <button className="contact">
                     <div className='h-5'>
 
