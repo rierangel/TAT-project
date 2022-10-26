@@ -2,6 +2,8 @@ import Oficinas from '../contacto/oficinas'
 import LastResolutions from './LastResolutions'
 import Paginas from './Paginas'
 import Posts from './Posts'
+import HomeCarrusel from './HomeCarrusel'
+
 
 import SvgFondo from '../icons/fondo'
 import SvgDots from '../icons/dots'
@@ -9,6 +11,26 @@ import SvgFondo3 from '../icons/fondo3'
 import Link from 'next/link'
 
 export default function Index() {
+  const carrusel_data = [
+    {
+      img:"img/tat.png",
+      title: "Comunicado cierre Sede Central del TAT en Agosto de 2022"
+    },
+    {
+      img:"http://modulos.tribunaltributario.gob.pa/documentos/relaciones-publicas/2022/eventos-institucionales/imagen-principal/682_bd39d46621ecc7aa9394a09f7c6c730b",
+      title: "Visita de la Autoridad Nacional de Aduanas a las Instalaciones del TAT"
+    },
+    {
+      img:"http://modulos.tribunaltributario.gob.pa/documentos/relaciones-publicas/2022/otras/imagen-principal/678_ff932d2e4520fecdc52f0d06721c26d8",
+      title: "El TAT sostiene reunión con la Aurtoridad de Aduanas de Panamá"
+    },
+    {
+      img:"http://modulos.tribunaltributario.gob.pa/documentos/relaciones-publicas/2022/eventos-institucionales/imagen-principal/682_bd39d46621ecc7aa9394a09f7c6c730b",
+      title: "Visita de la Autoridad Nacional de Aduanas a las Instalaciones del TAT"
+    },
+
+
+  ]
   return (
     <>
 
@@ -61,7 +83,10 @@ export default function Index() {
 
       </div>
       <LastResolutions />
-      <Posts />
+
+      <HomeCarrusel data={carrusel_data}/>
+
+      {/* <Posts /> */}
 
 
       <div className=' my-[100px]
