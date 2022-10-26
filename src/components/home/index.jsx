@@ -2,7 +2,8 @@ import Oficinas from '../contacto/oficinas'
 import LastResolutions from './LastResolutions'
 import Paginas from './Paginas'
 import Posts from './Posts'
-import HomeCarrusel from './HomeCarrusel'
+
+import SliderCarrusel from "src/components/noticias/CarruselNoticias";
 
 
 import SvgFondo from '../icons/fondo'
@@ -12,10 +13,6 @@ import Link from 'next/link'
 
 export default function Index() {
   const carrusel_data = [
-    {
-      img:"img/tat.png",
-      title: "Comunicado cierre Sede Central del TAT en Agosto de 2022"
-    },
     {
       img:"https://clippingrrpp.com/wp-content/uploads/2015/02/abogados-marketing-legal1.jpg",
       title: "Visita de la Autoridad Nacional de Aduanas a las Instalaciones del TAT"
@@ -84,7 +81,7 @@ export default function Index() {
       </div>
       <LastResolutions />
 
-      <HomeCarrusel data={carrusel_data}/>
+      <SliderCarrusel/>
 
       {/* <Posts /> */}
 

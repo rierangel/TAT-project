@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Layer from "src/components/Layer";
 import { useFetch, useGql } from "src/lib/Fetcher";
 import Link from "next/link";
-import Content from 'src/components/noticia/Content'
+import Content from 'src/components/noticias/Content'
 
 const query = `
 query{

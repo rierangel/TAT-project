@@ -1,7 +1,7 @@
 import Layer from "src/components/Layer";
-import NoticiaList from "src/components/noticia/nobackend";
+import NoticiaList from "src/components/noticias/nobackend";
 
-import SliderCarrusel from "./carrusel";
+import SliderCarrusel from "src/components/noticias/CarruselNoticias";
 
 export default function page() {
   return (

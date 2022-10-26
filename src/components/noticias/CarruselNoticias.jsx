@@ -74,7 +74,14 @@ export default function SliderCarrusel({ children, dot_control }) {
     }, [current])
 
 
-    const cont = [...Array(5).keys()];
+    const cont = [
+        "https://usercontent.one/wp/www.entornoestudiantil.com/wp-content/uploads/2018/03/La-clasificacion-de-las-empresas.jpg",
+        "https://clippingrrpp.com/wp-content/uploads/2015/02/abogados-marketing-legal1.jpg",
+        "https://www.bufetesemperejaen.com/wp-content/uploads/2019/02/Abogados-Elche-reunidos-despacho-sempere.jpg",
+        "https://d500.epimg.net/cincodias/imagenes/2018/10/15/legal/1539584672_711277_1539585056_noticia_normal.jpg",
+        "https://d500.epimg.net/cincodias/imagenes/2017/11/27/legal/1511775346_282834_1511863279_rrss_normal.jpg",
+        "https://www.armentalrialabogados.es/images/cuadro-despacho.jpg",
+    ];
 
 
     return (
@@ -93,8 +100,8 @@ export default function SliderCarrusel({ children, dot_control }) {
                 <div ref={sliderRef} className="slider w-full">
                     {cont.map((e, i) => (
                         <div className='flex flex-col justify-start' key={i}>
-                            <div className='relative z-10 w-full sm:h-[211px] md:h-[311px]  lg:h-[411px] overflow-hidden'>
-                                <img className='w-full object-contain object-center' src="https://usercontent.one/wp/www.entornoestudiantil.com/wp-content/uploads/2018/03/La-clasificacion-de-las-empresas.jpg" alt="" />
+                            <div className='relative object-center z-10 w-full sm:h-[211px] md:h-[311px]  lg:h-[411px] overflow-hidden'>
+                                <img className='w-full object-contain object-center' src={e} alt="" />
                             </div>
                             <div className="border3 p-9 flex-col text-left justify-start -mt-4 ">
                                 <h3 className='pb-2'>11° Aniversario del Tribunal Administrativo Tributario</h3>
