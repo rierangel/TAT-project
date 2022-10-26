@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import ToggleList from 'src/lib/ToggleList'
 
@@ -12,39 +13,51 @@ export default function SiteMap() {
                         <li >
                             Páginas de interés:
                             <ul className='text-[#0054A4]'>
-                            
+
                                 <li>
-                                    <a href="/tramites" className=' flex gap-2 items-center'>
-                                        Formulario del Banco de Peritos
-                                    </a>
+                                    <Link href="/tramites" >
+                                        <a className=' flex gap-2 items-center'>
+                                            Formulario del Banco de Peritos
+                                        </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/flujograma" className=' flex gap-2 items-center'>
-                                        Flujograma
-                                    </a>
+                                    <Link href="/flujograma" >
+                                        <a className=' flex gap-2 items-center'>
+                                            Flujograma
+                                        </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/noticias" className=' flex gap-2 items-center'>
-                                        Noticias
-                                    </a>
+                                    <Link href="/noticias" >
+                                        <a className=' flex gap-2 items-center'>
+                                            Noticias
+                                        </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/noticias/congreso-internacional-de-derecho-tributario" className=' flex gap-2 items-center'>
-                                        Congreso Internacional de Derecho Tributario
-                                    </a>
-                                    
+                                    <Link href="/noticias/congreso-internacional-de-derecho-tributario" >
+                                        <a className=' flex gap-2 items-center'>
+                                            Congreso Internacional de Derecho Tributario
+                                        </a>
+                                    </Link>
+
                                 </li>
                                 <li>
-                                    <a href="/noticias/haciendo-la-diferencia" className=' flex gap-2 items-center'>
-                                        Haciendo la Diferencia
-                                    </a>
+                                    <Link href="/noticias/haciendo-la-diferencia" >
+                                        <a className=' flex gap-2 items-center'>
+                                            Haciendo la Diferencia
+                                        </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/preguntas-frecuentes" className=' flex gap-2 items-center'>
-                                        Preguntas Frecuentes
-                                    </a>
+                                    <Link href="/preguntas-frecuentes" >
+                                        <a className=' flex gap-2 items-center'>
+                                            Preguntas Frecuentes
+                                        </a>
+                                    </Link>
                                 </li>
-                                
+
                             </ul>
                         </li>
                     </ul>
