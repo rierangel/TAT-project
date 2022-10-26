@@ -6,17 +6,20 @@ import Carrusel from 'src/lib/imgCarrusel'
 export default function Page({ slug }) {
 
 
-  const cont = [...Array(4).keys()];
+  const cont = [
+    "https://clippingrrpp.com/wp-content/uploads/2015/02/abogados-marketing-legal1.jpg",
+    "https://www.bufetesemperejaen.com/wp-content/uploads/2019/02/Abogados-Elche-reunidos-despacho-sempere.jpg",
+    "https://d500.epimg.net/cincodias/imagenes/2018/10/15/legal/1539584672_711277_1539585056_noticia_normal.jpg",
+    "https://d500.epimg.net/cincodias/imagenes/2017/11/27/legal/1511775346_282834_1511863279_rrss_normal.jpg",
+  ];
 
   const imgData = [
-    "/img/metas-objetivos.png",
-    "/img/post/post2.png",
-    "/img/oficinas.png",
-    "/img/tat.png",
-    "/img/metas-objetivos.png",
-    "/img/post/post2.png",
-    "/img/oficinas.png",
-    "/img/tat.png",
+    "https://clippingrrpp.com/wp-content/uploads/2015/02/abogados-marketing-legal1.jpg",
+    "https://www.bufetesemperejaen.com/wp-content/uploads/2019/02/Abogados-Elche-reunidos-despacho-sempere.jpg",
+    "https://d500.epimg.net/cincodias/imagenes/2018/10/15/legal/1539584672_711277_1539585056_noticia_normal.jpg",
+    "https://d500.epimg.net/cincodias/imagenes/2017/11/27/legal/1511775346_282834_1511863279_rrss_normal.jpg",
+    "https://www.armentalrialabogados.es/images/cuadro-despacho.jpg",
+    "https://www.udem.edu.mx/sites/default/files/2020-10/Reconoce-despacho-de-abogados-a-alumno-UDEM.jpg",
   ]
   return (
     <Layer>
@@ -37,16 +40,16 @@ export default function Page({ slug }) {
 
       <hr className='my-16' />
 
-      <div >
+      <div className="mb-40">
         <h1>Más Noticias</h1>
         <div className="flex gap-6 my-6">
 
           {cont.map((e, i) => (
             <Link key={i} href={`/noticias/222/asdasd`} >
               <a className='hover1' >
-                <div className="w-[302px] h-[190px] mb-4 ">
-                  <img className='cover rounded-lg'
-                    src={"/img/tat.png"}  />
+                <div className="w-[302px]  mb-4 ">
+                  <img className='h-[190px]  w-auto object-cover rounded-lg'
+                    src={e}  />
                 </div>
                 <h3 className='w-[90%] '>Barrido de pruebas voluntarias COVID-19</h3>
               </a>

@@ -17,15 +17,15 @@ export default function Index() {
       title: "Comunicado cierre Sede Central del TAT en Agosto de 2022"
     },
     {
-      img:"http://modulos.tribunaltributario.gob.pa/documentos/relaciones-publicas/2022/eventos-institucionales/imagen-principal/682_bd39d46621ecc7aa9394a09f7c6c730b",
+      img:"https://clippingrrpp.com/wp-content/uploads/2015/02/abogados-marketing-legal1.jpg",
       title: "Visita de la Autoridad Nacional de Aduanas a las Instalaciones del TAT"
     },
     {
-      img:"http://modulos.tribunaltributario.gob.pa/documentos/relaciones-publicas/2022/otras/imagen-principal/678_ff932d2e4520fecdc52f0d06721c26d8",
+      img:"https://www.bufetesemperejaen.com/wp-content/uploads/2019/02/Abogados-Elche-reunidos-despacho-sempere.jpg",
       title: "El TAT sostiene reunión con la Aurtoridad de Aduanas de Panamá"
     },
     {
-      img:"http://modulos.tribunaltributario.gob.pa/documentos/relaciones-publicas/2022/eventos-institucionales/imagen-principal/682_bd39d46621ecc7aa9394a09f7c6c730b",
+      img:"https://d500.epimg.net/cincodias/imagenes/2018/10/15/legal/1539584672_711277_1539585056_noticia_normal.jpg",
       title: "Visita de la Autoridad Nacional de Aduanas a las Instalaciones del TAT"
     },
 

@@ -63,7 +63,34 @@ export default function Index({ slug }) {
     rute.push(`/noticias/${e}`)
   }
 
-  const cont = [...Array(10).keys()];
+  const cont = [
+    {
+      img:"https://clippingrrpp.com/wp-content/uploads/2015/02/abogados-marketing-legal1.jpg",
+      title:"Comunicado cierre Sede Central del TAT en Agosto de 2022"
+    },
+    {
+      img:"https://www.bufetesemperejaen.com/wp-content/uploads/2019/02/Abogados-Elche-reunidos-despacho-sempere.jpg",
+      title:"Barrido de Pruebas voluntarias Covid-19"
+    },
+    {
+      img:"https://d500.epimg.net/cincodias/imagenes/2018/10/15/legal/1539584672_711277_1539585056_noticia_normal.jpg",
+      title:"El TAT Recibe Importante Visita Oficial"
+    },
+    {
+      img:"https://d500.epimg.net/cincodias/imagenes/2017/11/27/legal/1511775346_282834_1511863279_rrss_normal.jpg",
+      title:"7° Congreso Internacional de Derecho Tributario"
+    },
+    {
+      img:"https://www.armentalrialabogados.es/images/cuadro-despacho.jpg",
+      title:"Jornada Académica (Día del Contador 2022)"
+    },
+    {
+      img:"https://d500.epimg.net/cincodias/imagenes/2017/11/27/legal/1511775346_282834_1511863279_rrss_normal.jpg",
+      title:"Gira Académica (Los Santos 2022)"
+    }
+
+
+  ];
 
   return (
     <>
@@ -103,11 +130,11 @@ export default function Index({ slug }) {
         {cont.map((e, i) => (
           <div key={i} className="py-6 border-b px-3 flex space-x-[24px] hover1">
             <div className="w-[193px] h-[142px]  ">
-              <img className='object-cover h-full w-full rounded-lg' src={"/img/tat.png"} alt="" />
+              <img className='object-cover h-full w-full rounded-lg' src={e.img} alt="" />
             </div>
 
             <div className="w-full flex flex-col justify-between items-start h-[142px] ">
-              <h2>Comunicado cierre Sede Central del TAT en Agosto de 2022</h2>
+              <h2>{e.title}</h2>
               <p className='text-clip overflow-hidden h-[45px]'>
                 {/* dangerouslySetInnerHTML={{ __html: excerpt }}> */}
                 Mediante acuerdo N° 19-2022, con fecha 12 de agosto de 2022, el Pleno de Magistrados dispuso el cierre de la Sede Central del Tribunal Administrativo Tributario, ubicada en la ciudad de Panamá y la suspensión de los términos jurisdiccionales el día 15 de agosto de 2022.
