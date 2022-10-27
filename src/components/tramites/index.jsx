@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DropImg from 'src/lib/useDropImg'
 import SvgFondo from '../icons/fondo'
 import SvgFondo2 from '../icons/fondo2'
@@ -18,9 +18,25 @@ export default function Index() {
 
     const [sussefull, setSussefull] = useState()
 
+    const [horaLocal, sethoraLocal] = useState()
+    
+
     const handleModal = (e) => {
         setSussefull(true)
     }
+
+    useEffect(() => {
+    //     let currentDate = new Date().toLocaleString().split(",")[1] //.slice(11, 19);
+    //     // let localDate = new Date().toLocaleDateString('es', { weekday:"long", year:"numeric", month:"long", day:"numeric"}) 
+    //     // "Friday, Jul 2, 2021"
+
+    //     // console.log(new Date().toString().slice(34,));
+    //     // console.log(currentDate.split("T")); // "2022-06-17"
+        sethoraLocal(new Date().toLocaleString().split(",")[1])
+        console.log("hola mundo");
+    }, [horaLocal])
+
+
 
     return (
         <>
@@ -33,10 +49,15 @@ export default function Index() {
                     md:flex-row md:px-[55px] md:py-12 '>
 
                     <div className='text-white text-center'>
-                        <h2 className=''>Hora oficial de Panamá</h2>
+                       <h2 className='uppercase'>Hora oficial de Panamá</h2>
+
                         <div className='border-2 border-[#80AAD2] rounded-xl py-3 px-5  mt-3'>
-                            <h1 className='mb-1'>11:52:18 AM</h1>
-                            <p>Miércoles, 14 de septiembre de 2022</p>
+                            <h1 className='mb-1 uppercase'>
+                                {horaLocal}
+                            </h1>
+                            <p>
+                                {new Date().toLocaleDateString('es', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
+                            </p>
                         </div>
 
                     </div>

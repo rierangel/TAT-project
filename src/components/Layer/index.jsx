@@ -1,9 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
-import Navbar from './Navbar'
-import Footer from './elements/Footer'
-import Path from './elements/path'
-import SvgFondo from './icons/fondo'
+import Navbar from './navbar'
+import Footer from './Footer'
+import Path from './path'
+import SvgFondo from '../icons/fondo'
 export default function Layer({ children }) {
     return (
         <>

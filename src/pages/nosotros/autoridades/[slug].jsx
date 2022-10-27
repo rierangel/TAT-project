@@ -1,6 +1,6 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
-import ViewEquipo from 'src/components/About/viewEquipo'
+import ViewEquipo from 'src/components/about/viewEquipo'
 
 export default function autoridad() {
   console.log("fulano");

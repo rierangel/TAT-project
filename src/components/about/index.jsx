@@ -70,7 +70,7 @@ export default function index() {
 
         <div
           className='grid grid-cols-1
-        md:grid-cols-2
+        lg:grid-cols-2 gap-8 lg:gap-0
       '>
 
           <p className='md:w-4/5 text-justify order-1 ' >
@@ -78,9 +78,10 @@ export default function index() {
             El TAT viene a remplazar a la Comisión de Apelaciones de la Dirección General de Ingresos del Ministerio de Economía y Finanzas.
             Mediante Acuerdo n.°4 del 25 de febrero de 2011, se establece como fecha de inicio de las labores del Tribunal para efectos del cumplimiento de los términos y trámites fijados por la Ley 8/2010 de 15 de marzo, el día 1 de junio de 2011.
           </p>
-          <div className='md:w-4/5 flex-center order-0 md:order-1 min-h-min my-12 md:mt-0' >
+          <div className='flex-center  order-0 md:order-1 h-full ' >
+            <img src="/img/ab/logo.png" alt="" />
 
-            <SvgLogo width={"100%"} height={"130%"} fill="#0054A4" />
+            
           </div>
 
         </div>
@@ -90,7 +91,7 @@ export default function index() {
         <div className='
         bg-primary relative color-white gap-6 p-5 rounded-xl  
         flex flex-col
-        md:flex-row md:px-[47px] md:py-[71px] '>
+          lg:flex-row md:px-[47px] md:py-[71px] '>
           <div >
             <h1>Misión</h1>
             <hr className='subline' />

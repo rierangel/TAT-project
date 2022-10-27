@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Socials from '../elements/Socials'
+import Socials from '../Socials'
 import Buscador from './Buscador'
 import { useRef, useState } from 'react'
 import styles from './styles.module.scss'
@@ -25,29 +25,6 @@ export default function Navbar() {
             name: "Equipo Gerencial",
             link: "/equipo-gerencial/"
         },
-    ]
-
-    const marco = [
-        {
-            name: "Competencias",
-            link: "/competencias/"
-        },
-        {
-            name: "Leyes y Decretos",
-            link: "/normativa/leyes-y-decretos/",
-        },
-        {
-            name: "Acuerdos",
-            link: "/normativa/acuerdos/",
-        },
-        {
-            name: "Convenios",
-            link: "/normativa/convenios/",
-        },
-        {
-            name: "Edictos",
-            link: "/normativa/edictos/",
-        }
     ]
 
 
@@ -132,7 +109,7 @@ export default function Navbar() {
 
 
                                     <div className='mt-4 -mb-3 ' >
-                                        <Tooltip title="normativa">
+                                        <Tooltip title="Normativa">
                                             <Link href={`/marco-normativo/normativa/leyes-y-decretos`}>
                                                 <a>
                                                     <li >

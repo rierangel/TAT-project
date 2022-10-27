@@ -1,6 +1,6 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
-import Equipo from 'src/components/About/Equipo'
+import Equipo from 'src/components/about/Equipo'
 
 
 export default function page() {

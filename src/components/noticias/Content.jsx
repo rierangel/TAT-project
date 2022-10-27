@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Carrusel from 'src/components/elements/imgCarrusel'
+import Carrusel from 'src/components/Layer/imgCarrusel'
 import styles from './styles.module.scss'
 
 export default function ContentRef({ data }) {
