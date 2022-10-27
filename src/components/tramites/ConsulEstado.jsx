@@ -99,22 +99,23 @@ export default function ConsulEstado() {
                                 </svg>
                             </i>
                             <h3>Cómo consultar trámites o expedientes del Tribunal</h3>
+                        
                         </div>
-                            <ul  className='mt-6'>
+                            <ul className='capitalize mt-6'>
                                 <li>La consulta está habilitada solo para los abogados representantes</li>
                                 <li>Al iniciar el trámite, si el abogado informa su correo electrónico, recibirá una notificación con el PIN (clave de acceso) para ese expediente.</li>
                             </ul>
 
                         <div className='mt-6'>
                             <h4>Consultar trámites</h4>
-                            <ul  className='mt-3'>
+                            <ul className='capitalize mt-3'>
                                 <li>La consulta está habilitada solo para los abogados representantes</li>
                                 <li>Al iniciar el trámite, si el abogado informa su correo electrónico, recibirá una notificación con el PIN (clave de acceso) para ese expediente.</li>
                             </ul>
                         </div>
                         <div className='mt-6'>
                             <h4>Consultar expediente</h4>
-                            <ul  className='mt-3'>
+                            <ul className='capitalize mt-3'>
                                 <li>La consulta de expediente permite obtener una copia electrónica del expediente en su estado actual, el acceso a esta copia será enviada al correo electrónico registrado al momento de iniciar el trámite.</li>
                                 <li>Ingrese el PIN provisto y el número de expediente. Recibirá un mensaje de confirmación.</li>
                                 <li>Un funcionario del Tribunal validará su solicitud y la vigencia del expediente digitalizado, previamente a la aprobación. A su aprobación se enviará un correo con las instrucciones para acceder a la copia digital del expediente</li>
