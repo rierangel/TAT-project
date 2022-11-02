@@ -28,9 +28,14 @@ La presentación de la Apelación a través de esta vía requiere que se aporten
 [x] Fix 8: Sección Adjuntar documentos de la sección Iniciar Trámite de Apelaciones
 Solo un documento adjunto: Solicitud de apelación
 
-
-
 [x] Fix 10: Nuestras Autoridades
 Si no es posible mostrar el contenido con fotos y nombres de los diferentes funcionarios, utilizar la foto correspondiente a Rafael Karl Brown.
 
 
+
+# images fiexed 
+
+opcion1:
+crear un componente imagen from back al que intoducir la url y agregarle el path de back
+contras:
+no se puede modificar la clase de el nodo img

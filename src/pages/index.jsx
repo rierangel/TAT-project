@@ -6,13 +6,12 @@ import { fetcher } from "src/lib/Fetcher";
 
 
 export default function Home({data}) {
-  console.log(data);
+  
+
   return (
     <Layer>
-
-      <LandingPage data={data} />
       
-
+      <LandingPage data={data} />
     </Layer>
   )
 }

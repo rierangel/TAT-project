@@ -1,0 +1,86 @@
+@use '@/styles/vars' as v;
+
+.carrusel {
+
+    div {
+        height: 100%;
+        width: 100%;
+        &.main {
+            figure {
+                img {
+                    width: 1280px;
+                    height: 620px;
+                    border-radius: 8px;
+                    object-fit: cover;
+                }
+            }
+        }
+        &.galery {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+
+            button {
+                svg {
+                    margin: 0px;
+                }
+            }
+
+            .menu{
+                gap: 24px;
+                background-color: red;
+                width: 996px;
+                display: flex;
+                @apply snap-x overflow-scroll scroll-smooth;
+
+                figure {
+                    @apply snap-start flex flex-shrink-0 w-auto mx-4;
+    
+                    img {
+                        width: 193px;
+                        height: 130px;
+                        border-radius: 8px;
+                        flex: none;
+                        order: 3;
+                        flex-grow: 0;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+// #__next > main > p > figure.wp-block-image
+
+.article {
+    margin: 0px;
+    padding: 0px;
+
+    p {
+        padding: 0px;
+        margin: 0px;
+    }
+
+
+    figure {
+        display: flex;
+        padding: 0px;
+
+        img {
+            object-fit: contain;
+        }
+
+        figure {
+            img {
+                margin: 0px;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+    }
+
+}

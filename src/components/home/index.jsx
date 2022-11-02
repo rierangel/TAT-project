@@ -13,16 +13,18 @@ import Link from 'next/link'
 
 
 import Title from 'src/components/Layer/Title';
+import ImgBack from 'src/components/Layer/ImgBack';
+import TextBack from 'src/components/Layer/TextBack';
 
 
-export default function Index({data}) {
+export default function Index({ data }) {
 
   return (
     <>
       <div className='flex flex-col-reverse md:flex-row'>
         <div className='w-full h-auto md:my-auto -mt-[10%]'>
           <h1 className='w.full md:w-4/5'>{data[0].titulo}</h1>
-          <p className='md:mt-6 md:mb-9 mb-6 mt-1'>{data[0].text}</p>
+            <TextBack className="md:mt-6 md:mb-9 mb-6 mt-1" text={data[0].text} />
           <div className='flex flex-col md:flex-row gap-3 md:gap-6'>
             <Link href={"/tramites#t-apelacion"}>
               <a className='btn primary flex-center'>
@@ -48,7 +50,7 @@ export default function Index({data}) {
         </div>
 
         <div className='w-full h-auto mb-20 scale-110 md:mb-0'>
-          {/* <img className='' src={data[0].imagen} alt="" /> */}
+          <ImgBack src={data[0].imagen} alt="" />
         </div>
 
       </div>
@@ -56,7 +58,7 @@ export default function Index({data}) {
       <Title data={data[1]} link={"/"} />
       <LastResolutions />
 
-      <CarruselNoticias/>
+      <CarruselNoticias />
 
 
       <div className=' my-[100px]
@@ -100,7 +102,7 @@ export default function Index({data}) {
 
       <Title data={data[2]} />
       <Paginas />
-      
+
       <Title data={data[3]} link={"/contacto"} />
       <Oficinas />
 

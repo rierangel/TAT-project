@@ -153,7 +153,7 @@ export default function Navbar() {
 
                     <div
                         onClick={() => setShowSearch(true)}
-                        className='hidden md:flex items-center cursor-pointer pb-6'>
+                        className='hidden lg:flex items-center cursor-pointer pb-6'>
                         <div className='buscador bg-opacity-20'>
                             <input type="text" placeholder='Buscar' />
                             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
