@@ -1,11 +1,18 @@
 import Layer from "src/components/Layer";
 import LandingPage from "src/components/home"
+import { fetcher } from "src/lib/Fetcher";
 
-export default function Home() {
 
+
+
+export default function Home({data}) {
+  console.log(data);
   return (
     <Layer>
-      <LandingPage />
+
+      <LandingPage data={data} />
+      
+
     </Layer>
   )
 }
@@ -13,26 +20,8 @@ export default function Home() {
 
 export async function getServerSideProps({ params }) {
 
-  // const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/wp-json/wp/v2/posts?slug=${"void"}`
-
-  // const res = await fetch("http://127.0.0.1:8000/tat/wp-json/wp/v2/posts?slug=void")
-  // const data = await res.json()
+  const data = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/1`)
  
-  const query =  `query{
-    posts{
-      nodes {
-        slug
-        date
-      }
-    }
-  }`
-  fetch("http://127.0.0.1:80/ttp/graphql", {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({query})
-  })
-    .then(res => res.json())
-    .then(res => console.log(res))
+  return { props: {data} }
 
-  return { props: {}, }
 }

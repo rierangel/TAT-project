@@ -81,7 +81,7 @@ export default function Navbar() {
                                 </a>
                             </Link>
 
-                            <div className='my-4  md:mb-0 md:mt-[1.35rem] flex items-start'>
+                            <div className=' flex items-start'>
                                 <Tooltip title="Nosotros">
                                     {nosotros.map((e, i) => (
                                         <Link key={i} href={`/nosotros${e.link}`}>
@@ -96,7 +96,7 @@ export default function Navbar() {
                             </div>
 
                             {/* marco normativo */}
-                            <div className='my-4  md:mb-0 md:mt-[1.35rem] flex items-start' >
+                            <div className=' flex items-start' >
                                 <Tooltip title="Marco Normativo">
                                     <Link href={`/marco-normativo/competencias`}>
                                         <a>

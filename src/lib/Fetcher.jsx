@@ -11,7 +11,6 @@ export const fetcher = async (path, method) => {
         return dataApi
     } catch (error) {
         console.log("network error", error)
-
         return { data: error }
     }
 }

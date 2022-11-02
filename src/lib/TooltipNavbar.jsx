@@ -9,6 +9,8 @@ export default function Tooltip({ children, title }) {
         const handleClick = (event) => {
             if (select.current && !select.current.contains(event.target)) {
                 setActive(false)
+                // select.current.classList.toggle(styles.tooltip_active)
+                
             }
         };
         document.addEventListener('click', handleClick, true);

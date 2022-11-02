@@ -3,7 +3,7 @@ import LastResolutions from './LastResolutions'
 import Paginas from './Paginas'
 import Posts from './Posts'
 
-import SliderCarrusel from "src/components/noticias/CarruselNoticias";
+import CarruselNoticias from "src/components/noticias/CarruselNoticias";
 
 
 import SvgFondo from '../icons/fondo'
@@ -11,40 +11,19 @@ import SvgDots from '../icons/dots'
 import SvgFondo3 from '../icons/fondo3'
 import Link from 'next/link'
 
-export default function Index() {
-  const carrusel_data = [
-    {
-      img:"https://clippingrrpp.com/wp-content/uploads/2015/02/abogados-marketing-legal1.jpg",
-      title: "Visita de la Autoridad Nacional de Aduanas a las Instalaciones del TAT"
-    },
-    {
-      img:"https://www.bufetesemperejaen.com/wp-content/uploads/2019/02/Abogados-Elche-reunidos-despacho-sempere.jpg",
-      title: "El TAT sostiene reunión con la Aurtoridad de Aduanas de Panamá"
-    },
-    {
-      img:"https://d500.epimg.net/cincodias/imagenes/2018/10/15/legal/1539584672_711277_1539585056_noticia_normal.jpg",
-      title: "Visita de la Autoridad Nacional de Aduanas a las Instalaciones del TAT"
-    },
+
+import Title from 'src/components/Layer/Title';
 
 
-  ]
+export default function Index({data}) {
+
   return (
     <>
-
-      {/* // style={{ backgroundImage: `url("")` }} */}
-      {/* <div
-          className="h-[160px] w-[328px] relative bg-contain bg-no-repeat"
-        >
-
-        </div> */}
-
       <div className='flex flex-col-reverse md:flex-row'>
-
         <div className='w-full h-auto md:my-auto -mt-[10%]'>
-          <h1 className='w.full md:w-4/5'>Realiza y consulta el estado de tus trámites desde donde te encuentres.</h1>
-          <p className='md:mt-6 md:mb-9 mb-6 mt-1'>Toda la información que necesites a un solo click.</p>
+          <h1 className='w.full md:w-4/5'>{data[0].titulo}</h1>
+          <p className='md:mt-6 md:mb-9 mb-6 mt-1'>{data[0].text}</p>
           <div className='flex flex-col md:flex-row gap-3 md:gap-6'>
-
             <Link href={"/tramites#t-apelacion"}>
               <a className='btn primary flex-center'>
                 <div className='svg_rp h-auto md:w-[27px] w-[15px]'>
@@ -55,7 +34,6 @@ export default function Index() {
                 Realizar trámites
               </a>
             </Link>
-
             <Link href={"/tramites#t-estado"}>
               <a className='btn outline flex-center'>
                 <div className='svg_rp h-auto md:w-[27px] w-[15px]'>
@@ -66,24 +44,19 @@ export default function Index() {
                 Consultar trámites
               </a>
             </Link>
-
           </div>
         </div>
 
-
         <div className='w-full h-auto mb-20 scale-110 md:mb-0'>
-
-          <img className='' src="/img/index/1.png" alt="" />
+          {/* <img className='' src={data[0].imagen} alt="" /> */}
         </div>
 
-
-
       </div>
+
+      <Title data={data[1]} link={"/"} />
       <LastResolutions />
 
-      <SliderCarrusel/>
-
-      {/* <Posts /> */}
+      <CarruselNoticias/>
 
 
       <div className=' my-[100px]
@@ -125,7 +98,10 @@ export default function Index() {
       </div>
 
 
+      <Title data={data[2]} />
       <Paginas />
+      
+      <Title data={data[3]} link={"/contacto"} />
       <Oficinas />
 
     </>

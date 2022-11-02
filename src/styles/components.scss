@@ -114,28 +114,6 @@
 
 }
 
-div.subtitle {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2rem;
-  gap: 1rem;
-  margin-bottom: 0.25rem;
-
-  &:first-child{
-    margin: 0px;
-    margin-bottom: auto;
-  }
-
-
-  &:last-child{
-    margin: 0px;
-    margin-top: 5px;
-  }
- 
-
-
-}
-
 
 .carrusel_slider {
   transition: all 5s ease;

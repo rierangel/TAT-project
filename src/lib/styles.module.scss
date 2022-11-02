@@ -47,6 +47,7 @@
     @media (min-width:v.$md) {
         position: relative;
     }
+
     .toggle {
         padding: 12px 0px;
         top: 20px;
@@ -91,5 +92,10 @@
         }
     }
 
+
+}
+
+.tooltip_active{
+    background-color: v.$primary-dark;
 
 }
