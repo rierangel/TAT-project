@@ -1,0 +1,78 @@
+@use '@/styles/vars' as v;
+
+.carrusel {
+    display: flex;
+    flex-direction: column;
+
+    div {
+        height: 100%;
+        width: 100%;
+
+    }
+
+    .main {
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            object-fit: cover;
+            object-position: center;
+
+            @media (min-width:v.$sm) {
+                height: 500px;
+            }
+            @media (min-width:v.$md) {
+                height: 600px;
+            }
+            @media (min-width:v.$lg) {
+                height: 805.3px;
+            }
+        }
+
+        h1 {
+            width: fit-content;
+        }
+    }
+
+    .galery {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+
+        button {
+            svg {
+                margin: 0px;
+            }
+        }
+
+        .menu {
+            display: flex;
+            @apply snap-x scroll-smooth h-full flex items-center justify-start;
+            overflow: hidden;
+            width: 844px;
+            gap: 24px;
+
+            div {
+                @apply snap-start flex flex-shrink-0 w-auto;
+
+                img {
+                    width: 193px;
+                    height: 130px;
+                    border-radius: 8px;
+                    flex: none;
+                    order: 3;
+                    flex-grow: 0;
+                    object-fit: cover;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+}

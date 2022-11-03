@@ -1,0 +1,73 @@
+@use '@/styles/vars' as v;
+
+.resoluciones {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+    margin: 24px 0px 100px;
+
+    a {
+        border-radius: 12px;
+        padding: 16px 20px;
+        
+    }
+    @media (min-width: v.$md) {
+        grid-template-columns: repeat(3, 1fr);
+        a{
+            padding: 36px 24px;
+
+        }
+    }
+
+}
+
+.interes {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+    margin: 24px 0px 80px;
+
+    a {
+        border-radius: 12px;
+        padding: 47px 52px;
+
+        svg {
+            fill: #6B7380;
+        }
+
+        &:hover {
+            svg {
+
+                fill: v.$primary;
+            }
+        }
+
+        p {
+            width: 189px;
+        }
+
+
+    }
+
+}
+
+.giras {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+    margin: 24px 0px 100px;
+
+    a {
+        border-radius: 12px;
+        padding: 16px 20px;
+        
+    }
+    @media (min-width: v.$md) {
+        grid-template-columns: repeat(3, 1fr);
+        a{
+            padding: 36px 24px;
+
+        }
+    }
+
+}

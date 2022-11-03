@@ -1,0 +1,78 @@
+@use '@/styles/vars' as v;
+
+@import '@/styles/utils';
+
+
+.navbar {
+    @extend .card-shadow;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
+    background-color: v.$primary;
+    color: white;
+    z-index: 40;
+
+    .top {
+        margin-top: 16px;
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (min-width:v.$md) {
+            margin-top: 48px;
+            margin-bottom: 36px;
+
+            justify-content: space-between;
+
+        }
+    }
+
+    .bottom {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+
+        padding: 16px 0px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        >div{
+            width: 100%;
+        }
+
+
+        >div,
+        li {
+            padding: 16px 1px;
+            border-bottom-width: 4px;
+            border-bottom-color: transparent;
+            align-items: center;
+            border-bottom: 4px solid transparent;
+            &:hover {
+                border-bottom-color: white;
+            }
+
+        }
+
+        div{
+            border-bottom-width: 4px;
+            border-bottom-color: transparent;
+        }
+
+        @media (min-width:v.$md) {
+            flex-direction: row;
+
+            >div{
+                width: max-content;
+            }
+    
+
+            &:hover {
+                border-bottom-color: white;
+            }
+
+        }
+
+    }
+}
