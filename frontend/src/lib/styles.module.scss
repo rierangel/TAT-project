@@ -1,0 +1,101 @@
+@use '@/styles/vars' as v;
+@import '@/styles/utils';
+
+.tooltip {
+
+    margin: 0px;
+    position: relative;
+    display: flex;
+
+
+    ul.toggle {
+        padding: 12px 0px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        white-space: nowrap;
+        border-radius: 12px;
+        background-color: v.$primary;
+
+        li {
+            padding: 12px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+
+            a {
+                // border: white 1px solid;
+                width: 100%;
+                color: white;
+            }
+
+
+        }
+    }
+
+
+}
+
+
+.tooltipNavbar {
+
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: v.$primary;
+    width: 100%;
+    @media (min-width:v.$md) {
+        position: relative;
+    }
+
+    .toggle {
+        padding: 12px 0px;
+        top: 20px;
+        left: 0;
+        white-space: nowrap;
+        border-radius: 12px;
+        background-color: v.$primary;
+        position: relative;
+
+        @media (min-width:v.$md) {
+            top: 20px;
+            position: absolute;
+
+            .tooltipNavbar{
+                .toggle{
+                    top: -20px;
+
+                    left: 100%;
+                }
+            }
+        }
+
+
+        a {
+               // border: white 1px solid;
+               width: 100%;
+               color: white;
+            li {
+                padding: 12px;
+                cursor: pointer;
+                border: none;
+                width: 100%;
+                
+             
+            }
+
+        }
+
+        div {
+            padding: 0px 4px;
+
+        }
+    }
+
+
+}
+
+.tooltip_active{
+    background-color: v.$primary-dark;
+
+}
