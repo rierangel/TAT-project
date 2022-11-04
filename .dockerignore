@@ -1,6 +1,6 @@
 .github
 
-./data
+data/
 backend/env
 backend/media
 backend/.env
