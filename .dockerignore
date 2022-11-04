@@ -1,0 +1,9 @@
+.github
+
+backend/env
+backend/media
+backend/.env
+
+db.sqlite3
+Pipfile
+Pipfile.lock

@@ -1,6 +1,15 @@
 version: '3.4'
 
 services:
+  frontend:
+    restart: always
+    ports:
+      - 3000:3000
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - .:/frontned
   db:
     restart: always
     #restart: unless-stopped
@@ -8,18 +17,18 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
     ports:
-      - 5431:5432 # para que sea visible en nuestro entorno local
+      - 5431:5432 
     environment:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
-  django:
+  backend:
     restart: always
-    container_name: django
+    container_name: backend
     build:
-      context: .
-      dockerfile: ./local.Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     command: >
       sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     ports:
@@ -30,12 +39,11 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_HOST=db
       - ALLOWED_HOSTS=127.0.0.1, localhost
-      - DJANGO_KEY=123
-      - STRIPE_PUBLIC_KEY=env("STRIPE_PUBLIC_KEY")
-      - STRIPE_PRIVATE_KEY=env("STRIPE_PRIVATE_KEY")
-      - STRIPE_WEBHOOK_KEY=env("STRIPE_WEBHOOK_KEY")
+      - DJANGO_KEY=*
 
     volumes:
-      - .:/app
+      - .:/backend
     depends_on:
       - db
+
+
