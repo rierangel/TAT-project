@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Buscador from './Buscador'
+import Pagination from './Pagination';
+
 
 /**
  * 
- * @returns HOC que dado algunos parametros puede retornar un buscador, paginacion, grid display, entre otros
+ * @param {ReactComponentElement} Component 
+ * @param {Array} data 
+ * @param {Boolean} buscador 
+ * @returns 
  */
-export default function index() {
-  return (
-    <div>index</div>
-  )
+
+
+export default function QueryLayer(Component, data, buscador, url) {
+  return function () {
+
+    const [urlQuery, setUrlQuery] = useState(url)
+
+    return <div>
+      {buscador && <Buscador state={urlQuery} set={setUrlQuery}/>}
+
+
+      <Component data={data.results}/>
+
+      {data.links && <Pagination/>}
+    </div>
+  
 }
+}
+

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { useGql } from 'src/lib/Fetcher'
-import Pagination from 'src/components/Pagination'
+import Pagination from 'src/components/Layer/QueryLayer/Pagination'
 import SliderCarrusel from 'src/lib/carrusel/SliderCarrusel'
 
 export default function Index({ slug }) {

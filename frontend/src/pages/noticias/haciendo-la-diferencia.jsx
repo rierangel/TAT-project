@@ -1,5 +1,5 @@
 import Layer from "src/components/Layer";
-import NoticiaList from "src/components/noticias/nobackend";
+import NoticiaList from "src/components/noticias/NoticiaList";
 
 export default function page() {
     const cont = [...Array(10).keys()];

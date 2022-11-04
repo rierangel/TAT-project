@@ -5,7 +5,7 @@ export default function Pagination() {
 
 
     return (
-        <ul className="pagination rounded-lg flex justify-center text mt-9">
+        <ul className="pagination rounded-lg flex justify-center text my-9">
 
             <li className="border1 rounded-l-lg">
                 <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
