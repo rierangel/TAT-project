@@ -76,7 +76,7 @@ export default function Footer() {
 
       <div className="container">
 
-        <div className="flex flex-col  md:flex-row md:justify-between gap-3 relative">
+        <div className="flex flex-col flex-wrap  md:flex-row lg:justify-between gap-3 relative">
 
           <div className="flex flex-col justify-between">
 

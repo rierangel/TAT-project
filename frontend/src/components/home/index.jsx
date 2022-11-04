@@ -21,7 +21,7 @@ export default function Index({ data }) {
 
   return (
     <>
-      <div className='flex flex-col-reverse md:flex-row'>
+      <div className='flex flex-col-reverse md:flex-row '>
         <div className='w-full h-auto md:my-auto -mt-[10%]'>
           <h1 className='w.full md:w-4/5'>{data[0].titulo}</h1>
             <TextBack className="md:mt-6 md:mb-9 mb-6 mt-1" text={data[0].text} />
@@ -55,6 +55,7 @@ export default function Index({ data }) {
 
       </div>
 
+      <hr className='invisible my-[50px]' />
       <Title data={data[1]} link={"/"} />
       <LastResolutions />
 
