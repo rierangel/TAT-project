@@ -16,12 +16,12 @@ const NoticiaList = ({ data }) => {
 
   return (
     <section>
-      {/* noticias */}
+    
 
       {data.map((e, i) => (
         <div key={i} className="py-6 border-b px-3 flex space-x-[24px] hover1 no-pointer">
           <div className="w-[193px] h-[142px]  ">
-            <ImgBack src={e.imagen_principal} className='object-cover h-full w-full rounded-lg' />
+            {/* <ImgBack src={e.imagen_principal} className='object-cover h-full w-full rounded-lg' /> */}
           </div>
 
           <div className="w-full flex flex-col justify-between items-start h-[142px] ">

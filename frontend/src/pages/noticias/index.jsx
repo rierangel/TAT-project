@@ -1,19 +1,19 @@
 import Layer from "src/components/Layer";
 
-import NoticiaList from "src/components/noticias/NoticiaList";
-import SliderCarrusel from "src/components/noticias/CarruselNoticias";
+import SliderCarrusel from "src/components/entradas/CarruselNoticias";
 
 import { fetcher } from "src/lib/Fetcher";
 
 import Title from 'src/components/Layer/Title';
 import QueryLayer from 'src/components/Layer/QueryLayer';
-
+import NoticiaList from "src/components/entradas/List";
 
 
 export default function page({ page, datalist }) {
 
+  const query= `${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/`
 
-  const NoticiasListQuery = QueryLayer(NoticiaList, datalist, true)
+  const NoticiasListQuery = QueryLayer(NoticiaList, datalist, true, query)
   return (
     <Layer>
 
@@ -26,9 +26,7 @@ export default function page({ page, datalist }) {
 
       <NoticiasListQuery/>
 
-      {/* {datalist &&
-        <NoticiasListQuery />
-      } */}
+
     </Layer>
   )
 }

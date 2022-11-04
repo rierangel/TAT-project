@@ -3,7 +3,7 @@ import LastResolutions from './LastResolutions'
 import Paginas from './Paginas'
 import Posts from './Posts'
 
-import CarruselNoticias from "src/components/noticias/CarruselNoticias";
+import CarruselNoticias from "src/components/entradas/CarruselNoticias";
 
 
 import SvgFondo from '../icons/fondo'

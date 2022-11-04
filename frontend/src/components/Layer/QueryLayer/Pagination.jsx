@@ -1,8 +1,10 @@
 
-export default function Pagination() {
+export default function Pagination({data}) {
 
+    console.log(data);
+
+    // current page, numero de paginas, set query
     const cont = [...Array(4).keys()];
-
 
     return (
         <ul className="pagination rounded-lg flex justify-center text my-9">
