@@ -1,5 +1,6 @@
 .github
 
+./data
 backend/env
 backend/media
 backend/.env

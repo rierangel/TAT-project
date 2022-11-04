@@ -1,15 +1,6 @@
 version: '3.4'
 
 services:
-  frontend:
-    restart: always
-    ports:
-      - 3000:3000
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    volumes:
-      - .:/frontned
   db:
     restart: always
     #restart: unless-stopped
@@ -23,9 +14,9 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
-  backend:
+  django:
     restart: always
-    container_name: backend
+    container_name: django
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -45,5 +36,14 @@ services:
       - .:/backend
     depends_on:
       - db
+  frontend:
+    restart: always
+    ports:
+      - 3000:3000
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - .:/frontned
 
 
