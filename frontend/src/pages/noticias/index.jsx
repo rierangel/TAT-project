@@ -13,7 +13,7 @@ export default function page({ page, datalist }) {
 
   const query= `${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/`
 
-  const NoticiasListQuery = QueryLayer(NoticiaList, datalist, true, query)
+  const NoticiasListQuery = QueryLayer(NoticiaList, datalist, true, query, "noticias")
   return (
     <Layer>
 
