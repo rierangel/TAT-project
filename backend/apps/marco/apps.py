@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CompetenciasConfig(AppConfig):
+class MarcoConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'competencias'
+    name = 'marco'
