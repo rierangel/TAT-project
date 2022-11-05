@@ -38,7 +38,7 @@ export default function Footer() {
   const col2 = [
     {
       name: "Noticias",
-      link: "/noticias/",
+      link: "/entradas/noticias",
     },
     {
       name: "Ponencias del Congreso",
@@ -58,18 +58,42 @@ export default function Footer() {
     },
     {
       name: "Haciendo la Diferencia",
-      link: "/noticias/",
+      link: "/entradas/haciendo-la-diferencia",
+    },
+
+
+  ]
+
+  // const col2 = ["Noticias", "Ponencias del Congreso", "revista justicia tributaria", "memorias",  "resoluciones emitidas", "Haciendo la Diferencia",]
+  const col3 = [
+    {
+       name:"Congreso Int. de Derecho Tributario",
+       link:"/entradas/congreso-internacional-de-derecho-tributario/"
     },
     {
       name: "Vacantes",
       link: "/vacantes/",
     },
-
+    {
+       name:"Formulario del Banco de Peritos", 
+       link:"#"
+    },
+    {
+       name:"Otras Instituciones", 
+       link:"#"
+    },
+    {
+       name:"Contacto", 
+       link:"/contacto/"
+    },
+    {
+       name:"Mapa del sitio",
+       link:"/mapa-del-sitio/"
+    },
+  
   ]
-
-  // const col2 = ["Noticias", "Ponencias del Congreso", "revista justicia tributaria", "memorias",  "resoluciones emitidas", "Haciendo la Diferencia",]
-  const col3 = ["Congreso Int. de Derecho Tributario", "Vacantes", "Formulario del Banco de Peritos", "Otras Instituciones", "Contacto", "Mapa del sitio",]
-  const col4 = ["Declaración de privacidad", "Preguntas Frecuentes",]
+  
+    const col4 = ["Declaración de privacidad", "Preguntas Frecuentes",]
 
   return (
     <footer className="pt-6 pb-24 md:pt-16 md:pb-24 ">
@@ -94,6 +118,7 @@ export default function Footer() {
 
           </div>
 
+          {/* COL1 */}
           <div className="">
             <ul >
               {col1.map((e, i) => (
@@ -106,6 +131,7 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* COL2 */}
           <div className="">
             <ul >
               {col2.map((e, i) => (
@@ -118,12 +144,13 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* COL3 */}
           <div className="">
             <ul >
               {col3.map((e, i) => (
                 <li key={i}>
-                  <Link href={slugify(e)}>
-                    <a>{e}</a>
+                  <Link href={e.link}>
+                    <a>{e.name}</a>
                   </Link>
                 </li>
               ))}

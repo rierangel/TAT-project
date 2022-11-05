@@ -19,8 +19,8 @@ export default function Home({data}) {
 
 export async function getServerSideProps({ params }) {
 
-  const data = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/1`)
- 
+  const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/1`
+  const data = await fetcher(path)
   return { props: {data} }
 
 }

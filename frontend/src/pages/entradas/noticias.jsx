@@ -16,17 +16,10 @@ export default function page({ page, datalist }) {
   const NoticiasListQuery = QueryLayer(NoticiaList, datalist, true, query, "noticias")
   return (
     <Layer>
-
-
       <SliderCarrusel />
-
-
       <hr className='my-12 invisible' />
       <Title data={page[0]} />
-
       <NoticiasListQuery/>
-
-
     </Layer>
   )
 }

@@ -1,7 +1,8 @@
 import React from 'react'
+import styles from './styles.module.scss'
 
 export default function TextBack({text, className}) {
   return (
-    <article className={className}  dangerouslySetInnerHTML={{ __html: text }} />
+    <article className={styles.article}  dangerouslySetInnerHTML={{ __html: text }} />
   )
 }

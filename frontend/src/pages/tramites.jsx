@@ -1,10 +1,22 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
 import Tramites from 'src/components/tramites'
-export default function tramites() {
+import { fetcher } from "src/lib/Fetcher";
+
+
+export default function tramites({data}) {
     return (
         <Layer>
-            <Tramites />
+            <Tramites data={data} />
         </Layer>
     )
 }
+
+export async function getServerSideProps({ params }) {
+
+    const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/2`
+    const data = await fetcher(path)
+    return { props: {data} }
+  
+  }
+  
