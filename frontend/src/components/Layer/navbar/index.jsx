@@ -28,7 +28,7 @@ export default function Navbar() {
     ]
 
 
-    // const nosotros = ["quienes Somos", "autoridades", "equipo gerencial"]
+    
 
     const [showSearch, setShowSearch] = useState(false)
     // const [showMenu, setShowMenu] = useState(false)
@@ -98,15 +98,23 @@ export default function Navbar() {
                             {/* marco normativo */}
                             <div className=' flex items-start' >
                                 <Tooltip title="Marco Normativo">
-                                    <Link href={`/marco-normativo/competencias`}>
+ 
+                                    <Link href={`/publicaciones/ponencias/`}>
                                         <a>
                                             <li >
-                                                Competencias
+                                            Ponencias del Congreso
                                             </li>
                                         </a>
                                     </Link>
 
-
+                                    <Link href={`/publicaciones/revista-tributaria/`}>
+                                        <a>
+                                            <li >
+                                            revista justicia tributaria
+                                            </li>
+                                        </a>
+                                    </Link>
+ 
 
                                     <div className='mt-4 -mb-3 ' >
                                         <Tooltip title="Normativa">

@@ -8,6 +8,7 @@ export default function SiteMap() {
         <section className='mt-6 space-y-6 text-[16px] custom-list'>
 
             <div className='p-9 border1 rounded-xl'>
+
                 <ToggleList title={"Inicio"}>
                     <ul className='pt-9 gap-3 space-y-3'>
                         <li >
@@ -29,7 +30,7 @@ export default function SiteMap() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/noticias" >
+                                    <Link href="/entradas/noticias" >
                                         <a className=' flex gap-2 items-center'>
                                             Noticias
                                         </a>

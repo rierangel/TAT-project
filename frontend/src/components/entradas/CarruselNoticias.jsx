@@ -1,10 +1,13 @@
+import { useQuery } from '@tanstack/react-query'
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { fetcher } from 'src/lib/Fetcher'
+import ImgBack from '../Layer/ImgBack';
+import TextBack from '../Layer/TextBack';
 
 
 // // document.getElementById("").classList.contains
 
-export default function SliderCarrusel({ children, dot_control }) {
-
+function SliderCarrusel({ results }) {
     const caruselRef = useRef(null)
     const dotRef = useRef()
     const sliderRef = useRef()
@@ -84,15 +87,6 @@ export default function SliderCarrusel({ children, dot_control }) {
 
 
 
-    const cont = [
-        "https://usercontent.one/wp/www.entornoestudiantil.com/wp-content/uploads/2018/03/La-clasificacion-de-las-empresas.jpg",
-        "https://clippingrrpp.com/wp-content/uploads/2015/02/abogados-marketing-legal1.jpg",
-        "https://www.bufetesemperejaen.com/wp-content/uploads/2019/02/Abogados-Elche-reunidos-despacho-sempere.jpg",
-        "https://d500.epimg.net/cincodias/imagenes/2018/10/15/legal/1539584672_711277_1539585056_noticia_normal.jpg",
-        "https://d500.epimg.net/cincodias/imagenes/2017/11/27/legal/1511775346_282834_1511863279_rrss_normal.jpg",
-        "https://www.armentalrialabogados.es/images/cuadro-despacho.jpg",
-    ];
-
 
     return (
         <div ref={caruselRef} className="carrusel_slider">
@@ -108,14 +102,17 @@ export default function SliderCarrusel({ children, dot_control }) {
                 </div>
 
                 <div ref={sliderRef} className="slider w-full">
-                    {cont.map((e, i) => (
+                    {results && results.map((e, i) => (
                         <div className='flex flex-col  justify-center' key={i}>
                             <div className='flex items-end rounded-t-xl  relative object-center z-10 w-full h-[211px] md:h-[311px]  lg:h-[411px] overflow-hidden'>
-                                <img className='rounded-t-xl w-full object-contain object-center' src={e} alt="" />
+                                <ImgBack className='rounded-t-xl w-full object-contain object-center' src={e.imagen_principal} alt={e.titulo} />
                             </div>
                             <div className="border3 p-9 flex-col text-left justify-start -mt-4 ">
-                                <h3 className='pb-2'>11° Aniversario del Tribunal Administrativo Tributario</h3>
-                                <p >En el marco de esta significativa fecha, a nombre del Pleno de Magistrados, les extendemos un cordial saludo, recordando que cada uno de los logros alcanzados durante este tiempo, son fruto del esfuerzo individual y colectivo de todos los servidores públicos que fieles a los valores institucionales que nos identifican: transparencia, confidencialidad,</p>
+                                <h3 className='pb-2'>{e.titulo}</h3>
+                                <div className='truncate h-8'>
+
+                                <TextBack text={e.contenido} className="truncate" />
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -131,7 +128,7 @@ export default function SliderCarrusel({ children, dot_control }) {
             </div>
 
             <div ref={dotRef} className="dot_control mt-8">
-                {cont.map((e, i) => (
+                {results && results.map((e, i) => (
                     <>
                         <div key={i} onClick={(e) => handleDot(e)} />
                     </>
@@ -142,7 +139,17 @@ export default function SliderCarrusel({ children, dot_control }) {
     )
 }
 
+// const { data, isLoading, refetch, isRefetching } = useQuery(["noticias"], async () => fetcher(url))
 
 
+const url = `${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/`
+fetcher(url).then(res => {
+    SliderCarrusel.defaultProps = res
+})
+
+
+
+
+export default SliderCarrusel
 
 

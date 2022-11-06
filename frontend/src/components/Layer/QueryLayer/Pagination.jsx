@@ -10,7 +10,6 @@ export default function Pagination({ data, state, setState }) {
         const cont = data.count / data.page_size
         let contArrray = [...Array(cont).keys()];
         setPagesCount(contArrray)
-        console.log(pagesCount);
     }, [data])
 
     // current page, numero de paginas, set query

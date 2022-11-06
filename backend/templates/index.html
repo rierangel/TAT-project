@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        h1,h2,h3,h4,h5,h6{
+            margin: 0px;
+
+        }
+    </style>
 </head>
 <body>
     <h1>API Tribunal Tributario</h1>
@@ -13,7 +19,16 @@
         <li><a href="admin/">administrador</a></li>
         <li><a href="/paginas">paginas</a></li>
         <hr>
+        <h3>entradas</h3>
         <li><a href="{% url 'noticias' %}">noticias</a></li>
+
+        <hr>
+        <h3>marco</h3>
+        <li><a href="{% url 'competencias' %}">competencias</a></li>
+
+        <hr>
+        <li><a href="/contacto/">contacto</a></li>
+
     </ul>
 
 </body>

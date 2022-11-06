@@ -1,15 +1,13 @@
 from django.contrib import admin
-from .models import Autoridad, Equipo
-
-from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
+from .models import Oficina, Departamento, Autoridad, Equipo
 
 
 
-class PostAdmin(SummernoteModelAdmin):
-    summernote_fields = ('descrpcion',)
 
+admin.site.register(Oficina)
+admin.site.register(Departamento)
+admin.site.register(Autoridad)
+admin.site.register(Equipo)
 
-admin.site.register(Autoridad, PostAdmin)
-admin.site.register(Equipo, PostAdmin)

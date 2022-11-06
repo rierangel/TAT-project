@@ -4,9 +4,9 @@ import TextBack from 'src/components/Layer/TextBack'
 import Title from 'src/components/Layer/Title'
 import Competencias from 'src/components/Marco/Competencias'
 import { fetcher } from 'src/lib/Fetcher'
-export default function competencias({page}) {
+export default function competencias({ page, datalist }) {
 
-
+  console.log(datalist);
   return (
     <Layer>
 
@@ -17,8 +17,18 @@ export default function competencias({page}) {
 
 
         <div className='space-y-9 mt-6'>
-          <div className="p-9 border2 rounded-xl bg-white">
 
+          {datalist && datalist.map((e, i) => (
+
+            <div className="p-9 border2 rounded-xl bg-white">
+              <h2 className='mb-4 text-[#0054A4]'>{e.titulo}</h2>
+              <div className='custom-list list-primary'>
+                <TextBack text={e.text} />
+              </div>
+            </div>
+          ))}
+
+          {/* <div className="p-9 border2 rounded-xl bg-white">
             <h2 className='marco mb-4 text-[#0054A4]'>ley 8 - 2010</h2>
             <div className='custom-list list-primary'>
               <p>Mediante el artículo 156 de la Ley 8 de 15 de marzo de 2010, se creó el Tribunal Administrativo Tributario y se le otorgó competencia para:</p>
@@ -32,12 +42,7 @@ export default function competencias({page}) {
                 <li>Uniformar la jurisprudencia en las materias de su competencia.</li>
               </ul>
             </div>
-
-
-
           </div>
-
-
           <div className="p-9 border2 rounded-xl bg-white">
             <h2 className='mb-4 text-[#A39161]'>ley 76 - 2019</h2>
             <div className='custom-list list-dorado'>
@@ -54,7 +59,7 @@ export default function competencias({page}) {
             </div>
 
 
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -65,8 +70,8 @@ export default function competencias({page}) {
 export async function getServerSideProps({ params }) {
 
   const page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/6`)
-  // const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/`)
+  const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/marco/competencias/`)
 
-  return { props: { page } }
+  return { props: { page, datalist } }
 
 }

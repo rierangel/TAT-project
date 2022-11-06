@@ -1,11 +1,10 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import PreguntasFrecuente
-
-from django_summernote.admin import SummernoteModelAdmin
-class PostAdmin(SummernoteModelAdmin):
-    summernote_fields = ('text',)
+from .models import Oficina, Departamento
 
 
-admin.site.register(PreguntasFrecuente, PostAdmin)
+
+
+admin.site.register(Oficina)
+admin.site.register(Departamento)
