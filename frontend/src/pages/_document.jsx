@@ -5,7 +5,8 @@ function Document() {
   return (
     <Html className="dark">
       <Head>
-        {/* scripts  */}
+        <meta name="description" content="El Tribunal Administrativo Tributario cuenta con una estructura orgánica diseñada para cumplir con calidad y eficiencia todas las funciones que le asigna la ley, como institución autónoma e independiente.  Cada colaborador del tribunal contribuye con sus competencias a implementar la cultura organizacional y al logro de la misión y visión institucional." />
+        <title>TAT | Tribunal Tributario</title>
         <script dangerouslySetInnerHTML={{ __html: initialScript }}></script>
       </Head>
       <body>

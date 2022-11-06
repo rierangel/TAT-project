@@ -1,13 +1,13 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
-import Equipo from 'src/components/about/Equipo'
+import Equipo from 'src/components/about/List'
 import Title from 'src/components/Layer/Title'
 import { fetcher } from 'src/lib/Fetcher'
 import TextBack from 'src/components/Layer/TextBack'
 import ImgBack from 'src/components/Layer/ImgBack'
 
 
-export default function page({ page }) {
+export default function page({ page, datalist }) {
   console.log(page);
   return (
     <Layer>
@@ -52,7 +52,7 @@ export default function page({ page }) {
           </div>
         </div>
       </section>
-      <Equipo />
+      <Equipo data={datalist} />
 
     </Layer>
   )
@@ -61,8 +61,8 @@ export default function page({ page }) {
 export async function getServerSideProps({ params }) {
 
   const page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/4`)
-  // const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/`)
+  const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/autoridades/`)
 
-  return { props: { page } }
+  return { props: { page, datalist } }
 
 }

@@ -5,16 +5,14 @@ import { fetcher } from 'src/lib/Fetcher'
 
 
 function Oficinas() {
-    const url = `${process.env.NEXT_PUBLIC_URL_BACKEND}/contacto/oficinas/`
-    const [data, setData] = useState([])
+    const url = `${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/oficinas/`
+    const [data, setData] = useState(null)
 
     useEffect(() => {
         fetcher(url).then(res => {
             setData(res)
         })
-
     })
-
 
 
 

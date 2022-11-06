@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 function Contact() {
 
-    const url = `${process.env.NEXT_PUBLIC_URL_BACKEND}/contacto/departamentos/`
+    const url = `${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/departamentos/`
     const [data, setData] = useState([])
 
     useEffect(() => {

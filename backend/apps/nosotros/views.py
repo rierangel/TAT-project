@@ -19,8 +19,14 @@ class DepartamentoViewSet(viewsets.ViewSet):
         serializer = DepartamentoSerializers(queryset, many=True)
         return Response(serializer.data)
 
-class DepartamentoViewSet(viewsets.ViewSet):
+class AutoridadViewSet(viewsets.ViewSet):
     def list(self, request):
-        queryset = Departamento.objects.all()#.order_by("-order")
-        serializer = DepartamentoSerializers(queryset, many=True)
+        queryset = Autoridad.objects.all()#.order_by("-order")
+        serializer = AutoridadSerializers(queryset, many=True)
+        return Response(serializer.data)
+
+class EquipoViewSet(viewsets.ViewSet):
+    def list(self, request):
+        queryset = Equipo.objects.all()#.order_by("-order")
+        serializer = EquipoSerializers(queryset, many=True)
         return Response(serializer.data)

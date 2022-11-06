@@ -1,6 +1,6 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
-import Equipo from 'src/components/about/Equipo'
+import Equipo from 'src/components/about/List'
 import Title from 'src/components/Layer/Title'
 import TextBack from 'src/components/Layer/TextBack'
 import { fetcher } from 'src/lib/Fetcher'

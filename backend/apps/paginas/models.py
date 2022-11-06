@@ -3,6 +3,12 @@ from django.db import models
 # Create your models here.
 
 
+def upload_path(instance, filename):
+    if " " in instance.pagina.titulo_pagina:
+        instance.pagina.titulo_pagina.replace(" ", "_")
+    return '/'.join(['paginas',instance.pagina.titulo_pagina, filename])
+
+
 
 class Pagina(models.Model):
     titulo_pagina = models.CharField(max_length=500)
@@ -14,7 +20,7 @@ class Pagina(models.Model):
 class Seccion(models.Model):
     titulo = models.CharField(max_length=500)
     icono = models.TextField(blank=True,null=True)
-    imagen = models.ImageField(blank=True,null=True)
+    imagen = models.ImageField(blank=True,null=True, upload_to=upload_path)
     text = models.TextField(blank=True,null=True)
     posicion = models.IntegerField()
     pagina = models.ForeignKey(Pagina, on_delete=models.CASCADE)
