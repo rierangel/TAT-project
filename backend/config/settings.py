@@ -62,7 +62,7 @@ INSTALLED_APPS = [
 
     # apps
     'paginas',
-    # 'contacto',
+    'publicaciones',
     'entradas',
     'nosotros',
     'marco',

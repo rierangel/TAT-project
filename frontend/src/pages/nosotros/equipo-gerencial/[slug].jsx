@@ -48,11 +48,10 @@ export default function autoridad({ data }) {
 export async function getServerSideProps({ params }) {
 
     // const page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/4`)
-    const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/autoridades/`)
+    const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/equipo/`)
 
     const current = datalist.filter((e) => e.nombre == params.slug)
     // console.log(current);
-
 
 
     return { props: { data: current[0] | {} } }

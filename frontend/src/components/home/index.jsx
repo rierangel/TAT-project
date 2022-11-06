@@ -56,7 +56,7 @@ export default function Index({ data }) {
       </div>
 
       <hr className='invisible my-[50px]' />
-      <Title data={data[1]} link={"/"} />
+      <Title data={data[1]} link={"/publicaciones/resoluciones/"} />
       <LastResolutions />
 
       <CarruselNoticias />

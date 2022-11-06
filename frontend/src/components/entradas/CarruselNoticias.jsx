@@ -102,13 +102,14 @@ function SliderCarrusel({ results }) {
                 </div>
 
                 <div ref={sliderRef} className="slider w-full">
+
                     {results && results.map((e, i) => (
                         <div className='flex flex-col  justify-center' key={i}>
                             <div className='flex items-end rounded-t-xl  relative object-center z-10 w-full h-[211px] md:h-[311px]  lg:h-[411px] overflow-hidden'>
                                 <ImgBack className='rounded-t-xl w-full object-contain object-center' src={e.imagen_principal} alt={e.titulo} />
                             </div>
                             <div className="border3 p-9 flex-col text-left justify-start -mt-4 ">
-                                <h3 className='pb-2'>{e.titulo}</h3>
+                                <div className='pb-2 h3'>{e.titulo}</div>
                                 <div className='truncate h-8'>
 
                                 <TextBack text={e.contenido} className="truncate" />
