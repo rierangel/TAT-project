@@ -13,13 +13,13 @@ import { fetcher } from 'src/lib/Fetcher';
  * @param {Boolean} buscador 
  * @returns 
  */
-export default function QueryLayer(Component, data, buscador, url, name) {
+export default function QueryLayer(Component, data, buscador, url, path) {
 
   return function () {
 
     const [urlQuery, setUrlQuery] = useState(url)
 
-    const { data: newData, isLoading, refetch, isRefetching } = useQuery(["noticias"], async () => fetcher(urlQuery), {
+    const { data: newData, isLoading, refetch, isRefetching } = useQuery(["path"], async () => fetcher(urlQuery), {
       refetchOnWindowFocus: false,
       enabled: false,
       placeholderData: data
@@ -46,7 +46,7 @@ export default function QueryLayer(Component, data, buscador, url, name) {
 
     const [searchUrl, setSearchUrl] = useState()
     const handleChange = () => {
-      const newUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${name}/?${query.search && `&search=${query.search}`}${query.year && `&year=${query.year}`}`
+      const newUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/?${query.search && `&search=${query.search}`}${query.year && `&year=${query.year}`}`
       setSearchUrl(newUrl)
     }
     const handleSubmit = (e) => {

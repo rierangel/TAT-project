@@ -10,11 +10,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from rest_framework.pagination import PageNumberPagination
-
 from django.db.models import Q
-
-
-
 class PaginationEntradas(PageNumberPagination):
     page_size = 5
     page_size_query_param = 'page_size'
@@ -30,7 +26,6 @@ class PaginationEntradas(PageNumberPagination):
             'page_size': self.page_size,
             'results': data
         })
-
 class PaginationHandlerMixin(object):
     @property
     def paginator(self):

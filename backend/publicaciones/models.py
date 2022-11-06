@@ -19,7 +19,19 @@ class Resolucion(models.Model):
     titulo = models.CharField(max_length=500, unique=True)
     año = models.IntegerField(default=2020 ,max_length=4)
     archivo = models.FileField(upload_to='uploads/resoluciones/%Y/%m/%d/')
-    categoria = models.ForeignKey(CategoriasResoluciones, on_delete=models.CASCADE, related_name="resolicion")
+    tag = models.ForeignKey(CategoriasResoluciones, on_delete=models.CASCADE, related_name="resolucion")
+
+    @property
+    def categoria(self):
+        return self.tag.titulo
+
+    @property
+    def ver(self):
+        return self.archivo.url
+
+    @property
+    def descargar(self):
+        return self.pk
 
     def __str__(self):
         return self.titulo
