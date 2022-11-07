@@ -42,6 +42,7 @@ docker rm $(docker ps -aq) -f && docker rmi $(docker images -aq)
 
 ### simple imagen
 
+export DOCKER_BUILDKIT=0 
 docker build -t django .
 
 docker run -it -p 8000:8000
