@@ -1,112 +1,211 @@
 [
     {
-    "model": "entradas.noticia",
-    "pk": 1,
-    "fields": {
-        "titulo": "entrada 1",
-        "fecha": "2022-11-15",
-        "contenido": null,
-        "imagen_principal": "Rectangle_9.png"
+        "model": "publicaciones.resolucion",
+        "pk": 1,
+        "fields": {
+            "titulo": "Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
+    },
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 2,
+        "fields": {
+            "titulo": "1 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
     }
-},
-{
-    "model": "entradas.noticia",
-    "pk": 2,
-    "fields": {
-        "titulo": "titulo 2",
-        "fecha": "2020-11-08",
-        "contenido": "",
-        "imagen_principal": "Rectangle_8_xXEQkqH.png"
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 2,
+        "fields": {
+            "titulo": "1 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
     }
-},
-{
-    "model": "entradas.noticia",
-    "pk": 3,
-    "fields": {
-        "titulo": "titulo 3",
-        "fecha": "2005-02-23",
-        "contenido": "<ul><li><br></li></ul><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><hr><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><ul><li><b>s</b></li><li>a</li></ul><p><br></p><p><br></p><h1 class=\"\"></h1>",
-        "imagen_principal": "Rectangle_9_JpjNyoN.png"
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 3,
+        "fields": {
+            "titulo": "3 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
     }
-},
-{
-    "model": "entradas.noticia",
-    "pk": 4,
-    "fields": {
-        "titulo": "titulo 4",
-        "fecha": "2005-02-23",
-        "contenido": "<ul><li><br></li></ul><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><hr><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><ul><li><b>s</b></li><li>a</li></ul><p><br></p><p><br></p><h1 class=\"\"></h1>",
-        "imagen_principal": "Rectangle_9_JpjNyoN.png"
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 4,
+        "fields": {
+            "titulo": "4 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
     }
-},
-{
-    "model": "entradas.noticia",
-    "pk": 4,
-    "fields": {
-        "titulo": "titulo 5",
-        "fecha": "2005-02-23",
-        "contenido": "<ul><li><br></li></ul><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><hr><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><ul><li><b>s</b></li><li>a</li></ul><p><br></p><p><br></p><h1 class=\"\"></h1>",
-        "imagen_principal": "Rectangle_9_JpjNyoN.png"
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 5,
+        "fields": {
+            "titulo": "5 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
     }
-},
-{
-    "model": "entradas.noticia",
-    "pk": 6,
-    "fields": {
-        "titulo": "titulo 6",
-        "fecha": "2005-02-23",
-        "contenido": "<ul><li><br></li></ul><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><hr><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><ul><li><b>s</b></li><li>a</li></ul><p><br></p><p><br></p><h1 class=\"\"></h1>",
-        "imagen_principal": "Rectangle_9_JpjNyoN.png"
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 6,
+        "fields": {
+            "titulo": "6 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
     }
-},
-{
-    "model": "entradas.noticia",
-    "pk": 7,
-    "fields": {
-        "titulo": "titulo 7",
-        "fecha": "2005-02-23",
-        "contenido": "<ul><li><br></li></ul><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><hr><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><ul><li><b>s</b></li><li>a</li></ul><p><br></p><p><br></p><h1 class=\"\"></h1>",
-        "imagen_principal": "Rectangle_9_JpjNyoN.png"
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 7,
+        "fields": {
+            "titulo": "7 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
     }
-},
-{
-    "model": "entradas.noticia",
-    "pk": 8,
-    "fields": {
-        "titulo": "titulo 8",
-        "fecha": "2005-02-23",
-        "contenido": "<ul><li><br></li></ul><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><hr><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><ul><li><b>s</b></li><li>a</li></ul><p><br></p><p><br></p><h1 class=\"\"></h1>",
-        "imagen_principal": "Rectangle_9_JpjNyoN.png"
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 8,
+        "fields": {
+            "titulo": "8 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
     }
-},
-{
-    "model": "entradas.noticia",
-    "pk": 9,
-    "fields": {
-        "titulo": "titulo 9",
-        "fecha": "2005-02-23",
-        "contenido": "<ul><li><br></li></ul><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><hr><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><ul><li><b>s</b></li><li>a</li></ul><p><br></p><p><br></p><h1 class=\"\"></h1>",
-        "imagen_principal": "Rectangle_9_JpjNyoN.png"
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 9,
+        "fields": {
+            "titulo": "9 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
     }
-},
-{
-    "model": "entradas.noticia",
-    "pk": 10,
-    "fields": {
-        "titulo": "titulo 10",
-        "fecha": "2005-02-23",
-        "contenido": "<ul><li><br></li></ul><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><hr><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><ul><li><b>s</b></li><li>a</li></ul><p><br></p><p><br></p><h1 class=\"\"></h1>",
-        "imagen_principal": "Rectangle_9_JpjNyoN.png"
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 10,
+        "fields": {
+            "titulo": "10 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
     }
-},
-{
-    "model": "entradas.noticia",
-    "pk": 11,
-    "fields": {
-        "titulo": "titulo 11",
-        "fecha": "2005-02-23",
-        "contenido": "<ul><li><br></li></ul><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><hr><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><ul><li><b>s</b></li><li>a</li></ul><p><br></p><p><br></p><h1 class=\"\"></h1>",
-        "imagen_principal": "Rectangle_9_JpjNyoN.png"
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 11,
+        "fields": {
+            "titulo": "11 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
     }
-}
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 12,
+        "fields": {
+            "titulo": "12 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
+    }
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 13,
+        "fields": {
+            "titulo": "13 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
+    }
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 14,
+        "fields": {
+            "titulo": "14 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
+    }
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 15,
+        "fields": {
+            "titulo": "15 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
+    }
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 16,
+        "fields": {
+            "titulo": "16 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
+    }
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 17,
+        "fields": {
+            "titulo": "17 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
+    }
+    ,
+    {
+        "model": "publicaciones.resolucion",
+        "pk": 18,
+        "fields": {
+            "titulo": "18 Resolución No Admisión n.° TAT-ADM-167 de 27 de septiembre de 2022",
+            "año": 2022,
+            "archivo": "uploads/resoluciones/2022/11/06/exp_155-21_.pdf",
+            "tag": 1
+        }
+    }
+   
+   
 ]

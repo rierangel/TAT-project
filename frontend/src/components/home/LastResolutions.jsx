@@ -1,57 +1,34 @@
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { fetcher } from 'src/lib/Fetcher'
 import styles from './styles.module.scss'
 
 export default function LastResolutions() {
+
+  const url = `${process.env.NEXT_PUBLIC_URL_BACKEND}/publicaciones/resoluciones/?limit=6/`
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    fetcher(url).then(res => {
+      const last = res.results.filter((v, i) => i < 6)
+      setData(last)
+    })
+  }, [])
+
+
   return (
-    <>
 
-      <div className={styles.resoluciones}>
-        <Link href="" >
-          <a className='card-hover'>
-            <h3 >Resolución de Fondo Nº TAT-RF-078 de 12 de julio de 2022</h3>
+    <div className={styles.resoluciones}>
+      {data !== null && data.map((v, i) => (
+        <a key={i} href={`${process.env.NEXT_PUBLIC_URL_BACKEND}${v.ver}`} target="_blank" className='card-hover'>
+          <h3 >{v.titulo}</h3>
+          <p className='uppercase text-[#6B7380] mt-[13px]'>{v.categoria}</p>
+        </a>
+  ))
+}
 
-            <p className='uppercase text-[#6B7380] mt-[13px]'>Resoluciones de Fondo</p>
-          </a>
-        </Link>
-        <Link href="" >
-          <a className='card-hover'>
-            <h3 >Resolución de Fondo Nº TAT-RF-078 de 12 de julio de 2022</h3>
+      
 
-            <p className='uppercase text-[#6B7380] mt-[13px]'>Resoluciones de Fondo</p>
-          </a>
-        </Link>
-        <Link href="" >
-          <a className='card-hover'>
-            <h3 >Resolución de Fondo Nº TAT-RF-078 de 12 de julio de 2022</h3>
-
-            <p className='uppercase text-[#6B7380] mt-[13px]'>Resoluciones de Fondo</p>
-          </a>
-        </Link>
-        <Link href="" >
-          <a className='card-hover'>
-            <h3 >Resolución de Fondo Nº TAT-RF-078 de 12 de julio de 2022</h3>
-
-            <p className='uppercase text-[#6B7380] mt-[13px]'>Resoluciones de Fondo</p>
-          </a>
-        </Link>
-        <Link href="" >
-          <a className='card-hover'>
-            <h3 >Resolución de Fondo Nº TAT-RF-078 de 12 de julio de 2022</h3>
-
-            <p className='uppercase text-[#6B7380] mt-[13px]'>Resoluciones de Fondo</p>
-          </a>
-        </Link>
-        <Link href="" >
-          <a className='card-hover'>
-            <h3 >Resolución de Fondo Nº TAT-RF-078 de 12 de julio de 2022</h3>
-
-            <p className='uppercase text-[#6B7380] mt-[13px]'>Resoluciones de Fondo</p>
-          </a>
-        </Link>
-
-
-
-      </div>
-    </>
+      </div >
   )
 }

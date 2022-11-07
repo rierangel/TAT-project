@@ -11,61 +11,14 @@ from rest_framework import status
 
 from rest_framework.pagination import PageNumberPagination
 from django.db.models import Q
-class PaginationEntradas(PageNumberPagination):
-    page_size = 5
-    page_size_query_param = 'page_size'
-    max_page_size = 5
 
-    def get_paginated_response(self, data):
-        return Response({
-            'links': {
-                'next': self.get_next_link(),
-                'previous': self.get_previous_link()
-            },
-            'count': self.page.paginator.count,
-            'page_size': self.page_size,
-            'results': data
-        })
-class PaginationHandlerMixin(object):
-    @property
-    def paginator(self):
-        if not hasattr(self, '_paginator'):
-            if self.pagination_class is None:
-                self._paginator = None
-            else:
-                self._paginator = self.pagination_class()
-        else:
-            pass
-        return self._paginator
-    def paginate_queryset(self, queryset):
-        
-        if self.paginator is None:
-            return None
-        return self.paginator.paginate_queryset(queryset,
-                   self.request, view=self)
-    def get_paginated_response(self, data):
-        assert self.paginator is not None
-        return self.paginator.get_paginated_response(data)
+from core.pagination import CustomPagination, PaginationHandlerMixinApiView
 
 
-# TODO endpoins:
-# - [x] api de todas las noticias
-# - [x] ordenadas por fecha
-# - [x] paginacion de las noticias
-# class NoticiasListView(generics.ListAPIView):
-#     queryset = Noticia.objects.all().order_by("-fecha")
-#     serializer_class = NoticiaSerializers
-#     pagination_class = PaginationEntradas
-
-# List all with pagination
-
-
-
-
-class NoticiasListView(APIView, PaginationHandlerMixin):
+class NoticiasListView(APIView, PaginationHandlerMixinApiView):
     queryset = Noticia.objects.all().order_by("-fecha")
     serializer_class = NoticiaSerializers
-    pagination_class = PaginationEntradas
+    pagination_class = CustomPagination
 
     # List all with filter and query search
     def get(self, request, format=None, *args, **kwargs):
@@ -92,8 +45,6 @@ class NoticiasListView(APIView, PaginationHandlerMixin):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-
-# - [ ] detail noticia
 class NoticiaView(APIView):
     """
     url: http://127.0.0.1:8000/noticias/titulo
@@ -104,21 +55,6 @@ class NoticiaView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-# - [ ] endpoint filtro de toticias por fecha
-# - [ ] paginacion de las noticias con filtro
-
-# - [ ] resultados de busqueda sin tomar en cuenta la paginacion, osea todas las entradas
-# - [ ] Endpoint para buscador con su paginacion
-
-
-# TODO frontend
-# ## replicar en los otros tipos de entradas
-# crear el buscador
-# ### comoponente HOC que agrega el buscador
-# - [ ] sin resultados de busqueda trae la api normal
-# - [ ] con busqueda trae los resultados de todo pero tambien paginados
-# - [ ] buscador con año
-# - [ ] sin tag año
 
 # Informes de Viajes Nacionales
 # Edictos

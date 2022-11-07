@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 
-
 from pathlib import Path
 import os
 import sys
@@ -55,11 +54,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #packages
+    # packages
     'rest_framework',
     'django_summernote',
 
-
+    'core',
     # apps
     'paginas',
     'publicaciones',
@@ -162,10 +161,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
 # django rest framework
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 15
+    'DEFAULT_PAGINATION_CLASS': 'core.pagination.CustomPagination',
+    'UNICODE_JSON': False,
 }

@@ -8,15 +8,16 @@ import QueryLayer from 'src/components/Layer/QueryLayer';
 import DataGrid from 'src/components/data_display/DataGrid'
 
 
-export default function resoluciones({page,datalist }) {
-  const query = `${process.env.NEXT_PUBLIC_URL_BACKEND}/publicaciones/resoluciones/`
-  const NoticiasListQuery = QueryLayer(DataGrid, datalist, true, query, "publicaciones/resoluciones")
+export default function resoluciones({page, datalist }) {
+  const path = `publicaciones/resoluciones`
+  const query = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/`
+  const NoticiasListQuery = QueryLayer(DataGrid, datalist, true, query, path)
 
 
   return (
     <Layer>
       <Title data={page[0]} />
-      <DataGrid data={datalist}/>
+      <DataGrid data={datalist} path={path}/>
     </Layer>
   )
 }

@@ -7,7 +7,7 @@ import TextBack from '../Layer/TextBack';
 
 // // document.getElementById("").classList.contains
 
-function SliderCarrusel({ results }) {
+function SliderCarrusel() {
     const caruselRef = useRef(null)
     const dotRef = useRef()
     const sliderRef = useRef()
@@ -86,6 +86,14 @@ function SliderCarrusel({ results }) {
     }, [current]);
 
 
+    const url = `${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/?limit=6`
+    const [data, setData] = useState(null)
+
+    useEffect(() => {
+        fetcher(url).then(res => {
+            setData(res.results)
+        })
+    }, [])
 
 
     return (
@@ -103,8 +111,8 @@ function SliderCarrusel({ results }) {
 
                 <div ref={sliderRef} className="slider w-full">
 
-                    {results && results.map((e, i) => (
-                        <div className='flex flex-col  justify-center' key={i}>
+                    {data && data.map((e, i) => (
+                        <div key={i} className='flex flex-col  justify-center' >
                             <div className='flex items-end rounded-t-xl  relative object-center z-10 w-full h-[211px] md:h-[311px]  lg:h-[411px] overflow-hidden'>
                                 <ImgBack className='rounded-t-xl w-full object-contain object-center' src={e.imagen_principal} alt={e.titulo} />
                             </div>
@@ -112,7 +120,7 @@ function SliderCarrusel({ results }) {
                                 <div className='pb-2 h3'>{e.titulo}</div>
                                 <div className='truncate h-8'>
 
-                                <TextBack text={e.contenido} className="truncate" />
+                                    <TextBack text={e.contenido} className="truncate" />
                                 </div>
                             </div>
                         </div>
@@ -129,10 +137,8 @@ function SliderCarrusel({ results }) {
             </div>
 
             <div ref={dotRef} className="dot_control mt-8">
-                {results && results.map((e, i) => (
-                    <>
-                        <div key={i} onClick={(e) => handleDot(e)} />
-                    </>
+                {data && data.map((e, i) => (
+                    <div key={i} onClick={(e) => handleDot(e)} />
                 ))}
             </div>
 

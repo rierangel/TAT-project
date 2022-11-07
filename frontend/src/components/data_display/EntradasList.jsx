@@ -20,8 +20,8 @@ const NoticiaList = ({ data }) => {
 
       {data.map((e, i) => (
         <div key={i} className="py-6 border-b px-3 flex space-x-[24px] hover1 no-pointer">
-          <div className="w-[193px] h-[142px]  ">
-            {/* <ImgBack src={e.imagen_principal} className='object-cover h-full w-full rounded-lg' /> */}
+          <div className="w-[193px] h-[142px]  rounded-xl">
+            <ImgBack src={e.imagen_principal} className='object-contain h-full w-full rounded-xl' />
           </div>
 
           <div className="w-full flex flex-col justify-between items-start h-[142px] ">

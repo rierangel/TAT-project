@@ -14,25 +14,30 @@ from rest_framework.decorators import action
 
 from django.http import FileResponse
 
-class PassthroughRenderer(renderers.BaseRenderer):
-    """
-        Return data as-is. View should supply a Response.
-    """
-    media_type = ''
-    format = ''
-    def render(self, data, accepted_media_type=None, renderer_context=None):
-        return data
+from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
 
+from core.pagination import PaginationHandlerMixinApiView, CustomPagination
 
-class ResolucionViewSet(viewsets.ViewSet):
+class StandardResultsSetPagination(LimitOffsetPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 10
+    
+
+class ResolucionViewSet(viewsets.ModelViewSet):
     """
     url: http://localhost:8000/publicaciones/resoluciones/
     """
+    queryset = Resolucion.objects.all().order_by("-pk")
+    serializer_class = ResolucionSerializers
+    pagination_class = CustomPagination
+
     def list(self, request):
-        queryset = Resolucion.objects.all()
-        for i in queryset:
-            print(i)
-        serializer = ResolucionSerializers(queryset, many=True)
+        page = self.paginate_queryset(self.queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(self.queryset, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk):

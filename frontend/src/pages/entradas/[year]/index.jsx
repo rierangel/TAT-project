@@ -1,5 +1,5 @@
 import Layer from "src/components/Layer";
-import NoticiaList from "src/components/entradas/List";
+import NoticiaList from "src/components/data_display/EntradasList";
 
 
 export default function Page({slug}) {

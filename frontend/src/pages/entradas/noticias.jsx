@@ -6,7 +6,7 @@ import { fetcher } from "src/lib/Fetcher";
 
 import Title from 'src/components/Layer/Title';
 import QueryLayer from 'src/components/Layer/QueryLayer';
-import NoticiaList from "src/components/entradas/List";
+import NoticiaList from "src/components/data_display/EntradasList";
 
 
 export default function page({ page, datalist }) {

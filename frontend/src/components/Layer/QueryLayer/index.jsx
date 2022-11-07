@@ -92,7 +92,7 @@ export default function QueryLayer(Component, data, buscador, url, path) {
 
 
       {!isRefetching &&
-        <Component data={newData.results} />
+        <Component data={newData.results} path={path} />
       }
 
       {newData.links &&

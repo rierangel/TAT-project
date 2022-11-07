@@ -10,14 +10,14 @@ def upload_path(instance, filename):
     return '/'.join(['equipo_y_autoridades',instance.nombre, filename])
 
 class CategoriasResoluciones(models.Model):
-    titulo = models.CharField(max_length=500, unique=True)
+    titulo = models.CharField(max_length=500)
     
     def __str__(self):
         return self.titulo
 
 class Resolucion(models.Model):
-    titulo = models.CharField(max_length=500, unique=True)
-    año = models.IntegerField(default=2020 ,max_length=4)
+    titulo = models.CharField(max_length=500)
+    año = models.IntegerField(default=2020)
     archivo = models.FileField(upload_to='uploads/resoluciones/%Y/%m/%d/')
     tag = models.ForeignKey(CategoriasResoluciones, on_delete=models.CASCADE, related_name="resolucion")
 
