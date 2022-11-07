@@ -6,14 +6,15 @@
 `docker rm $(docker ps -aq) -f`  ⇒ Fuerza a detener y eliminar los contenedores
 `docker rmi $(docker images -aq)` ⇒ Script que elimina todas las imagenes 
 
-docker rm $(docker ps -aq) -f
-docker rmi $(docker images -aq)
+docker rm $(docker ps -aq) -f && docker rmi $(docker images -aq)
+
+
+
 
 ## Hoja de comandos para la administracion de docker:
 “Docker hub para ver las imágenes disponibles” docker images ⇒ verifica todas las imagenes disponibles
 
 ```js
-
 - docker version
 
 - docker pull hello-word ⇒ descarga la imagen
@@ -38,3 +39,9 @@ docker rmi $(docker images -aq)
 - docker exec -it [id o nombre] bash ⇒ ejecuta un programa disponible dentro del contenedor en un contenedor previamente creado
 
 ```
+
+### simple imagen
+
+docker build -t django .
+
+docker run -it -p 8000:8000
