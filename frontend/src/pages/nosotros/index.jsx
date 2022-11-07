@@ -1,6 +1,6 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
-import SvgFondo from 'src/components/icons/fondo'
+import SvgFondo from 'src/icons/fondo'
 
 import Title from 'src/components/Layer/Title'
 import { fetcher } from 'src/lib/Fetcher'

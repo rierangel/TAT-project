@@ -45,9 +45,11 @@ export default function QueryLayer(Component, data, buscador, url, path) {
 
 
     const [searchUrl, setSearchUrl] = useState()
+    
     const handleChange = () => {
       const newUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/?${query.search && `&search=${query.search}`}${query.year && `&year=${query.year}`}`
-      setSearchUrl(newUrl)
+      console.log(newUrl);
+      // setSearchUrl(newUrl)
     }
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -91,12 +93,15 @@ export default function QueryLayer(Component, data, buscador, url, path) {
 
 
 
-      {!isRefetching &&
+      {newData.results[0]
+        ?
         <Component data={newData.results} path={path} />
+        :
+        <h1>Resultados no encontrados</h1>
       }
 
       {newData.links &&
-      <Pagination data={newData} setState={setUrlQuery} />
+        <Pagination data={newData} setState={setUrlQuery} />
       }
     </div>
 

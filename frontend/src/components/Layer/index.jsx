@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Navbar from './navbar'
 import Footer from './Footer'
 import Path from './path'
-import SvgFondo from '../icons/fondo'
+import SvgFondo from '../../icons/fondo'
 export default function Layer({ children }) {
     return (
         <>

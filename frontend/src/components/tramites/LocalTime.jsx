@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
 
-import SvgFondo from '../icons/fondo'
-import SvgFondo2 from '../icons/fondo2'
-import SvgDots from '../icons/dots'
+import SvgFondo from '../../icons/fondo'
+import SvgFondo2 from '../../icons/fondo2'
+import SvgDots from '../../icons/dots'
 
 export default function localTime() {
 

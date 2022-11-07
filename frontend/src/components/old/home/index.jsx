@@ -1,14 +1,12 @@
-import Oficinas from '../contacto/oficinas'
+import Oficinas from 'src/contacto/oficinas'
 import LastResolutions from './LastResolutions'
 import Paginas from './Paginas'
-import Posts from './Posts'
 
 import CarruselNoticias from "src/components/entradas/CarruselNoticias";
 
 
-import SvgFondo from '../icons/fondo'
-import SvgDots from '../icons/dots'
-import SvgFondo3 from '../icons/fondo3'
+import SvgFondo from 'src/icons/fondo'
+import SvgDots from 'src/icons/dots'
 import Link from 'next/link'
 
 

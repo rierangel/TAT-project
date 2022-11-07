@@ -15,6 +15,9 @@ class CategoriasResoluciones(models.Model):
     def __str__(self):
         return self.titulo
 
+
+
+
 class Resolucion(models.Model):
     titulo = models.CharField(max_length=500)
     año = models.IntegerField(default=2020)
