@@ -19,6 +19,7 @@ import TextBack from 'src/components/Layer/TextBack';
 
 export default function Index({ data }) {
 
+  console.log(data)
   return (
     <Layer>
       <div className='flex flex-col-reverse md:flex-row '>
@@ -117,6 +118,9 @@ export async function getServerSideProps({ params }) {
 
   const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/1`
   const data = await fetcher(path)
+  console.log(path)
+  console.log(data)
+
   return { props: {data} }
 
 }
