@@ -1,0 +1,36 @@
+@use '@/styles/vars' as v;
+
+
+.table_grid {
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    background-color: white;
+
+    thead {
+        font-weight: 700;
+        width: 100%;
+    }
+
+    th,
+    td {
+        border-bottom: solid 1px v.$Gray2;
+
+        padding: 24px 12px;
+    }
+
+    tbody {
+
+        tr {
+
+            &:nth-child(even) {
+
+                background: v.$Gray1;
+            }
+        }
+
+    }
+
+}

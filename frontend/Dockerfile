@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM node:alpine
 
 ENV NODE_VERSION 19.0.0
 

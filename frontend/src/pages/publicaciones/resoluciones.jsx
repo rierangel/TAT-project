@@ -13,11 +13,10 @@ export default function resoluciones({page, datalist }) {
   const query = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/`
   const NoticiasListQuery = QueryLayer(DataGrid, datalist, true, query, path)
 
-
   return (
     <Layer>
       <Title data={page[0]} />
-      <DataGrid data={datalist} path={path}/>
+      <DataGrid data={datalist.results} path={path}/>
     </Layer>
   )
 }

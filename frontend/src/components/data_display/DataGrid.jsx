@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './styles.module.scss'
 
 export default function DataTable({ data, path }) {
 
@@ -7,7 +8,7 @@ export default function DataTable({ data, path }) {
 
 
     return (
-        <table className='table_grid'>
+        <table className={styles.table_grid}>
             <thead>
                 <tr>
                     {th.map((e, i) => (

@@ -14,27 +14,27 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
-  django:
-    restart: always
-    container_name: django
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    command: >
-      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-    ports:
-      - "8000:8000"
-    environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_HOST=db
-      - ALLOWED_HOSTS=127.0.0.1, localhost
-      - DJANGO_KEY=*
+  # django:
+  #   restart: always
+  #   container_name: django
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   command: >
+  #     sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - POSTGRES_NAME=postgres
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #     - POSTGRES_HOST=db
+  #     - ALLOWED_HOSTS=127.0.0.1, localhost
+  #     - DJANGO_KEY=*
 
-    volumes:
-      - .:/backend
-    depends_on:
+  #   volumes:
+  #     - .:/backend
+  #   depends_on:
       - db
   frontend:
     restart: always

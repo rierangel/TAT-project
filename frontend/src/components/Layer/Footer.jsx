@@ -96,7 +96,7 @@ export default function Footer() {
     const col4 = ["Declaración de privacidad", "Preguntas Frecuentes",]
 
   return (
-    <footer className="pt-6 pb-24 md:pt-16 md:pb-24 ">
+    <footer className="pt-6 pb-24 md:pt-16 md:pb-24  mt-36">
 
       <div className="container">
 

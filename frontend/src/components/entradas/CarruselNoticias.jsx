@@ -118,8 +118,7 @@ function SliderCarrusel() {
                             </div>
                             <div className="border3 p-9 flex-col text-left justify-start -mt-4 ">
                                 <div className='pb-2 h3'>{e.titulo}</div>
-                                <div className='truncate h-8'>
-
+                                <div className='truncate h-[52px]'>
                                     <TextBack text={e.contenido} className="truncate" />
                                 </div>
                             </div>
