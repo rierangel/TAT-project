@@ -176,8 +176,8 @@ export default function Navbar() {
 
             {showSearch &&
                 <div className='absolute inset-0 '>
-                    <div onClick={() => setShowSearch(false)} className='absolute inset-0 bg-[#0F162099] bg-opacity-60 z-[100]' />
-                    <div className='container static bg-white top-32 p-9 rounded-xl text-black z-[150] '>
+                    <div onClick={() => setShowSearch(false)} className='absolute inset-0 bg-[#0F162099] bg-opacity-60 z-[9999]' />
+                    <div className='container static bg-white top-32 p-9 rounded-xl text-black z-[99999] '>
 
                         <div onClick={() => setShowSearch(false)} className='cursor-pointer svg_rp w-auto absolute right-10 top-5 p-5'>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

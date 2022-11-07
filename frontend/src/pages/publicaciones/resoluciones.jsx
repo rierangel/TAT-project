@@ -16,7 +16,7 @@ export default function resoluciones({page, datalist }) {
   return (
     <Layer>
       <Title data={page[0]} />
-      <DataGrid data={datalist.results} path={path}/>
+      <NoticiasListQuery />
     </Layer>
   )
 }
