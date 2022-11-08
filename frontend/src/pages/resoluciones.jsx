@@ -26,8 +26,6 @@ export default function resoluciones({ page, datalist }) {
       path : "year",
       fields: tag_year
     }
- 
-
   ]
 
 
