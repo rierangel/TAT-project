@@ -1,5 +1,18 @@
 
+### simple imagen
+
+
+
+docker build -t django .
+docker run -it -p 8000:8000 django
+docker run -it django bash
+
+
+export DOCKER_BUILDKIT=0 
+sudo rm ~/.docker/config.json
+
 # Comandos de docker:
+
 
 
 `docker-compose build`
@@ -40,9 +53,3 @@ docker rm $(docker ps -aq) -f && docker rmi $(docker images -aq)
 
 ```
 
-### simple imagen
-
-export DOCKER_BUILDKIT=0 
-docker build -t django .
-
-docker run -it -p 8000:8000

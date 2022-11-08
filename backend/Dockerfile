@@ -4,10 +4,14 @@ FROM python:3.8-alpine3.15
 ENV PYTHONDONTWRITEBYTECODE=1
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
-ENV PORT 80
+ENV PORT 8000
 
 
 WORKDIR /
+
+COPY ./ ./
+
+RUN ls
 
 
 RUN  apk update \
@@ -19,11 +23,10 @@ COPY ./requirements.txt  ./
 
 RUN python -m pip install -r ./requirements.txt 
 
-COPY ./ ./
-
+RUN python manage.py
 
 RUN python manage.py migrate
 
-EXPOSE 80
+EXPOSE 8000
 
 CMD [ "python", "manage.py", "runserver" ]
