@@ -1,11 +1,11 @@
-from .views import ResolucionViewSet
+from .views import ResolucionViewSet, CategoriasResolucionViewSet
 from rest_framework.routers import DefaultRouter
-from django.urls import path
 
 router = DefaultRouter()
 
 
 router.register(r'resoluciones', ResolucionViewSet, basename='resoluciones')
+router.register(r'resoluciones-categorias', CategoriasResolucionViewSet, basename='resoluciones-categorias')
 
 
 urlpatterns = router.urls

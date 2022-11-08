@@ -7,12 +7,14 @@ import React, { useEffect, useState } from 'react'
  */
 export default function Buscador({ seturl, path, refetch, buscador }) {
 
+    console.log();
+    let initialquery = {}
 
-    //parametro de busqueda: http://127.0.0.1:8000/noticias/?search=hola&year=2005&page=2
-    const [query, setQuery] = useState({
-        search: "",
-        year: "",
-    })
+    for (let i of buscador) {
+        initialquery[i.path] = ""
+    }
+
+    const [query, setQuery] = useState(initialquery)
 
     // si el object query cambia, cambia la url
     useEffect(() => {
@@ -24,15 +26,11 @@ export default function Buscador({ seturl, path, refetch, buscador }) {
 
     const handleChange = () => {
 
+        // const newUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/?${query.search && `&search=${query.search}`}${query.year && `&year=${query.year}`}`
         let newUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/?`
         for (let i of buscador) {
             newUrl += `&${i.path}=${query[`${i.path}`]}`
         }
-
-        // const newUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/?${query.search && `&search=${query.search}`}${query.year && `&year=${query.year}`}`
-
-
-        console.log(newUrl);
         setSearchUrl(newUrl)
     }
     const handleSubmit = (e) => {
@@ -49,7 +47,9 @@ export default function Buscador({ seturl, path, refetch, buscador }) {
 
             {buscador.map((v, i) => (
                 v.path == "search" ?
-                    <input className='w-full'
+                    <input
+                        key={i}
+                        className='w-full'
                         type="text"
                         placeholder='Escriba su búsqueda'
                         value={query[v.path]}
@@ -57,16 +57,20 @@ export default function Buscador({ seturl, path, refetch, buscador }) {
                     />
                     :
 
-                    <div className="relative">
-                        <select 
-                        onChange={(e) => { setQuery({ ...query, [v.path]: e.target.value }) }}                        
-                        name="" id="" className='inset-0 h-full'>
+                    <div key={i} className="relative">
+                        <select
+                            value={query[v.path]}
+
+                            onChange={(e) => { setQuery({ ...query, [v.path]: e.target.value }) }}
+                            name="" id={v.path} className='inset-0 h-full'>
+
+
                             <option className='hidden' >Seleccione</option>
-                            {v.fields && v.fields.map((e, i) => (
-                                <option key={i} className='bg-[#F7F8FB]' value={e}>{e}</option>
+                            {v.fields && v.fields.map((ef, kf) => (
+                                <option key={kf} className='bg-[#F7F8FB]' value={ef}>{ef}</option>
                             ))}
                         </select>
-                        <label htmlFor="seccion" className='absolute left-0 -top-8 '>{v.titulo}</label>
+                        <label htmlFor={v.path} className='absolute left-0 -top-8 '>{v.titulo}</label>
                     </div>
             ))}
 

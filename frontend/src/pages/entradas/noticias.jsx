@@ -5,7 +5,7 @@ import SliderCarrusel from "src/components/entradas/CarruselNoticias";
 import { fetcher } from "src/lib/Fetcher";
 
 import Title from 'src/components/Layer/Title';
-import QueryLayer from 'src/components/Layer/QueryLayer';
+import QueryLayer from 'src/components/Layer/QueryLayer/QueryLayer';
 import NoticiaList from "src/components/data_display/EntradasList";
 
 
