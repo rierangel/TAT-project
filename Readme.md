@@ -4,7 +4,7 @@
 
 
 docker build -t django .
-docker run -it -p 8000:8000 django
+docker run -p 8000:8000 django-s
 docker run -it django bash
 
 
