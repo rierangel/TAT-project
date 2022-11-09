@@ -6,7 +6,7 @@ ENV PORT 3000
 
 # Create app directory
 # RUN mkdir -p ./
-WORKDIR /
+WORKDIR /app
 COPY ./ ./
 
 # Installing dependencies
