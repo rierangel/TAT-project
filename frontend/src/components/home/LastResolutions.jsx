@@ -10,8 +10,10 @@ export default function LastResolutions() {
 
   useEffect(() => {
     fetcher(url).then(res => {
-      const last = res.results.filter((v, i) => i < 6)
-      setData(last)
+      if(res.results){
+        const last = res.results.filter((v, i) => i < 6)
+        setData(last)
+      }
     })
   }, [])
 

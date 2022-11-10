@@ -70,7 +70,7 @@ export default function Index() {
 
       <hr className='invisible my-[50px]' />
       <Title data={data[1]} link={"/resoluciones/"} />
-      {/* <LastResolutions /> */}
+      <LastResolutions />
 
       <CarruselNoticias />
 
@@ -118,7 +118,7 @@ export default function Index() {
       <Paginas />
 
       <Title data={data[3]} link={"/contacto"} />
-      {/* <Oficinas /> */}
+      <Oficinas />
 
     </Layer>
   )

@@ -10,15 +10,18 @@ function Oficinas() {
 
     useEffect(() => {
         fetcher(url).then(res => {
-            setData(res)
+            if(res){
+
+                setData(res)
+            }
         })
     }, [])
 
 
-    return (
+    return ( data &&
         <div className='mb-16 md:mb-36 grid grid-cols-1 lg:grid-cols-2 gap-6 border lg:border-transparent border-[#E0EAF4] h-full rounded-xl'>
 
-            {data != null && data.map((v, i) => (
+            {data.map((v, i) => (
                 <div key={i} className=' space-y-4 p-5 lg:p-9 flex flex-col justify-between  rounded-xl border border-transparent lg:border-[#E0EAF4] bg-white '>
 
                     <div className='h2'>{v.lugar}</div>

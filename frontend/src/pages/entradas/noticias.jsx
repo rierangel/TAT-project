@@ -1,5 +1,7 @@
-import Layer from "src/components/Layer";
+import { useEffect, useState } from "react";
 
+
+import Layer from "src/components/Layer";
 import SliderCarrusel from "src/components/entradas/CarruselNoticias";
 
 import { fetcher } from "src/lib/Fetcher";
@@ -7,15 +9,51 @@ import { fetcher } from "src/lib/Fetcher";
 import Title from 'src/components/Layer/Title';
 import QueryLayer from 'src/components/Layer/QueryLayer/QueryLayer';
 import NoticiaList from "src/components/data_display/EntradasList";
+import numberRange from "src/lib/numberRange";
 
 
-export default function page({ page, datalist }) {
+export default function page(props) {
+
+  const [datalist, setData] = useState()
+  const [page, setPage] = useState()
+
+  useEffect(() => {
+    // page
+     fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/11`)
+     .then(res=>setPage(res))
+     .catch(error=>console.log(error))
+
+     //data
+     fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/`)
+     .then(res=>setData(res))
+     .catch(error=>console.log(error))
+  }, [])
+  
+  const currentYear = new Date().getFullYear()
+  const tag_year = numberRange(2011, currentYear + 1)
+
+  const buscador = [
+    {
+      titulo: "Palabra o Frase Clave",
+      path: "search",
+    },
+    {
+      titulo: "año",
+      path: "year",
+      fields: tag_year
+    }
+
+  ]
+
+
 
   const query= `${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/`
+  const NoticiasListQuery = QueryLayer(NoticiaList, datalist, buscador, query, "noticias")
 
-  const NoticiasListQuery = QueryLayer(NoticiaList, datalist, true, query, "noticias")
-  return (
-    <Layer>
+
+
+  return ( page &&
+    <Layer> 
       <SliderCarrusel />
       <hr className='my-12 invisible' />
       <Title data={page[0]} />
@@ -25,11 +63,10 @@ export default function page({ page, datalist }) {
 }
 
 
-export async function getServerSideProps({ params }) {
+// export async function getServerSideProps({ params }) {
 
-  const page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/11`)
-  const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/`)
 
-  return { props: { page, datalist } }
 
-}
+//   return { props: params }
+
+// }

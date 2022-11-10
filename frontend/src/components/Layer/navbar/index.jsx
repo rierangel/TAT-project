@@ -68,7 +68,7 @@ export default function Navbar() {
                             <Link href="/">
                                 <a>
                                     <li >
-                                        inicio
+                                        Inicio
                                     </li>
                                 </a>
                             </Link>
