@@ -20,12 +20,13 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    command: 
-      sh -c "python manage.py runserver 0.0.0.0:8000"
-
+    # command: 
+    #   sh -c "python manage.py runserver 0.0.0.0:8000"
     # &&  127.0.0.1:8080"
     ports:
       - "8000:8000"
+    volumes:
+      - ./backend:/app
     environment:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
@@ -33,17 +34,19 @@ services:
       - POSTGRES_HOST=db
       - ALLOWED_HOSTS=127.0.0.1, localhost
       - DJANGO_KEY=*
-    # depends_on:
-    #   - db
   frontend:
     restart: always
     ports:
       - 3000:3000
+    volumes:
+      - ./frontend:/app
     environment:
-      - NEXT_PUBLIC_URL_BACKEND="http://localhost:8000"
+      - NEXT_PUBLIC_URL_BACKEND=http://localhost:8000
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    depends_on:
+      - django
 
 
 

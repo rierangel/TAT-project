@@ -6,20 +6,15 @@ export default function Home() {
 
   const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/2`
 
+  console.log(path);
   const reft = (path)=>{
-    console.log(path);
     fetcher(path)
     .then(res=> console.log(res))
     .catch(err=>console.log(err))
 
   }
 
-
-
   reft(path)
-  reft("http://127.0.0.1:8000/paginas/2")
-  reft("http://localhost:8000/paginas/2")
-  reft("http://0.0.0.0:8000/paginas/2")
 
   return (
     <Layer>

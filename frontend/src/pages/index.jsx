@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+
+
 import Layer from "src/components/Layer";
 import { fetcher } from "src/lib/Fetcher";
 import Link from 'next/link'
@@ -17,11 +20,20 @@ import ImgBack from 'src/components/Layer/ImgBack';
 import TextBack from 'src/components/Layer/TextBack';
 
 
-export default function Index({ data }) {
+export default function Index() {
+  const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/1`
+  const [data, setData] = useState()
 
-  console.log(data)
-  return (
-    <Layer>
+  useEffect(() => {
+     fetcher(path)
+     .then(res=>setData(res))
+     .catch(error=>console.log(error))
+
+  }, [])
+  
+
+  return ( data &&
+    <Layer> 
       <div className='flex flex-col-reverse md:flex-row '>
         <div className='w-full h-auto md:my-auto -mt-[10%]'>
           <h1 className='w.full md:w-4/5'>{data[0].titulo}</h1>
@@ -58,7 +70,7 @@ export default function Index({ data }) {
 
       <hr className='invisible my-[50px]' />
       <Title data={data[1]} link={"/resoluciones/"} />
-      <LastResolutions />
+      {/* <LastResolutions /> */}
 
       <CarruselNoticias />
 
@@ -106,7 +118,7 @@ export default function Index({ data }) {
       <Paginas />
 
       <Title data={data[3]} link={"/contacto"} />
-      <Oficinas />
+      {/* <Oficinas /> */}
 
     </Layer>
   )
@@ -114,11 +126,9 @@ export default function Index({ data }) {
 
 
 
-export async function getServerSideProps({ params }) {
+// export async function getServerSideProps({ params }) {
 
-  const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/1`
-  const data = await fetcher(path)
+//   // console.log(path);
+//   return { props: {data:"hola" , path} }
 
-  return { props: {data} }
-
-}
+// }

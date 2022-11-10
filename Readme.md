@@ -1,35 +1,30 @@
 
-### simple imagen
+# docker
 
-
-
+### docker file 
 docker build -t django .
 docker run -p 8000:8000 django-s
-docker run -it django bash
+docker run -it django bash 
 
+### Comandos de docker compose:
+
+`docker-compose build` guarda las modificaciones realizadas de los archivos dockerfile
+`docker-compose up` levanta el servidor de (de manera interactiva con nuestro codigo)
+
+`docker rm $(docker ps -aq) -f`  ⇒ Fuerza a detener y eliminar los contenedores
+`docker rmi $(docker images -aq)` ⇒ Script que elimina todas las imagenes 
+docker rm $(docker ps -aq) -f && docker rmi $(docker images -aq)
+
+### debugg
 
 export DOCKER_BUILDKIT=0 
 sudo rm ~/.docker/config.json
 
-# Comandos de docker:
-
-
-
-`docker-compose build`
-`docker rm $(docker ps -aq) -f`  ⇒ Fuerza a detener y eliminar los contenedores
-`docker rmi $(docker images -aq)` ⇒ Script que elimina todas las imagenes 
-
-docker rm $(docker ps -aq) -f && docker rmi $(docker images -aq)
-
-
-
-
-## Hoja de comandos para la administracion de docker:
+### Hoja de comandos para la administracion de docker:
 “Docker hub para ver las imágenes disponibles” docker images ⇒ verifica todas las imagenes disponibles
 
-```js
+```
 - docker version
-
 - docker pull hello-word ⇒ descarga la imagen
 - docker run hello-word ⇒ ejecuta la imagen
 
@@ -50,6 +45,6 @@ docker rm $(docker ps -aq) -f && docker rmi $(docker images -aq)
 - docker start [id o nombre] ⇒ vuelve a ejecutar un contenedor del historial o en stop
 - docker stop [id o nombre] ⇒ detiene el contenedor en ejcucion
 - docker exec -it [id o nombre] bash ⇒ ejecuta un programa disponible dentro del contenedor en un contenedor previamente creado
-
 ```
 
+# Backend: 
