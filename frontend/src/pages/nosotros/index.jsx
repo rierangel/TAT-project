@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layer from 'src/components/Layer'
 import SvgFondo from 'src/icons/fondo'
 
@@ -7,7 +7,17 @@ import { fetcher } from 'src/lib/Fetcher'
 import TextBack from 'src/components/Layer/TextBack'
 import ImgBack from 'src/components/Layer/ImgBack'
 
-export default function page({ data }) {
+export default function page() {
+
+
+  const [data, setData] = useState()
+  useEffect(() => {
+     fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/3`)
+     .then(res=>setData(res))
+     .catch(error=>console.log(error))
+  }, [])
+  
+
   const feats = ["Ser reconocidos", "Mejorar la calidad", "Mejorar la efectividad", "Mantener el recurso humano", "Tener un personal calificado"]
   const valores = [
     {
@@ -60,8 +70,7 @@ export default function page({ data }) {
 
   ]
 
-  console.log(data);
-  return (
+  return ( data &&
     <Layer>
       <section>
 
@@ -162,10 +171,10 @@ export default function page({ data }) {
   )
 }
 
-export async function getServerSideProps({ params }) {
+// export async function getServerSideProps({ params }) {
 
-  const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/3`
-  const data = await fetcher(path)
-  return { props: { data } }
+//   const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/3`
+//   const data = await fetcher(path)
+//   return { props: { data } }
 
-}
+// }

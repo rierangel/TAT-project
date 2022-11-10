@@ -23,12 +23,10 @@ import TextBack from 'src/components/Layer/TextBack';
 export default function Index() {
   const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/1`
   const [data, setData] = useState()
-
   useEffect(() => {
      fetcher(path)
      .then(res=>setData(res))
      .catch(error=>console.log(error))
-
   }, [])
   
 

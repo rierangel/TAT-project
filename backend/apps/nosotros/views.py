@@ -20,9 +20,16 @@ class DepartamentoViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
 class AutoridadViewSet(viewsets.ViewSet):
+
     def list(self, request):
         queryset = Autoridad.objects.all()#.order_by("-order")
         serializer = AutoridadSerializers(queryset, many=True)
+        return Response(serializer.data)
+    def retrieve(self, request, pk=None):
+
+        current = get_object_or_404(Autoridad, pk=pk)
+        print(pk,"current")
+        serializer = AutoridadSerializers(current)
         return Response(serializer.data)
 
 class EquipoViewSet(viewsets.ViewSet):

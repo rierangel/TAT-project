@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layer from 'src/components/Layer'
 import Equipo from 'src/components/about/List'
 import Title from 'src/components/Layer/Title'
@@ -7,9 +7,22 @@ import TextBack from 'src/components/Layer/TextBack'
 import ImgBack from 'src/components/Layer/ImgBack'
 
 
-export default function page({ page, datalist }) {
-  console.log(page);
-  return (
+export default function page() {
+
+  const [page, setPage] = useState()
+  const [datalist, setDatalist] = useState()
+  useEffect(() => {
+     fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/4`)
+     .then(res=>setPage(res))
+     .catch(error=>console.log(error))
+
+
+     fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/autoridades/`)
+     .then(res=>setDatalist(res))
+     .catch(error=>console.log(error))
+  }, [])
+
+  return ( page &&
     <Layer>
 
       <section>
@@ -58,11 +71,11 @@ export default function page({ page, datalist }) {
   )
 }
 
-export async function getServerSideProps({ params }) {
+// export async function getServerSideProps({ params }) {
 
-  const page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/4`)
-  const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/autoridades/`)
+//   const page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/4`)
+//   const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}//`)
 
-  return { props: { page, datalist } }
+//   return { props: { page, datalist } }
 
-}
+// }
