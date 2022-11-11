@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layer from 'src/components/Layer'
 import ImgBack from 'src/components/Layer/ImgBack';
 import TextBack from 'src/components/Layer/TextBack';
 import { fetcher } from 'src/lib/Fetcher';
 
-export default function autoridad({ data }) {
-    console.log(data);
-    return (
+export default function autoridad({ slug }) {
+
+
+    const [data, setData] = useState()
+    // const current = datalist.filter((e) => e.nombre == params.slug)
+
+    useEffect(() => {
+        fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/equipo/`)
+            .then(res => {
+                console.log(res);
+                if (res[0]) {
+                    const current = res.filter((e) =>e.slug == slug)
+                    setData(current[0])
+                }
+            }
+            )
+            .catch(error => console.log(error))
+    }, [])
+    return (data &&
         <Layer>
             <section className="flex flex-col lg:flex-row gap-6">
                 <div className="lg:w-1/3">
@@ -48,12 +64,13 @@ export default function autoridad({ data }) {
 export async function getServerSideProps({ params }) {
 
     // const page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/4`)
-    const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/equipo/`)
+    // const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/autoridades/`)
 
-    const current = datalist.filter((e) => e.nombre == params.slug)
+    // const current = datalist.filter((e) => e.nombre == params.slug)
     // console.log(current);
 
+    console.log(params.slug);
 
-    return { props: { data: current[0] | {} } }
+    return { props: { slug: params.slug } }
 
 }

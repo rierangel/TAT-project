@@ -40,3 +40,9 @@ class EquipoViewSet(viewsets.ViewSet):
         queryset = Equipo.objects.all()#.order_by("-order")
         serializer = EquipoSerializers(queryset, many=True)
         return Response(serializer.data)
+
+class EquipoDetail(APIView):
+    def get(self, request, slug=None):
+        current = get_object_or_404(Equipo, slug=slug)
+        serializer = EquipoSerializers(current)
+        return Response(serializer.data)

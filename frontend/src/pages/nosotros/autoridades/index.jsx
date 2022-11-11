@@ -66,7 +66,7 @@ export default function page() {
         </div>
       </section>
       {datalist && 
-      <Equipo data={datalist} />
+      <Equipo data={datalist} path={'autoridades'} />
       }
 
     </Layer>

@@ -1,4 +1,4 @@
-from .views import DepartamentoViewSet, OficinaViewSet, AutoridadViewSet, EquipoViewSet, AutoridadDetail
+from .views import DepartamentoViewSet, OficinaViewSet, AutoridadViewSet, EquipoViewSet, AutoridadDetail, EquipoDetail
 from rest_framework.routers import DefaultRouter
 from django.urls import path, include
 
@@ -18,6 +18,7 @@ router.register(r'equipo', EquipoViewSet, basename='equipo')
 urlpatterns = [
     path('', include(router.urls)),
     path('autoridades/<str:slug>/',  AutoridadDetail.as_view(), name="AutoridadDetail"),
+    path('equipo/<str:slug>/',  EquipoDetail.as_view(), name="EquipoDetail"),
 ]
 
 

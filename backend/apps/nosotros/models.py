@@ -48,5 +48,15 @@ class Equipo(models.Model):
     titulo = models.CharField(max_length=500)
     imagen = models.ImageField(upload_to=upload_path)
     text = models.TextField()
+
+    slug = models.SlugField(unique=True, default="",null=True,blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = auto_slug(self.titulo, Equipo)
+        print(self.slug)
+        super(Equipo, self).save(*args, **kwargs)
+
     def __str__(self):
         return f'{self.titulo} {self.nombre}'
+
+
