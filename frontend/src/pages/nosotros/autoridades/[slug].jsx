@@ -14,19 +14,19 @@ export default function autoridad({ slug }) {
         fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/autoridades/`)
             .then(res => {
                 if (res[0]) {
-                    const current = res.map((e) => console.log(e.nombre, slug))
-                    setData(current)
+                    const current = res.filter((e) =>e.nombre == slug)
+                    setData(current[0])
                 }
             }
             )
             .catch(error => console.log(error))
     }, [])
-
+    console.log(data);
     return (data &&
         <Layer>
             <section className="flex flex-col lg:flex-row gap-6">
                 <div className="lg:w-1/3">
-                    {/* <ImgBack className='h-auto  rounded-xl ' src={data.imagen} alt="" /> */}
+                    <ImgBack className='h-auto  rounded-xl ' src={data.imagen} alt="" />
                 </div>
 
                 <div className="lg:w-2/3 ">

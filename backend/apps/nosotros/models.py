@@ -29,9 +29,15 @@ class Departamento(models.Model):
 
 class Autoridad(models.Model):
     nombre = models.CharField(max_length=500)
+    slug = models.SlugField(unique=True)
     titulo = models.CharField(max_length=500)
     imagen = models.ImageField(upload_to=upload_path)
     text = models.TextField()
+
+    # def save(self, *args, **kwargs):
+        
+    #     super(Autoridad, self).save(*args, **kwargs)
+
     def __str__(self):
         return f'{self.titulo} {self.nombre}'
 
