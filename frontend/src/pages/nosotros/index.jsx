@@ -83,7 +83,6 @@ export default function page() {
 
           <div className='flex-center  order-0 md:order-1 h-full ' >
             <ImgBack src={data[0].imagen} alt="" />
-
           </div>
 
         </div>
@@ -151,7 +150,7 @@ export default function page() {
         </div>
       </section>
 
-
+        {/* Equipo de Trabajo */}
       <section>
 
         <Title data={data[3]} />

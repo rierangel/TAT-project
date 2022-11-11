@@ -7,22 +7,25 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-RUN  apk update \
-  && apk add gcc musl-dev postgresql-dev python3-dev  jpeg-dev zlib-dev \
-  && pip install --upgrade pip
+RUN apk update 
+RUN apk add gcc musl-dev python3-dev jpeg-dev zlib-dev 
+RUN apk add postgresql-dev
+
+RUN pip install --upgrade pip
+COPY ./requirements-docker.txt ./
+RUN python -m pip install -r requirements-docker.txt  
 
 
-COPY ./requirements.txt ./
-RUN python -m pip install -r requirements.txt  
+# RUN apk add mysql-client mariadb-dev mariadb-connector-c-dev
+# RUN python -m pip install mysqlclient
 
 COPY ./ ./
 
 EXPOSE 8000
 
-RUN python manage.py migrate
-RUN python manage.py loaddata ./db/data.json
+# RUN python manage.py migrate
+# RUN python manage.py loaddata ./db/data.json
 
-# RUN python manage.py runserver 0.0.0.0:8000
 CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
 
 

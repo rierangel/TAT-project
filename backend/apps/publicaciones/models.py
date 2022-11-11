@@ -11,11 +11,8 @@ def upload_path(instance, filename):
 
 class CategoriasResoluciones(models.Model):
     titulo = models.CharField(max_length=500)
-    
     def __str__(self):
         return self.titulo
-
-
 
 
 class Resolucion(models.Model):
@@ -27,15 +24,34 @@ class Resolucion(models.Model):
     @property
     def categoria(self):
         return self.tag.titulo
+    @property
+    def ver(self):
+        return self.archivo.url
+    @property
+    def descargar(self):
+        return self.pk
+    def __str__(self):
+        return self.titulo
+
+
+
+class CategoriasPonencia(models.Model):
+    titulo = models.CharField(max_length=500)
+    def __str__(self):
+        return self.titulo
+
+
+class Ponencia(models.Model):
+    titulo = models.CharField(max_length=500)
+    archivo = models.FileField(upload_to='uploads/resoluciones/%Y/%m/%d/')
+    categoria = models.ForeignKey(CategoriasPonencia, on_delete=models.CASCADE, related_name="resolucion")
 
     @property
     def ver(self):
         return self.archivo.url
-
     @property
     def descargar(self):
         return self.pk
-
+        
     def __str__(self):
         return self.titulo
-

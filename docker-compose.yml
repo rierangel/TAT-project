@@ -27,13 +27,12 @@ services:
       - "8000:8000"
     volumes:
       - ./backend:/app
-    environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_HOST=db
-      - ALLOWED_HOSTS=127.0.0.1, localhost
-      - DJANGO_KEY=*
+    # environment:
+    #   - DB_NAME=
+    #   - DB_USER=
+    #   - DB_PASSWORD=
+    #   - DB_HOST=
+
   frontend:
     restart: always
     ports:

@@ -30,7 +30,7 @@ export default function Index() {
   }, [])
   
 
-  return ( data &&
+  return ( data && data[0] &&
     <Layer> 
       <div className='flex flex-col-reverse md:flex-row '>
         <div className='w-full h-auto md:my-auto -mt-[10%]'>

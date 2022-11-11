@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layer from 'src/components/Layer'
 import ImgBack from 'src/components/Layer/ImgBack';
 import TextBack from 'src/components/Layer/TextBack';
 import { fetcher } from 'src/lib/Fetcher';
 
-export default function autoridad({ data }) {
-    console.log(data);
-    return (
+export default function autoridad({ slug }) {
+
+
+    const [data, setData] = useState()
+    // const current = datalist.filter((e) => e.nombre == params.slug)
+
+    useEffect(() => {
+        fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/autoridades/`)
+            .then(res => {
+                if (res[0]) {
+                    const current = res.map((e) => console.log(e.nombre, slug))
+                    setData(current)
+                }
+            }
+            )
+            .catch(error => console.log(error))
+    }, [])
+
+    return (data &&
         <Layer>
             <section className="flex flex-col lg:flex-row gap-6">
                 <div className="lg:w-1/3">
-                    <ImgBack className='h-auto  rounded-xl ' src={data.imagen} alt="" />
+                    {/* <ImgBack className='h-auto  rounded-xl ' src={data.imagen} alt="" /> */}
                 </div>
 
                 <div className="lg:w-2/3 ">
@@ -48,13 +64,13 @@ export default function autoridad({ data }) {
 export async function getServerSideProps({ params }) {
 
     // const page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/4`)
-    const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/autoridades/`)
+    // const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/autoridades/`)
 
-    const current = datalist.filter((e) => e.nombre == params.slug)
+    // const current = datalist.filter((e) => e.nombre == params.slug)
     // console.log(current);
 
+    console.log(params.slug);
 
-
-    return { props: { data: current[0] | {} } }
+    return { props: { slug: params.slug } }
 
 }
