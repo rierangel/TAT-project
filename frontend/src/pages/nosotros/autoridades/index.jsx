@@ -65,7 +65,9 @@ export default function page() {
           </div>
         </div>
       </section>
+      {datalist && 
       <Equipo data={datalist} />
+      }
 
     </Layer>
   )

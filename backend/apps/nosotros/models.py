@@ -26,17 +26,19 @@ class Departamento(models.Model):
         return self.titulo
 
 
+from core.utils import auto_slug
 
 class Autoridad(models.Model):
     nombre = models.CharField(max_length=500)
-    slug = models.SlugField(unique=True)
     titulo = models.CharField(max_length=500)
     imagen = models.ImageField(upload_to=upload_path)
     text = models.TextField()
 
-    # def save(self, *args, **kwargs):
-        
-    #     super(Autoridad, self).save(*args, **kwargs)
+    slug = models.SlugField(unique=True, default="",null=True,blank=True)
+    def save(self, *args, **kwargs):
+        self.slug = auto_slug(self.titulo, Autoridad)
+        print(self.slug)
+        super(Autoridad, self).save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.titulo} {self.nombre}'

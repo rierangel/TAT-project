@@ -5,6 +5,7 @@ from .serializer import OficinaSerializers, DepartamentoSerializers, AutoridadSe
 from .models import Oficina, Departamento, Autoridad, Equipo
 
 from rest_framework import viewsets
+from rest_framework.views import APIView
 from rest_framework.response import Response
 
 class OficinaViewSet(viewsets.ViewSet):
@@ -25,12 +26,14 @@ class AutoridadViewSet(viewsets.ViewSet):
         queryset = Autoridad.objects.all()#.order_by("-order")
         serializer = AutoridadSerializers(queryset, many=True)
         return Response(serializer.data)
-    def retrieve(self, request, pk=None):
 
-        current = get_object_or_404(Autoridad, pk=pk)
-        print(pk,"current")
+class AutoridadDetail(APIView):
+    def get(self, request, slug=None):
+        current = get_object_or_404(Autoridad, slug=slug)
         serializer = AutoridadSerializers(current)
         return Response(serializer.data)
+
+
 
 class EquipoViewSet(viewsets.ViewSet):
     def list(self, request):
