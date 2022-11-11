@@ -1,8 +1,6 @@
 
 # Create your views here.
 from django.shortcuts import get_object_or_404
-from .serializer import ResolucionSerializers, CategoriasResolucionesSerializers
-from .models import Resolucion, CategoriasResoluciones
 
 from rest_framework import viewsets, renderers
 from rest_framework.views import APIView
@@ -17,6 +15,10 @@ from django.http import FileResponse
 from core.pagination import PaginationHandlerMixinApiView, CustomPagination
   
 from django.db.models import Q
+
+
+from .serializer import ResolucionSerializers, CategoriasResolucionesSerializers, PonenciasSerializers
+from .models import Resolucion, CategoriasResoluciones, Ponencia
 
 
 class ResolucionViewSet(viewsets.ModelViewSet):
@@ -71,3 +73,21 @@ class CategoriasResolucionViewSet(viewsets.ModelViewSet):
     serializer_class = CategoriasResolucionesSerializers
     pagination_class = None
 
+
+class PonenciasViewSet(viewsets.ModelViewSet):
+    """
+    url: http://localhost:8000/publicaciones/Ponenciases/
+    """
+    serializer_class = PonenciasSerializers
+    pagination_class = CustomPagination
+    queryset = Ponencia.objects.all().order_by("-titulo")
+
+    def list(self, request, format=None, *args, **kwargs):
+
+        page = self.paginate_queryset(self.queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(self.queryset, many=True)
+
+        return Response(serializer.data)

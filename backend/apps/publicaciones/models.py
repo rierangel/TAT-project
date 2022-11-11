@@ -35,16 +35,15 @@ class Resolucion(models.Model):
 
 
 
-class CategoriasPonencia(models.Model):
+class Ponencia(models.Model):
     titulo = models.CharField(max_length=500)
     def __str__(self):
         return self.titulo
 
-
-class Ponencia(models.Model):
+class PonenciaEntrada(models.Model):
     titulo = models.CharField(max_length=500)
     archivo = models.FileField(upload_to='uploads/resoluciones/%Y/%m/%d/')
-    categoria = models.ForeignKey(CategoriasPonencia, on_delete=models.CASCADE, related_name="resolucion")
+    categoria = models.ForeignKey(Ponencia, on_delete=models.CASCADE, related_name="entradas")
 
     @property
     def ver(self):

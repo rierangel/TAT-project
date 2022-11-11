@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import Resolucion, CategoriasResoluciones
+from .models import Resolucion, CategoriasResoluciones, PonenciaEntrada, Ponencia
 
 
 class CategoriasResolucionesSerializers(serializers.ModelSerializer):
@@ -28,3 +28,27 @@ class ResolucionSerializers(serializers.ModelSerializer):
 
     def get_categoria(self, obj):
         return obj.categoria
+
+
+class EntradasPonenciasSerializers(serializers.ModelSerializer):
+
+
+    class Meta:
+        model = PonenciaEntrada
+        # fields = '__all__'
+
+        fields = ('titulo', 'ver', 'descargar')
+
+    def get_ver(self, obj):
+        return obj.ver
+
+    def get_descargar(self, obj):
+        return obj.ver
+
+
+
+class PonenciasSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Ponencia
+        fields = '__all__'
+    entradas = EntradasPonenciasSerializers(many=True)
