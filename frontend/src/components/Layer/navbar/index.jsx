@@ -118,17 +118,17 @@ export default function Navbar() {
 
                                     <div className='mt-4 -mb-3 ' >
                                         <Tooltip title="Normativa">
-                                            <Link href={`/marco-normativo/normativa/leyes-y-decretos`}>
+                                            <Link href={`/publicaciones/memorias`}>
                                                 <a>
                                                     <li >
-                                                        leyes y decretos
+                                                        Memorias
                                                     </li>
                                                 </a>
                                             </Link>
-                                            <Link href={`/marco-normativo/normativa/ponencias`}>
+                                            <Link href={`/publicaciones/otras`}>
                                                 <a>
                                                     <li >
-                                                        ponencias
+                                                    Otras Publicaciones
                                                     </li>
                                                 </a>
                                             </Link>

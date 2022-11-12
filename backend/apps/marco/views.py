@@ -67,3 +67,5 @@ class CompetenciasList(APIView):
 
         return Response(serializer.data, status=status.HTTP_200_OK)
         
+# leyes y decretos
+# acuerdos

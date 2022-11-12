@@ -41,7 +41,7 @@ class ResolucionViewSet(viewsets.ModelViewSet):
         if search:
             queryset = queryset.filter(Q(titulo__icontains=search))
         if tag:
-            queryset = queryset.filter(tag=tag)
+            queryset = queryset.filter(tag__titulo=tag)
 
 
         page = self.paginate_queryset(queryset)
@@ -132,3 +132,7 @@ class RevistasTributariaViewSet(viewsets.ModelViewSet):
         response['Content-Disposition'] = 'attachment; filename="%s"' % instance.archivo.name
 
         return response
+
+
+# Otras publicaciones
+# memorias

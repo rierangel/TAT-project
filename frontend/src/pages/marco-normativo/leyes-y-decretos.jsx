@@ -1,7 +1,7 @@
 import React from 'react'
 import Layer from 'src/components/Layer'
-import FileList from 'src/components/data_display/FileList'
-import Buscador from 'src/components/data_display/Buscador'
+import FileList from 'src/components/Layer/data_display/FileList'
+import Buscador from 'src/components/Layer/data_display/Buscador'
 
 export default function index() {
   return (

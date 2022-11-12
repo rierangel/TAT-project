@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Layer from 'src/components/Layer'
-import FileList from 'src/components/data_display/FileList'
+import FileList from 'src/components/Layer/data_display/FileList'
 import ToggleList from 'src/lib/ToggleList'
 import { fetcher } from 'src/lib/Fetcher'
 import Title from 'src/components/Layer/Title'

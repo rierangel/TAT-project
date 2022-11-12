@@ -4,16 +4,11 @@ from django.db import models
 # Create your models here.
 
 
-def upload_path(instance, filename):
-    if " " in instance.nombre:
-        instance.nombre.replace(" ", "_")
-    return '/'.join(['equipo_y_autoridades',instance.nombre, filename])
 
 class CategoriasResoluciones(models.Model):
     titulo = models.CharField(max_length=500)
     def __str__(self):
         return self.titulo
-
 
 class Resolucion(models.Model):
     titulo = models.CharField(max_length=500)
@@ -32,8 +27,6 @@ class Resolucion(models.Model):
         return self.pk
     def __str__(self):
         return self.titulo
-
-
 
 class Ponencia(models.Model):
     titulo = models.CharField(max_length=500)
@@ -67,4 +60,5 @@ class RevistasTributaria(models.Model):
         return self.pk
     def __str__(self):
         return self.titulo
+
 

@@ -8,7 +8,7 @@ import { fetcher } from "src/lib/Fetcher";
 
 import Title from 'src/components/Layer/Title';
 import QueryLayer from 'src/components/Layer/QueryLayer/QueryLayer';
-import NoticiaList from "src/components/data_display/EntradasList";
+import NoticiaList from "src/components/Layer/data_display/EntradasList";
 import numberRange from "src/lib/numberRange";
 
 

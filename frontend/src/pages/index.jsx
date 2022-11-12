@@ -28,7 +28,7 @@ export default function Index() {
      .then(res=>setPage(res))
      .catch(error=>console.log(error))
   }, [])
-  
+  console.log(page);
 
   return ( page && page[0] &&
     <Layer> 
@@ -67,7 +67,7 @@ export default function Index() {
       </div>
 
       <hr className='invisible my-[50px]' />
-      <Title page={page[1]} link={"/resoluciones/"} />
+      <Title data={page[1]} link={"/resoluciones/"} />
       <LastResolutions />
 
       <CarruselNoticias />
@@ -112,10 +112,10 @@ export default function Index() {
       </div>
 
 
-      <Title page={page[2]} />
+      <Title data={page[2]} />
       <Paginas />
 
-      <Title page={page[3]} link={"/contacto"} />
+      <Title data={page[3]} link={"/contacto"} />
       <Oficinas />
 
     </Layer>
