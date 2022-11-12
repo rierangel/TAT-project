@@ -53,6 +53,8 @@
 
     &:nth-child(even) {
       @extend .border1;
+      border-left: 0px;
+      border-right: 0px;
       background: v.$Gray1;
     }
 

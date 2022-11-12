@@ -40,10 +40,10 @@ class Ponencia(models.Model):
     def __str__(self):
         return self.titulo
 
-class PonenciaEntrada(models.Model):
+class PonenciasArchivos(models.Model):
     titulo = models.CharField(max_length=500)
-    archivo = models.FileField(upload_to='uploads/resoluciones/%Y/%m/%d/')
-    categoria = models.ForeignKey(Ponencia, on_delete=models.CASCADE, related_name="entradas")
+    archivo = models.FileField(upload_to='uploads/ponencias/%Y/%m/%d/')
+    categoria = models.ForeignKey(Ponencia, on_delete=models.CASCADE, related_name="archivos")
 
     @property
     def ver(self):
@@ -54,3 +54,17 @@ class PonenciaEntrada(models.Model):
         
     def __str__(self):
         return self.titulo
+
+class RevistasTributaria(models.Model):
+    titulo = models.CharField(max_length=500)
+    archivo = models.FileField(upload_to='uploads/revistas-tributaria/%Y/%m/%d/')
+
+    @property
+    def ver(self):
+        return self.archivo.url
+    @property
+    def descargar(self):
+        return self.pk
+    def __str__(self):
+        return self.titulo
+

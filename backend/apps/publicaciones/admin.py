@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from django_summernote.admin import SummernoteModelAdmin
 
-from .models import Resolucion, CategoriasResoluciones, Ponencia, PonenciaEntrada
+from .models import Resolucion, CategoriasResoluciones, Ponencia, PonenciasArchivos, RevistasTributaria
 
 class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('text',)
@@ -11,16 +11,17 @@ class PostAdmin(SummernoteModelAdmin):
 
 admin.site.register(Resolucion)
 admin.site.register(CategoriasResoluciones)
-admin.site.register(PonenciaEntrada)
+admin.site.register(PonenciasArchivos)
+admin.site.register(RevistasTributaria)
 
 
-class PonenciaEntradaInline(admin.StackedInline):
+class PonenciasArchivosInline(admin.StackedInline):
     extra = 1
-    model = PonenciaEntrada
+    model = PonenciasArchivos
 
 @admin.register(Ponencia)
-class AuthorAdmin(admin.ModelAdmin):
-    inlines = [PonenciaEntradaInline, ]
+class PonenciasAdmin(admin.ModelAdmin):
+    inlines = [PonenciasArchivosInline, ]
 
 
 

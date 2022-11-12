@@ -34,7 +34,7 @@ export default function Tooltip({ children, title }) {
                     </svg>
                 }
             </div>
-            <div ref={select} className={active ? "z-50 ml-4 md:mt-8 md:absolute " : "hidden"}>
+            <div ref={select} className={active ? "z-50 ml-4 md:absolute " : "hidden"}>
                 <ul className={styles.toggle} >
                     {children}
                 </ul>

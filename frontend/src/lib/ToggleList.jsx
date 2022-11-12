@@ -5,7 +5,7 @@ export default function ToggleList({ children, title }) {
     const [active, setactive] = useState()
 
     return (
-        <div>
+        <div className=''>
             <div className='w-full flex justify-between items-center cursor-pointer' onClick={() => setactive(!active)}>
                 <h3 className='m-cero'>{title}</h3>
                 <div>
@@ -22,7 +22,6 @@ export default function ToggleList({ children, title }) {
                 </div>
             </div>
             {active && children }
-
         </div>
     )
 }
