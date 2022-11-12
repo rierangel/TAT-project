@@ -37,7 +37,7 @@ export default function index() {
 
         <div className="border1 p-9 rounded-3xl">
           <ToggleList title={v.titulo}>
-            <FileList data={v.archivos} path={"publicaciones/ponencias/"} ver={true} descargar={true} />
+            <FileList data={v.archivos} path={"publicaciones/ponencias"} ver={true} descargar={true} />
           </ToggleList>
         </div>
         ))}

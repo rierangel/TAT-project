@@ -13,19 +13,19 @@ export default function component() {
 
   useEffect(() => {
     // page
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/15`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/17`)
       .then(res => setPage(res))
       .catch(error => console.log(error))
 
     // data
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/publicaciones/resoluciones/`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/publicaciones/memorias/`)
       .then(res => setData(res))
       .catch(error => console.log(error))
 
   }, [])
 
   const ComponentOption = {ver:true, descargar:true}
-  const path = `publicaciones/resoluciones`
+  const path = `publicaciones/memorias`
   const query = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/`
   const NoticiasListQuery = QueryLayer(FileList, data, false, query, path, ComponentOption)
 

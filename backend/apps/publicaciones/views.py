@@ -17,8 +17,8 @@ from core.pagination import PaginationHandlerMixinApiView, CustomPagination
 from django.db.models import Q
 
 
-from .serializer import ResolucionSerializers, CategoriasResolucionesSerializers, PonenciasSerializers, RevistasTributariaSerializers
-from .models import Resolucion, CategoriasResoluciones, Ponencia, PonenciasArchivos, RevistasTributaria
+from .serializer import ResolucionSerializers, CategoriasResolucionesSerializers, PonenciasSerializers, RevistasTributariaSerializers, MemoriasSerializers, OtrosSerializers
+from .models import Resolucion, CategoriasResoluciones, Ponencia, PonenciasArchivos, RevistasTributaria, Memorias, Otros
 
 
 class ResolucionViewSet(viewsets.ModelViewSet):
@@ -134,5 +134,63 @@ class RevistasTributariaViewSet(viewsets.ModelViewSet):
         return response
 
 
-# Otras publicaciones
-# memorias
+class MemoriasViewSet(viewsets.ModelViewSet):
+    """
+    url: http://localhost:8000/publicaciones/revista-tributaria/
+    """
+    serializer_class = MemoriasSerializers
+    pagination_class = CustomPagination
+    queryset = Memorias.objects.all().order_by("-pk")
+
+    def list(self, request, format=None, *args, **kwargs):
+
+        page = self.paginate_queryset(self.queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(self.queryset, many=True)
+
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk):
+        instance = get_object_or_404(Memorias, pk=pk )
+        # get an open file handle (I'm just using a file attached to the model for this example):
+        file_handle = instance.archivo.open()
+        # send file
+        response = FileResponse(file_handle, content_type='whatever')
+        response['Content-Length'] = instance.archivo.size
+        response['Content-Disposition'] = 'attachment; filename="%s"' % instance.archivo.name
+
+        return response
+
+
+#memorias
+
+class OtrosViewSet(viewsets.ModelViewSet):
+    """
+    url: http://localhost:8000/publicaciones/memorias/
+    """
+    serializer_class = OtrosSerializers
+    pagination_class = CustomPagination
+    queryset = Otros.objects.all().order_by("-pk")
+
+    def list(self, request, format=None, *args, **kwargs):
+
+        page = self.paginate_queryset(self.queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(self.queryset, many=True)
+
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk):
+        instance = get_object_or_404(Otros, pk=pk )
+        # get an open file handle (I'm just using a file attached to the model for this example):
+        file_handle = instance.archivo.open()
+        # send file
+        response = FileResponse(file_handle, content_type='whatever')
+        response['Content-Length'] = instance.archivo.size
+        response['Content-Disposition'] = 'attachment; filename="%s"' % instance.archivo.name
+
+        return response

@@ -13,7 +13,7 @@ class CategoriasResoluciones(models.Model):
 class Resolucion(models.Model):
     titulo = models.CharField(max_length=500)
     año = models.IntegerField(default=2020)
-    archivo = models.FileField(upload_to='uploads/resoluciones/%Y/%m/%d/')
+    archivo = models.FileField(upload_to='uploads/publicaciones/resoluciones/%Y/%m/%d/')
     tag = models.ForeignKey(CategoriasResoluciones, on_delete=models.CASCADE, related_name="resolucion")
 
     @property
@@ -35,7 +35,7 @@ class Ponencia(models.Model):
 
 class PonenciasArchivos(models.Model):
     titulo = models.CharField(max_length=500)
-    archivo = models.FileField(upload_to='uploads/ponencias/%Y/%m/%d/')
+    archivo = models.FileField(upload_to='uploads/publicaciones/ponencias/%Y/%m/%d/')
     categoria = models.ForeignKey(Ponencia, on_delete=models.CASCADE, related_name="archivos")
 
     @property
@@ -50,7 +50,7 @@ class PonenciasArchivos(models.Model):
 
 class RevistasTributaria(models.Model):
     titulo = models.CharField(max_length=500)
-    archivo = models.FileField(upload_to='uploads/revistas-tributaria/%Y/%m/%d/')
+    archivo = models.FileField(upload_to='uploads/publicaciones/revistas-tributaria/%Y/%m/%d/')
 
     @property
     def ver(self):
@@ -62,3 +62,29 @@ class RevistasTributaria(models.Model):
         return self.titulo
 
 
+class Memorias(models.Model):
+    titulo = models.CharField(max_length=500)
+    archivo = models.FileField(upload_to='uploads/publicaciones/memorias/%Y/%m/%d/')
+
+    @property
+    def ver(self):
+        return self.archivo.url
+    @property
+    def descargar(self):
+        return self.pk
+    def __str__(self):
+        return self.titulo
+
+
+class Otros(models.Model):
+    titulo = models.CharField(max_length=500)
+    archivo = models.FileField(upload_to='uploads/publicaciones/otros/%Y/%m/%d/')
+
+    @property
+    def ver(self):
+        return self.archivo.url
+    @property
+    def descargar(self):
+        return self.pk
+    def __str__(self):
+        return self.titulo
