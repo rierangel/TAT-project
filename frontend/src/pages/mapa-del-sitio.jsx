@@ -1,34 +1,54 @@
+import Link from "next/link";
 import Layer from "src/components/Layer";
 import SiteMap from "src/components/SiteMap";
+import ToggleList from "src/lib/ToggleList";
 
 export default function index() {
 
     const paginas_de_interes = [
         {
             name: "Formulario del Banco de Peritos",
-            link: ""
+            link: "#"
         },
         {
             name: "Flujograma",
-            link: ""
+            link: "/flujograma"
         },
         {
             name: "Noticias",
-            link: ""
+            link: "/entradas/noticias"
         },
         {
             name: "Congreso Internacional de Derecho Tributario",
-            link: ""
+            link: "/entradas/congreso-internacional-de-derecho-tributario"
         },
         {
             name: "Haciendo la Diferencia",
-            link: ""
+            link: "/entradas/haciendo-la-diferencia"
         },
         {
             name: "Preguntas Frecuentes",
-            link: ""
+            link: "/preguntas-frecuentes"
         }
+    ]
 
+    const normativa = [
+        {
+            name: "Leyes y Decretos",
+            link: "/marco-normativo/leyes-y-decretos"
+        },
+        {
+            name: "Acuerdos",
+            link: "/marco-normativo/acuerdos"
+        },
+        {
+            name: "Convenios",
+            link: "/marco-normativo/convenios"
+        },
+        {
+            name: "Edictos",
+            link: "/marco-normativo/edictos"
+        },
     ]
 
     return (
@@ -53,7 +73,39 @@ export default function index() {
                             <li >
                                 Páginas de interés:
                                 <ul className='text-[#0054A4]'>
-                                    {paginas_de_interes && paginas_de_interes.map((v, i) => (
+                                    {paginas_de_interes.map((v, i) => (
+                                        <li>
+                                            <Link href={v.link} >
+                                                <a className=' flex gap-2 items-center'>
+                                                    {v.name}
+                                                </a>
+                                            </Link>
+                                        </li>
+                                    ))}
+
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </ToggleList>
+                </div>
+
+                <div className='p-9 border1 rounded-xl'>
+
+                    <ToggleList title={"Marco Normativo"}>
+                        <ul className='pt-9 gap-3 space-y-3'>
+                            <li>
+                                <Link href={"marco-normativo/competencias"} >
+                                    <a className='text-[#0054A4] flex gap-2 items-center'>
+                                    Competencias
+                                    </a>
+                                </Link>
+                            </li>
+
+                            <li >
+                                Normativa:
+                                <ul className='text-[#0054A4]'>
+                                    {normativa.map((v, i) => (
                                         <li>
                                             <Link href={v.link} >
                                                 <a className=' flex gap-2 items-center'>

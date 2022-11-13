@@ -27,13 +27,13 @@ export default function component() {
   const ComponentOption = {ver:true, descargar:true}
   const path = `publicaciones/memorias`
   const query = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/`
-  const NoticiasListQuery = QueryLayer(FileList, data, false, query, path, ComponentOption)
+  const ListQuery = QueryLayer(FileList, data, false, query, path, ComponentOption)
 
   return (
     <Layer>
       {page && <Title data={page[0]} />}
 
-      <NoticiasListQuery />
+      <ListQuery />
     </Layer>
   )
 }

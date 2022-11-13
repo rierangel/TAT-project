@@ -43,6 +43,10 @@ ALLOWED_HOSTS = ["*"]
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [env("BACK_URL")]
+CORS_ALLOWED_ORIGINS = [env("FRONT_URL"),]
+
+print(CSRF_TRUSTED_ORIGINS, CORS_ALLOWED_ORIGINS)
 
 # Application definition
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
@@ -71,6 +75,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
