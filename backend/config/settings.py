@@ -64,7 +64,7 @@ INSTALLED_APPS = [
     'publicaciones',
     'entradas',
     'nosotros',
-    'marco',
+    'marco_normativo',
     'FAQ',
 ]
 

@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Competencias
+from .models import Competencias, LeyesYDecretos
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -10,3 +10,4 @@ class PostAdmin(SummernoteModelAdmin):
 
 
 admin.site.register(Competencias, PostAdmin)
+admin.site.register(LeyesYDecretos)

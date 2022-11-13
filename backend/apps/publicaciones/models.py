@@ -2,7 +2,8 @@ from email.policy import default
 from django.db import models
 
 # Create your models here.
-
+import datetime
+from django.utils.translation import gettext_lazy as _
 
 
 class CategoriasResoluciones(models.Model):
@@ -10,9 +11,14 @@ class CategoriasResoluciones(models.Model):
     def __str__(self):
         return self.titulo
 
+YEAR_CHOICES = []
+for r in range(2005, (datetime.datetime.now().year+1)):
+    YEAR_CHOICES.append((r,r))
+
 class Resolucion(models.Model):
     titulo = models.CharField(max_length=500)
-    año = models.IntegerField(default=2020)
+    año = models.IntegerField(_('año'), choices=YEAR_CHOICES, default=datetime.datetime.now().year)
+
     archivo = models.FileField(upload_to='uploads/publicaciones/resoluciones/%Y/%m/%d/')
     tag = models.ForeignKey(CategoriasResoluciones, on_delete=models.CASCADE, related_name="resolucion")
 
