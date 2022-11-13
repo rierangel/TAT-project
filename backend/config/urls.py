@@ -29,10 +29,10 @@ urlpatterns = [
     
     path('admin/', admin.site.urls, name="admin"),
 
-    path('', include("entradas.urls")),
+    path('entradas/', include("entradas.urls")),
     path('nosotros/', include("nosotros.urls")),
     path('paginas/', include("paginas.urls")),
-    path('marco/', include("marco.urls")),
+    path('marco-normativo/', include("marco_normativo.urls")),
     path('publicaciones/', include("publicaciones.urls")),
 
 

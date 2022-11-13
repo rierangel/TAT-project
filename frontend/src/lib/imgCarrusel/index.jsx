@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import ImgBack from 'src/components/Layer/ImgBack';
 import styles from './carrusel.module.scss'
 
 export default function Index({ data }) {
@@ -69,7 +70,7 @@ export default function Index({ data }) {
             <div ref={mainRef}>
                 {data.map((e, i) => (
                     <div className={styles.main} key={i} >
-                        <img src={e} alt="" />
+                        <ImgBack src={e} alt="" />
                     </div>
                 ))}
             </div>
@@ -85,7 +86,7 @@ export default function Index({ data }) {
                 <div className={styles.menu} ref={controlersRef}>
                         {data.map((e, i) => (
                             <div className='opacity-40' key={i}   >
-                                <img src={e} alt="" onClick={(e) => handleClickControler(i)} />
+                                <ImgBack src={e} alt="" onClick={(e) => handleClickControler(i)} />
                             </div>
                         ))}            
                 </div>

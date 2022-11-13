@@ -29,7 +29,7 @@ export default function page() {
 
       <TextBack text={page[0].text} className='mb-6' />
       {/* <p className='mb-6'>El Tribunal Administrativo Tributario cuenta con una estructura orgánica diseñada para cumplir con calidad y eficiencia todas las funciones que le asigna la ley, como institución autónoma e independiente.  Cada colaborador del tribunal contribuye con sus competencias a implementar la cultura organizacional y al logro de la misión y visión institucional.</p> */}
-      <Equipo data={datalist} />
+      <Equipo data={datalist} path={'equipo-gerencial'} />
 
 
     </Layer>

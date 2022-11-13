@@ -11,7 +11,7 @@ function Contact() {
             setData(res)
         })
 
-    })
+    },[])
 
 
 

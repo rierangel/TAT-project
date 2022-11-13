@@ -14,7 +14,7 @@ export default function autoridad({ slug }) {
         fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/autoridades/`)
             .then(res => {
                 if (res[0]) {
-                    const current = res.filter((e) =>e.nombre == slug)
+                    const current = res.filter((e) =>e.slug == slug)
                     setData(current[0])
                 }
             }

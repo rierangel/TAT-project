@@ -22,20 +22,19 @@ import TextBack from 'src/components/Layer/TextBack';
 
 export default function Index() {
   const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/1`
-  const [data, setData] = useState()
+  const [page, setPage] = useState()
   useEffect(() => {
      fetcher(path)
-     .then(res=>setData(res))
+     .then(res=>setPage(res))
      .catch(error=>console.log(error))
   }, [])
-  
 
-  return ( data && data[0] &&
+  return ( page && page[0] &&
     <Layer> 
       <div className='flex flex-col-reverse md:flex-row '>
         <div className='w-full h-auto md:my-auto -mt-[10%]'>
-          <h1 className='w.full md:w-4/5'>{data[0].titulo}</h1>
-            <TextBack className="md:mt-6 md:mb-9 mb-6 mt-1" text={data[0].text} />
+          <h1 className='w.full md:w-4/5'>{page[0].titulo}</h1>
+            <TextBack className="md:mt-6 md:mb-9 mb-6 mt-1" text={page[0].text} />
           <div className='flex flex-col md:flex-row gap-3 md:gap-6'>
             <Link href={"/tramites#t-apelacion"}>
               <a className='btn primary flex-center'>
@@ -61,13 +60,13 @@ export default function Index() {
         </div>
 
         <div className='w-full h-auto mb-20 scale-110 md:mb-0'>
-          <ImgBack src={data[0].imagen} alt="" />
+          <ImgBack src={page[0].imagen} alt="" />
         </div>
 
       </div>
 
       <hr className='invisible my-[50px]' />
-      <Title data={data[1]} link={"/resoluciones/"} />
+      <Title data={page[1]} link={"/resoluciones/"} />
       <LastResolutions />
 
       <CarruselNoticias />
@@ -112,10 +111,10 @@ export default function Index() {
       </div>
 
 
-      <Title data={data[2]} />
+      <Title data={page[2]} />
       <Paginas />
 
-      <Title data={data[3]} link={"/contacto"} />
+      <Title data={page[3]} link={"/contacto"} />
       <Oficinas />
 
     </Layer>
@@ -127,6 +126,6 @@ export default function Index() {
 // export async function getServerSideProps({ params }) {
 
 //   // console.log(path);
-//   return { props: {data:"hola" , path} }
+//   return { props: {page:"hola" , path} }
 
 // }

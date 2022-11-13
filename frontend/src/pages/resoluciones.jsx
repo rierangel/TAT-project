@@ -5,7 +5,7 @@ import { fetcher } from 'src/lib/Fetcher'
 
 
 import QueryLayer from 'src/components/Layer/QueryLayer/QueryLayer';
-import DataGrid from 'src/components/data_display/DataGrid'
+import DataGrid from 'src/components/Layer/data_display/DataGrid'
 
 import numberRange from 'src/lib/numberRange'
 
@@ -17,7 +17,7 @@ export default function resoluciones() {
 
   useEffect(() => {
     // page
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/1`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/13`)
       .then(res => setPage(res))
       .catch(error => console.log(error))
     // datalist
