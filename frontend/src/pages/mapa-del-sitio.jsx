@@ -3,9 +3,37 @@ import SiteMap from "src/components/SiteMap";
 
 export default function index() {
 
+    const paginas_de_interes = [
+        {
+            name: "Formulario del Banco de Peritos",
+            link: ""
+        },
+        {
+            name: "Flujograma",
+            link: ""
+        },
+        {
+            name: "Noticias",
+            link: ""
+        },
+        {
+            name: "Congreso Internacional de Derecho Tributario",
+            link: ""
+        },
+        {
+            name: "Haciendo la Diferencia",
+            link: ""
+        },
+        {
+            name: "Preguntas Frecuentes",
+            link: ""
+        }
+
+    ]
+
     return (
         <Layer>
-            <hr className="invisible my-6"/>
+            <hr className="invisible my-6" />
             <div className="subtitle">
                 <i>
                     <svg width="28" height="22" viewBox="0 0 28 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,8 +43,36 @@ export default function index() {
                 <h1>Mapa del sitio</h1>
             </div>
 
+            {/* <SiteMap /> */}
+            <section className='mt-6 space-y-6 text-[16px] custom-list'>
 
-          <SiteMap/>
+                <div className='p-9 border1 rounded-xl'>
+
+                    <ToggleList title={"Inicio"}>
+                        <ul className='pt-9 gap-3 space-y-3'>
+                            <li >
+                                Páginas de interés:
+                                <ul className='text-[#0054A4]'>
+                                    {paginas_de_interes && paginas_de_interes.map((v, i) => (
+                                        <li>
+                                            <Link href={v.link} >
+                                                <a className=' flex gap-2 items-center'>
+                                                    {v.name}
+                                                </a>
+                                            </Link>
+                                        </li>
+                                    ))}
+
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </ToggleList>
+                </div>
+
+
+
+            </section>
         </Layer>
     )
 }

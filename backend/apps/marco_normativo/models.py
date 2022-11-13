@@ -5,7 +5,7 @@ from django.db import models
 import datetime
 from django.utils.translation import gettext_lazy as _
 
-class Competencias(models.Model):
+class Competencia(models.Model):
     titulo = models.CharField(max_length=500)
     order = models.IntegerField(default=1)
     text = models.TextField()
@@ -20,31 +20,31 @@ for r in range(2005, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r,r))
 
 
-class LeyesYDecretos(models.Model):
+class LeyesYDecreto(models.Model):
     titulo = models.CharField(max_length=500)
     año = models.IntegerField(_('año'), choices=YEAR_CHOICES, default=datetime.datetime.now().year)
-    archivo = models.FileField(max_length=500)
+    archivo = models.FileField(upload_to="marco-normativo/leyes-y-decretos")
     def __str__(self):
         return self.titulo
 
-class Acuerdos(models.Model):
+class Acuerdo(models.Model):
     titulo = models.CharField(max_length=500)
     año = models.IntegerField(_('año'), choices=YEAR_CHOICES, default=datetime.datetime.now().year)
-    archivo = models.FileField(max_length=500)
+    archivo = models.FileField(upload_to="marco-normativo/acuerdos")
     def __str__(self):
         return self.titulo
 
-class Convenios(models.Model):
+class Convenio(models.Model):
     titulo = models.CharField(max_length=500)
     año = models.IntegerField(_('año'), choices=YEAR_CHOICES, default=datetime.datetime.now().year)
-    archivo = models.FileField(max_length=500)
+    archivo = models.FileField(upload_to="marco-normativo/convenios")
     def __str__(self):
         return self.titulo
 
-class Edictos(models.Model):
+class Edicto(models.Model):
     titulo = models.CharField(max_length=500)
     año = models.IntegerField(_('año'), choices=YEAR_CHOICES, default=datetime.datetime.now().year)
-    archivo = models.FileField(max_length=500)
+    archivo = models.FileField(upload_to="marco-normativo/edictos")
     def __str__(self):
         return self.titulo
 
@@ -52,12 +52,7 @@ class Flujograma(models.Model):
     titulo = models.CharField(max_length=500)
     inicio = models.DateField(auto_now=True)
     final = models.DateField(auto_now=True)
-    archivo = models.FileField(max_length=500)
+    archivo = models.FileField(upload_to="marco-normativo/flujograma")
     def __str__(self):
         return self.titulo
 
-# Leyes y Decretos año | descargar
-# acuerdos año | descargar
-# Convenios año | descargar
-# Edictos año | vigencia descargar
-# flujograma | descargar

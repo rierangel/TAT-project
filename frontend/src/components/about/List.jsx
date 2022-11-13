@@ -5,7 +5,6 @@ import ImgBack from '../Layer/ImgBack';
 export default function Equipo({data, path}) {
 
   // const array = [...Array(6).keys()]
-  console.log(data);
   return (
     <>
 

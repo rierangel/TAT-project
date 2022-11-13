@@ -1,11 +1,11 @@
 
 from rest_framework import serializers
-from .models import Competencias
+from .models import Competencia
 
 
-class CompetenciasSerializers(serializers.ModelSerializer):
+class CompetenciaSerializers(serializers.ModelSerializer):
     class Meta:
-        model = Competencias
+        model = Competencia
         fields = '__all__'
 
 

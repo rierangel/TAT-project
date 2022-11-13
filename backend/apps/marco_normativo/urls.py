@@ -1,6 +1,6 @@
 from django.urls import path, include
-from .views import CompetenciasList
+from .views import CompetenciaList
 
 urlpatterns = [
-    path('competencias/',  CompetenciasList.as_view(), name="competencias"),
+    path('competencias/',  CompetenciaList.as_view(), name="competencias"),
 ]
