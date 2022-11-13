@@ -10,29 +10,21 @@ import ImgBack from "src/components/Layer/ImgBack";
 export default function Page({ slug }) {
 
 
-  const cont = [
-    "https://clippingrrpp.com/wp-content/uploads/2015/02/abogados-marketing-legal1.jpg",
-    "https://www.bufetesemperejaen.com/wp-content/uploads/2019/02/Abogados-Elche-reunidos-despacho-sempere.jpg",
-    "https://d500.epimg.net/cincodias/imagenes/2018/10/15/legal/1539584672_711277_1539585056_noticia_normal.jpg",
-    "https://d500.epimg.net/cincodias/imagenes/2017/11/27/legal/1511775346_282834_1511863279_rrss_normal.jpg",
-  ];
-
-
   const [data, setData] = useState()
   const [imgData, setimgData] = useState()
   const [mas, setMas] = useState()
 
   useEffect(() => {
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/noticias/${slug}/`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/congreso/${slug}/`)
       .then(res => {
         setData(res[0]);
       }
       )
       .catch(error => console.log(error))
 
-    // mas noticias
+    // mas congreso
     //data
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/noticias/?limit=5`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/congreso/?limit=5`)
       .then(res => {
         let masnoticias = res.results.filter((e,i)=> e.slug !== slug)
         if(masnoticias.lenght > 3){
@@ -93,13 +85,13 @@ export default function Page({ slug }) {
           </svg>
 
           </i>
-          <h1 className='mb-9'>Más Noticias</h1>
+          <h1 className='mb-9'>Más de Congreso</h1>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4  gap-6 my-6">
 
           {mas && mas.map((v, i) => (
-            <Link key={i} href={`/entradas/noticias/${v.slug}`} >
+             <Link key={i} href={`/entradas/congreso/${v.slug}`} >
               <a className='hover1' >
                 <div className="w-[302px]  mb-4 ">
                   <ImgBack className='h-[190px]  w-auto object-cover rounded-lg' src={v.imagen_principal} />

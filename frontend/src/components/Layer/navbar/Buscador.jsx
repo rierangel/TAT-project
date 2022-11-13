@@ -16,10 +16,10 @@ export default function index() {
 
                     <label htmlFor="seleccion" className='absolute top-[-10px] md:top-[-30px]'>Sección</label>
                     <select name="" id="seleccion" className='input-buscador mt-3 md:mt-0 w-full h-full'>
-                        <option className='w-full' value="all">Todas las secciones</option>
-                        <option className='w-full' value="Noticias">Noticias</option>
-                        <option className='w-full' value="Acuerdos">Acuerdos</option>
-                        <option className='w-full' value="Memorias">Memorias</option>
+                        <option value="all">Todas las secciones</option>
+                        <option value="Noticias">Noticias</option>
+                        <option value="Acuerdos">Acuerdos</option>
+                        <option value="Memorias">Memorias</option>
                     </select>
 
                 </div>

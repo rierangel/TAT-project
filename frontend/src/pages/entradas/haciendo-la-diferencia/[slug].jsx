@@ -23,16 +23,16 @@ export default function Page({ slug }) {
   const [mas, setMas] = useState()
 
   useEffect(() => {
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/noticias/${slug}/`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/haciendo-la-diferencia/${slug}/`)
       .then(res => {
         setData(res[0]);
       }
       )
       .catch(error => console.log(error))
 
-    // mas noticias
+    // mas haciendo-la-diferencia
     //data
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/noticias/?limit=5`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/haciendo-la-diferencia/?limit=5`)
       .then(res => {
         let masnoticias = res.results.filter((e,i)=> e.slug !== slug)
         if(masnoticias.lenght > 3){
@@ -93,13 +93,13 @@ export default function Page({ slug }) {
           </svg>
 
           </i>
-          <h1 className='mb-9'>Más Noticias</h1>
+          <h1 className='mb-9'>Más Haciendo La Diferencia</h1>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4  gap-6 my-6">
 
           {mas && mas.map((v, i) => (
-            <Link key={i} href={`/entradas/noticias/${v.slug}`} >
+             <Link key={i} href={`/entradas/haciendo-la-diferencia/${v.slug}`} >
               <a className='hover1' >
                 <div className="w-[302px]  mb-4 ">
                   <ImgBack className='h-[190px]  w-auto object-cover rounded-lg' src={v.imagen_principal} />

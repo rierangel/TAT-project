@@ -3,6 +3,8 @@ import React from 'react'
 import ToggleList from 'src/lib/ToggleList'
 
 
+
+
 export default function SiteMap() {
     return (
         <section className='mt-6 space-y-6 text-[16px] custom-list'>
@@ -37,7 +39,7 @@ export default function SiteMap() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/noticias/congreso-internacional-de-derecho-tributario" >
+                                    <Link href="/entradas/congreso-internacional-de-derecho-tributario" >
                                         <a className=' flex gap-2 items-center'>
                                             Congreso Internacional de Derecho Tributario
                                         </a>
@@ -45,7 +47,7 @@ export default function SiteMap() {
 
                                 </li>
                                 <li>
-                                    <Link href="/noticias/haciendo-la-diferencia" >
+                                    <Link href="/entradas/haciendo-la-diferencia" >
                                         <a className=' flex gap-2 items-center'>
                                             Haciendo la Diferencia
                                         </a>
