@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from
 import { fetcher } from 'src/lib/Fetcher'
 import ImgBack from '../Layer/ImgBack';
 import TextBack from '../Layer/TextBack';
-
+import styles from './styles.module.scss'
 
 // // document.getElementById("").classList.contains
 
@@ -36,7 +36,7 @@ function SliderCarrusel() {
 
     const handleDot = (e) => {
         const slider = sliderRef.current
-
+        console.log("handledot");
         const index = Array.prototype.indexOf.call(e.target.parentElement.children, e.target);
         reSetDot(index)
         slider.scrollLeft = getWidth() * index
@@ -86,7 +86,7 @@ function SliderCarrusel() {
     }, [current]);
 
 
-    const url = `${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/?limit=6`
+    const url = `${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/noticias/?limit=6`
     const [data, setData] = useState(null)
 
     useEffect(() => {
@@ -95,13 +95,11 @@ function SliderCarrusel() {
         })
     }, [])
 
-
     return (
-        <div ref={caruselRef} className="carrusel_slider">
+        <div ref={caruselRef} className={styles.carrusel_slider}>
 
-            <div className='relative flex items-center'>
+
                 <div className="absolute left-[-8rem] inset-y-0 hidden lg:flex items-center">
-
                     <div onClick={() => arrowControl(false)} className='btn hover1 border1 '>
                         <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.8128 7.00004C15.8128 7.24868 15.7141 7.48714 15.5383 7.66295C15.3624 7.83877 15.124 7.93754 14.8753 7.93754H3.39097L7.41441 11.961C7.50181 12.0481 7.57116 12.1516 7.61848 12.2655C7.66579 12.3795 7.69015 12.5017 7.69015 12.625C7.69015 12.7484 7.66579 12.8706 7.61848 12.9846C7.57116 13.0985 7.50181 13.202 7.41441 13.2891C7.2375 13.4637 6.99893 13.5616 6.75035 13.5616C6.50177 13.5616 6.2632 13.4637 6.08629 13.2891L0.461286 7.6641C0.373886 7.577 0.304539 7.47351 0.257222 7.35956C0.209904 7.2456 0.185547 7.12343 0.185547 7.00004C0.185547 6.87665 0.209904 6.75448 0.257222 6.64052C0.304539 6.52657 0.373886 6.42307 0.461286 6.33598L6.08629 0.710977C6.26241 0.534857 6.50128 0.435913 6.75035 0.435913C6.87368 0.435913 6.9958 0.460204 7.10974 0.5074C7.22368 0.554595 7.32721 0.623771 7.41441 0.710977C7.50162 0.798183 7.57079 0.901711 7.61799 1.01565C7.66518 1.12959 7.68948 1.25171 7.68948 1.37504C7.68948 1.49837 7.66518 1.62049 7.61799 1.73443C7.57079 1.84837 7.50162 1.9519 7.41441 2.0391L3.39097 6.06254H14.8753C15.124 6.06254 15.3624 6.16131 15.5383 6.33713C15.7141 6.51294 15.8128 6.7514 15.8128 7.00004Z" fill="#0054A4" />
@@ -109,14 +107,14 @@ function SliderCarrusel() {
                     </div>
                 </div>
 
-                <div ref={sliderRef} className="slider w-full">
+                <div ref={sliderRef} className={styles.slider}>
 
                     {data && data.map((e, i) => (
                         <div key={i} className='flex flex-col  justify-center' >
-                            <div className='flex items-end rounded-t-xl  relative object-center z-10 w-full h-[211px] md:h-[311px]  lg:h-[411px] overflow-hidden'>
+                            <div className='bg-white flex items-end rounded-t-xl  relative object-center  w-full h-[211px] md:h-[311px]  lg:h-[411px] overflow-hidden'>
                                 <ImgBack className='rounded-t-xl w-full object-contain object-center' src={e.imagen_principal} alt={e.titulo} />
                             </div>
-                            <div className="border3 p-9 flex-col text-left justify-start -mt-4 ">
+                            <div className="border3 p-9 flex-col text-left justify-start -mt-4 -z-10">
                                 <div className='pb-2 h3'>{e.titulo}</div>
                                 <div className='truncate h-[52px]'>
                                     <TextBack text={e.contenido} className="truncate" />
@@ -133,9 +131,8 @@ function SliderCarrusel() {
                         </svg>
                     </div>
                 </div>
-            </div>
 
-            <div ref={dotRef} className="dot_control mt-8">
+            <div ref={dotRef} className={styles.dot_control + " mt-8"}>
                 {data && data.map((e, i) => (
                     <div key={i} onClick={(e) => handleDot(e)} />
                 ))}

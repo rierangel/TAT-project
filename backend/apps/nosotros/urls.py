@@ -11,7 +11,6 @@ router = DefaultRouter()
 router.register(r'oficinas', OficinaViewSet, basename='oficinas')
 router.register(r'departamentos', DepartamentoViewSet, basename='departamentos')
 router.register(r'autoridades', AutoridadViewSet, basename='autoridades')
-# router.register(r'autoridades/<int:pk>/', autoridad_detail, basename='autoridades')
 router.register(r'equipo', EquipoViewSet, basename='equipo')
 
 

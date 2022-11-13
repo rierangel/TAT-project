@@ -28,7 +28,7 @@ export default function Navbar() {
     ]
 
 
-    
+
 
     const [showSearch, setShowSearch] = useState(false)
     // const [showMenu, setShowMenu] = useState(false)
@@ -62,7 +62,7 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                <div ref={menuRef} className='hidden md:flex '>
+                <div ref={menuRef} className='hidden lg:flex '>
                     <div className='mr-auto'>
                         <ul className={styles.bottom} >
                             <Link href="/">
@@ -98,11 +98,11 @@ export default function Navbar() {
                             {/* marco normativo */}
                             <div className=' flex items-start' >
                                 <Tooltip title="Marco Normativo">
- 
+
                                     <Link href={`/publicaciones/ponencias/`}>
                                         <a>
                                             <li >
-                                            Ponencias del Congreso
+                                                Ponencias del Congreso
                                             </li>
                                         </a>
                                     </Link>
@@ -110,11 +110,11 @@ export default function Navbar() {
                                     <Link href={`/publicaciones/revista-tributaria/`}>
                                         <a>
                                             <li >
-                                            revista justicia tributaria
+                                                revista justicia tributaria
                                             </li>
                                         </a>
                                     </Link>
- 
+
 
                                     <div className='mt-4 -mb-3 ' >
                                         <Tooltip title="Normativa">
@@ -128,13 +128,13 @@ export default function Navbar() {
                                             <Link href={`/publicaciones/otras`}>
                                                 <a>
                                                     <li >
-                                                    Otras Publicaciones
+                                                        Otras Publicaciones
                                                     </li>
                                                 </a>
                                             </Link>
-                               
 
-                                         
+
+
 
                                         </Tooltip>
                                     </div>
@@ -176,16 +176,18 @@ export default function Navbar() {
 
             {showSearch &&
                 <div className='absolute inset-0 '>
-                    <div onClick={() => setShowSearch(false)} className='absolute inset-0 bg-[#0F162099] bg-opacity-60 z-[9999]' />
-                    <div className='container static bg-white top-32 p-9 rounded-xl text-black z-[99999] '>
 
-                        <div onClick={() => setShowSearch(false)} className='cursor-pointer svg_rp w-auto absolute right-10 top-5 p-5'>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15.5469 13.9531C15.6518 14.0576 15.735 14.1818 15.7918 14.3186C15.8485 14.4553 15.8778 14.6019 15.8778 14.75C15.8778 14.8981 15.8485 15.0447 15.7918 15.1814C15.735 15.3182 15.6518 15.4424 15.5469 15.5469C15.3346 15.7564 15.0483 15.8739 14.75 15.8739C14.4517 15.8739 14.1654 15.7564 13.9531 15.5469L8.00002 9.59375L2.04689 15.5469C1.8346 15.7564 1.54831 15.8739 1.25002 15.8739C0.951724 15.8739 0.665436 15.7564 0.453141 15.5469C0.348261 15.4424 0.265044 15.3182 0.208263 15.1814C0.151482 15.0447 0.122253 14.8981 0.122253 14.75C0.122253 14.6019 0.151482 14.4553 0.208263 14.3186C0.265044 14.1818 0.348261 14.0576 0.453141 13.9531L6.40627 8L0.453141 2.04687C0.241796 1.83553 0.123064 1.54888 0.123064 1.25C0.123064 1.10201 0.152214 0.955461 0.208848 0.818733C0.265483 0.682005 0.348494 0.557771 0.453141 0.453123C0.557788 0.348476 0.682022 0.265466 0.81875 0.208831C0.955478 0.152196 1.10202 0.123047 1.25002 0.123047C1.5489 0.123047 1.83555 0.241779 2.04689 0.453123L8.00002 6.40625L13.9531 0.453123C14.1645 0.241779 14.4511 0.123047 14.75 0.123047C15.0489 0.123047 15.3355 0.241779 15.5469 0.453123C15.7582 0.664468 15.877 0.951112 15.877 1.25C15.877 1.54888 15.7582 1.83553 15.5469 2.04687L9.59377 8L15.5469 13.9531Z" fill="#0054A4" />
-                            </svg>
+                        <div onClick={() => setShowSearch(false)} className='absolute inset-0 bg-[#0F162099] bg-opacity-60 ' />
+                        <div className='relative container bg-white top-32 p-9 rounded-xl text-black z-[99999] '>
+
+                            <div onClick={() => setShowSearch(false)} className='cursor-pointer svg_rp w-auto absolute right-10 top-5 p-5'>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.5469 13.9531C15.6518 14.0576 15.735 14.1818 15.7918 14.3186C15.8485 14.4553 15.8778 14.6019 15.8778 14.75C15.8778 14.8981 15.8485 15.0447 15.7918 15.1814C15.735 15.3182 15.6518 15.4424 15.5469 15.5469C15.3346 15.7564 15.0483 15.8739 14.75 15.8739C14.4517 15.8739 14.1654 15.7564 13.9531 15.5469L8.00002 9.59375L2.04689 15.5469C1.8346 15.7564 1.54831 15.8739 1.25002 15.8739C0.951724 15.8739 0.665436 15.7564 0.453141 15.5469C0.348261 15.4424 0.265044 15.3182 0.208263 15.1814C0.151482 15.0447 0.122253 14.8981 0.122253 14.75C0.122253 14.6019 0.151482 14.4553 0.208263 14.3186C0.265044 14.1818 0.348261 14.0576 0.453141 13.9531L6.40627 8L0.453141 2.04687C0.241796 1.83553 0.123064 1.54888 0.123064 1.25C0.123064 1.10201 0.152214 0.955461 0.208848 0.818733C0.265483 0.682005 0.348494 0.557771 0.453141 0.453123C0.557788 0.348476 0.682022 0.265466 0.81875 0.208831C0.955478 0.152196 1.10202 0.123047 1.25002 0.123047C1.5489 0.123047 1.83555 0.241779 2.04689 0.453123L8.00002 6.40625L13.9531 0.453123C14.1645 0.241779 14.4511 0.123047 14.75 0.123047C15.0489 0.123047 15.3355 0.241779 15.5469 0.453123C15.7582 0.664468 15.877 0.951112 15.877 1.25C15.877 1.54888 15.7582 1.83553 15.5469 2.04687L9.59377 8L15.5469 13.9531Z" fill="#0054A4" />
+                                </svg>
+                            </div>
+                            <Buscador />
                         </div>
-                        <Buscador />
-                    </div>
+
                 </div>
             }
         </nav>

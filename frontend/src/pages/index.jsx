@@ -28,7 +28,6 @@ export default function Index() {
      .then(res=>setPage(res))
      .catch(error=>console.log(error))
   }, [])
-  console.log(page);
 
   return ( page && page[0] &&
     <Layer> 

@@ -3,6 +3,8 @@ from django.db import models
 
 # Create your models here.
 
+from core.utils import auto_slug
+
 
 def upload_path(instance, filename):
     if " " in instance.nombre:
@@ -26,12 +28,11 @@ class Departamento(models.Model):
         return self.titulo
 
 
-from core.utils import auto_slug
 
 class Autoridad(models.Model):
     nombre = models.CharField(max_length=500)
     titulo = models.CharField(max_length=500)
-    imagen = models.ImageField(upload_to=upload_path)
+    imagen = models.ImageField(upload_to="nosotros/autoridades")
     text = models.TextField()
 
     slug = models.SlugField(unique=True, default="",null=True,blank=True)

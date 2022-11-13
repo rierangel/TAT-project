@@ -45,10 +45,10 @@ export default function page(props) {
 
   ]
 
+  const path = "entradas/noticias"
 
-
-  const query= `${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/`
-  const NoticiasListQuery = QueryLayer(NoticiaList, datalist, buscador, query, "noticias")
+  const query= `${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/noticias/`
+  const NoticiasListQuery = QueryLayer(NoticiaList, datalist, buscador, query, path)
 
 
 

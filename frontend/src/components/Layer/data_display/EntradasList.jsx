@@ -15,6 +15,7 @@ const NoticiaList = ({ data }) => {
       {data.map((e, i) => (
         <div key={i} className="py-6 border-b px-3 flex space-x-[24px] hover1 no-pointer">
           <ImgBack src={e.imagen_principal} className=' w-[193px] h-[142px]  object-cover  rounded-xl' />
+          {/* <img src={e.imagen_principal} className=' w-[193px] h-[142px]  object-cover  rounded-xl' /> */}
 
           <div className="w-full flex flex-col justify-between items-start h-[142px] ">
             <h2>{e.titulo}</h2>
@@ -24,8 +25,8 @@ const NoticiaList = ({ data }) => {
             </div>
             {/* <TextBack text={e.contenido} className={"text-clip overflow-hidden h-[45px]"} /> */}
 
-
-            <Link key={i} href={`/noticias/2020/${e.titulo}`}>
+          {console.log(e.fecha.split("-")[0])}
+            <Link key={i} href={`${e.fecha.split("-")[0]}/${e.slug}`}>
               <a className='btn btn-xs border1 py-3'>Leer más</a>
             </Link>
           </div>

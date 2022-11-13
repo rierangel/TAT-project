@@ -21,7 +21,7 @@ admin.site.register(Equipo, PostAdmin)
 
 @admin.register(Autoridad)
 class ArutoridadAdmin(SummernoteModelAdmin):
-    # readonly_fields = ('slug',)
+    readonly_fields = ('slug',)
     summernote_fields = ['text', ]
     # inlines = [SeccionInline, ]
     # autocomplete_fields = ['']

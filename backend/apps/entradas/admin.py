@@ -14,6 +14,8 @@ class GaleriaNoticiaInline(admin.StackedInline):
 class SeccionAdmin(SummernoteModelAdmin):
     list_display = ( 'fecha','titulo',  )
     list_filter = ('fecha',)
+    exclude = ('slug',)
+
     inlines = [GaleriaNoticiaInline, ]
 
 # HaciendoDiferencia
