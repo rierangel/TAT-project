@@ -2,10 +2,8 @@ import Link from 'next/link'
 import styles from './styles.module.scss'
 
 export default function Title({ data, link }) {
-    console.log(data);
+    
     return ( data &&
-
-
             <div className={styles.title} >
                 <div className={styles.title_cont}>
                     {data.icono &&
