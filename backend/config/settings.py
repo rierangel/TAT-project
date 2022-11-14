@@ -37,16 +37,16 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))  # add this
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #env("DEBUG")
+DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = [env("ALLOWED_HOSTS")]
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = [env("BACK_URL")]
+# CSRF_TRUSTED_ORIGINS = [env("BACK_URL")]
 CORS_ALLOWED_ORIGINS = [env("FRONT_URL"),]
 
-print(CSRF_TRUSTED_ORIGINS, CORS_ALLOWED_ORIGINS,DEBUG, ALLOWED_HOSTS )
+print(CORS_ALLOWED_ORIGINS,DEBUG, ALLOWED_HOSTS )
 
 # Application definition
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
@@ -78,7 +78,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware', # cors
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

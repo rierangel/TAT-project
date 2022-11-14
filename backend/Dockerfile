@@ -23,10 +23,10 @@ COPY ./ ./
 
 EXPOSE 8000
 
-# RUN python manage.py collectstatic
 # RUN python manage.py migrate
 # RUN python manage.py loaddata ./db/data.json
-
+# Collect static files
+RUN python -m manage collectstatic -v 3 --no-input
 CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
 
 

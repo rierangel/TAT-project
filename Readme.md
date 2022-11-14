@@ -1,4 +1,6 @@
 
+python manage.py collectstatic
+
 # docker
 
 ### docker file 
