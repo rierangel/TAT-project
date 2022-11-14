@@ -37,16 +37,16 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))  # add this
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
+DEBUG = False #env("DEBUG")
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [env("ALLOWED_HOSTS")]
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [env("BACK_URL")]
 CORS_ALLOWED_ORIGINS = [env("FRONT_URL"),]
 
-print(CSRF_TRUSTED_ORIGINS, CORS_ALLOWED_ORIGINS)
+print(CSRF_TRUSTED_ORIGINS, CORS_ALLOWED_ORIGINS,DEBUG, ALLOWED_HOSTS )
 
 # Application definition
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
@@ -108,39 +108,30 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+
 
 #db production
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE":env("TEST_DB_ENGINE"),
-#         "NAME": env("TEST_DB_NAME"),
-#         "USER": env("TEST_DB_USER"),
-#         "PASSWORD": env("TEST_DB_PASSWORD"),
-#         "HOST": env("TEST_DB_HOST"),
-#         "PORT": env("TEST_DB_PORT"),
-#     }
-# }
 
 
-DATABASES = {
-    "default": {
-        "ENGINE":env("DB_ENGINE"),
-        "NAME": env("DB_NAME"),
-        "USER": env("DB_USER"),
-        "PASSWORD": env("DB_PASSWORD"),
-        "HOST": env("DB_HOST"),
-        "PORT": env("DB_PORT"),
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
-
-
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE":env("DB_ENGINE"),
+            "NAME": env("DB_NAME"),
+            "USER": env("DB_USER"),
+            "PASSWORD": env("DB_PASSWORD"),
+            "HOST": env("DB_HOST"),
+            "PORT": env("DB_PORT"),
+        }
+    }
 
 
 # Password validation

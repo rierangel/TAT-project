@@ -23,7 +23,7 @@ COPY ./ ./
 
 EXPOSE 8000
 
-RUN python manage.py collectstatic
+# RUN python manage.py collectstatic
 # RUN python manage.py migrate
 # RUN python manage.py loaddata ./db/data.json
 

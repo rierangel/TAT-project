@@ -6,6 +6,11 @@ docker build -t django .
 docker run -p 8000:8000 django-s
 docker run -it django bash 
 
+# docker hub
+
+docker tag tat-django ragnarokf17/tat-django
+docker push ragnarokf17/tat-django
+
 ### Comandos de docker compose:
 
 `docker-compose build` guarda las modificaciones realizadas de los archivos dockerfile
