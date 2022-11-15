@@ -22,16 +22,21 @@ from django.views.generic import TemplateView
 
 from rest_framework import routers
 
+from django.shortcuts import redirect
+
+# def index(request):
+#     return redirect("/admin")
 
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="index.html"), name="index"),
-    
-    path('admin/', admin.site.urls, name="admin"),
 
+    # path('', index, name="index"),
+    path('admin', admin.site.urls, name="admin"),
+
+    path('', TemplateView.as_view(template_name="index.html"), name="index"),
+    path('paginas/', include("paginas.urls")),
     path('entradas/', include("entradas.urls")),
     path('nosotros/', include("nosotros.urls")),
-    path('paginas/', include("paginas.urls")),
     path('marco-normativo/', include("marco_normativo.urls")),
     path('publicaciones/', include("publicaciones.urls")),
 

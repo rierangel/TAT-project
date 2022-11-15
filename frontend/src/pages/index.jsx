@@ -29,6 +29,8 @@ export default function Index() {
      .catch(error=>console.log(error))
   }, [])
 
+  console.log(path);
+
   return ( page && page[0] &&
     <Layer> 
       <div className='flex flex-col-reverse md:flex-row '>

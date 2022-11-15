@@ -44,7 +44,7 @@ export default function QueryLayer(Component, data, buscador, url, path, Compone
         newData.results[0] && ComponentOption ? 
         <Component data={newData.results} path={path} ver={ComponentOption.ver} descargar={ComponentOption.descargar}  />
         :
-        <Component data={newData.results} path={path} />
+        newData.results[0]  && <Component data={newData.results} path={path} />
         :
         <h1>Resultados no encontrados</h1>
       }

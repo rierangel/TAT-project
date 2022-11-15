@@ -49,6 +49,10 @@ export default function index() {
             name: "Edictos",
             link: "/marco-normativo/edictos"
         },
+        {
+            name: "Flujograma",
+            link: "/marco-normativo/flujograma"
+        },
     ]
 
     return (
