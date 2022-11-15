@@ -8,7 +8,7 @@ services:
   #   volumes:
   #     - ./data/db:/var/lib/postgresql/data
   #   ports:
-  #     - 5431:5432 
+  #     - 5431:5432
   #   environment:
   #     - POSTGRES_NAME=postgres
   #     - POSTGRES_USER=postgres
@@ -20,7 +20,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    # command: 
+    # command:
     #   sh -c "python manage.py runserver 0.0.0.0:8000"
     # &&  127.0.0.1:8080"
     ports:
@@ -34,7 +34,7 @@ services:
     #   - DB_HOST=
 
   frontend:
-    restart: always
+    # restart: always
     ports:
       - 3000:3000
     volumes:
