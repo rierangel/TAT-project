@@ -11,12 +11,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 
-from pathlib import Path
 import os
 import sys
+from pathlib import Path
 
 import environ  # add this
-
 
 env = environ.Env(  # add this
     # set casting, default value
@@ -173,9 +172,9 @@ STATIC_URL = STATIC_HOST + "/static/"
 
 # STATIC_URL = '/static/'
 # STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
