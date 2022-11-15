@@ -7,13 +7,13 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-RUN apk update 
-RUN apk add gcc musl-dev python3-dev jpeg-dev zlib-dev 
+RUN apk update
+RUN apk add gcc musl-dev python3-dev jpeg-dev zlib-dev
 RUN apk add postgresql-dev
 
 RUN pip install --upgrade pip
 COPY ./requirements-docker.txt ./
-RUN python -m pip install -r requirements-docker.txt  
+RUN python -m pip install -r requirements-docker.txt
 
 
 # RUN apk add mysql-client mariadb-dev mariadb-connector-c-dev
@@ -26,8 +26,8 @@ EXPOSE 8000
 # RUN python manage.py migrate
 # RUN python manage.py loaddata ./db/data.json
 # Collect static files
-RUN python -m manage collectstatic -v 3 --no-input
-CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
+# RUN python -m manage collectstatic -v 3 --no-input
+CMD ["sh", "entrypoint.sh"]
 
 
 
