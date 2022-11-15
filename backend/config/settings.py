@@ -42,7 +42,7 @@ ALLOWED_HOSTS = [env("ALLOWED_HOSTS")]
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 
-# CSRF_TRUSTED_ORIGINS = [env("BACK_URL")]
+CSRF_TRUSTED_ORIGINS = [env("BACK_URL")]
 CORS_ALLOWED_ORIGINS = [env("FRONT_URL"),]
 
 print(CORS_ALLOWED_ORIGINS,DEBUG, ALLOWED_HOSTS )
@@ -77,7 +77,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware', # cors
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
