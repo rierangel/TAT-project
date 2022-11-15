@@ -11,12 +11,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 
-from pathlib import Path
 import os
 import sys
+from pathlib import Path
 
 import environ  # add this
-
 
 env = environ.Env(  # add this
     # set casting, default value
@@ -43,7 +42,7 @@ ALLOWED_HOSTS = [env("ALLOWED_HOSTS")]
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 
-# CSRF_TRUSTED_ORIGINS = [env("BACK_URL")]
+CSRF_TRUSTED_ORIGINS = [env("BACK_URL")]
 CORS_ALLOWED_ORIGINS = [env("FRONT_URL"),]
 
 print(CORS_ALLOWED_ORIGINS,DEBUG, ALLOWED_HOSTS )
@@ -78,7 +77,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware', # cors
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -173,9 +172,9 @@ STATIC_URL = STATIC_HOST + "/static/"
 
 # STATIC_URL = '/static/'
 # STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
