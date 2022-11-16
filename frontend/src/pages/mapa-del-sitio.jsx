@@ -78,7 +78,7 @@ export default function index() {
                                 Páginas de interés:
                                 <ul className='text-[#0054A4]'>
                                     {paginas_de_interes.map((v, i) => (
-                                        <li>
+                                        <li key={i}>
                                             <Link href={v.link} >
                                                 <a className=' flex gap-2 items-center'>
                                                     {v.name}
@@ -110,7 +110,7 @@ export default function index() {
                                 Normativa:
                                 <ul className='text-[#0054A4]'>
                                     {normativa.map((v, i) => (
-                                        <li>
+                                        <li key={i}>
                                             <Link href={v.link} >
                                                 <a className=' flex gap-2 items-center'>
                                                     {v.name}

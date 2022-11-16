@@ -13,7 +13,7 @@ export default function DataTable({ data, path }) {
             <thead>
                 <tr>
                     {th.map((e, i) => (
-                        <th colspan={e == "titulo" && "w-full w-max"} key={i}>
+                        <th key={i}>
                             <div className={e == "descargar" && "text-right" || e == "ver" && "text-right" || e == "titulo" && "w-full w-max"}>
 
                                 {e}

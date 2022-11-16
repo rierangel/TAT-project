@@ -4,8 +4,8 @@ import FileList from 'src/components/Layer/data_display/FileList'
 import ToggleList from 'src/lib/ToggleList'
 import { fetcher } from 'src/lib/Fetcher'
 import Title from 'src/components/Layer/Title'
-export default function index() {
 
+export default function Page() {
 
   const [data, setData] = useState()
   const [page, setPage] = useState()
@@ -35,7 +35,7 @@ export default function index() {
 
         {data && data.map((v,i)=>(
 
-        <div className="border1 p-9 rounded-3xl">
+        <div key={i} className="border1 p-9 rounded-3xl">
           <ToggleList title={v.titulo}>
             <FileList data={v.archivos} path={"publicaciones/ponencias"} ver={true} descargar={true} />
           </ToggleList>

@@ -4,7 +4,7 @@ import Tramites from 'src/components/tramites'
 import { fetcher } from "src/lib/Fetcher";
 
 
-export default function tramites() {
+export default function Page() {
 
     const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/2`
     const [data, setData] = useState()

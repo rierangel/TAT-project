@@ -4,7 +4,7 @@ import QueryLayer from 'src/components/Layer/QueryLayer/QueryLayer'
 import Title from 'src/components/Layer/Title'
 import { fetcher } from 'src/lib/Fetcher'
 
-export default function revista_tributaria() {
+export default function Page() {
 
     const [data, setData] = useState()
     const [page, setPage] = useState()
@@ -47,7 +47,7 @@ function revistaDisplay({ data, path }) {
         <div className="grid grid-col-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
 
             {data && data.map((v, i) => (
-                <div className="border rounded-2xl  overflow-hidden">
+                <div key={i} className="border rounded-2xl  overflow-hidden">
                     <div className="h-[58%] bg-gray-300 flex-center p-[22px]">
                         <img src="/img/revista.png" alt="" />
                     </div>

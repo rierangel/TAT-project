@@ -1,4 +1,4 @@
-import { fetcher, useGql } from 'src/lib/Fetcher'
+import { fetcher } from 'src/lib/Fetcher'
 import { useEffect, useState } from 'react'
 
 function Contact() {
@@ -77,7 +77,7 @@ function Contact() {
                     <h2>Otros Departamentos</h2>
 
                     {data.map((v, i) => (
-                        <div>
+                        <div key={i}>
                             <div className='mb-3 h3'>{v.titulo}</div>
                             <div className='subtitle'>
                                 <div className='w-auto h-5'>

@@ -7,9 +7,9 @@ import TextBack from 'src/components/Layer/TextBack'
 import ImgBack from 'src/components/Layer/ImgBack'
 
 
-export default function page() {
+export default function Page() {
 
-  const [page, setPage] = useState()
+  const [Page, setPage] = useState()
   const [datalist, setDatalist] = useState()
   useEffect(() => {
      fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/4`)
@@ -22,7 +22,7 @@ export default function page() {
      .catch(error=>console.log(error))
   }, [])
 
-  return ( page &&
+  return ( Page &&
     <Layer>
 
       <section>
@@ -30,38 +30,38 @@ export default function page() {
           <div className='w-full lg:order-1 order-3'>
 
 
-            <Title data={page[0]} />
+            <Title data={Page[0]} />
 
-            <TextBack text={page[0].text} />
+            <TextBack text={Page[0].text} />
 
 
             <div className='subtitle pt-4 '>
-              <i className='bg-[#EBF5FF] p-2 rounded-full' dangerouslySetInnerHTML={{ __html: page[0].contenido[0].icono }}></i>
-              <h5>{page[0].contenido[0].titulo}</h5>
+              <i className='bg-[#EBF5FF] p-2 rounded-full' dangerouslySetInnerHTML={{ __html: Page[0].contenido[0].icono }}></i>
+              <h5>{Page[0].contenido[0].titulo}</h5>
             </div>
 
             <div className='pl-16'>
 
               <div className='subtitle'>
-                <i className='bg-[#EBF5FF] p-2 rounded-full' dangerouslySetInnerHTML={{ __html: page[0].contenido[1].icono }}></i>
-                <h5>{page[0].contenido[1].titulo}</h5>
+                <i className='bg-[#EBF5FF] p-2 rounded-full' dangerouslySetInnerHTML={{ __html: Page[0].contenido[1].icono }}></i>
+                <h5>{Page[0].contenido[1].titulo}</h5>
               </div>
 
 
               <div className='subtitle'>
-                <i className='bg-[#EBF5FF] p-2 rounded-full' dangerouslySetInnerHTML={{ __html: page[0].contenido[2].icono }}></i>
-                <h5>{page[0].contenido[2].titulo}</h5>
+                <i className='bg-[#EBF5FF] p-2 rounded-full' dangerouslySetInnerHTML={{ __html: Page[0].contenido[2].icono }}></i>
+                <h5>{Page[0].contenido[2].titulo}</h5>
               </div>
 
             </div>
 
             <div className='bg-[#EBF5FF] p-6 rounded-2xl mt-20'>
-              <TextBack text={page[0].contenido[3].text} />
+              <TextBack text={Page[0].contenido[3].text} />
             </div>
           </div>
 
           <div className="xl:h-[454px] order-2 rounded-xl">
-            <ImgBack className='object-cover object-center rounded-xl w-full h-full mx-auto xl:my-0 ' src={page[0].imagen} />
+            <ImgBack className='object-cover object-center rounded-xl w-full h-full mx-auto xl:my-0 ' src={Page[0].imagen} />
           </div>
         </div>
       </section>
@@ -75,9 +75,9 @@ export default function page() {
 
 // export async function getServerSideProps({ params }) {
 
-//   const page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/4`)
+//   const Page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/4`)
 //   const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}//`)
 
-//   return { props: { page, datalist } }
+//   return { props: { Page, datalist } }
 
 // }

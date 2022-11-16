@@ -12,7 +12,7 @@ import NoticiaList from "src/components/Layer/data_display/EntradasList";
 import numberRange from "src/lib/numberRange";
 
 
-export default function page(props) {
+export default function Page() {
 
   const [datalist, setData] = useState()
   const [page, setPage] = useState()

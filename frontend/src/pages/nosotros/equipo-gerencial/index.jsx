@@ -6,9 +6,9 @@ import TextBack from 'src/components/Layer/TextBack'
 import { fetcher } from 'src/lib/Fetcher'
 
 
-export default function page() {
+export default function Page() {
 
-  const [page, setPage] = useState()
+  const [Page, setPage] = useState()
   const [datalist, setDatalist] = useState()
   useEffect(() => {
      fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/5`)
@@ -22,12 +22,12 @@ export default function page() {
   }, [])
 
 
-  return ( page &&
+  return ( Page &&
     <Layer>
 
-      <Title data={page[0]} />
+      <Title data={Page[0]} />
 
-      <TextBack text={page[0].text} className='mb-6' />
+      <TextBack text={Page[0].text} className='mb-6' />
       {/* <p className='mb-6'>El Tribunal Administrativo Tributario cuenta con una estructura orgánica diseñada para cumplir con calidad y eficiencia todas las funciones que le asigna la ley, como institución autónoma e independiente.  Cada colaborador del tribunal contribuye con sus competencias a implementar la cultura organizacional y al logro de la misión y visión institucional.</p> */}
       <Equipo data={datalist} path={'equipo-gerencial'} />
 
@@ -38,11 +38,11 @@ export default function page() {
 
 // export async function getServerSideProps({ params }) {
 
-//   const page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/5`)
+//   const Page = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/5`)
 //   const datalist = await fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/equipo/`)
 
 
-//   return { props: { page, datalist } }
+//   return { props: { Page, datalist } }
 
 // }
 

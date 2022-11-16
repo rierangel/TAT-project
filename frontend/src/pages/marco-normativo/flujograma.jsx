@@ -6,7 +6,7 @@ import QueryLayer from 'src/components/Layer/QueryLayer/QueryLayer'
 import Title from 'src/components/Layer/Title'
 import { fetcher } from 'src/lib/Fetcher'
 
-export default function component() {
+export default function Component() {
 
   const [page, setPage] = useState()
   const [data, setData] = useState()

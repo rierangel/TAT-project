@@ -4,7 +4,7 @@ import ImgBack from 'src/components/Layer/ImgBack';
 import TextBack from 'src/components/Layer/TextBack';
 import { fetcher } from 'src/lib/Fetcher';
 
-export default function autoridad({ slug }) {
+export default function Page({ slug }) {
 
 
     const [data, setData] = useState()

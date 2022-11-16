@@ -8,7 +8,7 @@ import Title from 'src/components/Layer/Title'
 import { fetcher } from 'src/lib/Fetcher'
 import numberRange from 'src/lib/numberRange'
 
-export default function component() {
+export default function Page() {
 
   const [page, setPage] = useState()
   const [data, setData] = useState()

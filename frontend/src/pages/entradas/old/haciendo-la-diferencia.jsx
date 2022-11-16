@@ -1,8 +1,8 @@
 import Layer from "src/components/Layer";
 import NoticiaList from "src/components/Layer/data_display/EntradasList";
 
-export default function page() {
-    const cont = [...Array(10).keys()];
+export default function Page() {
+    // const cont = [...Array(10).keys()];
 
     return (
         <Layer>

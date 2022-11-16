@@ -5,7 +5,7 @@ import Title from 'src/components/Layer/Title'
 import { fetcher } from 'src/lib/Fetcher'
 
 
-export default function competencias() {
+export default function Competencias() {
 
   const [page, setPage] = useState()
   const [data, setData] = useState()
@@ -41,7 +41,7 @@ export default function competencias() {
 
           {data && data.map((e, i) => (
 
-            <div className="p-9 border2 rounded-xl bg-white">
+            <div key={i} className="p-9 border2 rounded-xl bg-white">
               <h2 className='mb-4 text-[#0054A4]'>{e.titulo}</h2>
               <div className={"custom_list list_primary"}>
                 <TextBack text={e.text} />

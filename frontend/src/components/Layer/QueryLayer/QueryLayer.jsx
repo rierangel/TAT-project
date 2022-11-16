@@ -21,18 +21,18 @@ import { fetcher } from 'src/lib/Fetcher';
  */
 export default function QueryLayer(Component, data, buscador, url, path, ComponentOption) {
 
-  return function () {
+  const [urlQuery, setUrlQuery] = useState(url)
 
-    const [urlQuery, setUrlQuery] = useState(url)
+  const { data: newData, isLoading, refetch, isRefetching } = useQuery(["path"], async () => fetcher(urlQuery), {
+    refetchOnWindowFocus: false,
+    enabled: false,
+    placeholderData: data
+  })
+  useEffect(() => {
+    refetch()
+  }, [urlQuery])
+  return function component() {
 
-    const { data: newData, isLoading, refetch, isRefetching } = useQuery(["path"], async () => fetcher(urlQuery), {
-      refetchOnWindowFocus: false,
-      enabled: false,
-      placeholderData: data
-    })
-    useEffect(() => {
-      refetch()
-    }, [urlQuery])
 
 
     return newData && <div>

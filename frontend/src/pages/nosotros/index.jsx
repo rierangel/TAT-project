@@ -7,7 +7,7 @@ import { fetcher } from 'src/lib/Fetcher'
 import TextBack from 'src/components/Layer/TextBack'
 import ImgBack from 'src/components/Layer/ImgBack'
 
-export default function page() {
+export default function Page() {
 
 
   const [data, setData] = useState()
