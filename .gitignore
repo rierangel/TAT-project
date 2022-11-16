@@ -17,6 +17,7 @@ frontend/out/
 
 # production
 frontend/build
+backend/media
 
 # misc
 .DS_Store
