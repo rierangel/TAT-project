@@ -43,7 +43,7 @@ if DEBUG:
     ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [env("BACK_URL")]
-CORS_ALLOWED_ORIGINS = [env("FRONT_URL"),]
+CORS_ALLOWED_ORIGINS = [env("FRONT_URL"), ]
 
 # print(CORS_ALLOWED_ORIGINS,DEBUG, ALLOWED_HOSTS )
 
@@ -75,9 +75,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware", #add whitenoise
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # add whitenoise
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware', # cors
+    'corsheaders.middleware.CorsMiddleware',  # cors
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -110,9 +110,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-
-#db production
-
+# db production
 
 
 if DEBUG:
@@ -125,7 +123,7 @@ if DEBUG:
 else:
     DATABASES = {
         "default": {
-            "ENGINE":env("DB_ENGINE"),
+            "ENGINE": env("DB_ENGINE"),
             "NAME": env("DB_NAME"),
             "USER": env("DB_USER"),
             "PASSWORD": env("DB_PASSWORD"),
@@ -169,14 +167,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_HOST = env("BACK_URL") if not DEBUG else ""
-STATIC_URL = STATIC_HOST + "/static/"
+# STATIC_HOST = env("BACK_URL") if not DEBUG else ""
+# STATIC_URL = STATIC_HOST + "/static/"
 
-# STATIC_URL = '/static/'
+STATIC_URL = 'static/'
+
 # STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static",
-# ]
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
@@ -187,21 +186,18 @@ AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400',}
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
 AWS_LOCATION = 'static'
 
 AWS_S3_FILE_OVERWRITE = True
 AWS_DEFAULT_ACL = None
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-
-
 
 
 # AWS_BUCKET_NAME = ""
@@ -220,4 +216,41 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'core.pagination.CustomPagination',
     'UNICODE_JSON': False,
+}
+
+
+SUMMERNOTE_CONFIG = {
+
+
+    # You can put custom Summernote settings
+    'summernote': {
+
+        'lang': 'es',
+        # Change editor size
+        'width': '100%',
+        'height': '580',
+
+        # Toolbar customization
+        # https://summernote.org/deep-dive/#custom-toolbar-popover
+        'toolbar': [
+
+
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
+            ['fontname', ['fontname']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['table', ['table']],
+            ['insert', ['link',  'video']] , # 'picture',
+
+            ['view', ['fullscreen', 'codeview', 'help']],
+
+
+        ],
+    }
+
+
 }
