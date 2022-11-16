@@ -24,7 +24,7 @@ export default function Page(props) {
      .catch(error=>console.log(error))
 
      //data
-     fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/`)
+     fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/noticias/`)
      .then(res=>setData(res))
      .catch(error=>console.log(error))
   }, [])

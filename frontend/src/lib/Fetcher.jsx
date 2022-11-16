@@ -1,11 +1,20 @@
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 
+import https from "https";
+import http from "http";
+const httpsAgent = new http.Agent({
+    rejectUnauthorized: false,
+});
+
 export const fetcher = async (path, method) => {
     try {
         const resApi = await fetch(path, {
             method: method,
             headers: { 'Content-Type': 'application/json' },
+            rejectUnauthorized: false,//add when working with https sites
+            requestCert: false,//add when working with https sites
+            agent: false,//add when working with https sites
         })
         const dataApi = await resApi.json()
         return dataApi
@@ -46,8 +55,8 @@ export function useFetch(path, name = "", method) {
 
     const { data, isLoading, isFetching, refetch } = useQuery([name], async () => fetcher(path, method), {
         refetchOnWindowFocus: false,
-        enabled: false 
-      });
+        enabled: false
+    });
 
 
     const [res, setRes] = useState()
@@ -68,8 +77,8 @@ export function useFetch(path, name = "", method) {
 export function useGql(query, name = "") {
     const { data, isLoading, isFetching, refetch } = useQuery([name], async () => Gql(query), {
         refetchOnWindowFocus: false,
-        enabled: false 
-      });
+        enabled: false
+    });
 
     const [res, setRes] = useState()
     useEffect(() => {
