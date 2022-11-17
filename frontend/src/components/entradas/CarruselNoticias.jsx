@@ -142,16 +142,6 @@ function SliderCarrusel() {
     )
 }
 
-// const { data, isLoading, refetch, isRefetching } = useQuery(["noticias"], async () => fetcher(url))
-
-
-const url = `${process.env.NEXT_PUBLIC_URL_BACKEND}/noticias/`
-fetcher(url).then(res => {
-    SliderCarrusel.defaultProps = res
-})
-
-
-
 
 export default SliderCarrusel
 

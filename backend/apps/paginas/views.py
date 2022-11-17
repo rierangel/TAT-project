@@ -20,7 +20,7 @@ class PaginasListView(APIView):
 class PaginaView(APIView):
     def get(self, request, page):
 
-        queryset = Seccion.objects.filter(pagina=page)
+        queryset = Seccion.objects.filter(pagina=page).order_by("posicion")
         serializer = SeccionSerializers(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

@@ -31,7 +31,7 @@ from django.shortcuts import redirect
 urlpatterns = [
 
     # path('', index, name="index"),
-    path('admin', admin.site.urls, name="admin"),
+    path('admin/', admin.site.urls, name="admin"),
 
     path('', TemplateView.as_view(template_name="index.html"), name="index"),
     path('paginas/', include("paginas.urls")),

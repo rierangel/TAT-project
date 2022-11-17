@@ -36,14 +36,16 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))  # add this
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
+DEBUG = True # env("DEBUG")
 
-ALLOWED_HOSTS = [env("ALLOWED_HOSTS")]
-if DEBUG:
-    ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*"]
+CORS_ALLOWED_ORIGINS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = [env("BACK_URL")]
-CORS_ALLOWED_ORIGINS = [env("FRONT_URL"), ]
+
+# ALLOWED_HOSTS = [env("ALLOWED_HOSTS")]
+# if DEBUG:
+
+# CSRF_TRUSTED_ORIGINS = [env("BACK_URL")]
 
 # print(CORS_ALLOWED_ORIGINS,DEBUG, ALLOWED_HOSTS )
 
@@ -59,18 +61,19 @@ INSTALLED_APPS = [
 
 
     # packages
-    'storages',
+    # 'storages',
     'rest_framework',
     'django_summernote',
 
-    'core',
     # apps
+    'core',
     'paginas',
     'publicaciones',
     'entradas',
     'nosotros',
     'marco_normativo',
     'FAQ',
+    'transparencia',
 ]
 
 MIDDLEWARE = [
@@ -112,25 +115,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # db production
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": env("DB_ENGINE"),
-            "NAME": env("DB_NAME"),
-            "USER": env("DB_USER"),
-            "PASSWORD": env("DB_PASSWORD"),
-            "HOST": env("DB_HOST"),
-            "PORT": env("DB_PORT"),
-        }
-    }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": env("DB_ENGINE"),
+#         "NAME": env("DB_NAME"),
+#         "USER": env("DB_USER"),
+#         "PASSWORD": env("DB_PASSWORD"),
+#         "HOST": env("DB_HOST"),
+#         "PORT": env("DB_PORT"),
+#     }
+# }
 
 
 # Password validation
@@ -155,12 +156,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+LANGUAGE_CODE = 'es'
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
@@ -172,38 +170,28 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
+# AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+# AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+# AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
+# AWS_LOCATION = 'static'
+# AWS_S3_FILE_OVERWRITE = True
+# AWS_DEFAULT_ACL = None
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-
-AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
-AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
-
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
-AWS_LOCATION = 'static'
-
-AWS_S3_FILE_OVERWRITE = True
-AWS_DEFAULT_ACL = None
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-
-# AWS_BUCKET_NAME = ""
-# AWS_ACCESS_KEY_ID = ""
-# AWS_SECRET_ACCESS_KEY = ""
-# AWS_REGION = ""
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -212,7 +200,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # django rest framework
-
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'core.pagination.CustomPagination',
     'UNICODE_JSON': False,
@@ -220,21 +207,15 @@ REST_FRAMEWORK = {
 
 
 SUMMERNOTE_CONFIG = {
-
-
     # You can put custom Summernote settings
     'summernote': {
-
         'lang': 'es',
         # Change editor size
         'width': '100%',
         'height': '580',
-
         # Toolbar customization
         # https://summernote.org/deep-dive/#custom-toolbar-popover
         'toolbar': [
-
-
             ['style', ['style']],
             ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
             ['fontname', ['fontname']],

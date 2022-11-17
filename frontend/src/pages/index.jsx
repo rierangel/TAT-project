@@ -123,11 +123,3 @@ export default function Index() {
   )
 }
 
-
-
-// export async function getServerSideProps({ params }) {
-
-//   // console.log(path);
-//   return { props: {page:"hola" , path} }
-
-// }
