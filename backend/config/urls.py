@@ -31,17 +31,17 @@ from django.shortcuts import redirect
 urlpatterns = [
 
     # path('', index, name="index"),
-    path('back/admin/', admin.site.urls, name="admin"),
+    path('admin/', admin.site.urls, name="admin"),
 
-    path('back/', TemplateView.as_view(template_name="index.html"), name="index"),
-    path('back/paginas/', include("paginas.urls")),
-    path('back/entradas/', include("entradas.urls")),
-    path('back/nosotros/', include("nosotros.urls")),
-    path('back/marco-normativo/', include("marco_normativo.urls")),
-    path('back/publicaciones/', include("publicaciones.urls")),
+    path('', TemplateView.as_view(template_name="index.html"), name="index"),
+    path('paginas/', include("paginas.urls")),
+    path('entradas/', include("entradas.urls")),
+    path('nosotros/', include("nosotros.urls")),
+    path('marco-normativo/', include("marco_normativo.urls")),
+    path('publicaciones/', include("publicaciones.urls")),
 
 
-    path('back/summernote/', include('django_summernote.urls')),
+    path('summernote/', include('django_summernote.urls')),
 ]
 
 
