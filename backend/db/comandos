@@ -5,3 +5,7 @@ python manage.py dumpdata -o ./db/output.json
 
 python manage.py loaddata ./db/pages.json
 python manage.py loaddata ./db/output.json
+
+sudo rm -rf backend/db/output2.json
+sudo rm -rf backend/db/pages.json
+sudo rm -rf backend/models.py

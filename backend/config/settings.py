@@ -36,9 +36,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))  # add this
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # env("DEBUG")
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = [env("BACK_URL")]
+ALLOWED_HOSTS = [env("ALLOWED_HOSTS"), '127.0.0.1', 'localhost']
 CORS_ALLOWED_ORIGINS = [env("FRONT_URL"), "http://localhost:8000", "http://127.0.0.1:3000", "http://localhost:3000",]
 
 
