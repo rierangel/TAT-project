@@ -168,7 +168,9 @@ USE_TZ = True
 # STATIC_HOST = env("BACK_URL") if not DEBUG else ""
 # STATIC_URL = STATIC_HOST + "/static/"
 
-STATIC_URL = 'static/'
+BASE_PATH = env("BASE_PATH")
+
+STATIC_URL = BASE_PATH +'/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",

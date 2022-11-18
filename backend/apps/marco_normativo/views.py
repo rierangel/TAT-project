@@ -54,10 +54,10 @@ class ConveniosViewSet(viewsets.ModelViewSet):
         queryset = Convenio.objects.all().order_by("-pk")
 
         search = request.GET.get('search', '')
-        year = request.GET.get('year', '')
-
-        if year:
-            queryset = queryset.filter(año=year)
+        # year = request.GET.get('year', '')
+        print(queryset[0].inicio)
+        # if year:
+        #     queryset = queryset.filter(inicio_year=year)
         if search:
             queryset = queryset.filter(Q(titulo__icontains=search))
 

@@ -22,7 +22,7 @@ class LeyesYDecretoSerializers(serializers.ModelSerializer):
 class ConvenioSerializers(serializers.ModelSerializer):
     class Meta:
         model = Convenio
-        fields = ('titulo', 'ver', 'descargar')
+        fields = ('titulo', 'inicio', 'final', 'ver', 'descargar')
 
     def get_ver(self, obj):
         return obj.ver
@@ -69,16 +69,6 @@ class FlujogramaSerializers(serializers.ModelSerializer):
         return obj.ver
 
 
-class ConvenioSerializers(serializers.ModelSerializer):
-    class Meta:
-        model = Convenio
-        fields = ('titulo', 'ver', 'descargar')
-
-    def get_ver(self, obj):
-        return obj.ver
-
-    def get_descargar(self, obj):
-        return obj.ver
 
 
 

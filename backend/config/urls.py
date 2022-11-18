@@ -27,8 +27,7 @@ from django.shortcuts import redirect
 # def index(request):
 #     return redirect("/admin")
 
-
-urlpatterns = [
+rutas = [
 
     # path('', index, name="index"),
     path('admin/', admin.site.urls, name="admin"),
@@ -44,6 +43,10 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
 ]
 
+urlpatterns = [
+    path(f'{settings.BASE_PATH}/', include(rutas)),
+
+]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

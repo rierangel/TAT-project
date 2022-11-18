@@ -15,7 +15,7 @@ class SeccionAdmin(SummernoteModelAdmin):
     list_display = ( 'fecha','titulo',  )
     list_filter = ('fecha',)
     exclude = ('slug',)
-
+    # ordering = ('-fecha',)
     inlines = [GaleriaNoticiaInline, ]
 
 # HaciendoDiferencia

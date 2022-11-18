@@ -16,7 +16,7 @@ class Competencia(models.Model):
 # solo año parametro de busqueda
 
 YEAR_CHOICES = []
-for r in range(2005, (datetime.datetime.now().year+1)):
+for r in range(2000, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r,r))
 
 
@@ -48,9 +48,12 @@ class Acuerdo(models.Model):
     def __str__(self):
         return self.titulo
 
+from datetime import date
+
 class Convenio(models.Model):
     titulo = models.CharField(max_length=500)
-    año = models.IntegerField(_('año'), choices=YEAR_CHOICES, default=datetime.datetime.now().year)
+    inicio = models.DateField(default=date.today)
+    final = models.DateField(default=date.today)
     archivo = models.FileField(upload_to="marco-normativo/convenios")
     
     @property
