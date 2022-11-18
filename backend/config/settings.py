@@ -38,8 +38,8 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True # env("DEBUG")
 
-ALLOWED_HOSTS = ["*"]
-CORS_ALLOWED_ORIGINS = ["*"]
+ALLOWED_HOSTS = [env("BACK_URL")]
+CORS_ALLOWED_ORIGINS = [env("FRONT_URL"), "http://localhost:8000", "http://127.0.0.1:3000", "http://localhost:3000",]
 
 
 # ALLOWED_HOSTS = [env("ALLOWED_HOSTS")]
@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     # 'storages',
     'rest_framework',
     'django_summernote',
+    'corsheaders',
 
     # apps
     'core',
