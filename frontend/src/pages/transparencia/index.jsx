@@ -49,19 +49,19 @@ export default function Page() {
           <ToggleList title={"Artículo 9"}>
             <ul className=''>
               <li>
-                <a href="/tp/09/9.1_Reglamento interno.pdf" target={"_blank"}>
+                <a href="/tp/09/9.1_Reglamento interno.pdf" rel="noreferrer" target={"_blank"}>
                   <span>9.1</span>
                   <p>Reglamento interno</p>
                 </a>
               </li>
               <li>
-                <a href="/tp/09/9.2_Politicas_institucionales.pdf" target={"_blank"} >
+                <a href="/tp/09/9.2_Politicas_institucionales.pdf" rel="noreferrer" target={"_blank"} >
                   <span>9.2</span>
                   <p>Políticas institucionales</p>
                 </a>
               </li>
               <li>
-                <a href="/tp/09/9.3_PLAN_ESTRATEGICO_2018-2022.pdf" target={"_blank"} >
+                <a href="/tp/09/9.3_PLAN_ESTRATEGICO_2018-2022.pdf" rel="noreferrer" target={"_blank"} >
                   <span>9.3</span>
                   <p>Plan estratégico</p>
                 </a>
@@ -132,7 +132,7 @@ export default function Page() {
           <ToggleList title={"Artículo 10"}>
             <ul className=''>
               <li>
-                <a href="/tp/09/10.1PROYECTOS INSTITUCIONALES WEB AL 31 DE OCTUBRE DE 2022.pdf" target={"_blank"}>
+                <a href="/tp/09/10.1PROYECTOS INSTITUCIONALES WEB AL 31 DE OCTUBRE DE 2022.pdf" rel="noreferrer" target={"_blank"}>
                   <span>10.1</span>
                   <p>Proyectos Institucionales al 31 de octubre de 2022</p>
                 </a>
@@ -161,7 +161,7 @@ export default function Page() {
                 </a>
               </li>
               <li>
-                <a href='https://www.panamacompra.gob.pa/Inicio/#/' target={"_blank"}>
+                <a href='https://www.panamacompra.gob.pa/Inicio/#/'  rel="noreferrer" target={"_blank"}>
                   <span>10.5</span>
                   <p>Contrataciones Públicas</p>
                 </a>
@@ -177,7 +177,7 @@ export default function Page() {
             <ul className=''>
               <li>
 
-                <a href="/tp/11/contrataciones-Octubre.pdf" target={"_blank"}>
+                <a href="/tp/11/contrataciones-Octubre.pdf" rel="noreferrer" target={"_blank"}>
                   <span>11.1</span>
                   <p>Contratación de Colaboradores</p>
                 </a>

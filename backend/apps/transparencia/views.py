@@ -99,7 +99,7 @@ class A113_PlanillaArchivosViewSet(viewsets.ModelViewSet):
 
     def list(self, request, format=None, *args, **kwargs):
         queryset = self.get_queryset()
-        serializer = self.get_serializer([queryset], many=True)
+        serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
 class A114_GastosDeRepresentaciónArchivosViewSet(viewsets.ModelViewSet):
@@ -109,7 +109,7 @@ class A114_GastosDeRepresentaciónArchivosViewSet(viewsets.ModelViewSet):
     def list(self, request, format=None, *args, **kwargs):
         queryset = self.get_queryset()
 
-        serializer = self.get_serializer([queryset], many=True)
+        serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
 class A115_informesDeViajesNacionalesResumenViewSet(viewsets.ModelViewSet):
@@ -119,16 +119,17 @@ class A115_informesDeViajesNacionalesResumenViewSet(viewsets.ModelViewSet):
     def list(self, request, format=None, *args, **kwargs):
         queryset = self.get_queryset()
 
-        serializer = self.get_serializer([queryset], many=True)
+        serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
 class A115_informesDeViajesInternacionalesResumenViewSet(viewsets.ModelViewSet):
     serializer_class = A115_informesDeViajesInternacionalesResumenSerializers
     queryset = A115_informesDeViajesInternacionalesResumen.objects.all()
-
+    last = len(queryset)
+    print(last)
     def list(self, request, format=None, *args, **kwargs):
         queryset = self.get_queryset()
-        serializer = self.get_serializer([queryset], many=True)
+        serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
 
@@ -140,7 +141,7 @@ class A115_informesDeViajesInternacionalesResumenViewSet(viewsets.ModelViewSet):
 
 #     def list(self, request, format=None, *args, **kwargs):
 #         queryset = self.get_queryset()
-#         serializer = self.get_serializer([queryset], many=True)
+#         serializer = self.get_serializer(queryset, many=True)
 #         return Response(serializer.data)
 
 # class A262_AdjuntosDeSolicitudesResueltasYNegadasViewSet(viewsets.ModelViewSet):
@@ -149,5 +150,5 @@ class A115_informesDeViajesInternacionalesResumenViewSet(viewsets.ModelViewSet):
 
 #     def list(self, request, format=None, *args, **kwargs):
 #         queryset = self.get_queryset()
-#         serializer = self.get_serializer([queryset], many=True)
+#         serializer = self.get_serializer(queryset, many=True)
 #         return Response(serializer.data)
