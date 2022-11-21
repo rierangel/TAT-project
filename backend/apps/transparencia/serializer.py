@@ -168,15 +168,13 @@ class A262_AdjuntosDeSolicitudesResueltasYNegadasSerializers(serializers.ModelSe
 class A263_ParticipaciónCiudadanaSerializers(serializers.ModelSerializer):
     class Meta:
         model = A263_ParticipaciónCiudadana
-        fields = ('titulo', 'ver', 'mes', 'año', 'descargar')
+        fields = ('titulo', 'mes', 'año', 'descargar')
     def get_mes(self, obj):
         return obj.mes
 
     def get_año(self, obj):
         return obj.año
 
-    def get_ver(self, obj):
-        return obj.ver
 
     def get_descargar(self, obj):
         return obj.pk

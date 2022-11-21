@@ -23,7 +23,7 @@ export default function Component() {
   const [data, setData] = useState()
   useEffect(() => {
     // data
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/transparencia/A113_PlanillaViewSet/`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/transparencia/A115_informesDeViajesNacionalesViewSet/`)
       .then(res => setData(res))
       .catch(error => console.log(error))
 
@@ -46,21 +46,19 @@ export default function Component() {
 
   ]
 
-  const path = `transparencia/A113_PlanillaViewSet`
+  const path = `transparencia/A115_informesDeViajesNacionalesViewSet`
   const query = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/`
   const ListQuery = QueryLayer(DataGrid, data, buscador, query, path)
 
-  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const mes = new Date().toLocaleDateString('es-ES', options).split(" ")
   return (
     <Layer>
       <Title data={title} />
       <ListQuery />
 
 
-      <Archivos path={"transparencia/A113_PlanillaArchivosViewSet"} />
-
-
+   
+      <Archivos title={"Misiones Oficiales de"} path={"transparencia/A115_informesDeViajesNacionalesResumenViewSet"}/>
+ 
     </Layer>
   )
 }

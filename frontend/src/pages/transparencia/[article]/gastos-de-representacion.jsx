@@ -23,7 +23,7 @@ export default function Component() {
   const [data, setData] = useState()
   useEffect(() => {
     // data
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/transparencia/A113_PlanillaViewSet/`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/transparencia/A114_GastosDeRepresentaciónViewSet/`)
       .then(res => setData(res))
       .catch(error => console.log(error))
 
@@ -46,7 +46,7 @@ export default function Component() {
 
   ]
 
-  const path = `transparencia/A113_PlanillaViewSet`
+  const path = `transparencia/A114_GastosDeRepresentaciónViewSet`
   const query = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/`
   const ListQuery = QueryLayer(DataGrid, data, buscador, query, path)
 
@@ -58,9 +58,13 @@ export default function Component() {
       <ListQuery />
 
 
-      <Archivos path={"transparencia/A113_PlanillaArchivosViewSet"} />
+      <div className="border1 p-9 rounded-2xl">
+        <h1>Archivos del mes de {mes[3]} </h1>
+        <br />
+      <Archivos path={"transparencia/A114_GastosDeRepresentaciónArchivosViewSet"}/>
+      
 
-
+      </div>
     </Layer>
   )
 }

@@ -177,10 +177,10 @@ export default function Page() {
             <ul className=''>
               <li>
 
-                  <a href="/tp/11/contrataciones-Octubre.pdf" target={"_blank"}>
-                    <span>11.1</span>
-                    <p>Contratación de Colaboradores</p>
-                  </a>
+                <a href="/tp/11/contrataciones-Octubre.pdf" target={"_blank"}>
+                  <span>11.1</span>
+                  <p>Contratación de Colaboradores</p>
+                </a>
               </li>
 
               <li>
@@ -207,95 +207,105 @@ export default function Page() {
 
 
               <li>
-              <Link href={"transparencia/11.4/Gastos-de-Representación"}>
+                <Link href={"transparencia/11.4/gastos-de-representacion"}>
+                  <a>
+                    <span>11.4</span>
+                    <p>Gastos de Representación</p>
+                  </a>
+                </Link>
 
+              </li>
+
+              <li>
                 <a>
-                  <span>11.4</span>
-                  <p>Gastos de Representación</p>
+                  <span>11.5</span>
+                  <p>Costo de Viajes e Informes</p>
                 </a>
-              </Link>
+                <ul>
+                  <li>
+                    <Link href={"transparencia/11.4/Viajes-Nacionales"}>
+                      <a>
+                        <p>Viajes Nacionales</p>
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={"transparencia/11.4/Viajes-Internacionales"}>
+                      <a>
+                        <p>Viajes Internacionales</p>
+                      </a>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
 
-            </li>
 
-            <li>
-              <a>
-                <span>11.5</span>
-                <p>Costo de Viajes e Informes</p>
-              </a>
-              <ul>
-                <li>
-                  <a>
-                    <p>Viajes Nacionales</p>
+            </ul>
+          </ToggleList>
+        </div>
+
+        <div className={style.list_transp + " border1"}>
+          <ToggleList title={"Artículo 59"}>
+            <ul className=''>
+              <li>
+                <Link href={"transparencia/11.4/solicitud-de-informacion-presentada-a-la-institucion"}>
+                  <a >
+                    <span>26.1</span>
+                    <p>Solicitud de Información Presentada a la Institución</p>
                   </a>
-                </li>
-                <li>
-                  <a>
-                    <p>Viajes Internacionales</p>
+                </Link>
+              </li>
+
+              <li>
+                <Link href={"transparencia/11.4/Solicitudes-Resueltas-y-Negadas"}>
+                  <a >
+                    <span>26.2</span>
+                    <p>Solicitudes Resueltas y Negadas</p>
                   </a>
-                </li>
-              </ul>
-            </li>
+                </Link>
+              </li>
+              <li>
+                <Link href={"transparencia/11.4/Participacion-Ciudadana"}>
+                  <a >
+                    <span >26.3</span>
+                    <p>Participación Ciudadana
+                      <span>{" ("}El Tribunal no ha sometido actos a Participación Ciudadana, sin embargo para dar a conocer las competencias institucionales se han instalado stands informativos.</span>
+                    </p>
 
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </ToggleList>
+        </div>
 
-          </ul>
-        </ToggleList>
-      </div>
+        <div className={style.list_transp + " border1"}>
+          <ToggleList title={"Artículo 27"}>
+            <ul className=''>
+              <li>
 
-      <div className={style.list_transp + " border1"}>
-        <ToggleList title={"Artículo 59"}>
-          <ul className=''>
-            <li>
-              <a >
-                <span>26.1</span>
-                <p>Solicitud de Información Presentada a la Institución</p>
-              </a>
-            </li>
-            <li>
-              <a >
-                <span>26.2</span>
-                <p>Solicitudes Resueltas y Negadas</p>
-              </a>
-            </li>
-            <li>
-              <a >
-                <span >26.3</span>
-                <p>Participación Ciudadana
-                  <span>{" ("}El Tribunal no ha sometido actos a Participación Ciudadana, sin embargo para dar a conocer las competencias institucionales se han instalado stands informativos.</span>
-                </p>
-
-              </a>
-            </li>
-          </ul>
-        </ToggleList>
-      </div>
-
-      <div className={style.list_transp + " border1"}>
-        <ToggleList title={"Artículo 27"}>
-          <ul className=''>
-            <li>
-
-              <a href="/tp/27/25199_2004_codigo_de_etica.pdf">
-                <span>27.1</span>
-                <p>Código de Ética</p>
-              </a>
-            </li>
-            <li>
-              <Link href={"/marco-normativo/convenios"}>
-                <a >
-                  <span>27.2</span>
-                  <p>Convenios</p>
+                <a href="/tp/27/25199_2004_codigo_de_etica.pdf">
+                  <span>27.1</span>
+                  <p>Código de Ética</p>
                 </a>
-              </Link>
+              </li>
+              <li>
+                <Link href={"/marco-normativo/convenios"}>
+                  <a >
+                    <span>27.2</span>
+                    <p>Convenios</p>
+                  </a>
+                </Link>
 
-            </li>
+              </li>
 
-          </ul>
-        </ToggleList>
-      </div>
+            </ul>
+          </ToggleList>
+        </div>
 
 
 
-    </section>
+      </section>
 
     </Layer >
   )

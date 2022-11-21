@@ -155,21 +155,20 @@ class A114_GastosDeRepresentaciónArchivos(models.Model):
 
 
 class A115_informesDeViajesNacionales(models.Model):					
-    titulo = models.CharField(max_length=200, blank=True)
-    cargo = models.CharField(max_length=200, blank=True)
-    destino_participación = models.CharField(max_length=200, blank=True)
-    fecha_salida = models.DateField(max_length=200, blank=True)
-    fecha_regreso = models.DateField(max_length=200, blank=True)
+    titulo = models.CharField(max_length=200, blank=True, null=True)
+    cargo = models.CharField(max_length=200, blank=True, null=True)
+    destino_participación = models.CharField(max_length=200, blank=True, null=True)
+    fecha_salida = models.DateField(max_length=200, blank=True, null=True)
+    fecha_regreso = models.DateField(max_length=200, blank=True, null=True)
     costo = models.FloatField(blank=True)
     viatico = models.PositiveIntegerField(blank=True)
-    informe = models.FileField(upload_to="transparencias/115", blank=True)
+    informe = models.FileField(upload_to="transparencias/115", blank=True, null=True)
 
     def __str__(self):
         return self.titulo
 
 
 class A115_informesDeViajesNacionalesResumen(models.Model):		
-    fecha = models.DateField()
     costo_total = models.FloatField()
     viatico = models.FloatField()
     gran_total = models.FloatField()
@@ -178,8 +177,6 @@ class A115_informesDeViajesNacionalesResumen(models.Model):
     cvs = models.FileField(upload_to="transparencias/115/resumen/cvs")
     xlsx = models.FileField(upload_to="transparencias/115/resumen/xlsx")
 
-    def __str__(self):
-        return self.titulo
 
 
 
@@ -202,7 +199,6 @@ class A115_informesDeViajesInternacionales(models.Model):
 
 
 class A115_informesDeViajesInternacionalesResumen(models.Model):		
-    fecha = models.DateField()
     costo_total = models.FloatField()
     viatico = models.FloatField()
     gran_total = models.FloatField()
@@ -211,9 +207,6 @@ class A115_informesDeViajesInternacionalesResumen(models.Model):
     cvs = models.FileField(upload_to="transparencias/115/resumen/cvs")
     xlsx = models.FileField(upload_to="transparencias/115/resumen/xlsx")
 
-    def __str__(self):
-        return self.titulo
-    
 
 # Articulo 26
 
@@ -249,7 +242,7 @@ class A262_AdjuntosDeSolicitudesResueltasYNegadas(models.Model):
 class A263_ParticipaciónCiudadana(models.Model):
     titulo = models.CharField(max_length=500)
     fecha = models.DateField()
-    archivo = models.FileField(upload_to="transparencias/263", blank=True)
+    archivo = models.FileField(upload_to="transparencias/263")
 
     @property
     def año(self):

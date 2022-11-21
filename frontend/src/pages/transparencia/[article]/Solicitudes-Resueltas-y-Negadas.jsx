@@ -23,7 +23,7 @@ export default function Component() {
   const [data, setData] = useState()
   useEffect(() => {
     // data
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/transparencia/A113_PlanillaViewSet/`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/transparencia/A262_AdjuntosDeSolicitudesResueltasYNegadasViewSet/`)
       .then(res => setData(res))
       .catch(error => console.log(error))
 
@@ -46,7 +46,7 @@ export default function Component() {
 
   ]
 
-  const path = `transparencia/A113_PlanillaViewSet`
+  const path = `transparencia/A262_AdjuntosDeSolicitudesResueltasYNegadasViewSet`
   const query = `${process.env.NEXT_PUBLIC_URL_BACKEND}/${path}/`
   const ListQuery = QueryLayer(DataGrid, data, buscador, query, path)
 
@@ -58,7 +58,7 @@ export default function Component() {
       <ListQuery />
 
 
-      <Archivos path={"transparencia/A113_PlanillaArchivosViewSet"} />
+      {/* <Archivos path={"transparencia/A113_PlanillaArchivosViewSet"} /> */}
 
 
     </Layer>
