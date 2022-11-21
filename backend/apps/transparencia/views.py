@@ -79,14 +79,23 @@ A115_informesDeViajesInternacionalesViewSet = make_view_with_dowload_link(
     A115_informesDeViajesInternacionales, A115_informesDeViajesInternacionalesSerializers)
 
 
+A261_SolicitudDeInformaciónPresentadaALaInstituciónViewSet = make_view_with_dowload_link(
+    A261_SolicitudDeInformaciónPresentadaALaInstitución, A261_SolicitudDeInformaciónPresentadaALaInstituciónSerializers)
+A262_AdjuntosDeSolicitudesResueltasYNegadasViewSet = make_view_with_dowload_link(
+    A262_AdjuntosDeSolicitudesResueltasYNegadas, A262_AdjuntosDeSolicitudesResueltasYNegadasSerializers)
+
+
+
 A263_ParticipaciónCiudadanaViewSet = make_view_with_dowload_link(
     A263_ParticipaciónCiudadana, A263_ParticipaciónCiudadanaSerializers)
 
 
 
+
+
 class A113_PlanillaArchivosViewSet(viewsets.ModelViewSet):
     serializer_class = A113_PlanillaArchivosSerializers
-    queryset = A113_PlanillaArchivos.objects.last()
+    queryset = A113_PlanillaArchivos.objects.all()
 
     def list(self, request, format=None, *args, **kwargs):
         queryset = self.get_queryset()
@@ -95,38 +104,33 @@ class A113_PlanillaArchivosViewSet(viewsets.ModelViewSet):
 
 class A114_GastosDeRepresentaciónArchivosViewSet(viewsets.ModelViewSet):
     serializer_class = A114_GastosDeRepresentaciónArchivosSerializers
-    queryset = A114_GastosDeRepresentaciónArchivos.objects.last()
+    queryset = A114_GastosDeRepresentaciónArchivos.objects.all()
 
     def list(self, request, format=None, *args, **kwargs):
-        queryset = A114_GastosDeRepresentaciónArchivos.objects.last()
+        queryset = self.get_queryset()
 
         serializer = self.get_serializer([queryset], many=True)
         return Response(serializer.data)
 
 class A115_informesDeViajesNacionalesResumenViewSet(viewsets.ModelViewSet):
     serializer_class = A115_informesDeViajesNacionalesResumenSerializers
-    queryset = A115_informesDeViajesNacionalesResumen.objects.last()
+    queryset = A115_informesDeViajesNacionalesResumen.objects.all()
 
     def list(self, request, format=None, *args, **kwargs):
-        queryset = A115_informesDeViajesNacionalesResumen.objects.last()
+        queryset = self.get_queryset()
 
         serializer = self.get_serializer([queryset], many=True)
         return Response(serializer.data)
 
 class A115_informesDeViajesInternacionalesResumenViewSet(viewsets.ModelViewSet):
     serializer_class = A115_informesDeViajesInternacionalesResumenSerializers
-    queryset = A115_informesDeViajesInternacionalesResumen.objects.last()
+    queryset = A115_informesDeViajesInternacionalesResumen.objects.all()
 
     def list(self, request, format=None, *args, **kwargs):
         queryset = self.get_queryset()
         serializer = self.get_serializer([queryset], many=True)
         return Response(serializer.data)
 
-
-A261_SolicitudDeInformaciónPresentadaALaInstituciónViewSet = make_view_with_dowload_link(
-    A261_SolicitudDeInformaciónPresentadaALaInstitución, A261_SolicitudDeInformaciónPresentadaALaInstituciónSerializers)
-A262_AdjuntosDeSolicitudesResueltasYNegadasViewSet = make_view_with_dowload_link(
-    A262_AdjuntosDeSolicitudesResueltasYNegadas, A262_AdjuntosDeSolicitudesResueltasYNegadasSerializers)
 
 
 
