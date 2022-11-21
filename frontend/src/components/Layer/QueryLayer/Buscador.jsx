@@ -51,7 +51,7 @@ export default function Buscador({ seturl, path, refetch, buscador }) {
                         key={i}
                         className='w-full'
                         type="text"
-                        placeholder='Escriba su búsqueda'
+                        placeholder={v.titulo}
                         value={query[v.path]}
                         onChange={(e) => { setQuery({ ...query, [v.path]: e.target.value }) }}
                     />

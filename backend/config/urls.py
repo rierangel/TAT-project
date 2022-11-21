@@ -38,6 +38,7 @@ rutas = [
     path('nosotros/', include("nosotros.urls")),
     path('marco-normativo/', include("marco_normativo.urls")),
     path('publicaciones/', include("publicaciones.urls")),
+    path('transparencia/', include("transparencia.urls")),
 
 
     path('summernote/', include('django_summernote.urls')),

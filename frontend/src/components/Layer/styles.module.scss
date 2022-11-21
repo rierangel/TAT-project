@@ -4,6 +4,12 @@
   align-items: center;
   margin-bottom: 2rem;
 
+
+  :first-child {
+    margin-top: 0.15rem;
+    margin-bottom: auto;
+  }
+
   .title_cont {
     display: flex;
     align-items: center;
@@ -15,6 +21,10 @@
     align-items: center;
     gap: 1rem;
     // flex items-center gap-4
+  }
+
+  h1{
+    text-transform: capitalize;
   }
 
 

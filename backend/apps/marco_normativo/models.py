@@ -60,6 +60,9 @@ class Convenio(models.Model):
     def ver(self):
         return self.archivo.url
     @property
+    def vigencia(self):
+        return f'{self.inicio} - {self.final}'
+    @property
     def descargar(self):
         return self.pk
     def __str__(self):

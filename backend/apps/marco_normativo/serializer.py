@@ -22,7 +22,11 @@ class LeyesYDecretoSerializers(serializers.ModelSerializer):
 class ConvenioSerializers(serializers.ModelSerializer):
     class Meta:
         model = Convenio
-        fields = ('titulo', 'inicio', 'final', 'ver', 'descargar')
+        fields = ('titulo', 'vigencia', 'ver', 'descargar')
+
+    def get_vigencia(self, obj):
+        return obj.ver
+
 
     def get_ver(self, obj):
         return obj.ver

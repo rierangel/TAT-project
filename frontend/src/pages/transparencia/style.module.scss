@@ -1,0 +1,46 @@
+@use '@/styles/vars' as v;
+
+
+.list_transp{
+    padding: 2.25rem;
+    border-radius: 16px;
+    // p-9 border1 rounded-xl
+    
+    div>ul{
+        padding-top: 2.25rem;
+
+        // pt-9 gap-3 
+        li{
+            margin-bottom: 0.75rem;
+            a{
+                :first-child{
+                    margin-bottom: auto;
+                }
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                &:hover{
+                    text-decoration: underline;
+                }
+                // text-[#0054A4] flex gap-2 items-center
+                &[href^="/"],&[href^="h"] {
+                    color: v.$primary;
+                }        
+                span{
+                    font-size: 1rem;
+                    color: black;
+                    font-weight: 700;
+                }
+            }
+
+            ul{
+                margin-left: 3rem;
+                padding: 0px;
+                padding-top: 1rem;
+                list-style-type: disc;
+            }
+
+        }
+
+    }
+}
