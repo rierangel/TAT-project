@@ -4,7 +4,7 @@ import TextBack from 'src/components/Layer/TextBack'
 import Title from 'src/components/Layer/Title'
 import { fetcher } from 'src/lib/Fetcher'
 
-export default function vacantes() {
+export default function Page() {
 
     const [page, setPage] = useState()
     const [pageData, setPageData] = useState()
@@ -33,7 +33,7 @@ export default function vacantes() {
                     {pageData && pageData.map((v,i)=>(
 
 
-                    <div className="border1 rounded-2xl px-9 py-6">
+                    <div key={i} className="border1 rounded-2xl px-9 py-6">
                         <h2>{v.titulo}</h2>
                         <p>{v.lugar}</p>
 

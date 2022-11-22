@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import numberRange from 'src/lib/numberRange'
 
-export default function index() {
+export default function Component() {
 
     const [query, setQuery] = useState()
 
