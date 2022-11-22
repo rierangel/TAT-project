@@ -49,7 +49,6 @@ class ConveniosViewSet(viewsets.ModelViewSet):
 
         search = request.GET.get('search', '')
         # year = request.GET.get('year', '')
-        print(queryset[0].inicio)
         # if year:
         #     queryset = queryset.filter(inicio_year=year)
         if search:

@@ -6,12 +6,10 @@ import React, { useEffect, useState } from 'react'
 import ImgBack from 'src/components/Layer/ImgBack';
 import TextBack from 'src/components/Layer/TextBack';
 
-const NoticiaList = ({ data }) => {
-  console.log(data);
+const NoticiaList = ({ data, pathLink }) => {
+
   return (
     <section>
-
-
       {data.map((e, i) => (
         <div key={i} className="py-6 border-b px-3 flex space-x-[24px] hover1 no-pointer">
           <ImgBack src={e.imagen_principal} className=' w-[193px] h-[142px]  object-cover  rounded-xl' />
@@ -25,7 +23,7 @@ const NoticiaList = ({ data }) => {
             </div>
             {/* <TextBack text={e.contenido} className={"text-clip overflow-hidden h-[45px]"} /> */}
 
-            <Link key={i} href={`${e.fecha.split("-")[0]}/${e.slug}`}>
+            <Link key={i} href={`/entradas/${pathLink}/${e.slug}`}>
               <a className='btn btn-xs border1 py-3'>Leer más</a>
             </Link>
           </div>

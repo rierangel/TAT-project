@@ -12,7 +12,7 @@ export default function Competencias() {
 
   useEffect(() => {
     // page
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/17`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/6`)
       .then(res => setPage(res))
       .catch(error => console.log(error))
 
@@ -22,7 +22,7 @@ export default function Competencias() {
       .catch(error => console.log(error))
 
   }, [])
-
+  console.log(data);
 
   return (
     <Layer>
@@ -39,7 +39,7 @@ export default function Competencias() {
 
         <div className='space-y-9 mt-6'>
 
-          {data && data.map((e, i) => (
+          {data && data.results.map((e, i) => (
 
             <div key={i} className="p-9 border2 rounded-xl bg-white">
               <h2 className='mb-4 text-[#0054A4]'>{e.titulo}</h2>

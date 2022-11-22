@@ -19,7 +19,7 @@ import { fetcher } from 'src/lib/Fetcher';
  *
  * @returns 
  */
-export default function QueryLayer(Component, data, buscador, url, path, ComponentOption) {
+export default function QueryLayer(Component, data, buscador, url, path, ComponentOption, pathLink) {
 
   const [urlQuery, setUrlQuery] = useState(url)
 
@@ -41,10 +41,11 @@ export default function QueryLayer(Component, data, buscador, url, path, Compone
 
       {newData && newData.results
         ?
-        newData.results[0] && ComponentOption ? 
-        <Component data={newData.results} path={path} ver={ComponentOption.ver} descargar={ComponentOption.descargar}  />
-        :
-        newData.results[0]  && <Component data={newData.results} path={path} />
+        newData.results[0] && ComponentOption ?
+          <Component data={newData.results} path={path} ver={ComponentOption.ver} descargar={ComponentOption.descargar} />
+          :
+          newData.results[0] && <Component data={newData.results} path={path} pathLink={pathLink ? pathLink : ""}
+          />
         :
         <h1>Resultados no encontrados</h1>
       }

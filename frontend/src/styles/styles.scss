@@ -193,6 +193,7 @@ button,
     align-items: center;
     gap: 0.5rem;
     padding: 20px 26px;
+    width: max-content;
 
     cursor: pointer;
 
@@ -203,7 +204,7 @@ button,
 
 
     &.btn-sm {
-        padding: 16px 24px;
+        padding: 14px 18px;
     }
 
     &.btn-xs {

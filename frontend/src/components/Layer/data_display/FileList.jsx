@@ -18,7 +18,7 @@ export default function FileList({ data, path, ver, descargar }) {
               </a>
 
               {ver &&
-                <a href={`${process.env.NEXT_PUBLIC_URL_BACKEND}${v.ver}`} rel="noreferrer" target="_blank"
+                <a href={`${process.env.NEXT_PUBLIC_HOST}${v.ver}`} rel="noreferrer" target="_blank"
                   className='mx-2 bg-[#F9FCFF] rounded-lg flex gap-2 py-3 px-4 border border-[#E0EAF4]'>
                   <i>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">

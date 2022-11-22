@@ -48,9 +48,7 @@ export default function Page() {
   const path = "entradas/congreso"
 
   const query= `${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/congreso/`
-  const NoticiasListQuery = QueryLayer(NoticiaList, datalist, buscador, query, path)
-
-
+  const NoticiasListQuery = QueryLayer(NoticiaList, datalist, buscador, query, path, null, "congreso-internacional-de-derecho-tributario")
 
   return ( page &&
     <Layer> 

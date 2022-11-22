@@ -184,7 +184,7 @@ export default function Page() {
               </li>
 
               <li>
-                <Link href={"transparencia/11.2/Designación-de-Colaboradores"}>
+                <Link href={"transparencia/11.2/designacion-de-colaboradores"}>
                   <a>
                     <span>11.2</span>
                     <p>Designación de Colaboradores</p>

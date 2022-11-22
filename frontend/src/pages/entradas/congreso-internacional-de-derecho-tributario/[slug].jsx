@@ -35,17 +35,16 @@ export default function Page({ slug }) {
       })
       .catch(error => console.log(error))
 
-  }, [])
 
+      setimgData(null)
+  }, [slug])
 
   useEffect(() => {
     if (data) {
       setimgData(data.galeria.map((v, i) => v.imagen))
     }
-
-
-
-  }, [data])
+    console.log(data);
+  }, [data, slug])
 
 
   return (data &&

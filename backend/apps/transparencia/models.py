@@ -4,63 +4,83 @@ from django.db import models
 
 # Articulo 9
 
+
 class A094_ManualesDeProcedimientos(models.Model):
     titulo = models.CharField(max_length=500)
     archivo = models.FileField(upload_to="transparencias/94")
+
     @property
     def ver(self):
         return self.archivo.url
+
     @property
     def descargar(self):
         return self.pk
+
     def __str__(self):
         return self.titulo
+
 
 class A095_EstructuraOrganizativa(models.Model):
     titulo = models.CharField(max_length=500)
     archivo = models.FileField(upload_to="transparencias/95")
+
     @property
     def ver(self):
         return self.archivo.url
+
     @property
     def descargar(self):
         return self.pk
+
     def __str__(self):
         return self.titulo
+
 
 class A096_SeguimientoDeDocumentos(models.Model):
     titulo = models.CharField(max_length=500)
     archivo = models.FileField(upload_to="transparencias/96")
+
     @property
     def ver(self):
         return self.archivo.url
+
     @property
     def descargar(self):
         return self.pk
+
     def __str__(self):
         return self.titulo
+
 
 class A097_DescripciónDeFormularios(models.Model):
     titulo = models.CharField(max_length=500)
     archivo = models.FileField(upload_to="transparencias/97")
+
     @property
     def ver(self):
         return self.archivo.url
+
     @property
     def descargar(self):
         return self.pk
+
     def __str__(self):
         return self.titulo
+
 
 class A098_ReglasDeProcedimiento(models.Model):
     titulo = models.CharField(max_length=500)
     archivo = models.FileField(upload_to="transparencias/98")
+
     @property
     def ver(self):
         return self.archivo.url
+
     @property
     def descargar(self):
         return self.pk
+
     def __str__(self):
         return self.titulo
 
@@ -69,12 +89,16 @@ class A098_ReglasDeProcedimiento(models.Model):
 
 class A102_EjecucionesPresupuestarias(models.Model):
     titulo = models.CharField(max_length=500)
-    pdf = models.FileField(upload_to="transparencias/102/pdf")
-    cvs = models.FileField(upload_to="transparencias/102/cvs")
-    xlsx = models.FileField(upload_to="transparencias/102/xlsx")
+    pdf = models.FileField(
+        upload_to="transparencias/102/pdf", blank=True, null=True)
+    cvs = models.FileField(
+        upload_to="transparencias/102/cvs", blank=True, null=True)
+    xlsx = models.FileField(
+        upload_to="transparencias/102/xlsx", blank=True, null=True)
 
     def __str__(self):
         return self.titulo
+
 
 class A103_Estadisticas(models.Model):
     titulo = models.CharField(max_length=500)
@@ -83,9 +107,11 @@ class A103_Estadisticas(models.Model):
     @property
     def ver(self):
         return self.archivo.url
+
     @property
     def descargar(self):
         return self.pk
+
     def __str__(self):
         return self.titulo
 
@@ -98,11 +124,14 @@ class A112_DesignaciónDeColaboradores(models.Model):
     @property
     def ver(self):
         return self.archivo.url
+
     @property
     def descargar(self):
         return self.pk
+
     def __str__(self):
         return self.titulo
+
 
 class A113_Planilla(models.Model):
     posicion = models.PositiveSmallIntegerField()
@@ -147,28 +176,27 @@ class A114_GastosDeRepresentaciónArchivos(models.Model):
     cvs = models.FileField(upload_to="transparencias/112/cvs")
     xlsx = models.FileField(upload_to="transparencias/112/xlsx")
 
-
     def __str__(self):
         return f'archivos gastos de representacion'
 
 
-
-
-class A115_informesDeViajesNacionales(models.Model):					
+class A115_informesDeViajesNacionales(models.Model):
     titulo = models.CharField(max_length=200, blank=True, null=True)
     cargo = models.CharField(max_length=200, blank=True, null=True)
-    destino_participación = models.CharField(max_length=200, blank=True, null=True)
+    destino_participación = models.CharField(
+        max_length=200, blank=True, null=True)
     fecha_salida = models.DateField(max_length=200, blank=True, null=True)
     fecha_regreso = models.DateField(max_length=200, blank=True, null=True)
     costo = models.FloatField(blank=True)
     viatico = models.PositiveIntegerField(blank=True)
-    informe = models.FileField(upload_to="transparencias/115", blank=True, null=True)
+    informe = models.FileField(
+        upload_to="transparencias/115", blank=True, null=True)
 
     def __str__(self):
         return self.titulo
 
 
-class A115_informesDeViajesNacionalesResumen(models.Model):		
+class A115_informesDeViajesNacionalesResumen(models.Model):
     costo_total = models.FloatField()
     viatico = models.FloatField()
     gran_total = models.FloatField()
@@ -178,17 +206,15 @@ class A115_informesDeViajesNacionalesResumen(models.Model):
     xlsx = models.FileField(upload_to="transparencias/115/resumen/xlsx")
 
 
-
-
-class A115_informesDeViajesInternacionales(models.Model):					
-    titulo = models.CharField(max_length=200,blank=True)
-    cargo = models.CharField(max_length=200,blank=True)
-    destino_participación = models.CharField(max_length=200,blank=True)
-    fecha_salida = models.DateField(max_length=200,blank=True)
-    fecha_regreso = models.DateField(max_length=200,blank=True)
+class A115_informesDeViajesInternacionales(models.Model):
+    titulo = models.CharField(max_length=200, blank=True)
+    cargo = models.CharField(max_length=200, blank=True)
+    destino_participación = models.CharField(max_length=200, blank=True)
+    fecha_salida = models.DateField(max_length=200, blank=True)
+    fecha_regreso = models.DateField(max_length=200, blank=True)
     costo = models.FloatField(blank=True)
     viatico = models.PositiveIntegerField(blank=True)
-    informe = models.FileField(upload_to="transparencias/115",blank=True)
+    informe = models.FileField(upload_to="transparencias/115", blank=True)
 
     @property
     def ver(self):
@@ -198,7 +224,7 @@ class A115_informesDeViajesInternacionales(models.Model):
         return self.titulo
 
 
-class A115_informesDeViajesInternacionalesResumen(models.Model):		
+class A115_informesDeViajesInternacionalesResumen(models.Model):
     costo_total = models.FloatField()
     viatico = models.FloatField()
     gran_total = models.FloatField()
@@ -217,9 +243,11 @@ class A261_SolicitudDeInformaciónPresentadaALaInstitución(models.Model):
     @property
     def ver(self):
         return self.archivo.url
+
     @property
     def descargar(self):
         return self.pk
+
     def __str__(self):
         return self.titulo
 
@@ -231,12 +259,13 @@ class A262_AdjuntosDeSolicitudesResueltasYNegadas(models.Model):
     @property
     def ver(self):
         return self.archivo.url
+
     @property
     def descargar(self):
         return self.pk
+
     def __str__(self):
         return self.titulo
-
 
 
 class A263_ParticipaciónCiudadana(models.Model):
@@ -247,7 +276,7 @@ class A263_ParticipaciónCiudadana(models.Model):
     @property
     def año(self):
         return self.fecha.year
-    
+
     @property
     def mes(self):
         return self.fecha.month
@@ -255,16 +284,10 @@ class A263_ParticipaciónCiudadana(models.Model):
     @property
     def ver(self):
         return self.archivo.url
+
     @property
     def descargar(self):
         return self.pk
+
     def __str__(self):
         return self.titulo
-
-
-
-
-
-
-
-

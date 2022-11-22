@@ -63,9 +63,11 @@ function Contact() {
                         </div>
 
 
+                        <div className='flex'>
 
 
-                        <button className='primary mt-4' type="submit">Enviar mensaje</button>
+                        <button className='primary mt-4 w-full md:w-auto' type="submit">Enviar mensaje</button>
+                        </div>
 
                     </form>
                 </div>
