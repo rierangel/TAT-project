@@ -27,7 +27,7 @@ server {
         }
 }
 server {
-        listen   443;
+listen   443 ssl;
         ssl    on;
         ssl_certificate    /etc/ssl/arasait.com_ssl_certificate.cer;
         ssl_certificate_key    /etc/ssl/_.arasait.com_private_key.key;

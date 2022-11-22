@@ -25,7 +25,6 @@ const NoticiaList = ({ data }) => {
             </div>
             {/* <TextBack text={e.contenido} className={"text-clip overflow-hidden h-[45px]"} /> */}
 
-          {console.log(e.fecha.split("-")[0])}
             <Link key={i} href={`${e.fecha.split("-")[0]}/${e.slug}`}>
               <a className='btn btn-xs border1 py-3'>Leer más</a>
             </Link>

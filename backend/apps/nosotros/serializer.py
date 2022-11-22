@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import Oficina, Departamento, Equipo, Autoridad
+from .models import Oficina, Departamento, Equipo, Autoridad, PreguntasFrecuente
 
 
 
@@ -25,6 +25,11 @@ class AutoridadSerializers(serializers.ModelSerializer):
         model = Autoridad
         fields = '__all__'
 
+
+class PreguntasFrecuenteSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = PreguntasFrecuente
+        fields = '__all__'
 
 
 

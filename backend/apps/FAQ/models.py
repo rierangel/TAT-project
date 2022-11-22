@@ -9,4 +9,4 @@ class PreguntasFrecuente(models.Model):
     order = models.IntegerField(default=1)
     text = models.TextField()
     def __str__(self):
-        return self.titulo
+        return f'{self.order} {self.titulo}'

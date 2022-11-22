@@ -10,7 +10,7 @@ export default function LastResolutions() {
 
   useEffect(() => {
     fetcher(url).then(res => {
-      if(res.results){
+      if (res.results) {
         const last = res.results.filter((v, i) => i < 6)
         setData(last)
       }
@@ -22,15 +22,12 @@ export default function LastResolutions() {
 
     <div className={styles.resoluciones}>
       {data !== null && data.map((v, i) => (
-        <a key={i} href={`${process.env.NEXT_PUBLIC_HOST}${v.ver}`} rel="noreferrer"  target="_blank" className='card-hover'>
+        <a key={i} href={`${process.env.NEXT_PUBLIC_HOST}${v.ver}`} rel="noreferrer" target="_blank" className='card-hover'>
           <h3 >{v.titulo}</h3>
           <p className='uppercase text-[#6B7380] mt-[13px]'>{v.categoria}</p>
         </a>
-  ))
-}
-
-      
-
-      </div >
+      ))
+      }
+    </div >
   )
 }

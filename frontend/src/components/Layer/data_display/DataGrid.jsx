@@ -30,8 +30,7 @@ export default function DataTable({ data, path }) {
                                 {
                                 key[0] == "id" ?
                                 <></>
-                                :
-                                key[0] ==
+                                :                                
                                 key[0] == "ver" ?
                                     <a href={`${process.env.NEXT_PUBLIC_HOST}${key[1]}`} rel="noreferrer" target="_blank" 
                                         className='ml-auto w-min bg-[#F9FCFF] rounded-lg flex gap-2 py-3 px-4 border border-[#E0EAF4]'>

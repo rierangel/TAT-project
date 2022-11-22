@@ -1,8 +1,8 @@
 
 # Create your views here.
 from django.shortcuts import get_object_or_404
-from .serializer import OficinaSerializers, DepartamentoSerializers, AutoridadSerializers, EquipoSerializers
-from .models import Oficina, Departamento, Autoridad, Equipo
+from .models import Oficina, Departamento, Autoridad, Equipo, PreguntasFrecuente
+from .serializer import OficinaSerializers, DepartamentoSerializers, AutoridadSerializers, EquipoSerializers, PreguntasFrecuenteSerializers
 
 from rest_framework import viewsets
 from rest_framework.views import APIView
@@ -48,4 +48,11 @@ class EquipoDetail(APIView):
     def get(self, request, slug=None):
         current = get_object_or_404(Equipo, slug=slug)
         serializer = EquipoSerializers(current)
+        return Response(serializer.data)
+
+
+class PreguntasFrecuenteViewSet(viewsets.ViewSet):
+    def list(self, request):
+        queryset = PreguntasFrecuente.objects.all()#.order_by("-order")
+        serializer = PreguntasFrecuenteSerializers(queryset, many=True)
         return Response(serializer.data)

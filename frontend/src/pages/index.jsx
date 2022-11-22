@@ -24,21 +24,25 @@ export default function Index() {
   const path = `${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/1`
   const [page, setPage] = useState()
   useEffect(() => {
-     fetcher(path)
-     .then(res=>setPage(res))
-     .catch(error=>console.log(error))
+    fetcher(path)
+      .then(res => setPage(res))
+      .catch(error => console.log(error))
   }, [])
 
   console.log(path);
 
-  return ( page && page[0] &&
-    <Layer> 
+  return (page && page[0] &&
+    <Layer>
       <div className='flex flex-col-reverse md:flex-row '>
         <div className='w-full h-auto md:my-auto -mt-[10%]'>
           <h1 className='w.full md:w-4/5'>{page[0].titulo}</h1>
-            <TextBack className="md:mt-6 md:mb-9 mb-6 mt-1" text={page[0].text} />
+          <TextBack className="md:mt-6 md:mb-9 mb-6 mt-1" text={page[0].text} />
           <div className='flex flex-col md:flex-row gap-3 md:gap-6'>
-            <Link href={"/tramites#t-apelacion"}>
+            <Link
+              //  href={{ pathname: "/tramites", query: { id: "t-apelacion" } }}
+              href={"/tramites#"}
+
+            >
               <a className='btn primary flex-center'>
                 <div className='svg_rp h-auto md:w-[27px] w-[15px]'>
                   <svg width="28" height="34" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +52,11 @@ export default function Index() {
                 Realizar trámites
               </a>
             </Link>
-            <Link href={"/tramites#t-estado"}>
+            <Link
+              // href={"/tramites#"}
+
+              href={"/tramites#t-estado"}
+            >
               <a className='btn outline flex-center'>
                 <div className='svg_rp h-auto md:w-[27px] w-[15px]'>
                   <svg width="28" height="34" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg">
