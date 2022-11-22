@@ -40,8 +40,6 @@ export default function Buscador({ seturl, path, refetch, buscador }) {
     }
 
 
-
-
     return (
         <form onSubmit={handleSubmit} action="" className='flex gap-[24px] mt-2 pb-9 border-b'>
 

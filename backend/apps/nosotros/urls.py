@@ -1,4 +1,4 @@
-from .views import DepartamentoViewSet, OficinaViewSet, AutoridadViewSet, EquipoViewSet, AutoridadDetail, EquipoDetail, PreguntasFrecuenteViewSet
+from .views import DepartamentoViewSet, OficinaViewSet, AutoridadViewSet, EquipoViewSet, AutoridadDetail, EquipoDetail, PreguntasFrecuenteViewSet, VacanteViewSet
 from rest_framework.routers import DefaultRouter
 from django.urls import path, include
 
@@ -13,6 +13,7 @@ router.register(r'departamentos', DepartamentoViewSet, basename='departamentos')
 router.register(r'autoridades', AutoridadViewSet, basename='autoridades')
 router.register(r'equipo', EquipoViewSet, basename='equipo')
 router.register(r'proguntas-frecuentes', PreguntasFrecuenteViewSet, basename='proguntas-frecuentes')
+router.register(r'vacantes', VacanteViewSet, basename='vacantes')
 
 
 urlpatterns = [

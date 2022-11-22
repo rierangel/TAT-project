@@ -30,7 +30,7 @@ export default function LocalTime() {
                             {horaLocal}
                         </h1>
                         <p>
-                            {new Date().toLocaleDateString('es', { weekday: "long", timeZone:'Asia/Kolkata', year: "numeric", month: "long", day: "numeric" })}
+                            {new Date().toLocaleDateString('es', { weekday: "long",  year: "numeric", month: "long", day: "numeric" })}
                         </p>
                     </div>
 

@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Oficina, Departamento, Autoridad, Equipo, PreguntasFrecuente
+from .models import Oficina, Departamento, Autoridad, Equipo, PreguntasFrecuente, Vacante
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -30,3 +30,12 @@ class ArutoridadAdmin(SummernoteModelAdmin):
     #     print("In get search results")
     #     results = super().get_search_results(request, queryset, search_term)
     #     return results
+
+
+
+
+class PostAdmin(SummernoteModelAdmin):
+    summernote_fields = ('requisitos',)
+
+
+admin.site.register(Vacante, PostAdmin)

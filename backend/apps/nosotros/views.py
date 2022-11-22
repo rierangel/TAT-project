@@ -1,8 +1,8 @@
 
 # Create your views here.
 from django.shortcuts import get_object_or_404
-from .models import Oficina, Departamento, Autoridad, Equipo, PreguntasFrecuente
-from .serializer import OficinaSerializers, DepartamentoSerializers, AutoridadSerializers, EquipoSerializers, PreguntasFrecuenteSerializers
+from .models import Oficina, Departamento, Autoridad, Equipo, PreguntasFrecuente, Vacante
+from .serializer import OficinaSerializers, DepartamentoSerializers, AutoridadSerializers, EquipoSerializers, PreguntasFrecuenteSerializers, VacanteSerializers
 
 from rest_framework import viewsets
 from rest_framework.views import APIView
@@ -55,4 +55,11 @@ class PreguntasFrecuenteViewSet(viewsets.ViewSet):
     def list(self, request):
         queryset = PreguntasFrecuente.objects.all()#.order_by("-order")
         serializer = PreguntasFrecuenteSerializers(queryset, many=True)
+        return Response(serializer.data)
+
+
+class VacanteViewSet(viewsets.ViewSet):
+    def list(self, request):
+        queryset = Vacante.objects.all()#.order_by("-order")
+        serializer = VacanteSerializers(queryset, many=True)
         return Response(serializer.data)
