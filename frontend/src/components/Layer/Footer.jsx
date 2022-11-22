@@ -67,33 +67,30 @@ export default function Footer() {
   // const col2 = ["Noticias", "Ponencias del Congreso", "revista justicia tributaria", "memorias",  "resoluciones emitidas", "Haciendo la Diferencia",]
   const col3 = [
     {
-       name:"Congreso Int. de Derecho Tributario",
-       link:"/entradas/congreso-internacional-de-derecho-tributario/"
+      name: "Congreso Int. de Derecho Tributario",
+      link: "/entradas/congreso-internacional-de-derecho-tributario/"
     },
     {
       name: "Vacantes",
       link: "/vacantes/",
     },
+
     {
-       name:"Formulario del Banco de Peritos", 
-       link:"#"
+      name: "Otras Instituciones",
+      link: "#"
     },
     {
-       name:"Otras Instituciones", 
-       link:"#"
+      name: "Contacto",
+      link: "/contacto/"
     },
     {
-       name:"Contacto", 
-       link:"/contacto/"
+      name: "Mapa del sitio",
+      link: "/mapa-del-sitio/"
     },
-    {
-       name:"Mapa del sitio",
-       link:"/mapa-del-sitio/"
-    },
-  
+
   ]
-  
-    const col4 = ["Declaración de privacidad", "Preguntas Frecuentes",]
+
+  const col4 = ["Declaración de privacidad", "Preguntas Frecuentes",]
 
   return (
     <footer className="pt-6 pb-24 md:pt-16 md:pb-24  mt-36">
@@ -154,6 +151,10 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+
+              <li>
+                <a target={"_blank"} rel="noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLSe4PbfqcKpPGjHhVCUXd8T5B10_QE3F4WXEF3lmEjYsAsOSsA/closedform">Formulario del Banco de Peritos</a>
+              </li>
             </ul>
           </div>
 
@@ -165,8 +166,10 @@ export default function Footer() {
                   <Link href={slugify(e)}>
                     <a>{e}</a>
                   </Link>
+
                 </li>
               ))}
+
             </ul>
 
             <div className=' flex flex-col justify-center mt-[84px]'>

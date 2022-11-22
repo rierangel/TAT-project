@@ -112,7 +112,7 @@ function SliderCarrusel() {
 
                 {data && data.map((e, i) => (
                     <Link key={i} href={`/entradas/noticias/${e.slug}`}>
-                        <div className='flex flex-col  justify-center' >
+                        <div className='cursor-pointer flex flex-col  justify-center' >
 
                             <div className='bg-white flex items-end rounded-t-xl  relative object-center  w-full h-[211px] md:h-[311px]  lg:h-[411px] overflow-hidden'>
                                 <ImgBack className='rounded-t-xl w-full object-contain object-center' src={e.imagen_principal} alt={e.titulo} />

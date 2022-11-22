@@ -10,7 +10,8 @@ export default function LocalTime() {
     const [horaLocal, sethoraLocal] = useState()
 
     useEffect(() => {
-        sethoraLocal(new Date().toLocaleString().split(",")[1])
+        const hora = new Date().toLocaleString("es" ,{timeZone:'America/Panama',hourCycle:'h12'}).split(",")[1]
+        sethoraLocal(hora)
     }, [horaLocal]);
 
 
@@ -29,7 +30,7 @@ export default function LocalTime() {
                             {horaLocal}
                         </h1>
                         <p>
-                            {new Date().toLocaleDateString('es', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
+                            {new Date().toLocaleDateString('es', { weekday: "long", timeZone:'Asia/Kolkata', year: "numeric", month: "long", day: "numeric" })}
                         </p>
                     </div>
 
