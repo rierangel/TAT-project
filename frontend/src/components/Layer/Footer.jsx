@@ -54,7 +54,7 @@ export default function Footer() {
     },
     {
       name: "resoluciones emitidas",
-      link: "/publicaciones/resoluciones/",
+      link: "/resoluciones/",
     },
     {
       name: "Haciendo la Diferencia",
