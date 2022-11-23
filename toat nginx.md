@@ -212,7 +212,8 @@ $ pm2 stop     <app_name|namespace|id|'all'|json_conf>
 $ pm2 restart  <app_name|namespace|id|'all'|json_conf>
 $ pm2 delete   <app_name|namespace|id|'all'|json_conf>
 
-
+pm2ls
+pm2 restart nextfrontend 
 
 http://tatsite.arasait.com/
 # referencias

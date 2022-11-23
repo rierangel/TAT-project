@@ -34,10 +34,6 @@ export default function ApiConsult({ path }) {
             alert("PIN o Nro. de Expediente invalido")
         }
     }
-    useEffect(() => {
-        console.log(data);
-    }, [data])
-
 
     return (
         <>

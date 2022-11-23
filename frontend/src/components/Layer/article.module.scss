@@ -1,7 +1,7 @@
-
 .article {
 
   color: black;
+
   a {
     &:link {
       color: (internal value);
@@ -359,21 +359,23 @@
 
   table {
     display: table;
+    border-collapse: collapse;
     border-collapse: separate;
     border-spacing: 2px;
     border-color: gray;
+    border-spacing: 5px 5px;
   }
 
   tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
+    border-color: gray;
+    border-spacing: 2px;
+
   }
 
-  td {
-    display: table-cell;
-    vertical-align: inherit;
-  }
+
 
   tfoot {
     display: table-footer-group;
@@ -381,11 +383,22 @@
     border-color: inherit;
   }
 
+  tr {
+    display: table-row;
+    vertical-align: inherit;
+  }
+
   th {
     display: table-cell;
     vertical-align: inherit;
     font-weight: bold;
     text-align: center;
+  }
+
+  td {
+    display: table-cell;
+    vertical-align: inherit;
+    border: 1px solid black;
   }
 
   thead {
@@ -399,11 +412,7 @@
     display: none;
   }
 
-  tr {
-    display: table-row;
-    vertical-align: inherit;
-    border-color: inherit;
-  }
+
 
   /* track	None.	 */
   u {
@@ -487,7 +496,7 @@
     line-height: 19px;
   }
 
-  img{
+  img {
     display: hidden;
     visibility: hidden;
   }

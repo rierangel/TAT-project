@@ -90,7 +90,7 @@ export default function Page({ slug }) {
         <div className="grid grid-cols-2 md:grid-cols-4  gap-6 my-6">
 
           {mas && mas.map((v, i) => (
-             <Link key={i} href={`/entradas/congreso/${v.slug}`} >
+             <Link key={i} href={`/entradas/congreso-internacional-de-derecho-tributario/${v.slug}`} >
               <a className='hover1' >
                 <div className="w-[302px]  mb-4 ">
                   <ImgBack className='h-[190px]  w-auto object-cover rounded-lg' src={v.imagen_principal} />
