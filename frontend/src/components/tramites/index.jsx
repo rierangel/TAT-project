@@ -15,18 +15,28 @@ import TextBack from '../Layer/TextBack'
 export default function Index({ data }) {
 
     const [imageFile, setImageFile] = useState()
-
-    const [sussefull, setSussefull] = useState()
-
+    const [successful, setSuccessful] = useState()
 
 
     const handleModal = (e) => {
-        setSussefull(true)
+       setSuccessful(true)
     }
 
 
 
-
+    const provincias = [
+        { value: 1, name: "BOCAS DEL TORO" },
+        { value: 2, name: "COCLÉ" },
+        { value: 3, name: "COLÓN" },
+        { value: 4, name: "CHIRIQUÍ" },
+        { value: 5, name: "DARIÉN" },
+        { value: 6, name: "HERRERA" },
+        { value: 7, name: "LOS SANTOS" },
+        { value: 8, name: "PANAMÁ" },
+        { value: 9, name: "VERAGUAS" },
+        { value: 10, name: "COMARCAS" },
+        { value: 11, name: "PANAMÁ OESTE" }
+    ]
     return (
         <>
 
@@ -59,28 +69,28 @@ export default function Index({ data }) {
                             <h1 className='mb-6 '>Apoderado</h1>
                             <div className="group-inline">
                                 <div className="form-control">
-                                    <label htmlFor="name_1">Nombre o Razón Social</label>
-                                    <input type="text" id='name_1' />
+                                    <label htmlFor="AP_APODERADO_NOMBRE">Nombre o Razón Social</label>
+                                    <input type="text" id='AP_APODERADO_NOMBRE' name='AP_APODERADO_NOMBRE' />
                                 </div>
                                 <div className="form-control">
-                                    <label htmlFor="name_1">Cédula o RUC</label>
-                                    <input type="text" id='name_1' />
-                                </div>
-                            </div>
-                            <div className="group-inline">
-                                <div className="form-control">
-                                    <label htmlFor="name_1">Teléfono</label>
-                                    <input type="text" id='name_1' />
-                                </div>
-                                <div className="form-control">
-                                    <label htmlFor="name_1">Domicilio</label>
-                                    <input type="text" id='name_1' />
+                                    <label htmlFor="AP_APODERADO_RUC">Cédula o RUC</label>
+                                    <input type="text" id='AP_APODERADO_RUC' name='AP_APODERADO_RUC' />
                                 </div>
                             </div>
                             <div className="group-inline">
                                 <div className="form-control">
-                                    <label htmlFor="name_1">Correo Electrónico</label>
-                                    <input type="email" id='name_1' />
+                                    <label htmlFor="AP_APODERADO_TELEFONO">Teléfono</label>
+                                    <input type="text" id='AP_APODERADO_TELEFONO' name='AP_APODERADO_TELEFONO' />
+                                </div>
+                                <div className="form-control">
+                                    <label htmlFor="AP_APODERADO_DIRECCION">Domicilio</label>
+                                    <input type="text" id='AP_APODERADO_DIRECCION' name='AP_APODERADO_DIRECCION' />
+                                </div>
+                            </div>
+                            <div className="group-inline">
+                                <div className="form-control">
+                                    <label htmlFor="AP_APODERADO_EMAIL">Correo Electrónico</label>
+                                    <input type="email" id='AP_APODERADO_EMAIL' name='AP_APODERADO_EMAIL' />
                                 </div>
 
                             </div>
@@ -91,42 +101,32 @@ export default function Index({ data }) {
                             <h1 className='mb-6 '>Contribuyente</h1>
                             <div className="group-inline">
                                 <div className="form-control">
-                                    <label htmlFor="name_1">Nombre o Razón Social</label>
-                                    <input type="text" id='name_1' />
+                                    <label htmlFor="AP_CONTRIBUYENTE_NOMBRE">Nombre o Razón Social</label>
+                                    <input type="text" id='AP_CONTRIBUYENTE_NOMBRE' name='AP_CONTRIBUYENTE_NOMBRE' />
                                 </div>
                                 <div className="form-control">
-                                    <label htmlFor="name_1">RUC</label>
-                                    <input type="text" />
+                                    <label htmlFor="AP_CONTRIBUYENTE_RUC">RUC</label>
+                                    <input type="text" id='AP_CONTRIBUYENTE_RUC' name='AP_CONTRIBUYENTE_RUC' />
                                 </div>
                             </div>
                             <div className="group-inline">
                                 <div className="form-control">
-                                    <label htmlFor="name_1">D.V.</label>
-                                    <select name="" id="">
-                                        <option value="undefine" >Seleccione</option>
-                                        <option value="">option1</option>
-                                        <option value="">option2</option>
-                                        <option value="">option3</option>
-                                    </select>
+                                    <label htmlFor="AP_CONTRIBUYENTE_DV">Nombre o Razón Social</label>
+                                    <input type="text" id='AP_CONTRIBUYENTE_DV' name='AP_CONTRIBUYENTE_DV' />
                                 </div>
                                 <div className="form-control">
-                                    <label htmlFor="name_1">Tipo Contribuyente</label>
-                                    <select name="" id="">
-                                        <option value="undefine" >Seleccione</option>
-                                        <option value="">option1</option>
-                                        <option value="">option2</option>
-                                        <option value="">option3</option>
-                                    </select>
+                                    <label htmlFor="AP_CONTRIBUYENTE_TIPO">RUC</label>
+                                    <input type="text" id='AP_CONTRIBUYENTE_TIPO' name='AP_CONTRIBUYENTE_TIPO' />
                                 </div>
                             </div>
                             <div className="group-inline">
                                 <div className="form-control">
                                     <label htmlFor="name_1">Provincia</label>
-                                    <select name="" id="">
-                                        <option value="undefine" >Seleccione</option>
-                                        <option value="">option1</option>
-                                        <option value="">option2</option>
-                                        <option value="">option3</option>
+                                    <select name="name_1" id="name_1">
+                                        <option className='hidden' value="undefine" >Seleccione</option>
+                                        {provincias.map((v,i)=>(
+                                            <option key={i} value={v.value}>{v.name}</option>
+                                        ))}
                                     </select>
                                 </div>
 
@@ -138,44 +138,63 @@ export default function Index({ data }) {
                             <h1 className='mb-6 '>Origen</h1>
                             <div className="group-inline">
                                 <div className="form-control">
-                                    <label htmlFor="name_1">Nro. Res. Apelada</label>
-                                    <input type="text" id='name_1' />
+                                    <label htmlFor="AP_RESOLUCION_APELADA_NRO">Nro. Res. Apelada</label>
+                                    <input type="text" id='AP_RESOLUCION_APELADA_NRO' name='AP_RESOLUCION_APELADA_NRO' />
                                 </div>
                                 <div className="form-control">
-                                    <label htmlFor="name_1">Fecha Res. Apelada</label>
-                                    <input type={"date"} placeholder="DD  /  MM  /  AAAA" />
+                                    <label htmlFor="AP_RESOLUCION_APELADA_FECHA">Fecha Res. Apelada</label>
+                                    <input  id='AP_RESOLUCION_APELADA_FECHA' name='AP_RESOLUCION_APELADA_FECHA' type="date" placeholder="DD  /  MM  /  AAAA" />
                                 </div>
                             </div>
                             <div className="group-inline">
-                                <div className="form-control">
-                                    <label htmlFor="name_1">Nro. Res. Confirmatoria</label>
-                                    <input type="text" />
+                            <div className="form-control">
+                                    <label htmlFor="AP_RESOLUCION_CONFIRMATORIA_NRO">Nro. Res. CONFIRMATORIA</label>
+                                    <input type="text" id='AP_RESOLUCION_CONFIRMATORIA_NRO' name='AP_RESOLUCION_CONFIRMATORIA_NRO' />
                                 </div>
                                 <div className="form-control">
-                                    <label htmlFor="name_1">Fecha Res. Confirmatoria</label>
-                                    <input type={"date"} placeholder="DD  /  MM  /  AAAA" />
+                                    <label htmlFor="AP_RESOLUCION_CONFIRMATORIA_FECHA">Fecha Res. CONFIRMATORIA</label>
+                                    <input  id='AP_RESOLUCION_CONFIRMATORIA_FECHA' name='AP_RESOLUCION_CONFIRMATORIA_FECHA' type="date" placeholder="DD  /  MM  /  AAAA" />
                                 </div>
                             </div>
                             <div className="group-inline">
-                                <div className="form-control">
-                                    <label htmlFor="name_1">Período</label>
-                                    <select name="" id="">
-                                        <option value="undefine" >Seleccione</option>
-                                        <option value="">option1</option>
-                                        <option value="">option2</option>
-                                        <option value="">option3</option>
-                                    </select>
+                               
+                            <div className="form-control">
+                                    <label htmlFor="AP_RESOLUCION_CONFIRMATORIA_NRO">Nro. Res. confirmada</label>
+                                    <input type="text" id='AP_RESOLUCION_CONFIRMATORIA_NRO' name='AP_RESOLUCION_CONFIRMATORIA_NRO' />
                                 </div>
                                 <div className="form-control">
-                                    <label htmlFor="name_1">Materia</label>
-                                    <select name="" id="">
-                                        <option value="undefine" >Seleccione</option>
-                                        <option value="">option1</option>
-                                        <option value="">option2</option>
-                                        <option value="">option3</option>
-                                    </select>
+                                    <label htmlFor="AP_PERIODO">AP PERIODO</label>
+                                    <input type="number" id='AP_PERIODO' name='AP_PERIODO' />
                                 </div>
+                            </div>
 
+                            <div className="group-inline">
+                                <div className="form-control">
+                                    <label htmlFor="UI_APODERADO_DGI_NOMBRE">UI APODERADO DGI NOMBRE</label>
+                                    <input type="text" id='UI_APODERADO_DGI_NOMBRE' name='UI_APODERADO_DGI_NOMBRE' />
+                                </div>
+                                <div className="form-control">
+                                    <label htmlFor="UI_APODERADO_DGI_CEDULA">UI APODERADO DGI CEDULA</label>
+                                    <input type="text" id='UI_APODERADO_DGI_CEDULA' name='UI_APODERADO_DGI_CEDULA' />
+                                </div>
+                            </div>
+
+                            <div className="group-inline">
+                                <div className="form-control">
+                                    <label htmlFor="UI_APODERADO_DGI_TELEFONO">UI APODERADO DGI TELEFONO</label>
+                                    <input type="text" id='UI_APODERADO_DGI_TELEFONO' name='UI_APODERADO_DGI_TELEFONO' />
+                                </div>
+                                <div className="form-control">
+                                    <label htmlFor="UI_APODERADO_DGI_DIRECCION">UI APODERADO DGI DIRECCION</label>
+                                    <input type="text" id='UI_APODERADO_DGI_DIRECCION' name='UI_APODERADO_DGI_DIRECCION' />
+                                </div>
+                            </div>
+
+                            <div className="group-inline">
+                                <div className="form-control">
+                                    <label htmlFor="UI_APODERADO_DGI_EMAIL">UI APODERADO DGI EMAIL</label>
+                                    <input type="text" id='UI_APODERADO_DGI_EMAIL' name='UI_APODERADO_DGI_EMAIL' />
+                                </div>                              
                             </div>
                         </div>
 
@@ -227,7 +246,8 @@ export default function Index({ data }) {
             </section>
 
             {/* sussefull */}
-            {sussefull && <Success handleModal={setSussefull} />}
+            {successful &&  <Success handleModal={setSuccessful} />}
+
 
 
         </>

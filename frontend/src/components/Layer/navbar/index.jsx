@@ -174,7 +174,7 @@ export default function Navbar() {
 
             </div>
 
-            {showSearch &&
+             {showSearch && 
                 <div className='absolute inset-0 '>
 
                         <div onClick={() => setShowSearch(false)} className='absolute inset-0 bg-[#0F162099] bg-opacity-60 ' />

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { fetcher } from 'src/lib/Fetcher'
 import numberRange from 'src/lib/numberRange'
 
 export default function Component() {
@@ -8,29 +9,40 @@ export default function Component() {
     const [searsh, setSearsh] = useState()
     const [currentSeccion, setCurrentSeccion] = useState()
 
+    const [dataResult, setDataResult] = useState()
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(query);
-        e.target.reset()
+
+        if (currentSeccion !== "Todas") {
+            console.log(query);
+            fetcher(query)
+                .then(res => setDataResult([res]))
+                .catch(error => console.log(error))
+        }
+
     }
 
 
     const handleChange = () => {
-        const todasSecciones = ["/entradas/noticias/", "/entradas/haciendo-la-diferencia/"]
+        const todasSecciones = ["/entradas/noticias/", "/entradas/haciendo-la-diferencia/", "/entradas/congreso/"]
         const backUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}`
-
         let newUrl = `?searsh=${searsh}`
-        if (currentSeccion) {
+        console.log(query);
+        if (currentSeccion !== "Todas") {
             setQuery(backUrl += currentSeccion += newUrl)
         } else {
+            let newArray = []; // copying the old datas array
             for (let index = 0; index < todasSecciones.length; index++) {
-                // const backUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}`
-
+                const backUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}`
                 const element = todasSecciones[index];
-                let newUrlquery = backUrl += element += newUrl
-                console.log(newUrlquery);
+                // let newUrlquery = backUrl += element += newUrl
+                newArray[index] = backUrl += element += newUrl
 
             }
+            setQuery(newArray);
+
         }
 
     }
@@ -40,8 +52,8 @@ export default function Component() {
     }, [searsh])
 
     useEffect(() => {
-        console.log(currentSeccion);
-    }, [currentSeccion])
+        console.log(dataResult);
+    }, [dataResult])
 
 
     const seccion = [
@@ -77,7 +89,7 @@ export default function Component() {
                         value={currentSeccion}
                         onChange={(e) => { setCurrentSeccion(e.target.value) }}
                         name="" id={"currentSeccion"} className='w-full md:w-auto inset-0 h-full'>
-                        <option className='hidden' >Seleccione</option>
+                        <option value={"Todas"} >Todas</option>
                         {seccion.map((ef, kf) => (
                             <option key={kf} className='bg-[#F7F8FB]' value={ef.path}>{ef.name}</option>
                         ))}
@@ -93,29 +105,52 @@ export default function Component() {
                 </button>
             </form>
 
-            <p className='mt-9 text-[#6B7380] text-center'>No hay resultados para mostrar.</p>
+            {dataResult ? dataResult[0].results ?
 
-            <div>
-                <hr />
-                <div className='flex flex-col gap-2 py-6 md:py-9 px-3'>
-                    <h2>Noticias</h2>
-                    <h5>Comunicado cierre Sede Central del TAT en Agosto de 2022</h5>
-                    <p>Mediante acuerdo N° 19-2022, con fecha 12 de agosto de 2022, el Pleno de Magistrados dispuso el cierre de la Sede Central del Tribunal Administrativo Tributario, ubicada en la ciudad de Panamá y la suspensión de los términos jurisdiccionales el día 15 de agosto de 2022.</p>
-                </div>
-                <hr />
-                <div className='flex flex-col gap-2 py-6 md:py-9 px-3'>
-                    <h2>Noticias</h2>
-                    <h5>Comunicado cierre Sede Central del TAT en Agosto de 2022</h5>
-                    <p>Mediante acuerdo N° 19-2022, con fecha 12 de agosto de 2022, el Pleno de Magistrados dispuso el cierre de la Sede Central del Tribunal Administrativo Tributario, ubicada en la ciudad de Panamá y la suspensión de los términos jurisdiccionales el día 15 de agosto de 2022.</p>
-                </div>
-                <hr />
-                <div className='flex flex-col gap-2 py-6 md:py-9 px-3'>
-                    <h2>Noticias</h2>
-                    <h5>Comunicado cierre Sede Central del TAT en Agosto de 2022</h5>
-                    <p>Mediante acuerdo N° 19-2022, con fecha 12 de agosto de 2022, el Pleno de Magistrados dispuso el cierre de la Sede Central del Tribunal Administrativo Tributario, ubicada en la ciudad de Panamá y la suspensión de los términos jurisdiccionales el día 15 de agosto de 2022.</p>
-                </div>
-                <hr />
-            </div>
+                dataResult.map((result, index) => (
+                    <>
+
+                        <hr />
+                        <div className='flex flex-col gap-2 py-6 md:py-9 px-3'>
+                            <h2>Noticias</h2>
+                            {result && result.results.map((e, v) => (
+                                <>
+                                    <a href={e.ver && ""}>
+
+                                        <h5>{e.titulo}</h5>
+                                        <p>Mediante acuerdo N° 19-2022, con fecha 12 de agosto de 2022, el Pleno de Magistrados dispuso el cierre de la Sede Central del Tribunal Administrativo Tributario, ubicada en la ciudad de Panamá y la suspensión de los términos jurisdiccionales el día 15 de agosto de 2022.</p>
+                                        <hr />
+                                    </a>
+                                </>
+                            ))}
+                        </div>
+                        <hr />
+                    </>
+                ))
+
+                :
+                dataResult.map((v, i) => (
+                    <>
+                            <hr />
+                            <div className='flex flex-col gap-2 py-6 md:py-9 px-3'>
+                                <h2>Noticias</h2>
+                                {/* {result && result.results.map((e, v) => (
+                                    <>
+                                        <a href={e.ver && ""}>
+
+                                            <h5>{e.titulo}</h5>
+                                            <p>Mediante acuerdo N° 19-2022, con fecha 12 de agosto de 2022, el Pleno de Magistrados dispuso el cierre de la Sede Central del Tribunal Administrativo Tributario, ubicada en la ciudad de Panamá y la suspensión de los términos jurisdiccionales el día 15 de agosto de 2022.</p>
+                                            <hr />
+                                        </a>
+                                    </>
+                                ))} */}
+                            </div>
+                            <hr />
+                    </>
+                )) :
+
+                <p className='mt-9 text-[#6B7380] text-center'>No hay resultados para mostrar.</p>
+            }
 
 
         </>
