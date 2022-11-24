@@ -35,30 +35,30 @@ export default function IniciarTramite() {
         setData(initData)
     }
 
-    const [data, setData] = useState(// initData)
-        {
-            AP_APODERADO_NOMBRE: "pedro pablo",
-            AP_APODERADO_RUC: "0610198900039",
-            AP_APODERADO_TELEFONO: "+504317222",
-            AP_APODERADO_DIRECCION: "direccion pruebas",
-            AP_APODERADO_EMAIL: "noe.ar18@gmail.com",
-            AP_CONTRIBUYENTE_NOMBRE: "matute",
-            AP_CONTRIBUYENTE_RUC: "081099332",
-            AP_CONTRIBUYENTE_DV: "15",
-            AP_CONTRIBUYENTE_TIPO: "1",
-            AP_CONTRIBUYENTE_PROVINCIA: "2",
-            AP_RESOLUCION_APELADA_NRO: "1111111",
-            AP_RESOLUCION_APELADA_FECHA: "10-01-2020",
-            AP_RESOLUCION_CONFIRMATORIA_FECHA: "12-01-2020",
-            AP_RESOLUCION_CONFIRMATORIA_NRO: "50525",
-            AP_PERIODO: "2021",
-            UI_APODERADO_DGI_NOMBRE: "pruebas",
-            UI_APODERADO_DGI_CEDULA: "151515",
-            UI_APODERADO_DGI_TELEFONO: "54545",
-            UI_APODERADO_DGI_DIRECCION: "hhhhh",
-            UI_APODERADO_DGI_EMAIL: "n.ar18@g.com",
-            ADJUNTO: ""
-        })
+    const [data, setData] = useState(initData)
+        // {
+        //     AP_APODERADO_NOMBRE: "pedro pablo",
+        //     AP_APODERADO_RUC: "0610198900039",
+        //     AP_APODERADO_TELEFONO: "+504317222",
+        //     AP_APODERADO_DIRECCION: "direccion pruebas",
+        //     AP_APODERADO_EMAIL: "noe.ar18@gmail.com",
+        //     AP_CONTRIBUYENTE_NOMBRE: "matute",
+        //     AP_CONTRIBUYENTE_RUC: "081099332",
+        //     AP_CONTRIBUYENTE_DV: "15",
+        //     AP_CONTRIBUYENTE_TIPO: "1",
+        //     AP_CONTRIBUYENTE_PROVINCIA: "2",
+        //     AP_RESOLUCION_APELADA_NRO: "1111111",
+        //     AP_RESOLUCION_APELADA_FECHA: "10-01-2020",
+        //     AP_RESOLUCION_CONFIRMATORIA_FECHA: "12-01-2020",
+        //     AP_RESOLUCION_CONFIRMATORIA_NRO: "50525",
+        //     AP_PERIODO: "2021",
+        //     UI_APODERADO_DGI_NOMBRE: "pruebas",
+        //     UI_APODERADO_DGI_CEDULA: "151515",
+        //     UI_APODERADO_DGI_TELEFONO: "54545",
+        //     UI_APODERADO_DGI_DIRECCION: "hhhhh",
+        //     UI_APODERADO_DGI_EMAIL: "n.ar18@g.com",
+        //     ADJUNTO: ""
+        // })
 
     // const [data, setData] = useState({
 

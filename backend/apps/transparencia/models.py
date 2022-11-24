@@ -168,7 +168,7 @@ class A114_GastosDeRepresentación(models.Model):
     objeto_de_gasto = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.titulo
+        return self.cargo
 
 
 class A114_GastosDeRepresentaciónArchivos(models.Model):
