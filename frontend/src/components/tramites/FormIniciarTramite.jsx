@@ -1,58 +1,101 @@
 import React, { useEffect, useState } from 'react'
-import DropImg from 'src/lib/useDropImg'
+import FileBase64 from 'src/lib/useFileBase64'
 import Success from './Success'
 
 export default function IniciarTramite() {
-    const [imageFile, setImageFile] = useState()
+    const [dataFile, setDataFile] = useState()
+
     const [successful, setSuccessful] = useState()
 
-    const [data, setData] = useState({
-        AP_APODERADO_NOMBRE: "pedro pablo",
-        AP_APODERADO_RUC: "0610198900039",
-        AP_APODERADO_TELEFONO: "+504317222",
-        AP_APODERADO_DIRECCION: "direccion pruebas",
-        AP_APODERADO_EMAIL: "noe.ar18@gmail.com",
-        AP_CONTRIBUYENTE_NOMBRE: "matute",
-        AP_CONTRIBUYENTE_RUC: "081099332",
-        AP_CONTRIBUYENTE_DV: "15",
-        AP_CONTRIBUYENTE_TIPO: "1",
-        AP_CONTRIBUYENTE_PROVINCIA: "2",
-        AP_RESOLUCION_APELADA_NRO: "1111111",
-        AP_RESOLUCION_APELADA_FECHA: "10-01-2020",
-        AP_RESOLUCION_CONFIRMATORIA_FECHA: "12-01-2020",
-        AP_RESOLUCION_CONFIRMATORIA_NRO: "50525",
-        AP_PERIODO: "2021",
-        UI_APODERADO_DGI_NOMBRE: "pruebas",
-        UI_APODERADO_DGI_CEDULA: "151515",
-        UI_APODERADO_DGI_TELEFONO: "54545",
-        UI_APODERADO_DGI_DIRECCION: "hhhhh",
-        UI_APODERADO_DGI_EMAIL: "n.ar18@g.com",
+    const initData = {
+        AP_APODERADO_NOMBRE: "",
+        AP_APODERADO_RUC: "",
+        AP_APODERADO_TELEFONO: "",
+        AP_APODERADO_DIRECCION: "",
+        AP_APODERADO_EMAIL: "",
+        AP_CONTRIBUYENTE_NOMBRE: "",
+        AP_CONTRIBUYENTE_RUC: "",
+        AP_CONTRIBUYENTE_DV: "",
+        AP_CONTRIBUYENTE_TIPO: "",
+        AP_CONTRIBUYENTE_PROVINCIA: "",
+        AP_RESOLUCION_APELADA_NRO: "",
+        AP_RESOLUCION_APELADA_FECHA: "",
+        AP_RESOLUCION_CONFIRMATORIA_FECHA: "",
+        AP_RESOLUCION_CONFIRMATORIA_NRO: "",
+        AP_PERIODO: "",
+        UI_APODERADO_DGI_NOMBRE: "",
+        UI_APODERADO_DGI_CEDULA: "",
+        UI_APODERADO_DGI_TELEFONO: "",
+        UI_APODERADO_DGI_DIRECCION: "",
+        UI_APODERADO_DGI_EMAIL: "",
         ADJUNTO: ""
-    })
+    }
+
+    const resetData = () => {
+        setData(initData)
+    }
+
+    const [data, setData] = useState(// initData)
+        {
+            AP_APODERADO_NOMBRE: "pedro pablo",
+            AP_APODERADO_RUC: "0610198900039",
+            AP_APODERADO_TELEFONO: "+504317222",
+            AP_APODERADO_DIRECCION: "direccion pruebas",
+            AP_APODERADO_EMAIL: "noe.ar18@gmail.com",
+            AP_CONTRIBUYENTE_NOMBRE: "matute",
+            AP_CONTRIBUYENTE_RUC: "081099332",
+            AP_CONTRIBUYENTE_DV: "15",
+            AP_CONTRIBUYENTE_TIPO: "1",
+            AP_CONTRIBUYENTE_PROVINCIA: "2",
+            AP_RESOLUCION_APELADA_NRO: "1111111",
+            AP_RESOLUCION_APELADA_FECHA: "10-01-2020",
+            AP_RESOLUCION_CONFIRMATORIA_FECHA: "12-01-2020",
+            AP_RESOLUCION_CONFIRMATORIA_NRO: "50525",
+            AP_PERIODO: "2021",
+            UI_APODERADO_DGI_NOMBRE: "pruebas",
+            UI_APODERADO_DGI_CEDULA: "151515",
+            UI_APODERADO_DGI_TELEFONO: "54545",
+            UI_APODERADO_DGI_DIRECCION: "hhhhh",
+            UI_APODERADO_DGI_EMAIL: "n.ar18@g.com",
+            ADJUNTO: ""
+        })
+
+    // const [data, setData] = useState({
+
+    // })
+
+    useEffect(() => {
+        setData({ ...data, ["ADJUNTO"]: dataFile })
+    }, [dataFile])
+
 
     const api = "https://prod-132.westus.logic.azure.com:443/workflows/fd09e298f4e04def9944905d1393c3b9/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=QmvysH5F59ZLp7aQTJ2fAxhUMefxoDeKEXjusFDKHtA"
 
     const jsonData = JSON.stringify(data)
     const handleSubmit = (e) => {
         console.log(jsonData)
-
         e.preventDefault()
-        
-        // fetch(api, {
-        //     method: "POST",
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: jsonData
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         if (data.error) {
-        //             console.log(data.error)
-        //         }
-        //         else {
-        //             console.log(data)
-        //         }
-        //     }) // res error
-        //     .catch(error => console.log(error))
+        fetch(api, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: jsonData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                }
+                else {
+                    if (data.html) {
+                        console.log(data);
+                        setSuccessful(data);
+                        resetData()
+                        setDataFile(false)
+                        e.target.reset()
+                    }
+                }
+            }) // res error
+            .catch(error => console.log(error))
 
 
         // if (data.expediente !== "" && data.pin !== "") {
@@ -213,7 +256,7 @@ export default function IniciarTramite() {
 
                     </div>
                     <div className="group-inline">
-                    <div className="form-control">
+                        <div className="form-control">
                             <label htmlFor="AP_PERIODO">AP PERIODO</label>
                             <input
                                 defaultValue={data.AP_PERIODO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
@@ -226,7 +269,7 @@ export default function IniciarTramite() {
                                 defaultValue={data.UI_APODERADO_DGI_NOMBRE} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='UI_APODERADO_DGI_NOMBRE' name='UI_APODERADO_DGI_NOMBRE' />
                         </div> */}
-                       
+
                     </div>
 
                     <div className="group-inline">
@@ -275,7 +318,7 @@ export default function IniciarTramite() {
                     <div className="single">
                         <span className='span text-base leading-6 font-bold'>Solicitud de apelación</span>
                         <div className=' p-5 border border-dashed border-[#E0EAF4] m-5 rounded-md'>
-                            <DropImg item={imageFile} setItem={setImageFile} >
+                            <FileBase64 item={dataFile} setItem={setDataFile} >
                                 <div className='cursor-pointer flex-center flex-col py-7'>
                                     <svg width="28" height="31" viewBox="0 0 28 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M26.8823 16.1954L15.337 27.7126C14.5646 28.5416 13.6331 29.2065 12.5981 29.6676C11.5631 30.1288 10.4458 30.3767 9.31291 30.3967C8.18 30.4167 7.05467 30.2083 6.00406 29.784C4.95344 29.3596 3.99906 28.728 3.19785 27.9268C2.39664 27.1255 1.76501 26.1712 1.34065 25.1206C0.916289 24.0699 0.707887 22.9446 0.727876 21.8117C0.747864 20.6788 0.995835 19.5615 1.45699 18.5265C1.91815 17.4915 2.58305 16.56 3.41203 15.7876L17.2073 2.02039C18.2628 0.96491 19.6944 0.371948 21.187 0.371948C22.6797 0.371948 24.1112 0.96491 25.1667 2.02039C26.2222 3.07587 26.8152 4.5074 26.8152 6.00008C26.8152 7.49275 26.2222 8.92429 25.1667 9.97977C25.1527 9.97977 25.1527 9.99383 25.1386 10.0079L11.6667 22.9595C11.3385 23.2239 10.9233 23.3559 10.5027 23.3296C10.082 23.3032 9.68648 23.1205 9.39381 22.8172C9.10114 22.514 8.93253 22.1122 8.92116 21.6909C8.90978 21.2696 9.05646 20.8593 9.33234 20.5407L22.7902 7.57508C23.1762 7.14538 23.3822 6.58366 23.3655 6.00626C23.3488 5.42886 23.1106 4.88 22.7004 4.47336C22.2901 4.06671 21.7392 3.83343 21.1616 3.82182C20.5841 3.81022 20.0242 4.02118 19.598 4.41101L5.78859 18.1782C5.3186 18.6491 4.94597 19.208 4.69197 19.8229C4.43797 20.4378 4.30757 21.0968 4.30822 21.7621C4.30954 23.1058 4.84457 24.3939 5.79562 25.343C6.74667 26.2922 8.03583 26.8247 9.3795 26.8234C10.7232 26.8221 12.0113 26.2871 12.9605 25.336L24.4917 13.8048C24.8087 13.4877 25.2387 13.3097 25.687 13.3097C26.1354 13.3097 26.5653 13.4877 26.8823 13.8048C27.1994 14.1218 27.3775 14.5517 27.3775 15.0001C27.3775 15.4484 27.1994 15.8784 26.8823 16.1954Z" fill="#CAD0D9" />
@@ -283,7 +326,7 @@ export default function IniciarTramite() {
                                     <h4 className='py-[13px]'><span className='span'>Click para cargar archivos </span>o arrastre y suelte en este recuadro</h4>
                                     <h6>PDF de hasta 2MB</h6>
                                 </div>
-                            </DropImg>
+                            </FileBase64>
                         </div>
                     </div>
                 </div>
@@ -309,7 +352,7 @@ export default function IniciarTramite() {
 
             </form>
             {/* sussefull */}
-            {successful && <Success handleModal={setSuccessful} />}
+            {successful && <Success data={successful} handleModal={setSuccessful} />}
         </>
     )
 }
