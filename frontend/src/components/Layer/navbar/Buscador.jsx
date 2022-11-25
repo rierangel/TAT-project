@@ -1,73 +1,87 @@
 import React, { useEffect, useState } from 'react'
 import { fetcher } from 'src/lib/Fetcher'
 import numberRange from 'src/lib/numberRange'
+import Title from '../Title'
 
 export default function Component() {
 
-    const [query, setQuery] = useState()
+    const [queryArray, setQueryArray] = useState()
 
-    const [searsh, setSearsh] = useState()
-    const [currentSeccion, setCurrentSeccion] = useState()
+    const [searsh, setSearsh] = useState("")
+    const [currentSeccion, setCurrentSeccion] = useState([{ name: "Todas", path: "" }])
+    const [newcurrentSeccion, setNewCurrentSeccion] = useState([])
 
-    const [dataResult, setDataResult] = useState()
+    const [dataResult, setDataResult] = useState([])
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        if (currentSeccion !== "Todas") {
-            console.log(query);
-            fetcher(query)
-                .then(res => setDataResult([res]))
-                .catch(error => console.log(error))
+        // console.log(queryArray);
+        let lastresult = []
+        for (let index = 0; index < queryArray.length; index++) {
+            const element = queryArray[index];
+            fetcher(element)
+            .then(res => {
+                let newArray = newcurrentSeccion[index] 
+                newArray["results"] = res.results
+                // console.log(queryArray[index],newcurrentSeccion[index]);
+                let newArrayToSetData = [...dataResult, newArray ]
+                lastresult.push(newArrayToSetData);
+                console.log(newArrayToSetData, lastresult);
+            })
+            .catch(error => console.log(error))
         }
-
+        console.log(lastresult);
     }
+    useEffect(() => {
+        console.log(dataResult);
+    }, [dataResult])
 
+    const seccion = [
+        { name: "Todas", path: "", internalPath: "" },
+        { name: "noticias", path: "/entradas/noticias/", internalPath: "/entradas/noticias/" },
+        { name: "haciendo la diferencia", path: "/entradas/haciendo-la-diferencia/", internalPath: "/entradas/haciendo-la-diferencia/" },
+        { name: "congreso", path: "/entradas/congreso/", internalPath: "/entradas/congreso/" },
+        { name: "resoluciones", path: "/publicaciones/resoluciones/", internalPath: "/publicaciones/resoluciones/" },
+        { name: "resoluciones categorias", path: "/publicaciones/resoluciones-categorias/", internalPath: "/publicaciones/resoluciones-categorias/" },
+        { name: "ponencias", path: "/publicaciones/ponencias/", internalPath: "/publicaciones/ponencias/" },
+        { name: "revista tributaria", path: "/publicaciones/revista-tributaria/", internalPath: "/publicaciones/revista-tributaria/" },
+        { name: "memorias", path: "/publicaciones/memorias/", internalPath: "/publicaciones/memorias/" },
+        { name: "otros", path: "/publicaciones/otros/", internalPath: "/publicaciones/otros/" },
+    ]
 
     const handleChange = () => {
-        const todasSecciones = ["/entradas/noticias/", "/entradas/haciendo-la-diferencia/", "/entradas/congreso/"]
         const backUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}`
         let newUrl = `?searsh=${searsh}`
-        console.log(query);
-        if (currentSeccion !== "Todas") {
-            setQuery(backUrl += currentSeccion += newUrl)
+        let arrayPath = []
+        let newArrayCurrentSeccion = []
+        if (currentSeccion[0].name !== "Todas") {
+            let newQueryUrl = `${backUrl}${currentSeccion[0].path}${newUrl}`
+            arrayPath.push(newQueryUrl)
         } else {
-            let newArray = []; // copying the old datas array
-            for (let index = 0; index < todasSecciones.length; index++) {
-                const backUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}`
-                const element = todasSecciones[index];
-                // let newUrlquery = backUrl += element += newUrl
-                newArray[index] = backUrl += element += newUrl
-
+            for (let index = 1; index < 4; index++) {
+                if (currentSeccion[0].name !== "Todas") {
+                    setCurrentSeccion([])
+                }
+                const element = seccion[index];
+                let newQueryUrl = `${backUrl}${element.path}${newUrl}`
+                arrayPath.push(newQueryUrl)
+                newArrayCurrentSeccion.push(element)
             }
-            setQuery(newArray);
-
+        }
+        setQueryArray(arrayPath)
+        if (newArrayCurrentSeccion.length > 0) {
+            setNewCurrentSeccion(newArrayCurrentSeccion);
         }
 
     }
 
     useEffect(() => {
         handleChange()
-    }, [searsh])
-
-    useEffect(() => {
-        console.log(dataResult);
-    }, [dataResult])
+    }, [searsh, currentSeccion])
 
 
-    const seccion = [
-        { name: "noticias", path: "/entradas/noticias/" },
-        { name: "haciendo la diferencia", path: "/entradas/haciendo-la-diferencia/" },
-        { name: "congreso", path: "/entradas/congreso/" },
-        { name: "resoluciones", path: "/publicaciones/resoluciones/" },
-        { name: "resoluciones-categorias", path: "/publicaciones/resoluciones-categorias/" },
-        { name: "ponencias", path: "/publicaciones/ponencias/" },
-        { name: "revista-tributaria", path: "/publicaciones/revista-tributaria/" },
-        { name: "memorias", path: "/publicaciones/memorias/" },
-        { name: "otros", path: "/publicaciones/otros/" },
 
-    ]
 
     return (
         <>
@@ -86,12 +100,14 @@ export default function Component() {
 
                 <div className="relative">
                     <select
-                        value={currentSeccion}
-                        onChange={(e) => { setCurrentSeccion(e.target.value) }}
+                        // value={""}
+                        onChange={(e) => setCurrentSeccion(seccion.filter((o) => o.name == e.target.value))}
+                        // ; setCurrentSeccion(seccion[e.target.value])
                         name="" id={"currentSeccion"} className='w-full md:w-auto inset-0 h-full'>
-                        <option value={"Todas"} >Todas</option>
                         {seccion.map((ef, kf) => (
-                            <option key={kf} className='bg-[#F7F8FB]' value={ef.path}>{ef.name}</option>
+                            <option
+                                onClick={() => console.log("hello")}
+                                key={kf} className='bg-[#F7F8FB]' name={ef.name} value={ef.name}>{ef.name}</option>
                         ))}
                     </select>
                     <label htmlFor={"currentSeccion"} className='hidden md:flex absolute left-0 -top-8 '>{"año"}</label>
@@ -105,52 +121,35 @@ export default function Component() {
                 </button>
             </form>
 
-            {dataResult ? dataResult[0].results ?
+       {dataResult ? dataResult.map((v, i) => (
+                <div>
+                    <hr />
+                    <div className='flex flex-col gap-2 py-6 md:py-9 px-3'>
+                        <h2>{v.name}</h2>
+                        {v.results && v.results.map((result,indexResult)=>(
 
-                dataResult.map((result, index) => (
-                    <>
+                            <a >
 
-                        <hr />
-                        <div className='flex flex-col gap-2 py-6 md:py-9 px-3'>
-                            <h2>Noticias</h2>
-                            {result && result.results.map((e, v) => (
-                                <>
-                                    <a href={e.ver && ""}>
+                                <h5>{result.titulo}</h5>
 
-                                        <h5>{e.titulo}</h5>
-                                        <p>Mediante acuerdo N° 19-2022, con fecha 12 de agosto de 2022, el Pleno de Magistrados dispuso el cierre de la Sede Central del Tribunal Administrativo Tributario, ubicada en la ciudad de Panamá y la suspensión de los términos jurisdiccionales el día 15 de agosto de 2022.</p>
-                                        <hr />
-                                    </a>
-                                </>
-                            ))}
-                        </div>
-                        <hr />
-                    </>
-                ))
+                                <p>{result.contenido && result.contenido}</p>
+                                <p>{result.text && result.text}</p>
+                                <p>{result.ver && result.ver}</p>
 
+
+                                <hr />
+                            </a>
+                        ))}
+
+                    </div>
+                    <hr />
+                </div>
+
+            ))
                 :
-                dataResult.map((v, i) => (
-                    <>
-                            <hr />
-                            <div className='flex flex-col gap-2 py-6 md:py-9 px-3'>
-                                <h2>Noticias</h2>
-                                {/* {result && result.results.map((e, v) => (
-                                    <>
-                                        <a href={e.ver && ""}>
-
-                                            <h5>{e.titulo}</h5>
-                                            <p>Mediante acuerdo N° 19-2022, con fecha 12 de agosto de 2022, el Pleno de Magistrados dispuso el cierre de la Sede Central del Tribunal Administrativo Tributario, ubicada en la ciudad de Panamá y la suspensión de los términos jurisdiccionales el día 15 de agosto de 2022.</p>
-                                            <hr />
-                                        </a>
-                                    </>
-                                ))} */}
-                            </div>
-                            <hr />
-                    </>
-                )) :
 
                 <p className='mt-9 text-[#6B7380] text-center'>No hay resultados para mostrar.</p>
-            }
+            } 
 
 
         </>
