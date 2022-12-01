@@ -1,6 +1,8 @@
+import { data } from 'autoprefixer'
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { fetcher } from 'src/lib/Fetcher'
-import numberRange from 'src/lib/numberRange'
+import TextBack from '../TextBack'
 import Title from '../Title'
 
 export default function Component() {
@@ -21,17 +23,29 @@ export default function Component() {
         for (let index = 0; index < queryArray.length; index++) {
             const element = queryArray[index];
             fetcher(element)
-            .then(res => {
-                let newArray = newcurrentSeccion[index] 
-                newArray["results"] = res.results
-                // console.log(queryArray[index],newcurrentSeccion[index]);
-                let newArrayToSetData = [...dataResult, newArray ]
-                lastresult.push(newArrayToSetData);
-                console.log(newArrayToSetData, lastresult);
-            })
-            .catch(error => console.log(error))
+                .then(res => {
+                    let newArray = ""
+                    if (currentSeccion.name == "Todas") {
+                        newArray = newcurrentSeccion[index]
+                    } else {
+                        newArray = currentSeccion
+                    }
+                    newArray["results"] = res.results
+                    lastresult.push(newArray)
+
+                    if (index == queryArray.length - 1) {
+                        setDataResult(lastresult);
+
+                    } else {
+
+                    }
+
+                })
+                .catch(error => console.log(error))
+            console.log(lastresult);
         }
         console.log(lastresult);
+
     }
     useEffect(() => {
         console.log(dataResult);
@@ -39,27 +53,32 @@ export default function Component() {
 
     const seccion = [
         { name: "Todas", path: "", internalPath: "" },
-        { name: "noticias", path: "/entradas/noticias/", internalPath: "/entradas/noticias/" },
-        { name: "haciendo la diferencia", path: "/entradas/haciendo-la-diferencia/", internalPath: "/entradas/haciendo-la-diferencia/" },
-        { name: "congreso", path: "/entradas/congreso/", internalPath: "/entradas/congreso/" },
-        { name: "resoluciones", path: "/publicaciones/resoluciones/", internalPath: "/publicaciones/resoluciones/" },
-        { name: "resoluciones categorias", path: "/publicaciones/resoluciones-categorias/", internalPath: "/publicaciones/resoluciones-categorias/" },
-        { name: "ponencias", path: "/publicaciones/ponencias/", internalPath: "/publicaciones/ponencias/" },
-        { name: "revista tributaria", path: "/publicaciones/revista-tributaria/", internalPath: "/publicaciones/revista-tributaria/" },
-        { name: "memorias", path: "/publicaciones/memorias/", internalPath: "/publicaciones/memorias/" },
-        { name: "otros", path: "/publicaciones/otros/", internalPath: "/publicaciones/otros/" },
+        { name: "Noticias", path: "/entradas/noticias/", internalPath: "/entradas/noticias/" },
+        { name: "Haciendo la diferencia", path: "/entradas/haciendo-la-diferencia/", internalPath: "/entradas/haciendo-la-diferencia/" },
+        { name: "Congreso", path: "/entradas/congreso/", internalPath: "/entradas/congreso-internacional-de-derecho-tributario/" },
+        { name: "Resoluciones", path: "/publicaciones/resoluciones/", internalPath: "/publicaciones/resoluciones/" },
+        { name: "Ponencias", path: "/publicaciones/ponencias/", internalPath: "/publicaciones/ponencias/" },
+        { name: "Revista tributaria", path: "/publicaciones/revista-tributaria/", internalPath: "/publicaciones/revista-tributaria/" },
+        { name: "Memorias", path: "/publicaciones/memorias/", internalPath: "/publicaciones/memorias/" },
+        { name: "Otros", path: "/publicaciones/otros/", internalPath: "/publicaciones/otros/" },
     ]
 
     const handleChange = () => {
         const backUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}`
         let newUrl = `?searsh=${searsh}`
         let arrayPath = []
+        // todo debe modificarse onchange
         let newArrayCurrentSeccion = []
         if (currentSeccion[0].name !== "Todas") {
             let newQueryUrl = `${backUrl}${currentSeccion[0].path}${newUrl}`
+            console.log(currentSeccion);
             arrayPath.push(newQueryUrl)
+            newArrayCurrentSeccion.push(seccion[0])
+
         } else {
+
             for (let index = 1; index < 4; index++) {
+
                 if (currentSeccion[0].name !== "Todas") {
                     setCurrentSeccion([])
                 }
@@ -69,11 +88,9 @@ export default function Component() {
                 newArrayCurrentSeccion.push(element)
             }
         }
-        setQueryArray(arrayPath)
-        if (newArrayCurrentSeccion.length > 0) {
-            setNewCurrentSeccion(newArrayCurrentSeccion);
-        }
 
+        setQueryArray(arrayPath)
+        setNewCurrentSeccion(newArrayCurrentSeccion);
     }
 
     useEffect(() => {
@@ -98,19 +115,19 @@ export default function Component() {
                 />
 
 
-                <div className="relative">
+                <div className="relative ">
                     <select
                         // value={""}
                         onChange={(e) => setCurrentSeccion(seccion.filter((o) => o.name == e.target.value))}
                         // ; setCurrentSeccion(seccion[e.target.value])
-                        name="" id={"currentSeccion"} className='w-full md:w-auto inset-0 h-full'>
+                        name="" id={"currentSeccion"} className='w-full md:w-auto inset-0 h-full '>
                         {seccion.map((ef, kf) => (
                             <option
                                 onClick={() => console.log("hello")}
                                 key={kf} className='bg-[#F7F8FB]' name={ef.name} value={ef.name}>{ef.name}</option>
                         ))}
                     </select>
-                    <label htmlFor={"currentSeccion"} className='hidden md:flex absolute left-0 -top-8 '>{"año"}</label>
+                    <label htmlFor={"currentSeccion"} className='hidden md:flex absolute left-0 -top-8 '>{"Sección"}</label>
                 </div>
 
 
@@ -121,24 +138,35 @@ export default function Component() {
                 </button>
             </form>
 
-       {dataResult ? dataResult.map((v, i) => (
-                <div>
+            {dataResult && dataResult[0] ? dataResult.map((v, i) => (
+                <div key={i}>
                     <hr />
                     <div className='flex flex-col gap-2 py-6 md:py-9 px-3'>
                         <h2>{v.name}</h2>
-                        {v.results && v.results.map((result,indexResult)=>(
+                        {v.results && v.results.map((result, indexResult) => (
 
-                            <a >
+                            <div className="mb-5">
+                                <div className='flex items-center space-x-4'>
 
-                                <h5>{result.titulo}</h5>
+                                    <h5>{result.titulo}</h5>
+                                    {result.slug ? 
+                                    <Link href={v[0].internalPath + result.slug}><a className='btn btn-xs outline'>ver mas</a></Link>
+                                :
+                                result.ver && <a href={process.env.NEXT_PUBLIC_HOST+result.ver} rel="noreferrer" target="_blank"  className='btn btn-xs outline'>ver mas</a> 
+                                }
 
-                                <p>{result.contenido && result.contenido}</p>
-                                <p>{result.text && result.text}</p>
-                                <p>{result.ver && result.ver}</p>
+                                </div>
 
+                                <div className='truncate h-[52px]'>
+                                    {result.text && <TextBack text={result.text} />}
+                                    {result.contenido && <TextBack text={result.contenido} />}
+                                </div>
 
                                 <hr />
-                            </a>
+
+                            </div>
+
+
                         ))}
 
                     </div>
@@ -149,7 +177,7 @@ export default function Component() {
                 :
 
                 <p className='mt-9 text-[#6B7380] text-center'>No hay resultados para mostrar.</p>
-            } 
+            }
 
 
         </>
