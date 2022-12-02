@@ -147,13 +147,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_APODERADO_NOMBRE">Nombre o Razón Social</label>
-                            <input maxlength="100" required
+                            <input maxLength="100" required
                                 defaultValue={data.AP_APODERADO_NOMBRE} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_APODERADO_NOMBRE' name='AP_APODERADO_NOMBRE' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="AP_APODERADO_RUC">Cédula o RUC</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.AP_APODERADO_RUC} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_APODERADO_RUC' name='AP_APODERADO_RUC' />
                         </div>
@@ -161,13 +161,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_APODERADO_TELEFONO">Teléfono</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.AP_APODERADO_TELEFONO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="number" id='AP_APODERADO_TELEFONO' name='AP_APODERADO_TELEFONO' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="AP_APODERADO_DIRECCION">Domicilio</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.AP_APODERADO_DIRECCION} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_APODERADO_DIRECCION' name='AP_APODERADO_DIRECCION' />
                         </div>
@@ -175,7 +175,7 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_APODERADO_EMAIL">Correo Electrónico</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.AP_APODERADO_EMAIL} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="email" id='AP_APODERADO_EMAIL' name='AP_APODERADO_EMAIL' />
                         </div>
@@ -189,13 +189,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_CONTRIBUYENTE_NOMBRE">Nombre o Razón Social</label>
-                            <input maxlength="100" required
+                            <input maxLength="100" required
                                 defaultValue={data.AP_CONTRIBUYENTE_NOMBRE} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_CONTRIBUYENTE_NOMBRE' name='AP_CONTRIBUYENTE_NOMBRE' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="AP_CONTRIBUYENTE_RUC">RUC</label>
-                            <input maxlength="22" required
+                            <input maxLength="22" required
                                 defaultValue={data.AP_CONTRIBUYENTE_RUC} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="number" id='AP_CONTRIBUYENTE_RUC' name='AP_CONTRIBUYENTE_RUC' />
                         </div>
@@ -203,13 +203,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                     <div className="form-control">
                             <label htmlFor="AP_CONTRIBUYENTE_TIPO">Tipo Contribuyente</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.AP_CONTRIBUYENTE_TIPO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_CONTRIBUYENTE_TIPO' name='AP_CONTRIBUYENTE_TIPO' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="AP_CONTRIBUYENTE_DV">DV</label>
-                            <input maxlength="2" required
+                            <input maxLength="2" required
                                 defaultValue={data.AP_CONTRIBUYENTE_DV} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_CONTRIBUYENTE_DV' name='AP_CONTRIBUYENTE_DV' />
                         </div>
@@ -240,13 +240,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_RESOLUCION_APELADA_NRO">Nro. Res. Apelada</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.AP_RESOLUCION_APELADA_NRO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_RESOLUCION_APELADA_NRO' name='AP_RESOLUCION_APELADA_NRO' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="AP_RESOLUCION_APELADA_FECHA">Fecha Res. Apelada</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.AP_RESOLUCION_APELADA_FECHA} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 id='AP_RESOLUCION_APELADA_FECHA' name='AP_RESOLUCION_APELADA_FECHA' type="date" placeholder="DD  /  MM  /  AAAA" />
                         </div>
@@ -254,13 +254,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_RESOLUCION_CONFIRMATORIA_FECHA">Fecha Res. CONFIRMATORIA</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.AP_RESOLUCION_CONFIRMATORIA_FECHA} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 id='AP_RESOLUCION_CONFIRMATORIA_FECHA' name='AP_RESOLUCION_CONFIRMATORIA_FECHA' type="date" placeholder="DD  /  MM  /  AAAA" />
                         </div>
                         <div className="form-control">
                             <label htmlFor="AP_RESOLUCION_CONFIRMATORIA_NRO">Nro. Res. CONFIRMATORIA</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.AP_RESOLUCION_CONFIRMATORIA_NRO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_RESOLUCION_CONFIRMATORIA_NRO' name='AP_RESOLUCION_CONFIRMATORIA_NRO' />
                         </div>
@@ -269,14 +269,14 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_PERIODO">AP PERIODO</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.AP_PERIODO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="number" id='AP_PERIODO' name='AP_PERIODO' />
                         </div>
 
                         {/* <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_NOMBRE">UI_APODERADO_DGI_NOMBRE</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.UI_APODERADO_DGI_NOMBRE} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='UI_APODERADO_DGI_NOMBRE' name='UI_APODERADO_DGI_NOMBRE' />
                         </div> */}
@@ -286,13 +286,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_NOMBRE">UI APODERADO DGI NOMBRE</label>
-                            <input maxlength="100" required
+                            <input maxLength="100" required
                                 defaultValue={data.UI_APODERADO_DGI_NOMBRE} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='UI_APODERADO_DGI_NOMBRE' name='UI_APODERADO_DGI_NOMBRE' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_CEDULA">UI APODERADO DGI CEDULA</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.UI_APODERADO_DGI_CEDULA} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='UI_APODERADO_DGI_CEDULA' name='UI_APODERADO_DGI_CEDULA' />
                         </div>
@@ -301,13 +301,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_TELEFONO">UI APODERADO DGI TELEFONO</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.UI_APODERADO_DGI_TELEFONO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='UI_APODERADO_DGI_TELEFONO' name='UI_APODERADO_DGI_TELEFONO' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_DIRECCION">UI APODERADO DGI DIRECCION</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.UI_APODERADO_DGI_DIRECCION} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='UI_APODERADO_DGI_DIRECCION' name='UI_APODERADO_DGI_DIRECCION' />
                         </div>
@@ -316,7 +316,7 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_EMAIL">UI APODERADO DGI EMAIL</label>
-                            <input maxlength="24" required
+                            <input maxLength="24" required
                                 defaultValue={data.UI_APODERADO_DGI_EMAIL} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="email" id='UI_APODERADO_DGI_EMAIL' name='UI_APODERADO_DGI_EMAIL' />
                         </div>

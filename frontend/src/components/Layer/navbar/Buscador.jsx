@@ -145,7 +145,7 @@ export default function Component() {
                         <h2>{v.name}</h2>
                         {v.results && v.results.map((result, indexResult) => (
 
-                            <div className="mb-5">
+                            <div key={indexResult} className="mb-5">
                                 <div className='flex items-center space-x-4'>
 
                                     <h5>{result.titulo}</h5>
