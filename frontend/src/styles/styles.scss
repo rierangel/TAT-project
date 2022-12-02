@@ -210,6 +210,11 @@ button,
         padding: 2px 16px;
 
     }
+    &.btn-xxs {
+        border-radius: 8px;
+        padding: 12px 16px;
+
+    }
 
     &.btn-sm {
         padding: 14px 18px;
@@ -343,6 +348,7 @@ input {
     /* identical to box height */
     letter-spacing: -0.02em;
     outline-color: v.$primary;
+
 
 }
 

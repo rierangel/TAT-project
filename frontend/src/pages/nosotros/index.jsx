@@ -12,13 +12,13 @@ export default function Page() {
 
   const [data, setData] = useState()
   useEffect(() => {
-     fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/3`)
-     .then(res=>setData(res))
-     .catch(error=>console.log(error))
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/paginas/3`)
+      .then(res => setData(res))
+      .catch(error => console.log(error))
   }, [])
-  
 
-  const feats = ["Ser reconocidos", "Mejorar la calidad", "Mejorar la efectividad", "Mantener el recurso humano", "Tener un personal calificado"]
+
+  // const feats = ["Ser reconocidos", "Mejorar la calidad", "Mejorar la efectividad", "Mantener el recurso humano", "Tener un personal calificado"]
   const valores = [
     {
       name: "Compromiso",
@@ -70,7 +70,7 @@ export default function Page() {
 
   ]
 
-  return ( data &&
+  return (data &&
     <Layer>
       <section>
 
@@ -150,20 +150,17 @@ export default function Page() {
         </div>
       </section>
 
-        {/* Equipo de Trabajo */}
+      {/* Equipo de Trabajo */}
       <section>
 
         <Title data={data[3]} />
-
-
-
-       
         <TextBack text={data[3].text} className='md:w-4/5 text-justify order-1 ' />
+        <div className='flex h-[1400px]'>
+          <div className="mx-auto">
 
-        <ImgBack className='mb-20 mt-12 custom' src={data[3].imagen} alt="" />
-
-
-
+            <ImgBack className='mb-20 mt-12 custom h-full ' src={data[3].imagen} alt="" />
+          </div>
+        </div>
       </section>
     </Layer>
 

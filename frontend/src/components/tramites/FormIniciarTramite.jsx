@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import FileBase64 from 'src/lib/useFileBase64'
 import Success from './Success'
-
+import Loading from './Loading'
 export default function IniciarTramite() {
     const [dataFile, setDataFile] = useState()
 
     const [successful, setSuccessful] = useState()
+    const [stateApi, setStateApi] = useState()
 
     const initData = {
         AP_APODERADO_NOMBRE: "",
@@ -35,30 +36,32 @@ export default function IniciarTramite() {
         setData(initData)
     }
 
-    const [data, setData] = useState(initData)
-        // {
-        //     AP_APODERADO_NOMBRE: "pedro pablo",
-        //     AP_APODERADO_RUC: "0610198900039",
-        //     AP_APODERADO_TELEFONO: "+504317222",
-        //     AP_APODERADO_DIRECCION: "direccion pruebas",
-        //     AP_APODERADO_EMAIL: "noe.ar18@gmail.com",
-        //     AP_CONTRIBUYENTE_NOMBRE: "matute",
-        //     AP_CONTRIBUYENTE_RUC: "081099332",
-        //     AP_CONTRIBUYENTE_DV: "15",
-        //     AP_CONTRIBUYENTE_TIPO: "1",
-        //     AP_CONTRIBUYENTE_PROVINCIA: "2",
-        //     AP_RESOLUCION_APELADA_NRO: "1111111",
-        //     AP_RESOLUCION_APELADA_FECHA: "10-01-2020",
-        //     AP_RESOLUCION_CONFIRMATORIA_FECHA: "12-01-2020",
-        //     AP_RESOLUCION_CONFIRMATORIA_NRO: "50525",
-        //     AP_PERIODO: "2021",
-        //     UI_APODERADO_DGI_NOMBRE: "pruebas",
-        //     UI_APODERADO_DGI_CEDULA: "151515",
-        //     UI_APODERADO_DGI_TELEFONO: "54545",
-        //     UI_APODERADO_DGI_DIRECCION: "hhhhh",
-        //     UI_APODERADO_DGI_EMAIL: "n.ar18@g.com",
-        //     ADJUNTO: ""
-        // })
+
+
+    const [data, setData] = useState( //initData)
+    {
+        AP_APODERADO_NOMBRE: "pedro pablo",
+        AP_APODERADO_RUC: "0610198900039",
+        AP_APODERADO_TELEFONO: "+504317222",
+        AP_APODERADO_DIRECCION: "direccion pruebas",
+        AP_APODERADO_EMAIL: "noe.ar18@gmail.com",
+        AP_CONTRIBUYENTE_NOMBRE: "matute",
+        AP_CONTRIBUYENTE_RUC: "081099332",
+        AP_CONTRIBUYENTE_DV: "15",
+        AP_CONTRIBUYENTE_TIPO: "1",
+        AP_CONTRIBUYENTE_PROVINCIA: "2",
+        AP_RESOLUCION_APELADA_NRO: "1111111",
+        AP_RESOLUCION_APELADA_FECHA: "10-01-2020",
+        AP_RESOLUCION_CONFIRMATORIA_FECHA: "12-01-2020",
+        AP_RESOLUCION_CONFIRMATORIA_NRO: "50525",
+        AP_PERIODO: "2021",
+        UI_APODERADO_DGI_NOMBRE: "pruebas",
+        UI_APODERADO_DGI_CEDULA: "151515",
+        UI_APODERADO_DGI_TELEFONO: "54545",
+        UI_APODERADO_DGI_DIRECCION: "hhhhh",
+        UI_APODERADO_DGI_EMAIL: "n.ar18@g.com",
+        ADJUNTO: ""
+    })
 
     // const [data, setData] = useState({
 
@@ -73,8 +76,8 @@ export default function IniciarTramite() {
 
     const jsonData = JSON.stringify(data)
     const handleSubmit = (e) => {
-        console.log(jsonData)
         e.preventDefault()
+        setStateApi("loading")
         fetch(api, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
@@ -87,10 +90,10 @@ export default function IniciarTramite() {
                 }
                 else {
                     if (data.html) {
-                        console.log(data);
+                        setStateApi("success")
                         setSuccessful(data);
-                        resetData()
                         setDataFile(false)
+                        resetData()
                         e.target.reset()
                     }
                 }
@@ -103,10 +106,9 @@ export default function IniciarTramite() {
         // } else {
         //     alert("PIN o Nro. de Expediente invalido")
         // }
+
     }
-    useEffect(() => {
-        console.log(data);
-    }, [data])
+
 
 
 
@@ -125,11 +127,19 @@ export default function IniciarTramite() {
     ]
 
 
+    const clearForm = (e) => {
+        // formRef.current.reset()
+        // formRef.current.reset()
+        resetData()
+        e.target.parentNode.parentNode.reset()
+        // formRef.current.target.reset()
+
+    }
     return (
         <>
 
 
-            <form onSubmit={handleSubmit} action="" className="form">
+            <form  onSubmit={handleSubmit} action="" className="form">
 
                 {/* Apoderado */}
                 <div className='mt-9'>
@@ -137,13 +147,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_APODERADO_NOMBRE">Nombre o Razón Social</label>
-                            <input
+                            <input maxlength="100" required
                                 defaultValue={data.AP_APODERADO_NOMBRE} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_APODERADO_NOMBRE' name='AP_APODERADO_NOMBRE' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="AP_APODERADO_RUC">Cédula o RUC</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.AP_APODERADO_RUC} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_APODERADO_RUC' name='AP_APODERADO_RUC' />
                         </div>
@@ -151,13 +161,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_APODERADO_TELEFONO">Teléfono</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.AP_APODERADO_TELEFONO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
-                                type="text" id='AP_APODERADO_TELEFONO' name='AP_APODERADO_TELEFONO' />
+                                type="number" id='AP_APODERADO_TELEFONO' name='AP_APODERADO_TELEFONO' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="AP_APODERADO_DIRECCION">Domicilio</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.AP_APODERADO_DIRECCION} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_APODERADO_DIRECCION' name='AP_APODERADO_DIRECCION' />
                         </div>
@@ -165,7 +175,7 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_APODERADO_EMAIL">Correo Electrónico</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.AP_APODERADO_EMAIL} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="email" id='AP_APODERADO_EMAIL' name='AP_APODERADO_EMAIL' />
                         </div>
@@ -179,35 +189,36 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_CONTRIBUYENTE_NOMBRE">Nombre o Razón Social</label>
-                            <input
+                            <input maxlength="100" required
                                 defaultValue={data.AP_CONTRIBUYENTE_NOMBRE} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_CONTRIBUYENTE_NOMBRE' name='AP_CONTRIBUYENTE_NOMBRE' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="AP_CONTRIBUYENTE_RUC">RUC</label>
-                            <input
+                            <input maxlength="22" required
                                 defaultValue={data.AP_CONTRIBUYENTE_RUC} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
-                                type="text" id='AP_CONTRIBUYENTE_RUC' name='AP_CONTRIBUYENTE_RUC' />
+                                type="number" id='AP_CONTRIBUYENTE_RUC' name='AP_CONTRIBUYENTE_RUC' />
                         </div>
                     </div>
                     <div className="group-inline">
-                        <div className="form-control">
-                            <label htmlFor="AP_CONTRIBUYENTE_DV">Nombre o Razón Social</label>
-                            <input
-                                defaultValue={data.AP_CONTRIBUYENTE_DV} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
-                                type="text" id='AP_CONTRIBUYENTE_DV' name='AP_CONTRIBUYENTE_DV' />
-                        </div>
-                        <div className="form-control">
-                            <label htmlFor="AP_CONTRIBUYENTE_TIPO">RUC</label>
-                            <input
+                    <div className="form-control">
+                            <label htmlFor="AP_CONTRIBUYENTE_TIPO">Tipo Contribuyente</label>
+                            <input maxlength="24" required
                                 defaultValue={data.AP_CONTRIBUYENTE_TIPO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_CONTRIBUYENTE_TIPO' name='AP_CONTRIBUYENTE_TIPO' />
                         </div>
+                        <div className="form-control">
+                            <label htmlFor="AP_CONTRIBUYENTE_DV">DV</label>
+                            <input maxlength="2" required
+                                defaultValue={data.AP_CONTRIBUYENTE_DV} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
+                                type="text" id='AP_CONTRIBUYENTE_DV' name='AP_CONTRIBUYENTE_DV' />
+                        </div>
+                    
                     </div>
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_CONTRIBUYENTE_PROVINCIA">Provincia</label>
-                            <select
+                            <select required
                                 name="AP_CONTRIBUYENTE_PROVINCIA"
                                 onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 id="AP_CONTRIBUYENTE_PROVINCIA">
@@ -229,13 +240,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_RESOLUCION_APELADA_NRO">Nro. Res. Apelada</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.AP_RESOLUCION_APELADA_NRO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_RESOLUCION_APELADA_NRO' name='AP_RESOLUCION_APELADA_NRO' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="AP_RESOLUCION_APELADA_FECHA">Fecha Res. Apelada</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.AP_RESOLUCION_APELADA_FECHA} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 id='AP_RESOLUCION_APELADA_FECHA' name='AP_RESOLUCION_APELADA_FECHA' type="date" placeholder="DD  /  MM  /  AAAA" />
                         </div>
@@ -243,13 +254,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_RESOLUCION_CONFIRMATORIA_FECHA">Fecha Res. CONFIRMATORIA</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.AP_RESOLUCION_CONFIRMATORIA_FECHA} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 id='AP_RESOLUCION_CONFIRMATORIA_FECHA' name='AP_RESOLUCION_CONFIRMATORIA_FECHA' type="date" placeholder="DD  /  MM  /  AAAA" />
                         </div>
                         <div className="form-control">
                             <label htmlFor="AP_RESOLUCION_CONFIRMATORIA_NRO">Nro. Res. CONFIRMATORIA</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.AP_RESOLUCION_CONFIRMATORIA_NRO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_RESOLUCION_CONFIRMATORIA_NRO' name='AP_RESOLUCION_CONFIRMATORIA_NRO' />
                         </div>
@@ -258,14 +269,14 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="AP_PERIODO">AP PERIODO</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.AP_PERIODO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="number" id='AP_PERIODO' name='AP_PERIODO' />
                         </div>
 
                         {/* <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_NOMBRE">UI_APODERADO_DGI_NOMBRE</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.UI_APODERADO_DGI_NOMBRE} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='UI_APODERADO_DGI_NOMBRE' name='UI_APODERADO_DGI_NOMBRE' />
                         </div> */}
@@ -275,13 +286,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_NOMBRE">UI APODERADO DGI NOMBRE</label>
-                            <input
+                            <input maxlength="100" required
                                 defaultValue={data.UI_APODERADO_DGI_NOMBRE} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='UI_APODERADO_DGI_NOMBRE' name='UI_APODERADO_DGI_NOMBRE' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_CEDULA">UI APODERADO DGI CEDULA</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.UI_APODERADO_DGI_CEDULA} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='UI_APODERADO_DGI_CEDULA' name='UI_APODERADO_DGI_CEDULA' />
                         </div>
@@ -290,13 +301,13 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_TELEFONO">UI APODERADO DGI TELEFONO</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.UI_APODERADO_DGI_TELEFONO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='UI_APODERADO_DGI_TELEFONO' name='UI_APODERADO_DGI_TELEFONO' />
                         </div>
                         <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_DIRECCION">UI APODERADO DGI DIRECCION</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.UI_APODERADO_DGI_DIRECCION} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='UI_APODERADO_DGI_DIRECCION' name='UI_APODERADO_DGI_DIRECCION' />
                         </div>
@@ -305,9 +316,9 @@ export default function IniciarTramite() {
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_EMAIL">UI APODERADO DGI EMAIL</label>
-                            <input
+                            <input maxlength="24" required
                                 defaultValue={data.UI_APODERADO_DGI_EMAIL} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
-                                type="text" id='UI_APODERADO_DGI_EMAIL' name='UI_APODERADO_DGI_EMAIL' />
+                                type="email" id='UI_APODERADO_DGI_EMAIL' name='UI_APODERADO_DGI_EMAIL' />
                         </div>
                     </div>
                 </div>
@@ -334,14 +345,14 @@ export default function IniciarTramite() {
 
                 <div className='mt-9 flex justify-between items-start '>
 
-                    <button className='btn primary flex items-center gap-3 btn-xs'>
+                    <button className='btn primary flex items-center gap-3 btn-xxs'>
                         <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6.12663 11.3125C5.87809 11.3115 5.6398 11.2133 5.46256 11.0391L1.08756 6.6641C0.911443 6.48798 0.8125 6.24911 0.8125 6.00004C0.8125 5.75097 0.911443 5.5121 1.08756 5.33598C1.26368 5.15986 1.50255 5.06091 1.75163 5.06091C2.0007 5.06091 2.23957 5.15986 2.41569 5.33598L6.12663 9.04691L14.2126 0.960977C14.2998 0.873771 14.4033 0.804595 14.5172 0.7574C14.6312 0.710204 14.7533 0.685913 14.8766 0.685913C15 0.685913 15.1221 0.710204 15.236 0.7574C15.35 0.804595 15.4535 0.873771 15.5407 0.960977C15.6279 1.04818 15.6971 1.15171 15.7443 1.26565C15.7915 1.37959 15.8158 1.50171 15.8158 1.62504C15.8158 1.74837 15.7915 1.87049 15.7443 1.98443C15.6971 2.09837 15.6279 2.2019 15.5407 2.2891L6.79069 11.0391C6.61345 11.2133 6.37516 11.3115 6.12663 11.3125Z" fill="white" />
                         </svg>
                         Iniciar trámite
                     </button>
 
-                    <div className='text-[#0054A4] flex items-center gap-3 btn-xs'>
+                    <div onClick={(e) => clearForm(e)} className='text-[#0054A4] flex items-center gap-3 btn-xxs cursor-pointer'>
                         <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14.875 3.75H12.0625V2.8125C12.0604 2.23297 11.8293 1.67777 11.4195 1.26798C11.0097 0.858188 10.4545 0.627059 9.875 0.625H6.125C5.54547 0.627059 4.99027 0.858188 4.58048 1.26798C4.17069 1.67777 3.93956 2.23297 3.9375 2.8125V3.75H1.125C0.87636 3.75 0.637903 3.84877 0.462087 4.02459C0.286272 4.2004 0.1875 4.43886 0.1875 4.6875C0.1875 4.93614 0.286272 5.1746 0.462087 5.35041C0.637903 5.52623 0.87636 5.625 1.125 5.625H1.4375V16.25C1.43955 16.6638 1.60483 17.06 1.89741 17.3526C2.19 17.6452 2.58623 17.8104 3 17.8125H13C13.4138 17.8104 13.81 17.6452 14.1026 17.3526C14.3952 17.06 14.5604 16.6638 14.5625 16.25V5.625H14.875C15.1236 5.625 15.3621 5.52623 15.5379 5.35041C15.7137 5.1746 15.8125 4.93614 15.8125 4.6875C15.8125 4.43886 15.7137 4.2004 15.5379 4.02459C15.3621 3.84877 15.1236 3.75 14.875 3.75ZM5.8125 2.8125C5.8125 2.72962 5.84542 2.65013 5.90403 2.59153C5.96263 2.53292 6.04212 2.5 6.125 2.5H9.875C9.95788 2.5 10.0374 2.53292 10.096 2.59153C10.1546 2.65013 10.1875 2.72962 10.1875 2.8125V3.75H5.8125V2.8125ZM12.6875 15.9375H3.3125V5.625H12.6875V15.9375ZM7.0625 8.125V13.125C7.0625 13.3736 6.96373 13.6121 6.78791 13.7879C6.6121 13.9637 6.37364 14.0625 6.125 14.0625C5.87636 14.0625 5.6379 13.9637 5.46209 13.7879C5.28627 13.6121 5.1875 13.3736 5.1875 13.125V8.125C5.1875 7.87636 5.28627 7.6379 5.46209 7.46209C5.6379 7.28627 5.87636 7.1875 6.125 7.1875C6.37364 7.1875 6.6121 7.28627 6.78791 7.46209C6.96373 7.6379 7.0625 7.87636 7.0625 8.125ZM10.8125 8.125V13.125C10.8125 13.3736 10.7137 13.6121 10.5379 13.7879C10.3621 13.9637 10.1236 14.0625 9.875 14.0625C9.62636 14.0625 9.3879 13.9637 9.21209 13.7879C9.03627 13.6121 8.9375 13.3736 8.9375 13.125V8.125C8.9375 7.87636 9.03627 7.6379 9.21209 7.46209C9.3879 7.28627 9.62636 7.1875 9.875 7.1875C10.1236 7.1875 10.3621 7.28627 10.5379 7.46209C10.7137 7.6379 10.8125 7.87636 10.8125 8.125Z" fill="#0054A4" />
                         </svg>
@@ -352,7 +363,8 @@ export default function IniciarTramite() {
 
             </form>
             {/* sussefull */}
-            {successful && <Success data={successful} handleModal={setSuccessful} />}
+            {stateApi == "loading" && <Loading /> }
+            {stateApi == "success" && <Success data={successful} handleModal={setSuccessful} setStateApi={setStateApi} />}
         </>
     )
 }

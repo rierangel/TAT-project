@@ -1,15 +1,17 @@
 import { data } from 'autoprefixer'
 import React, { useEffect, useState } from 'react'
 import ApiConsultResp from './ApiConsultResp'
+import Loading from './Loading'
 export default function ApiConsult({ path }) {
 
     const [data, setData] = useState({ expediente: "", pin: "" })
-    const [successful, setSuccessful] = useState()
+    const [stateApi, setStateApi] = useState()
     const [successfulData, setSuccessfulData] = useState()
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        setStateApi("loading")
         if (data.expediente !== "" && data.pin !== "") {
             fetch(path, {
                 method: "POST",
@@ -25,46 +27,49 @@ export default function ApiConsult({ path }) {
                     else{
 
                         setSuccessfulData(data)
-                        setSuccessful(true)
+                        setStateApi("success")
                     }
 
                 }) // res error
                 .catch(error => console.log(error))
         } else {
-            alert("PIN o Nro. de Expediente invalido")
+            // alert("PIN o Nro. de Expediente invalido")
+            setStateApi(undefined)
+
         }
     }
 
     return (
         <>
-            <form onSubmit={handleSubmit} className='form slider' action="">
+            <form onSubmit={handleSubmit} className='form slider ' action="">
                 <div className='single'>
                     <label htmlFor="PIN_exp">Ingrese PIN</label>
-                    <input defaultValue={data.pin} onChange={(e) => setData({ ...data, ["pin"]: e.target.value })}
+                    <input required defaultValue={data.pin} onChange={(e) => setData({ ...data, ["pin"]: e.target.value })}
                         type="number" id="PIN_exp" placeholder='Ingrese el PIN que recibió' />
                 </div>
                 <div className='single'>
                     <label htmlFor="nro_exp">Nro. de Expediente</label>
-                    <input defaultValue={data.expediente} onChange={(e) => setData({ ...data, ["expediente"]: e.target.value })}
-                        type="text" id="nro_exp" placeholder='1234567' />
+                    <input required defaultValue={data.expediente} onChange={(e) => setData({ ...data, ["expediente"]: e.target.value })}
+                        type="text"  id="nro_exp" placeholder='23-2021' />
                 </div>
-                <div className="subtitle">
+                {/* <div className="subtitle">
                     <i>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M9 0.5625C7.33122 0.5625 5.69992 1.05735 4.31238 1.98448C2.92484 2.9116 1.84338 4.22936 1.20477 5.77111C0.566156 7.31286 0.399065 9.00936 0.724628 10.6461C1.05019 12.2828 1.85379 13.7862 3.03379 14.9662C4.2138 16.1462 5.71721 16.9498 7.35393 17.2754C8.99064 17.6009 10.6871 17.4338 12.2289 16.7952C13.7706 16.1566 15.0884 15.0752 16.0155 13.6876C16.9427 12.3001 17.4375 10.6688 17.4375 9C17.4354 6.76287 16.5458 4.61796 14.9639 3.03607C13.382 1.45418 11.2371 0.564569 9 0.5625ZM9 15.5625C7.70206 15.5625 6.43327 15.1776 5.35407 14.4565C4.27488 13.7354 3.43374 12.7105 2.93704 11.5114C2.44034 10.3122 2.31038 8.99272 2.5636 7.71972C2.81682 6.44672 3.44183 5.27739 4.35962 4.35961C5.2774 3.44183 6.44672 2.81681 7.71972 2.5636C8.99272 2.31038 10.3122 2.44034 11.5114 2.93704C12.7105 3.43374 13.7354 4.27487 14.4565 5.35407C15.1776 6.43327 15.5625 7.70206 15.5625 9C15.5604 10.7398 14.8684 12.4078 13.6381 13.6381C12.4078 14.8684 10.7399 15.5604 9 15.5625ZM10.25 12.75C10.25 12.9972 10.1767 13.2389 10.0393 13.4445C9.90199 13.65 9.70677 13.8102 9.47836 13.9049C9.24995 13.9995 8.99862 14.0242 8.75614 13.976C8.51366 13.9278 8.29094 13.8087 8.11612 13.6339C7.9413 13.4591 7.82225 13.2363 7.77402 12.9939C7.72579 12.7514 7.75054 12.5001 7.84515 12.2716C7.93976 12.0432 8.09998 11.848 8.30554 11.7107C8.5111 11.5733 8.75278 11.5 9 11.5C9.33152 11.5 9.64947 11.6317 9.88389 11.8661C10.1183 12.1005 10.25 12.4185 10.25 12.75ZM12.125 7.4375C12.125 8.2663 11.7958 9.06116 11.2097 9.64721C10.6237 10.2333 9.8288 10.5625 9 10.5625C8.75136 10.5625 8.51291 10.4637 8.33709 10.2879C8.16128 10.1121 8.0625 9.87364 8.0625 9.625C8.0625 9.37636 8.16128 9.1379 8.33709 8.96209C8.51291 8.78627 8.75136 8.6875 9 8.6875C9.24723 8.6875 9.4889 8.61419 9.69447 8.47684C9.90003 8.33949 10.0602 8.14426 10.1549 7.91585C10.2495 7.68745 10.2742 7.43611 10.226 7.19364C10.1778 6.95116 10.0587 6.72843 9.88389 6.55362C9.70907 6.3788 9.48634 6.25975 9.24387 6.21152C9.00139 6.16329 8.75006 6.18804 8.52165 6.28265C8.29324 6.37726 8.09802 6.53748 7.96067 6.74304C7.82331 6.9486 7.75 7.19027 7.75 7.4375C7.75 7.68614 7.65123 7.9246 7.47542 8.10041C7.2996 8.27623 7.06114 8.375 6.8125 8.375C6.56386 8.375 6.32541 8.27623 6.14959 8.10041C5.97378 7.9246 5.875 7.68614 5.875 7.4375C5.875 6.6087 6.20424 5.81384 6.79029 5.22779C7.37635 4.64174 8.1712 4.3125 9 4.3125C9.8288 4.3125 10.6237 4.64174 11.2097 5.22779C11.7958 5.81384 12.125 6.6087 12.125 7.4375Z" fill="#0054A4" />
                         </svg>
                     </i>
                     <h4>¿Dónde encuentro el PIN?</h4>
-                </div>
-                <button className="primary flex-center gap-[10px] md: mr-auto">
+                </div> */}
+                <br />
+                <button className="primary flex-center gap-[10px] md:mr-auto">
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.1641 15.8359L13.9844 12.6563C15.0113 11.3456 15.5672 9.72752 15.5625 8.0625C15.5625 6.57914 15.1226 5.1291 14.2985 3.89573C13.4744 2.66236 12.3031 1.70106 10.9326 1.13341C9.56218 0.56575 8.05418 0.417225 6.59933 0.706614C5.14447 0.996003 3.8081 1.71031 2.7592 2.7592C1.71031 3.8081 0.996003 5.14447 0.706614 6.59933C0.417225 8.05418 0.56575 9.56218 1.13341 10.9326C1.70106 12.3031 2.66236 13.4744 3.89573 14.2985C5.1291 15.1226 6.57914 15.5625 8.0625 15.5625C9.72752 15.5672 11.3456 15.0113 12.6563 13.9844L15.8359 17.1641C16.0129 17.3387 16.2514 17.4366 16.5 17.4366C16.7486 17.4366 16.9872 17.3387 17.1641 17.1641C17.2515 17.077 17.3208 16.9735 17.3681 16.8595C17.4154 16.7456 17.4398 16.6234 17.4398 16.5C17.4398 16.3766 17.4154 16.2544 17.3681 16.1405C17.3208 16.0265 17.2515 15.923 17.1641 15.8359ZM2.4375 8.0625C2.4375 6.94998 2.7674 5.86245 3.38549 4.93742C4.00357 4.01239 4.88207 3.29142 5.90991 2.86568C6.93774 2.43994 8.06874 2.32854 9.15989 2.54559C10.251 2.76263 11.2533 3.29836 12.04 4.08503C12.8266 4.8717 13.3624 5.87398 13.5794 6.96512C13.7965 8.05626 13.6851 9.18726 13.2593 10.2151C12.8336 11.2429 12.1126 12.1214 11.1876 12.7395C10.2626 13.3576 9.17502 13.6875 8.0625 13.6875C6.5713 13.6854 5.14175 13.0921 4.08731 12.0377C3.03287 10.9833 2.43957 9.55371 2.4375 8.0625Z" fill="white" />
                     </svg>
                     Consultar
                 </button>
             </form>
-
-            {successful && <ApiConsultResp handleModal={setSuccessful} data={successfulData}/>}
+            {stateApi == "success" && <ApiConsultResp handleModal={setStateApi} data={successfulData}/>}
+            {stateApi == "loading" && <Loading />}
         </>
 
 

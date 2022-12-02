@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import TextBack from '../Layer/TextBack'
 import Title from '../Layer/Title'
-import ApiConsult from './ApiFormConsult'
+import ApiConsult from './ApiConsult'
 export default function ConsulEstado({ data }) {
 
     const scrollSliderRef = useRef()
@@ -45,7 +45,7 @@ export default function ConsulEstado({ data }) {
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
                 <div className="border1 border1_form ">
                     {/* select form */}
-                    <div className='slect-form-consulta'>
+                    <div className='slect-form-consulta cursor-pointer text-2xl'>
                         <div onClick={(e) => handleScroll(e, 0)} className='active'>Trámites</div>
                         <div onClick={(e) => handleScroll(e, 1)} className=''>Expedientes</div>
                     </div>
@@ -59,17 +59,11 @@ export default function ConsulEstado({ data }) {
                 </div>
 
                 <div className='dot_interes'>
-
                     <div className="subtitle text">
-
                         <i dangerouslySetInnerHTML={{ __html: data.contenido[0].icono }}></i>
                         <h3>{data.contenido[0].titulo}</h3>
                     </div>
-
-
                     <TextBack text={data.contenido[0].text} />
-
-
                 </div>
             </div>
 

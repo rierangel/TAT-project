@@ -101,6 +101,19 @@ form {
     textarea,
     input {
       border: solid 1.5px v.$ligh1;
+      &[type=file]{
+        opacity: 0;
+        outline: none;
+        outline-color:transparent;
+        color: transparent;
+        border: solid 1.5px transparent;
+        &::after,&::before{
+          display: hidden;
+        }
+
+
+    }
+
     }
   }
 }
@@ -124,7 +137,7 @@ footer {
       margin-bottom: 16px;
 
       a {
-        text-transform: capitalize;
+        text-transform: lowercase;
 
         &:hover {
           text-decoration-line: underline;

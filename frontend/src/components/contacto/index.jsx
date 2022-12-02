@@ -42,23 +42,17 @@ function Contact() {
                             <input type="text" name="" id="name" />
                         </div>
                         <div className='form-control w-full'>
-                            <label htmlFor="name">Nombre y Apellido</label>
+                            <label htmlFor="name">Teléfono</label>
+                            <input type="text" name="" id="name" />
+                        </div>
+                        <div className='form-control w-full'>
+                            <label htmlFor="name">Correo electrónico</label>
                             <input type="text" name="" id="name" />
                         </div>
 
-                        <div className='group-inline'>
-                            <div className='form-control'>
-                                <label htmlFor="name">Nombre y Apellido</label>
-                                <input type="text" name="" id="name" />
-                            </div>
-                            <div className='form-control'>
-
-                                <label htmlFor="name">Nombre y Apellido</label>
-                                <input type="text" name="" id="name" />
-                            </div>
-                        </div>
+                       
                         <div className='single'>
-                            <label htmlFor="name">Nombre y Apellido</label>
+                            <label htmlFor="name">Mensaje</label>
                             <textarea name="" id="" cols="30" rows="10"></textarea>
                         </div>
 

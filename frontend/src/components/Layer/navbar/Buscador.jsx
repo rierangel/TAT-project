@@ -52,7 +52,7 @@ export default function Component() {
     }, [dataResult])
 
     const seccion = [
-        { name: "Todas", path: "", internalPath: "" },
+        // { name: "Todas", path: "", internalPath: "" },
         { name: "Noticias", path: "/entradas/noticias/", internalPath: "/entradas/noticias/" },
         { name: "Haciendo la diferencia", path: "/entradas/haciendo-la-diferencia/", internalPath: "/entradas/haciendo-la-diferencia/" },
         { name: "Congreso", path: "/entradas/congreso/", internalPath: "/entradas/congreso-internacional-de-derecho-tributario/" },

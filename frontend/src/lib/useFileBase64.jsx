@@ -46,8 +46,8 @@ export default function DropImg({ children, item, setItem }) {
 
     return (
 
-        <label onDrop={(e) => handleDrop(e)} onDragOver={(e) => { e.preventDefault() }} >
-            <input accept="application/pdf" ref={itemRef} onChange={e => itemRef.current.files[0] ? getBase64(itemRef.current.files[0]) : setItem(itemRef.current.files[0])} className='hidden' type="file" name="" />
+        <label className='' onDrop={(e) => handleDrop(e)} onDragOver={(e) => { e.preventDefault() }} >
+
             {item ?
                 <div className='cursor-pointer items-center flex justify-center flex-col w-1/4  mx-auto p-5'>
                     <div className="w-full relative">
@@ -63,7 +63,10 @@ export default function DropImg({ children, item, setItem }) {
                     {children}
                 </>
             }
-
+            <div className='flex justify-end'>
+                <input required accept="application/pdf" ref={itemRef} onChange={e => itemRef.current.files[0] ? getBase64(itemRef.current.files[0]) : setItem(itemRef.current.files[0])}
+                    className='border border- required:border-red-500 invalid:border-red-500' type="file" name="" />
+            </div>
         </label>
 
 

@@ -2,7 +2,7 @@ import React from 'react'
 import TextBack from 'src/components/Layer/TextBack'
 
 export default function sucess({ handleModal, data }) {
-  console.log(data);
+
   return (data &&
     <div className="fixed inset-0 bg-[#0F162099] bg-opacity-60 z-[100] flex justify-center items-center">
 
@@ -26,7 +26,7 @@ export default function sucess({ handleModal, data }) {
 
 
         <div className="flex justify-center">
-          <button onClick={() => handleModal(false)} className='primary btn-xs gap-2'>
+          <button onClick={() => handleModal(false)} className='primary btn-xxs gap-2'>
             <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5.62663 11.3125C5.37809 11.3115 5.1398 11.2133 4.96256 11.0391L0.587564 6.6641C0.411443 6.48798 0.3125 6.24911 0.3125 6.00004C0.3125 5.75097 0.411443 5.5121 0.587564 5.33598C0.763684 5.15986 1.00255 5.06091 1.25163 5.06091C1.5007 5.06091 1.73957 5.15986 1.91569 5.33598L5.62663 9.04691L13.7126 0.960977C13.7998 0.873771 13.9033 0.804595 14.0172 0.7574C14.1312 0.710204 14.2533 0.685913 14.3766 0.685913C14.5 0.685913 14.6221 0.710204 14.736 0.7574C14.85 0.804595 14.9535 0.873771 15.0407 0.960977C15.1279 1.04818 15.1971 1.15171 15.2443 1.26565C15.2915 1.37959 15.3158 1.50171 15.3158 1.62504C15.3158 1.74837 15.2915 1.87049 15.2443 1.98443C15.1971 2.09837 15.1279 2.2019 15.0407 2.2891L6.29069 11.0391C6.11345 11.2133 5.87516 11.3115 5.62663 11.3125Z" fill="white" />
             </svg>
