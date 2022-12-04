@@ -11,7 +11,7 @@
     ul.toggle {
         padding: 12px 0px;
         position: absolute;
-        top: 60px;
+        top: 70px;
         left: 0;
         white-space: nowrap;
         border-radius: 12px;
@@ -40,9 +40,10 @@
 .tooltipNavbar {
 
     margin: 0px;
+    padding-left: 12px ;
     display: flex;
     flex-direction: column;
-    background-color: v.$primary;
+    // background-color: v.$primary;
     width: 100%;
     @media (min-width:v.$md) {
         position: relative;
@@ -58,7 +59,7 @@
         position: relative;
 
         @media (min-width:v.$md) {
-            top: 20px;
+            top: 40px;
             position: absolute;
 
             .tooltipNavbar{

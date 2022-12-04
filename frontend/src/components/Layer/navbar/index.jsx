@@ -6,6 +6,7 @@ import styles from './styles.module.scss'
 
 
 import Tooltip from 'src/lib/TooltipNavbar'
+import { useRouter } from 'next/router'
 
 
 
@@ -40,6 +41,10 @@ export default function Navbar() {
         menuRef.current.classList.toggle("hidden")
     }
 
+    const router  = useRouter()
+    const rute = router.asPath
+
+    console.log(rute);
 
     return (
         <nav className={styles.navbar}>
@@ -66,27 +71,29 @@ export default function Navbar() {
                     <div className='mr-auto'>
                         <ul className={styles.bottom} >
                             <Link href="/">
-                                <a>
-                                    <li >
+                                <a >
+                                    <li className={rute == "/" && styles.current_path} >
                                         Inicio
                                     </li>
+                                    
+
                                 </a>
                             </Link>
 
                             <Link href="/tramites/">
-                                <a>
-                                    <li >
+                                <a >
+                                    <li className={rute == "/tramites" && styles.current_path} >
                                         Trámites
                                     </li>
                                 </a>
                             </Link>
-
-                            <div className=' flex items-start'>
+                            <div className={'flex items-start ' +`${`${rute}`.split("/")[1] == "nosotros" && styles.current_path}` } >
                                 <Tooltip title="Nosotros">
                                     {nosotros.map((e, i) => (
                                         <Link key={i} href={`/nosotros${e.link}`}>
-                                            <a>
-                                                <li >
+                                            <a >
+                                                <li  >
+                                                    {console.log(`${rute}`.split("/")[1] == "nosotros" )}
                                                     {e.name}
                                                 </li>
                                             </a>
@@ -96,11 +103,11 @@ export default function Navbar() {
                             </div>
 
                             {/* marco normativo */}
-                            <div className=' flex items-start' >
+                            <div className={'flex items-start ' +`${`${rute}`.split("/")[1] == "publicaciones" && styles.current_path}` } >
                                 <Tooltip title="Marco Normativo">
 
                                     <Link href={`/publicaciones/ponencias/`}>
-                                        <a>
+                                        <a >
                                             <li >
                                                 Ponencias del Congreso
                                             </li>
@@ -108,7 +115,7 @@ export default function Navbar() {
                                     </Link>
 
                                     <Link href={`/publicaciones/revista-tributaria/`}>
-                                        <a>
+                                        <a >
                                             <li >
                                                 Revista Justicia Tributaria
                                             </li>
@@ -116,18 +123,18 @@ export default function Navbar() {
                                     </Link>
 
 
-                                    <div className='mt-4 -mb-3 ' >
-                                        <Tooltip title="Normativa">
+                                    <div className={styles.subToggle} >
+                                        <Tooltip title="Normativa" left={true}>
                                             <Link href={`/publicaciones/memorias`}>
-                                                <a>
-                                                    <li >
+                                                <a >
+                                                    <li className={rute == "" && styles.current_path} >
                                                         Memorias
                                                     </li>
                                                 </a>
                                             </Link>
                                             <Link href={`/publicaciones/otras`}>
-                                                <a>
-                                                    <li >
+                                                <a >
+                                                    <li className={rute == "" && styles.current_path} >
                                                         Otras Publicaciones
                                                     </li>
                                                 </a>
@@ -143,15 +150,15 @@ export default function Navbar() {
                             </div>
 
                             <Link href="/transparencia">
-                                <a>
-                                    <li >
+                                <a >
+                                    <li className={rute == "/transparencia" && styles.current_path} >
                                         Transparencia
                                     </li>
                                 </a>
                             </Link>
                             <Link href="/contacto">
-                                <a>
-                                    <li >
+                                <a >
+                                    <li className={rute == "/contacto" && styles.current_path} >
                                         Contacto
                                     </li>
                                 </a>
