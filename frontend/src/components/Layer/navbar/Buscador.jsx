@@ -15,6 +15,17 @@ export default function Component() {
 
     const [dataResult, setDataResult] = useState([])
 
+    const seccion = [
+        { name: "Todas", path: "", internalPath: "" },
+        { name: "Noticias", path: "/entradas/noticias/", internalPath: "/entradas/noticias/" },
+        { name: "Haciendo la diferencia", path: "/entradas/haciendo-la-diferencia/", internalPath: "/entradas/haciendo-la-diferencia/" },
+        { name: "Congreso", path: "/entradas/congreso/", internalPath: "/entradas/congreso-internacional-de-derecho-tributario/" },
+        { name: "Resoluciones", path: "/publicaciones/resoluciones/", internalPath: "/publicaciones/resoluciones/" },
+        { name: "Ponencias", path: "/publicaciones/ponencias/", internalPath: "/publicaciones/ponencias/" },
+        { name: "Revista tributaria", path: "/publicaciones/revista-tributaria/", internalPath: "/publicaciones/revista-tributaria/" },
+        { name: "Memorias", path: "/publicaciones/memorias/", internalPath: "/publicaciones/memorias/" },
+        { name: "Otros", path: "/publicaciones/otros/", internalPath: "/publicaciones/otros/" },
+    ]
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -25,12 +36,17 @@ export default function Component() {
             fetcher(element)
                 .then(res => {
                     let newArray = ""
-                    if (currentSeccion.name == "Todas") {
-                        newArray = newcurrentSeccion[index]
+                    if (currentSeccion[0].name == "Todas") {
+                        newArray = [seccion[index +1]]
+
                     } else {
+
                         newArray = currentSeccion
                     }
-                    newArray["results"] = res.results
+                    // console.log(newArray);
+
+                    newArray[0]["results"] = res.results
+
                     lastresult.push(newArray)
 
                     if (index == queryArray.length - 1) {
@@ -42,27 +58,16 @@ export default function Component() {
 
                 })
                 .catch(error => console.log(error))
-            console.log(lastresult);
+            // console.log(lastresult);
         }
-        console.log(lastresult);
+        // console.log(lastresult);
 
     }
     useEffect(() => {
-        console.log(dataResult);
+        // console.log(dataResult);
     }, [dataResult])
 
-    const seccion = [
-        // { name: "Todas", path: "", internalPath: "" },
-        { name: "Noticias", path: "/entradas/noticias/", internalPath: "/entradas/noticias/" },
-        { name: "Haciendo la diferencia", path: "/entradas/haciendo-la-diferencia/", internalPath: "/entradas/haciendo-la-diferencia/" },
-        { name: "Congreso", path: "/entradas/congreso/", internalPath: "/entradas/congreso-internacional-de-derecho-tributario/" },
-        { name: "Resoluciones", path: "/publicaciones/resoluciones/", internalPath: "/publicaciones/resoluciones/" },
-        { name: "Ponencias", path: "/publicaciones/ponencias/", internalPath: "/publicaciones/ponencias/" },
-        { name: "Revista tributaria", path: "/publicaciones/revista-tributaria/", internalPath: "/publicaciones/revista-tributaria/" },
-        { name: "Memorias", path: "/publicaciones/memorias/", internalPath: "/publicaciones/memorias/" },
-        { name: "Otros", path: "/publicaciones/otros/", internalPath: "/publicaciones/otros/" },
-    ]
-
+   
     const handleChange = () => {
         const backUrl = `${process.env.NEXT_PUBLIC_URL_BACKEND}`
         let newUrl = `?searsh=${searsh}`
@@ -71,14 +76,12 @@ export default function Component() {
         let newArrayCurrentSeccion = []
         if (currentSeccion[0].name !== "Todas") {
             let newQueryUrl = `${backUrl}${currentSeccion[0].path}${newUrl}`
-            console.log(currentSeccion);
+            // console.log(currentSeccion);
             arrayPath.push(newQueryUrl)
             newArrayCurrentSeccion.push(seccion[0])
 
         } else {
-
             for (let index = 1; index < 4; index++) {
-
                 if (currentSeccion[0].name !== "Todas") {
                     setCurrentSeccion([])
                 }
@@ -88,6 +91,7 @@ export default function Component() {
                 newArrayCurrentSeccion.push(element)
             }
         }
+        console.log(arrayPath);
 
         setQueryArray(arrayPath)
         setNewCurrentSeccion(newArrayCurrentSeccion);
@@ -142,8 +146,8 @@ export default function Component() {
                 <div key={i}>
                     <hr />
                     <div className='flex flex-col gap-2 py-6 md:py-9 px-3'>
-                        <h2>{v.name}</h2>
-                        {v.results && v.results.map((result, indexResult) => (
+                        <h2>{v[0].name}</h2>
+                        {v[0].results && v[0].results.map((result, indexResult) => (
 
                             <div key={indexResult} className="mb-5">
                                 <div className='flex items-center space-x-4'>
