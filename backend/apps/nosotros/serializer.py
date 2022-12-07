@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import Oficina, Departamento, Equipo, Autoridad, PreguntasFrecuente, Vacante
+from .models import Oficina, Departamento, Equipo, Autoridad, PreguntasFrecuente, Vacante, OtrasInstituciones
 
 
 
@@ -39,6 +39,10 @@ class VacanteSerializers(serializers.ModelSerializer):
 
 
 
+class OtrasInstitucionesSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = OtrasInstituciones
+        fields = '__all__'
 
 
 

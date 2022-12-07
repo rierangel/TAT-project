@@ -1,7 +1,67 @@
 import { fetcher } from 'src/lib/Fetcher'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import emailjs from '@emailjs/browser';
+
+
+function Loading() {
+    return (
+        <div className="fixed inset-0 bg-[#0F162099] bg-opacity-60 z-[100] flex justify-center items-center">
+            <div className="flex flex-col items-center py-24 px-40 bg-white rounded-2xl">
+                <svg className="animate-spin  h-32 w-32 text-[#0054A4]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+            </div>
+
+        </div>
+    )
+}
+function Success({ setSnippet, state }) {
+    return (
+        <div className="fixed inset-0 bg-[#0F162099] bg-opacity-60 z-[100] flex justify-center items-center">
+
+            <div className="flex flex-col items-center py-12 px-44 bg-white rounded-2xl">
+                {state == true ?
+                    <>
+                        <svg width="102" height="102" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M75.7032 35.8594C76.2155 36.3942 76.6171 37.0249 76.885 37.7154C77.153 38.4058 77.2819 39.1423 77.2645 39.8827C77.2471 40.6231 77.0836 41.3527 76.7835 42.0298C76.4834 42.7069 76.0525 43.318 75.5157 43.8281L48 70.0781C46.9505 71.0752 45.557 71.6292 44.1094 71.625C42.6645 71.6151 41.276 71.0631 40.2188 70.0781L26.4844 56.9531C25.4028 55.9213 24.7754 54.502 24.7403 53.0076C24.7051 51.5132 25.265 50.066 26.2969 48.9844C27.3288 47.9028 28.748 47.2754 30.2424 47.2403C31.7369 47.2051 33.1841 47.765 34.2657 48.7969L44.1094 58.2188L67.7344 35.6719C68.2692 35.1596 68.9 34.758 69.5904 34.49C70.2808 34.2221 71.0173 34.0931 71.7577 34.1105C72.4981 34.128 73.2278 34.2914 73.9048 34.5915C74.5819 34.8916 75.193 35.3225 75.7032 35.8594V35.8594ZM101.625 51C101.625 61.0127 98.6559 70.8005 93.0932 79.1258C87.5304 87.451 79.6239 93.9397 70.3734 97.7714C61.1229 101.603 50.9439 102.606 41.1236 100.652C31.3033 98.6989 22.2828 93.8773 15.2027 86.7973C8.12271 79.7173 3.30115 70.6968 1.34777 60.8765C-0.605609 51.0562 0.396935 40.8772 4.22862 31.6267C8.06031 22.3761 14.549 14.4696 22.8743 8.90685C31.1995 3.34411 40.9874 0.375 51 0.375C64.4228 0.387411 77.2923 5.72509 86.7836 15.2164C96.275 24.7078 101.613 37.5772 101.625 51V51ZM90.375 51C90.375 43.2124 88.0657 35.5996 83.7392 29.1244C79.4126 22.6492 73.263 17.6024 66.0682 14.6222C58.8734 11.642 50.9564 10.8623 43.3184 12.3816C35.6803 13.9009 28.6644 17.651 23.1577 23.1577C17.651 28.6644 13.9009 35.6803 12.3816 43.3183C10.8623 50.9563 11.6421 58.8733 14.6223 66.0682C17.6025 73.263 22.6493 79.4126 29.1245 83.7391C35.5996 88.0657 43.2124 90.375 51 90.375C61.4391 90.3626 71.4471 86.2102 78.8287 78.8286C86.2102 71.4471 90.3626 61.4391 90.375 51V51Z" fill="#0054A4" />
+                        </svg>
+                        <h2 className='mt-5'>Mensaje enviado correctamente</h2>
+                    </>
+                    :
+                    <>
+
+                        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M60 9.375C49.9873 9.375 40.1995 12.3441 31.8743 17.9069C23.549 23.4696 17.0603 31.3761 13.2286 40.6267C9.39694 49.8772 8.39439 60.0562 10.3478 69.8764C12.3011 79.6967 17.1227 88.7172 24.2027 95.7973C31.2828 102.877 40.3033 107.699 50.1236 109.652C59.9439 111.606 70.1229 110.603 79.3734 106.771C88.6239 102.94 96.5304 96.451 102.093 88.1257C107.656 79.8005 110.625 70.0127 110.625 60C110.613 46.5772 105.275 33.7078 95.7836 24.2164C86.2923 14.7251 73.4228 9.38741 60 9.375ZM60 99.375C52.2124 99.375 44.5996 97.0657 38.1244 92.7391C31.6493 88.4125 26.6025 82.263 23.6223 75.0682C20.6421 67.8733 19.8623 59.9563 21.3816 52.3183C22.9009 44.6803 26.651 37.6644 32.1577 32.1577C37.6644 26.651 44.6803 22.9009 52.3183 21.3816C59.9563 19.8623 67.8733 20.642 75.0682 23.6222C82.263 26.6024 88.4126 31.6492 92.7391 38.1244C97.0657 44.5996 99.375 52.2124 99.375 60C99.3626 70.4391 95.2102 80.4471 87.8287 87.8286C80.4471 95.2102 70.4391 99.3626 60 99.375ZM78.9844 48.9844L67.9688 60L78.9844 71.0156C79.5088 71.5382 79.9249 72.1592 80.2088 72.8429C80.4927 73.5266 80.6388 74.2597 80.6388 75C80.6388 75.7403 80.4927 76.4734 80.2088 77.1571C79.9249 77.8408 79.5088 78.4618 78.9844 78.9844C77.9229 80.0321 76.4915 80.6196 75 80.6196C73.5086 80.6196 72.0771 80.0321 71.0156 78.9844L60 67.9688L48.9844 78.9844C47.9229 80.0321 46.4915 80.6196 45 80.6196C43.5086 80.6196 42.0771 80.0321 41.0156 78.9844C40.4912 78.4618 40.0752 77.8408 39.7913 77.1571C39.5074 76.4734 39.3612 75.7403 39.3612 75C39.3612 74.2597 39.5074 73.5266 39.7913 72.8429C40.0752 72.1592 40.4912 71.5382 41.0156 71.0156L52.0313 60L41.0156 48.9844C39.9589 47.9277 39.3653 46.4944 39.3653 45C39.3653 43.5056 39.9589 42.0723 41.0156 41.0156C42.0724 39.9589 43.5056 39.3652 45 39.3652C46.4945 39.3652 47.9277 39.9589 48.9844 41.0156L60 52.0312L71.0156 41.0156C72.0724 39.9589 73.5056 39.3652 75 39.3652C76.4945 39.3652 77.9277 39.9589 78.9844 41.0156C80.0411 42.0723 80.6348 43.5056 80.6348 45C80.6348 46.4944 80.0411 47.9277 78.9844 48.9844Z" fill="#CD4040" />
+                        </svg>
+                        <h2 className='mt-5'>Se produjo un error al enviar el mensaje, por favor, intentelo de mas tarde.  </h2>
+                    </>
+                }
+
+
+
+
+
+                <div className="flex justify-center mt-12">
+                    <button onClick={() => setSnippet(false)} className='primary btn-xxs gap-2'>
+                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.62663 11.3125C5.37809 11.3115 5.1398 11.2133 4.96256 11.0391L0.587564 6.6641C0.411443 6.48798 0.3125 6.24911 0.3125 6.00004C0.3125 5.75097 0.411443 5.5121 0.587564 5.33598C0.763684 5.15986 1.00255 5.06091 1.25163 5.06091C1.5007 5.06091 1.73957 5.15986 1.91569 5.33598L5.62663 9.04691L13.7126 0.960977C13.7998 0.873771 13.9033 0.804595 14.0172 0.7574C14.1312 0.710204 14.2533 0.685913 14.3766 0.685913C14.5 0.685913 14.6221 0.710204 14.736 0.7574C14.85 0.804595 14.9535 0.873771 15.0407 0.960977C15.1279 1.04818 15.1971 1.15171 15.2443 1.26565C15.2915 1.37959 15.3158 1.50171 15.3158 1.62504C15.3158 1.74837 15.2915 1.87049 15.2443 1.98443C15.1971 2.09837 15.1279 2.2019 15.0407 2.2891L6.29069 11.0391C6.11345 11.2133 5.87516 11.3115 5.62663 11.3125Z" fill="white" />
+                        </svg>
+                        Aceptar y cerrar ventana
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    )
+}
+
+
 
 function Contact() {
+
+
 
     const url = `${process.env.NEXT_PUBLIC_URL_BACKEND}/nosotros/departamentos/`
     const [data, setData] = useState([])
@@ -11,7 +71,28 @@ function Contact() {
             setData(res)
         })
 
-    },[])
+    }, [])
+
+    const [snippet, setSnippet] = useState()
+
+
+    const form = useRef();
+    const sendEmail = (e) => {
+        setSnippet("loading")
+        emailjs.sendForm('Personal_Email', 'template_g5zp2qq', form.current, process.env.NEXT_PUBLIC_EMAIL_ID)
+            .then((result) => {
+                setSnippet("success")
+            }, (error) => {
+                console.log(error.text);
+                setSnippet("fail")
+
+            });
+        e.preventDefault();
+        // e.target.reset();
+    };
+
+
+
 
 
 
@@ -24,7 +105,7 @@ function Contact() {
 
                 <div className="border1 border1_form w-full">
 
-                    <form action="" className='form'>
+                    <form ref={form} onSubmit={sendEmail} action="" className='form'>
 
                         {/* <div className='dot_interes'>
                             <div className="subtitle text">
@@ -39,28 +120,31 @@ function Contact() {
 
                         <div className='form-control w-full'>
                             <label htmlFor="name">Nombre y Apellido</label>
-                            <input type="text" name="" id="name" />
+                            <input type="text" name="user_name" id="name" />
                         </div>
                         <div className='form-control w-full'>
-                            <label htmlFor="name">Teléfono</label>
-                            <input type="text" name="" id="name" />
+                            <label htmlFor="tlf">Teléfono</label>
+                            <input type="number" name="tlf" id="tlf" />
                         </div>
                         <div className='form-control w-full'>
-                            <label htmlFor="name">Correo electrónico</label>
-                            <input type="text" name="" id="name" />
+                            <label htmlFor="email">Correo electrónico</label>
+                            <input type="email" name="from_email" id="email" />
                         </div>
 
-                       
+
+
                         <div className='single'>
-                            <label htmlFor="name">Mensaje</label>
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <label htmlFor="messaje">Mensaje</label>
+                            <textarea name="message" id="messaje" cols="30" rows="10"></textarea>
                         </div>
+                        <input type="hidden" name='web_site' value={"http://tatsite.arasait.com/"} />
+                        <input type="hidden" name='to_email' value={process.env.NEXT_PUBLIC_EMAIL_WEB} />
 
 
                         <div className='flex'>
 
 
-                        <button className='primary mt-4 w-full md:w-auto' type="submit">Enviar mensaje</button>
+                            <button className='primary mt-4 w-full md:w-auto' type="submit">Enviar mensaje</button>
                         </div>
 
                     </form>
@@ -90,9 +174,21 @@ function Contact() {
 
                 </div>
             </div>
+
+            {snippet == "loading" && <Loading />}
+            {snippet == "success" && <Success setSnippet={setSnippet} state={true} />}
+            {snippet == "fail" && <Success setSnippet={setSnippet} state={false} />}
+
+
         </>
     )
 }
+
+// snippets
+
+
+
+
 
 
 export default Contact

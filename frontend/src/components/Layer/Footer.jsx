@@ -77,7 +77,7 @@ export default function Footer() {
 
     {
       name: "Otras Instituciones",
-      link: "#"
+      link: "otras-instituciones"
     },
     {
       name: "Contacto",

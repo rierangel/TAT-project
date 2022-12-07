@@ -21,7 +21,7 @@ export default function Component() {
         { name: "Haciendo la diferencia", path: "/entradas/haciendo-la-diferencia/", internalPath: "/entradas/haciendo-la-diferencia/" },
         { name: "Congreso", path: "/entradas/congreso/", internalPath: "/entradas/congreso-internacional-de-derecho-tributario/" },
         { name: "Resoluciones", path: "/publicaciones/resoluciones/", internalPath: "/publicaciones/resoluciones/" },
-        { name: "Ponencias", path: "/publicaciones/ponencias/", internalPath: "/publicaciones/ponencias/" },
+        // { name: "Ponencias", path: "/publicaciones/ponencias/", internalPath: "/publicaciones/ponencias/" },
         { name: "Revista tributaria", path: "/publicaciones/revista-tributaria/", internalPath: "/publicaciones/revista-tributaria/" },
         { name: "Memorias", path: "/publicaciones/memorias/", internalPath: "/publicaciones/memorias/" },
         { name: "Otros", path: "/publicaciones/otros/", internalPath: "/publicaciones/otros/" },
@@ -43,9 +43,29 @@ export default function Component() {
 
                         newArray = currentSeccion
                     }
-                    // console.log(newArray);
 
-                    newArray[0]["results"] = res.results
+                    let arraryResult =  res.results ?  res.results :  res
+                  
+
+                    if(currentSeccion[0].name == "Ponencias"){
+                        let allAchivos = []
+                        for (let index = 0; index < res.length; index++) {
+                            const element = res[index].archivos;
+                            allAchivos = allAchivos.concat(element)
+                            
+                        }
+                        newArray[0]["results"] = allAchivos
+
+                    }else{
+                        newArray[0]["results"] = arraryResult
+
+                    }
+
+
+                    if(res.result){
+
+                    }
+
 
                     lastresult.push(newArray)
 
@@ -64,7 +84,7 @@ export default function Component() {
 
     }
     useEffect(() => {
-        // console.log(dataResult);
+        console.log(dataResult);
     }, [dataResult])
 
    

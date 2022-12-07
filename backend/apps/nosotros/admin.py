@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Oficina, Departamento, Autoridad, Equipo, PreguntasFrecuente, Vacante
+from .models import Oficina, Departamento, Autoridad, Equipo, PreguntasFrecuente, Vacante, OtrasInstituciones
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -13,6 +13,7 @@ admin.site.register(PreguntasFrecuente)
 
 admin.site.register(Oficina)
 admin.site.register(Departamento)
+admin.site.register(OtrasInstituciones)
 
 # admin.site.register(Autoridad, PostAdmin)
 

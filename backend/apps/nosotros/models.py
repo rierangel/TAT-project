@@ -79,3 +79,11 @@ class Vacante(models.Model):
 
     def __str__(self):
         return self.titulo
+
+
+class OtrasInstituciones(models.Model):
+    titulo = models.CharField(max_length=500)
+    url = models.URLField()
+
+    def __str__(self):
+        return self.titulo
