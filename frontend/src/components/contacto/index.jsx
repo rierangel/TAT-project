@@ -78,6 +78,8 @@ function Contact() {
 
     const form = useRef();
     const sendEmail = (e) => {
+        e.preventDefault();
+
         setSnippet("loading")
         emailjs.sendForm('Personal_Email', 'template_g5zp2qq', form.current, process.env.NEXT_PUBLIC_EMAIL_ID)
             .then((result) => {
@@ -87,7 +89,6 @@ function Contact() {
                 setSnippet("fail")
 
             });
-        e.preventDefault();
         // e.target.reset();
     };
 
