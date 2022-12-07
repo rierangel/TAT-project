@@ -37,14 +37,12 @@ export default function Navbar() {
     const menuRef = useRef()
 
     const setShowMenu = () => {
-        console.log(menuRef.current);
         menuRef.current.classList.toggle("hidden")
     }
 
     const router  = useRouter()
     const rute = router.asPath
 
-    console.log(rute);
 
     return (
         <nav className={styles.navbar}>

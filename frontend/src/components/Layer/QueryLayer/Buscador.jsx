@@ -7,7 +7,6 @@ import React, { useEffect, useState } from 'react'
  */
 export default function Buscador({ seturl, path, refetch, buscador }) {
 
-    console.log();
     let initialquery = {}
 
     for (let i of buscador) {

@@ -51,7 +51,7 @@ export default function Page({ slug }) {
     if (data) {
       setimgData(data.galeria.map((v, i) => v.imagen))
     }
-    console.log(data);
+
   }, [data, slug])
 
 

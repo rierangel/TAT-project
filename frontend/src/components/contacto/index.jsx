@@ -89,7 +89,7 @@ function Contact() {
                 setSnippet("fail")
 
             });
-        // e.target.reset();
+        e.target.reset();
     };
 
 

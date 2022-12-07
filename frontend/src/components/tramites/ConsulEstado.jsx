@@ -9,7 +9,6 @@ export default function ConsulEstado({ data }) {
     const handleScroll = (e, value) => {
         const widthScroll = scrollSliderRef.current.children[0].offsetWidth
         scrollSliderRef.current.scrollLeft = widthScroll * value
-        console.log(widthScroll * value);
         for (let index = 0; index < e.target.parentNode.children.length; index++) {
             const element = e.target.parentNode.children[index];
             element.className = ""
@@ -26,8 +25,6 @@ export default function ConsulEstado({ data }) {
     //         const dataApi = await resApi.json()
     //         return dataApi
     //     } catch (error) {
-    //         console.log("network error", error)
-    //         console.log("FAIL FETCH TO PATH", path);
     //         return { data: error }
     //     }
     // }

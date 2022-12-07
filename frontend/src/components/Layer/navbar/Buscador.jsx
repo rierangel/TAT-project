@@ -29,7 +29,6 @@ export default function Component() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // console.log(queryArray);
         let lastresult = []
         for (let index = 0; index < queryArray.length; index++) {
             const element = queryArray[index];
@@ -78,14 +77,11 @@ export default function Component() {
 
                 })
                 .catch(error => console.log(error))
-            // console.log(lastresult);
         }
-        // console.log(lastresult);
 
     }
-    useEffect(() => {
-        console.log(dataResult);
-    }, [dataResult])
+    // useEffect(() => {
+    // }, [dataResult])
 
    
     const handleChange = () => {
@@ -96,7 +92,6 @@ export default function Component() {
         let newArrayCurrentSeccion = []
         if (currentSeccion[0].name !== "Todas") {
             let newQueryUrl = `${backUrl}${currentSeccion[0].path}${newUrl}`
-            // console.log(currentSeccion);
             arrayPath.push(newQueryUrl)
             newArrayCurrentSeccion.push(seccion[0])
 
@@ -111,7 +106,6 @@ export default function Component() {
                 newArrayCurrentSeccion.push(element)
             }
         }
-        console.log(arrayPath);
 
         setQueryArray(arrayPath)
         setNewCurrentSeccion(newArrayCurrentSeccion);
@@ -146,9 +140,7 @@ export default function Component() {
                         // ; setCurrentSeccion(seccion[e.target.value])
                         name="" id={"currentSeccion"} className='w-full md:w-auto inset-0 h-full '>
                         {seccion.map((ef, kf) => (
-                            <option
-                                onClick={() => console.log("hello")}
-                                key={kf} className='bg-[#F7F8FB]' name={ef.name} value={ef.name}>{ef.name}</option>
+                            <option key={kf} className='bg-[#F7F8FB]' name={ef.name} value={ef.name}>{ef.name}</option>
                         ))}
                     </select>
                     <label htmlFor={"currentSeccion"} className='hidden md:flex absolute left-0 -top-8 '>{"Sección"}</label>

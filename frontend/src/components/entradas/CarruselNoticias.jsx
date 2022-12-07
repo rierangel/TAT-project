@@ -37,7 +37,6 @@ function SliderCarrusel() {
 
     const handleDot = (e) => {
         const slider = sliderRef.current
-        console.log("handledot");
         const index = Array.prototype.indexOf.call(e.target.parentElement.children, e.target);
         reSetDot(index)
         slider.scrollLeft = getWidth() * index

@@ -26,7 +26,6 @@ export default function DataTable({ data, path }) {
                     <tr key={i}>
                         {Object.entries(e).map((key, index) => (
                             <td key={index} >
-                                {console.log(key)}
                                 
                                 {
                                 key[0] == "id" ?

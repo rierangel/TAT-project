@@ -29,7 +29,6 @@ export default function Pagination({ data, state, setState }) {
 
             {pagesCount && pagesCount.map((e, i) => (
                 <li key={i}
-                    onClick={() => console.log(i)}
                     className="border1">{e + 1}</li>
             ))}
             <li onClick={() => data.links.next && setState(data.links.next)}
