@@ -15,34 +15,34 @@ export default function Page({ slug }) {
   const [mas, setMas] = useState()
 
   useEffect(() => {
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/congreso/${slug}/`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/cultura-tributaria/${slug}/`)
       .then(res => {
         setData(res[0]);
       }
       )
       .catch(error => console.log(error))
 
-    // mas congreso
+    // mas cultura-tributaria
     //data
-    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/congreso/?limit=5`)
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/entradas/cultura-tributaria/?limit=5`)
       .then(res => {
-        let masnoticias = res.results.filter((e,i)=> e.slug !== slug)
-        if(masnoticias.lenght > 3){
-          masnoticias = masnoticias.filter((e,i)=> i < 4)
+        let masnoticias = res.results.filter((e, i) => e.slug !== slug)
+        if (masnoticias.lenght > 3) {
+          masnoticias = masnoticias.filter((e, i) => i < 4)
         }
 
         setMas(masnoticias)
       })
       .catch(error => console.log(error))
 
-
-      setimgData(null)
+    setimgData(null)
   }, [slug])
 
   useEffect(() => {
     if (data) {
       setimgData(data.galeria.map((v, i) => v.imagen))
     }
+
   }, [data, slug])
 
 
@@ -65,9 +65,8 @@ export default function Page({ slug }) {
         <Carrusel data={imgData} />
         :
         <div className="flex w-full justify-center">
-        <ImgBack src={data.imagen_principal} />
-      </div>
-
+          <ImgBack src={data.imagen_principal} />
+        </div>
       }
 
       <TextBack text={data.contenido} className={"my-16"} />
@@ -85,13 +84,13 @@ export default function Page({ slug }) {
           </svg>
 
           </i>
-          <h1 className='mb-9'>Más de Congreso</h1>
+          <h1 className='mb-9'>Más Noticias</h1>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4  gap-6 my-6">
 
           {mas && mas.map((v, i) => (
-             <Link key={i} href={`/entradas/congreso-internacional-de-derecho-tributario/${v.slug}`} >
+            <Link key={i} href={`/entradas/noticias/${v.slug}`} >
               <a className='hover1' >
                 <div className="w-[302px]  mb-4 ">
                   <ImgBack className='h-[190px]  w-auto object-cover rounded-lg' src={v.imagen_principal} />

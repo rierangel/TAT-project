@@ -10,7 +10,7 @@ class Noticia(models.Model):
     fecha = models.DateField()
     contenido = models.TextField(blank=True,null=True)
     imagen_principal = models.ImageField(upload_to="entradas/noticias")
-    slug = models.SlugField(unique=True, default="",null=True,blank=True)
+    slug = models.SlugField(unique=True, default="",null=True,blank=True, help_text="¡no modificar!")
 
     def save(self, *args, **kwargs):
         self.slug = auto_slug(self.titulo, Noticia)
@@ -25,12 +25,34 @@ class GaleriaNoticia(models.Model):
     def __str__(self):
         return f'{self.entrada}'
 
+
+
+class CulturaTributaria(models.Model):
+    titulo = models.CharField(max_length=500,blank=True,null=True)
+    fecha = models.DateField()
+    contenido = models.TextField(blank=True,null=True)
+    imagen_principal = models.ImageField(upload_to="entradas/cultura")
+    slug = models.SlugField(unique=True, default="",null=True,blank=True, help_text="¡no modificar!")
+
+    def save(self, *args, **kwargs):
+        self.slug = auto_slug(self.titulo, CulturaTributaria)
+        print(self.slug)
+        super(CulturaTributaria, self).save(*args, **kwargs)
+    def __str__(self):
+        return f'{self.fecha} {self.titulo}'
+
+class GaleriaCulturaTributaria(models.Model):
+    imagen = models.ImageField(upload_to="entradas/cultura/galeria")
+    entrada = models.ForeignKey(CulturaTributaria, on_delete=models.CASCADE, related_name="galeria")
+    def __str__(self):
+        return f'{self.entrada}'
+
 class HaciendoDiferencia(models.Model):
     titulo = models.CharField(max_length=500,blank=True,null=True)
     fecha = models.DateField()
     contenido = models.TextField(blank=True,null=True)
     imagen_principal = models.ImageField(upload_to="entradas/galeria_haciendo_diferencia")
-    slug = models.SlugField(unique=True, default="",null=True,blank=True)
+    slug = models.SlugField(unique=True, default="",null=True,blank=True, help_text="¡no modificar!")
 
     def save(self, *args, **kwargs):
         self.slug = auto_slug(self.titulo, HaciendoDiferencia)
@@ -55,7 +77,7 @@ class Congreso(models.Model):
     fecha = models.DateField()
     contenido = models.TextField(blank=True,null=True)
     imagen_principal = models.ImageField(upload_to="entradas/congreso")
-    slug = models.SlugField(unique=True, default="",null=True,blank=True)
+    slug = models.SlugField(unique=True, default="",null=True,blank=True, help_text="¡no modificar!")
 
     def save(self, *args, **kwargs):
         self.slug = auto_slug(self.titulo, Congreso)

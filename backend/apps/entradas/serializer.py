@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import Noticia, GaleriaNoticia, HaciendoDiferencia, GaleriaHaciendoDiferencia, Congreso, GaleriaCongreso
+from .models import Noticia, GaleriaNoticia, HaciendoDiferencia, GaleriaHaciendoDiferencia, Congreso, GaleriaCongreso, CulturaTributaria, GaleriaCulturaTributaria
 
 
 #  NOTICIAS
@@ -20,6 +20,22 @@ class ViewNoticiaSerializers(serializers.ModelSerializer):
         fields = '__all__'
     galeria = GaleriaNoticiaSerializers(many=True)
 
+
+class CulturaTributariaSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = CulturaTributaria
+        fields = '__all__'
+
+class GaleriaCulturaTributariaSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = GaleriaCulturaTributaria
+        fields = ('imagen',)
+
+class ViewCulturaTributariaSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = CulturaTributaria
+        fields = '__all__'
+    galeria = GaleriaCulturaTributariaSerializers(many=True)
 
 
 

@@ -72,7 +72,9 @@ export default function Page({ slug }) {
 
         <Carrusel data={imgData} />
         :
+        <div className="flex w-full justify-center">
         <ImgBack src={data.imagen_principal} />
+      </div>
 
       }
 

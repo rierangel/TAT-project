@@ -10,11 +10,17 @@ export default function Pagination({ data, state, setState }) {
         const cont = data.count / data.page_size
         let contArrray = [...Array(Math.round(cont)).keys()];
         setPagesCount(contArrray)
+
     }, [data])
 
     // current page, numero de paginas, set query
+    const existLink =  data.links.next != null || data.links.previous  != null
+    const link = existLink ? data.links.next ? data.links.next.split("=")[0] : data.links.previous.split("=")[0] : false
+    console.log(link);
+    const currentPage = existLink ? data.links.next ? data.links.next.split("=")[1] -1 : parseInt(data.links.previous.split("=")[1] ) +1 : false
+    console.log( currentPage);
 
-    return (
+    return ( link &&
         <ul className="pagination rounded-lg flex justify-center text my-9">
 
 
@@ -28,8 +34,9 @@ export default function Pagination({ data, state, setState }) {
             </li>
 
             {pagesCount && pagesCount.map((e, i) => (
-                <li key={i}
-                    className="border1">{e + 1}</li>
+                <li 
+                onClick={() => setState(link + "=" +  (e+1))}
+                key={i} className={currentPage == (e+1) ? "active cursor-pointer border1 " : "cursor-pointer border1 " }>{e + 1} </li>
             ))}
             <li onClick={() => data.links.next && setState(data.links.next)}
                 className={`border1 rounded-r-lg ${data.links.next ? "cursor-pointer" : ""}`}>

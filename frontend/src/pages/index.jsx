@@ -90,9 +90,14 @@ export default function Index() {
         <div className='text-white w-full md:w-1/2'>
           <h2 className=''>Cultura Tributaria</h2>
           <p className=' mt-2 mb-6'>Educación para los contribuyentes, divulgación y promoción para fortalecer la moral tributaria en el cumplimiento de obligaciones de los ciudadanos.</p>
-          <button className='btn-sm white w-full text-center flex justify-center md:mr-auto md:w-auto'>
-            Acceder al contenido
-          </button>
+          <div className="flex">
+
+          <Link href={"/entradas/cultura-tributaria"}>
+            <a className='btn btn-sm white w-full text-center flex justify-center md:mr-auto md:w-auto'>
+              Acceder al contenido
+            </a>
+          </Link>
+          </div>
         </div>
 
 
