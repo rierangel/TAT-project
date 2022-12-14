@@ -100,7 +100,7 @@ function Contact() {
     return (
         <>
             <h1>Contacto</h1>
-            <p className='my-4'>Si tiene dudas, consultas o comentarios, no dude en comunicarse con nosotros.</p>
+            <p className='my-4'>Si tiene dudas, consultas o comentarios, comuníquese con nosotros.</p>
 
             <div className='flex gap-6 flex-col md:flex-row'>
 

@@ -245,7 +245,7 @@ export default function Page() {
         </div>
 
         <div className={style.list_transp + " border1"}>
-          <ToggleList title={"Artículo 59"}>
+          <ToggleList title={"Artículo 26"}>
             <ul className=''>
               <li>
                 <Link href={"transparencia/11.4/solicitud-de-informacion-presentada-a-la-institucion"}>
@@ -303,6 +303,21 @@ export default function Page() {
           </ToggleList>
         </div>
 
+        <div className={style.list_transp + " border1"}>
+          <ToggleList title={"Otros"}>
+            <ul className=''>              
+              <li>
+                <Link href={"publicaciones/memorias/"}>
+                  <a >
+                    <p>Memorias
+                    </p>
+
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </ToggleList>
+        </div>
 
 
       </section>

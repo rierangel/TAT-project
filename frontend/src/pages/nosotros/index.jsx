@@ -95,7 +95,7 @@ export default function Page() {
           <div >
             <h1>Misión</h1>
             <hr className='subline' />
-            <p className='md:w-4/5' >Impartimos Justicia Tributaria en la República de Panamá.</p>
+            <p className='md:w-4/5' >Impartir Justicia Tributaria en la República de Panamá.</p>
           </div>
           <div >
             <h1>Visión</h1>

@@ -10,27 +10,27 @@ export default function Footer() {
 
   const col1 = [
     {
-      name: "nosotros",
+      name: "Nosotros",
       link: "/nosotros/",
     },
     {
-      name: "competencias",
+      name: "Competencias",
       link: "/marco-normativo/competencias/",
     },
     {
-      name: "transparencia",
+      name: "Transparencia",
       link: "/transparencia/",
     },
     {
-      name: "leyes y decretos",
+      name: "Leyes y decretos",
       link: "/marco-normativo/leyes-y-decretos",
     },
     {
-      name: "acuerdos",
+      name: "Acuerdos",
       link: "/marco-normativo/acuerdos/",
     },
     {
-      name: "convenios",
+      name: "Convenios",
       link: "/marco-normativo/convenios/",
     },
 
@@ -41,23 +41,23 @@ export default function Footer() {
       link: "/entradas/noticias",
     },
     {
-      name: "Ponencias del Congreso",
+      name: "Ponencias del congreso",
       link: "/publicaciones/ponencias/",
     },
     {
-      name: "revista justicia tributaria",
+      name: "Revista justicia tributaria",
       link: "/publicaciones/revista-tributaria/",
     },
     {
-      name: "memorias",
+      name: "Memorias",
       link: "/publicaciones/memorias/",
     },
     {
-      name: "resoluciones emitidas",
+      name: "Resoluciones emitidas",
       link: "/resoluciones/",
     },
     {
-      name: "Haciendo la Diferencia",
+      name: "Haciendo la diferencia",
       link: "/entradas/haciendo-la-diferencia",
     },
 
@@ -67,7 +67,7 @@ export default function Footer() {
   // const col2 = ["Noticias", "Ponencias del Congreso", "revista justicia tributaria", "memorias",  "resoluciones emitidas", "Haciendo la Diferencia",]
   const col3 = [
     {
-      name: "Congreso Int. de Derecho Tributario",
+      name: "Congreso Int. de derecho tributario",
       link: "/entradas/congreso-internacional-de-derecho-tributario/"
     },
     {
@@ -76,7 +76,7 @@ export default function Footer() {
     },
 
     {
-      name: "Otras Instituciones",
+      name: "Otras instituciones",
       link: "otras-instituciones"
     },
     {
@@ -90,7 +90,7 @@ export default function Footer() {
 
   ]
 
-  const col4 = ["Declaración de privacidad", "Preguntas Frecuentes",]
+  const col4 = ["Declaración de privacidad", "Preguntas frecuentes",]
 
   return (
     <footer className="pt-6 pb-24 md:pt-16 md:pb-24  mt-36">

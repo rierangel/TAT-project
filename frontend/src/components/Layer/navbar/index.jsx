@@ -72,9 +72,7 @@ export default function Navbar() {
                                 <a >
                                     <li className={rute == "/" && styles.current_path} >
                                         Inicio
-                                    </li>
-                                    
-
+                                    </li>                                
                                 </a>
                             </Link>
 
@@ -104,23 +102,32 @@ export default function Navbar() {
                             <div className={'flex items-start ' +`${`${rute}`.split("/")[1] == "publicaciones" && styles.current_path}` } >
                                 <Tooltip title="Marco Normativo">
 
-                                    <Link href={`/publicaciones/ponencias/`}>
+                                    <Link href={`/marco-normativo/competencias/`}>
                                         <a >
                                             <li >
-                                                Ponencias del Congreso
+                                                Competencias
+
                                             </li>
                                         </a>
                                     </Link>
 
-                                    <Link href={`/publicaciones/revista-tributaria/`}>
+                                    <Link href={`/marco-normativo/leyes-y-decretos/`}>
                                         <a >
                                             <li >
-                                                Revista Justicia Tributaria
+                                            Leyes y decretos
                                             </li>
                                         </a>
                                     </Link>
 
+                                    <Link href={`/marco-normativo/acuerdos/`}>
+                                        <a >
+                                            <li >
+                                            Acuerdos
+                                            </li>
+                                        </a>
+                                    </Link>
 
+{/* 
                                     <div className={styles.subToggle} >
                                         <Tooltip title="Normativa" left={true}>
                                             <Link href={`/publicaciones/memorias`}>
@@ -142,7 +149,7 @@ export default function Navbar() {
 
 
                                         </Tooltip>
-                                    </div>
+                                    </div> */}
 
                                 </Tooltip>
                             </div>

@@ -139,7 +139,7 @@ export default function IniciarTramite() {
         <>
 
 
-            <form  onSubmit={handleSubmit} action="" className="form">
+            <form onSubmit={handleSubmit} action="" className="form">
 
                 {/* Apoderado */}
                 <div className='mt-9'>
@@ -194,26 +194,31 @@ export default function IniciarTramite() {
                                 type="text" id='AP_CONTRIBUYENTE_NOMBRE' name='AP_CONTRIBUYENTE_NOMBRE' />
                         </div>
                         <div className="form-control">
-                            <label htmlFor="AP_CONTRIBUYENTE_RUC">RUC</label>
-                            <input maxLength="22" required
-                                defaultValue={data.AP_CONTRIBUYENTE_RUC} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
-                                type="number" id='AP_CONTRIBUYENTE_RUC' name='AP_CONTRIBUYENTE_RUC' />
-                        </div>
-                    </div>
-                    <div className="group-inline">
-                    <div className="form-control">
                             <label htmlFor="AP_CONTRIBUYENTE_TIPO">Tipo Contribuyente</label>
                             <input maxLength="24" required
                                 defaultValue={data.AP_CONTRIBUYENTE_TIPO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_CONTRIBUYENTE_TIPO' name='AP_CONTRIBUYENTE_TIPO' />
                         </div>
+
+                    </div>
+                    <div className="group-inline">
+                        <div className="form-control">
+                            <label htmlFor="AP_CONTRIBUYENTE_RUC">RUC</label>
+                            <input maxLength="22" required
+                            pattern="[A-Za-z0-9.-]{0,22}"
+                            // pattern="[A-Za-z0-9.-]{8,12}" 
+
+                                defaultValue={data.AP_CONTRIBUYENTE_RUC} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
+                                type="text"   id='AP_CONTRIBUYENTE_RUC' name='AP_CONTRIBUYENTE_RUC' />
+                        </div>  
+                        
                         <div className="form-control">
                             <label htmlFor="AP_CONTRIBUYENTE_DV">DV</label>
                             <input maxLength="2" required
                                 defaultValue={data.AP_CONTRIBUYENTE_DV} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_CONTRIBUYENTE_DV' name='AP_CONTRIBUYENTE_DV' />
                         </div>
-                    
+
                     </div>
                     <div className="group-inline">
                         <div className="form-control">
@@ -252,23 +257,24 @@ export default function IniciarTramite() {
                         </div>
                     </div>
                     <div className="group-inline">
+                       
                         <div className="form-control">
-                            <label htmlFor="AP_RESOLUCION_CONFIRMATORIA_FECHA">Fecha Res. CONFIRMATORIA</label>
-                            <input maxLength="24" required
-                                defaultValue={data.AP_RESOLUCION_CONFIRMATORIA_FECHA} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
-                                id='AP_RESOLUCION_CONFIRMATORIA_FECHA' name='AP_RESOLUCION_CONFIRMATORIA_FECHA' type="date" placeholder="DD  /  MM  /  AAAA" />
-                        </div>
-                        <div className="form-control">
-                            <label htmlFor="AP_RESOLUCION_CONFIRMATORIA_NRO">Nro. Res. CONFIRMATORIA</label>
+                            <label htmlFor="AP_RESOLUCION_CONFIRMATORIA_NRO">Nro. Res. Confirmatoria</label>
                             <input maxLength="24" required
                                 defaultValue={data.AP_RESOLUCION_CONFIRMATORIA_NRO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_RESOLUCION_CONFIRMATORIA_NRO' name='AP_RESOLUCION_CONFIRMATORIA_NRO' />
+                        </div>
+                        <div className="form-control">
+                            <label htmlFor="AP_RESOLUCION_CONFIRMATORIA_FECHA">Fecha Res. Confirmatoria</label>
+                            <input maxLength="24" required
+                                defaultValue={data.AP_RESOLUCION_CONFIRMATORIA_FECHA} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
+                                id='AP_RESOLUCION_CONFIRMATORIA_FECHA' name='AP_RESOLUCION_CONFIRMATORIA_FECHA' type="date" placeholder="DD  /  MM  /  AAAA" />
                         </div>
 
                     </div>
                     <div className="group-inline">
                         <div className="form-control">
-                            <label htmlFor="AP_PERIODO">AP PERIODO</label>
+                            <label htmlFor="AP_PERIODO">Periodo</label>
                             <input maxLength="24" required
                                 defaultValue={data.AP_PERIODO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="number" id='AP_PERIODO' name='AP_PERIODO' />
@@ -282,7 +288,7 @@ export default function IniciarTramite() {
                         </div> */}
 
                     </div>
-
+{/* 
                     <div className="group-inline">
                         <div className="form-control">
                             <label htmlFor="UI_APODERADO_DGI_NOMBRE">UI APODERADO DGI NOMBRE</label>
@@ -320,7 +326,7 @@ export default function IniciarTramite() {
                                 defaultValue={data.UI_APODERADO_DGI_EMAIL} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="email" id='UI_APODERADO_DGI_EMAIL' name='UI_APODERADO_DGI_EMAIL' />
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Origen */}
@@ -363,7 +369,7 @@ export default function IniciarTramite() {
 
             </form>
             {/* sussefull */}
-            {stateApi == "loading" && <Loading /> }
+            {stateApi == "loading" && <Loading />}
             {stateApi == "success" && <Success data={successful} handleModal={setSuccessful} setStateApi={setStateApi} />}
         </>
     )
