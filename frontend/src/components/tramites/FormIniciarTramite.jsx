@@ -154,6 +154,7 @@ export default function IniciarTramite() {
                         <div className="form-control">
                             <label htmlFor="AP_APODERADO_RUC">Cédula o RUC</label>
                             <input maxLength="24" required
+                            pattern="[A-Za-z0-9.-]{0,22}"
                                 defaultValue={data.AP_APODERADO_RUC} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
                                 type="text" id='AP_APODERADO_RUC' name='AP_APODERADO_RUC' />
                         </div>
