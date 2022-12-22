@@ -300,10 +300,10 @@ export default function Page() {
             <ul className=''>
               <li>
 
-                {estaticos && estaticos[4] &&
-                  <a href={estaticos[4].archivo} rel="noreferrer" target={"_blank"}>
-                    <span>{estaticos[4].articulo}</span>
-                    <p>{estaticos[4].titulo}</p>
+                {estaticos && estaticos[5] &&
+                  <a href={estaticos[5].archivo} rel="noreferrer" target={"_blank"}>
+                    <span>{estaticos[5].articulo}</span>
+                    <p>{estaticos[5].titulo}</p>
                   </a>
                 }
               </li>
