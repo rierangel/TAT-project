@@ -23,7 +23,7 @@ export default function Page() {
       .catch(error => console.log(error))
 
     fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/transparencia/A00StaticosViewSet/`)
-      .then(res => setEstaticos(res.results))
+      .then(res => setEstaticos(res))
       .catch(error => console.log(error))
 
   }, [])
@@ -58,7 +58,7 @@ export default function Page() {
               <li>
                 {estaticos && estaticos[0] &&
                   <a href={estaticos[0].archivo} rel="noreferrer" target={"_blank"}>
-                    <span>{estaticos[0].articulo}</span>
+                                        <span>{estaticos[0].articulo}</span>
                     <p>{estaticos[0].titulo}</p>
                   </a>
                 }

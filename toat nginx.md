@@ -203,7 +203,7 @@ sudo systemctl restart nginx
 sudo systemctl start gunicorn.socket
 sudo systemctl status gunicorn.socket
 sudo systemctl daemon-reload && sudo systemctl restart gunicorn 
-&& sudo systemctl start gunicorn.socket
+
 
 ### frontend next
 cd web/frontend
