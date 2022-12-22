@@ -16,9 +16,7 @@ export default function Pagination({ data, state, setState }) {
     // current page, numero de paginas, set query
     const existLink =  data.links.next != null || data.links.previous  != null
     const link = existLink ? data.links.next ? data.links.next.split("=")[0] : data.links.previous.split("=")[0] : false
-    console.log(link);
     const currentPage = existLink ? data.links.next ? data.links.next.split("=")[1] -1 : parseInt(data.links.previous.split("=")[1] ) +1 : false
-    console.log( currentPage);
 
     return ( link &&
         <ul className="pagination rounded-lg flex justify-center text my-9">

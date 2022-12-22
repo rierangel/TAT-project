@@ -1,6 +1,13 @@
 
 from rest_framework import serializers
-from .models import A094_ManualesDeProcedimientos, A095_EstructuraOrganizativa, A096_SeguimientoDeDocumentos, A097_DescripciónDeFormularios, A098_ReglasDeProcedimiento, A102_EjecucionesPresupuestarias, A103_Estadisticas, A112_DesignaciónDeColaboradores, A113_Planilla, A113_PlanillaArchivos, A114_GastosDeRepresentación, A114_GastosDeRepresentaciónArchivos, A115_informesDeViajesNacionales, A115_informesDeViajesNacionalesResumen, A115_informesDeViajesInternacionales, A115_informesDeViajesInternacionalesResumen, A261_SolicitudDeInformaciónPresentadaALaInstitución, A262_AdjuntosDeSolicitudesResueltasYNegadas, A263_ParticipaciónCiudadana
+from .models import A094_ManualesDeProcedimientos, A095_EstructuraOrganizativa, A096_SeguimientoDeDocumentos, A097_DescripciónDeFormularios, A098_ReglasDeProcedimiento, A102_EjecucionesPresupuestarias, A103_Estadisticas, A112_DesignaciónDeColaboradores, A113_Planilla, A113_PlanillaArchivos, A114_GastosDeRepresentación, A114_GastosDeRepresentaciónArchivos, A115_informesDeViajesNacionales, A115_informesDeViajesNacionalesResumen, A115_informesDeViajesInternacionales, A115_informesDeViajesInternacionalesResumen, A261_SolicitudDeInformaciónPresentadaALaInstitución, A262_AdjuntosDeSolicitudesResueltasYNegadas, A263_ParticipaciónCiudadana, A00Estaticos
+
+
+class A00StaticosSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = A00Estaticos
+        fields = ('__all__')
+
 
 
 class A094_ManualesDeProcedimientosSerializers(serializers.ModelSerializer):

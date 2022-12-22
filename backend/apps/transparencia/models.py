@@ -2,9 +2,17 @@ from django.db import models
 
 # Create your models here.
 
+
+class A00Estaticos(models.Model):
+    titulo = models.CharField(max_length=500)
+    articulo = models.CharField(max_length=10,blank=True, null=True)
+    archivo = models.FileField(upload_to="transparencias/staticos")
+
+    def __str__(self):
+        return f'{self.articulo}  {self.titulo}'
+
+
 # Articulo 9
-
-
 class A094_ManualesDeProcedimientos(models.Model):
     titulo = models.CharField(max_length=500)
     archivo = models.FileField(upload_to="transparencias/94")
@@ -19,6 +27,7 @@ class A094_ManualesDeProcedimientos(models.Model):
 
     def __str__(self):
         return self.titulo
+
 
 
 class A095_EstructuraOrganizativa(models.Model):

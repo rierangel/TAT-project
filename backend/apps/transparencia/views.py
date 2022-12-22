@@ -1,7 +1,7 @@
 
 
-from .models import A094_ManualesDeProcedimientos, A095_EstructuraOrganizativa, A096_SeguimientoDeDocumentos, A097_DescripciónDeFormularios, A098_ReglasDeProcedimiento, A102_EjecucionesPresupuestarias, A103_Estadisticas, A112_DesignaciónDeColaboradores, A113_Planilla, A113_PlanillaArchivos, A114_GastosDeRepresentación, A114_GastosDeRepresentaciónArchivos, A115_informesDeViajesNacionales, A115_informesDeViajesNacionalesResumen, A115_informesDeViajesInternacionales, A115_informesDeViajesInternacionalesResumen, A261_SolicitudDeInformaciónPresentadaALaInstitución, A262_AdjuntosDeSolicitudesResueltasYNegadas, A263_ParticipaciónCiudadana
-from .serializer import A094_ManualesDeProcedimientosSerializers, A095_EstructuraOrganizativaSerializers, A096_SeguimientoDeDocumentosSerializers, A097_DescripciónDeFormulariosSerializers, A098_ReglasDeProcedimientoSerializers, A102_EjecucionesPresupuestariasSerializers, A103_EstadisticasSerializers, A112_DesignaciónDeColaboradoresSerializers, A113_PlanillaSerializers, A113_PlanillaArchivosSerializers, A114_GastosDeRepresentaciónSerializers, A114_GastosDeRepresentaciónArchivosSerializers, A115_informesDeViajesNacionalesSerializers, A115_informesDeViajesNacionalesResumenSerializers, A115_informesDeViajesInternacionalesSerializers, A115_informesDeViajesInternacionalesResumenSerializers, A261_SolicitudDeInformaciónPresentadaALaInstituciónSerializers, A262_AdjuntosDeSolicitudesResueltasYNegadasSerializers, A263_ParticipaciónCiudadanaSerializers
+from .models import A094_ManualesDeProcedimientos, A095_EstructuraOrganizativa, A096_SeguimientoDeDocumentos, A097_DescripciónDeFormularios, A098_ReglasDeProcedimiento, A102_EjecucionesPresupuestarias, A103_Estadisticas, A112_DesignaciónDeColaboradores, A113_Planilla, A113_PlanillaArchivos, A114_GastosDeRepresentación, A114_GastosDeRepresentaciónArchivos, A115_informesDeViajesNacionales, A115_informesDeViajesNacionalesResumen, A115_informesDeViajesInternacionales, A115_informesDeViajesInternacionalesResumen, A261_SolicitudDeInformaciónPresentadaALaInstitución, A262_AdjuntosDeSolicitudesResueltasYNegadas, A263_ParticipaciónCiudadana, A00Estaticos
+from .serializer import A094_ManualesDeProcedimientosSerializers, A095_EstructuraOrganizativaSerializers, A096_SeguimientoDeDocumentosSerializers, A097_DescripciónDeFormulariosSerializers, A098_ReglasDeProcedimientoSerializers, A102_EjecucionesPresupuestariasSerializers, A103_EstadisticasSerializers, A112_DesignaciónDeColaboradoresSerializers, A113_PlanillaSerializers, A113_PlanillaArchivosSerializers, A114_GastosDeRepresentaciónSerializers, A114_GastosDeRepresentaciónArchivosSerializers, A115_informesDeViajesNacionalesSerializers, A115_informesDeViajesNacionalesResumenSerializers, A115_informesDeViajesInternacionalesSerializers, A115_informesDeViajesInternacionalesResumenSerializers, A261_SolicitudDeInformaciónPresentadaALaInstituciónSerializers, A262_AdjuntosDeSolicitudesResueltasYNegadasSerializers, A263_ParticipaciónCiudadanaSerializers, A00StaticosSerializers
 
 
 from rest_framework import viewsets
@@ -48,6 +48,20 @@ def make_view_with_dowload_link(model, serializer):
             return response
 
     return view
+
+A00Estaticos
+
+
+
+class A00StaticosViewSet(viewsets.ModelViewSet):
+    serializer_class = A00StaticosSerializers
+    queryset = A00Estaticos.objects.all().order_by("pk")
+
+    def list(self, request, format=None, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
 
 
 A094_ManualesDeProcedimientosViewSet = make_view_with_dowload_link(

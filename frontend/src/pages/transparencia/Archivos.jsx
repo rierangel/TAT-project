@@ -16,7 +16,6 @@ export default function GetCurrentArchivos({ title, path }) {
     }, [])
     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const mes = new Date().toLocaleDateString('es-ES', options).split(" ")
-    console.log(data);
     return (data &&
         <>
             <div className="border1 p-9 rounded-2xl">

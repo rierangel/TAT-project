@@ -14,6 +14,7 @@ export default function Page() {
 
 
   const [page, setPage] = useState()
+  const [estaticos, setEstaticos] = useState()
 
   useEffect(() => {
     // page
@@ -21,14 +22,20 @@ export default function Page() {
       .then(res => setPage(res))
       .catch(error => console.log(error))
 
+    fetcher(`${process.env.NEXT_PUBLIC_URL_BACKEND}/transparencia/A00StaticosViewSet/`)
+      .then(res => setEstaticos(res.results))
+      .catch(error => console.log(error))
+
   }, [])
+
+  console.log(estaticos);
 
   return (
 
     <Layer>
 
-      {page &&
-        <>
+      {page && page[0] &&
+      <>
           <div className='flex justify-between flex-col md:flex-row'>
             <Title data={page[0]} />
             <div className='mb-6'>
@@ -49,22 +56,28 @@ export default function Page() {
           <ToggleList title={"Artículo 9"}>
             <ul className=''>
               <li>
-                <a href="/tp/09/9.1_Reglamento interno.pdf" rel="noreferrer" target={"_blank"}>
-                  <span>9.1</span>
-                  <p>Reglamento interno</p>
-                </a>
+                {estaticos && estaticos[0] &&
+                  <a href={estaticos[0].archivo} rel="noreferrer" target={"_blank"}>
+                    <span>{estaticos[0].articulo}</span>
+                    <p>{estaticos[0].titulo}</p>
+                  </a>
+                }
               </li>
               <li>
-                <a href="/tp/09/9.2_Politicas_institucionales.pdf" rel="noreferrer" target={"_blank"} >
-                  <span>9.2</span>
-                  <p>Políticas institucionales</p>
-                </a>
+                {estaticos && estaticos[1] &&
+                  <a href={estaticos[1].archivo} rel="noreferrer" target={"_blank"}>
+                    <span>{estaticos[1].articulo}</span>
+                    <p>{estaticos[1].titulo}</p>
+                  </a>
+                }
               </li>
               <li>
-                <a href="/tp/09/9.3_PLAN_ESTRATEGICO_2018-2022.pdf" rel="noreferrer" target={"_blank"} >
-                  <span>9.3</span>
-                  <p>Plan estratégico</p>
-                </a>
+                {estaticos && estaticos[2] &&
+                  <a href={estaticos[2].archivo} rel="noreferrer" target={"_blank"}>
+                    <span>{estaticos[2].articulo}</span>
+                    <p>{estaticos[2].titulo}</p>
+                  </a>
+                }
               </li>
 
               <li>
@@ -132,10 +145,12 @@ export default function Page() {
           <ToggleList title={"Artículo 10"}>
             <ul className=''>
               <li>
-                <a href="/tp/09/10.1PROYECTOS INSTITUCIONALES WEB AL 31 DE OCTUBRE DE 2022.pdf" rel="noreferrer" target={"_blank"}>
-                  <span>10.1</span>
-                  <p>Proyectos Institucionales al 31 de octubre de 2022</p>
-                </a>
+                {estaticos && estaticos[3] &&
+                  <a href={estaticos[3].archivo} rel="noreferrer" target={"_blank"}>
+                    <span>{estaticos[3].articulo} </span>
+                    <p>{estaticos[3].titulo}</p>
+                  </a>
+                }
               </li>
               <li>
                 <Link href={"transparencia/10.2/Ejecuciones-Presupuestarias"}>
@@ -161,7 +176,7 @@ export default function Page() {
                 </a>
               </li>
               <li>
-                <a href='https://www.panamacompra.gob.pa/Inicio/#/'  rel="noreferrer" target={"_blank"}>
+                <a href='https://www.panamacompra.gob.pa/Inicio/#/' rel="noreferrer" target={"_blank"}>
                   <span>10.5</span>
                   <p>Contrataciones Públicas</p>
                 </a>
@@ -176,11 +191,12 @@ export default function Page() {
           <ToggleList title={"Artículo 11"}>
             <ul className=''>
               <li>
-
-                <a href="/tp/11/contrataciones-Octubre.pdf" rel="noreferrer" target={"_blank"}>
-                  <span>11.1</span>
-                  <p>Contratación de Colaboradores</p>
-                </a>
+                {estaticos && estaticos[4] &&
+                  <a href={estaticos[4].archivo} rel="noreferrer" target={"_blank"}>
+                    <span>{estaticos[4].articulo}</span>
+                    <p>{estaticos[4].titulo}</p>
+                  </a>
+                }
               </li>
 
               <li>
@@ -284,10 +300,12 @@ export default function Page() {
             <ul className=''>
               <li>
 
-                <a href="/tp/27/25199_2004_codigo_de_etica.pdf">
-                  <span>27.1</span>
-                  <p>Código de Ética</p>
-                </a>
+                {estaticos && estaticos[4] &&
+                  <a href={estaticos[4].archivo} rel="noreferrer" target={"_blank"}>
+                    <span>{estaticos[4].articulo}</span>
+                    <p>{estaticos[4].titulo}</p>
+                  </a>
+                }
               </li>
               <li>
                 <Link href={"/marco-normativo/convenios"}>
@@ -305,7 +323,7 @@ export default function Page() {
 
         <div className={style.list_transp + " border1"}>
           <ToggleList title={"Otros"}>
-            <ul className=''>              
+            <ul className=''>
               <li>
                 <Link href={"publicaciones/memorias/"}>
                   <a >

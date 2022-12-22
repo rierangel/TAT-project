@@ -70,7 +70,7 @@ export default function Navbar() {
                         <ul className={styles.bottom} >
                             <Link href="/">
                                 <a >
-                                    <li className={rute == "/" && styles.current_path} >
+                                    <li className={rute == "/" ? styles.current_path : ""} >
                                         Inicio
                                     </li>                                
                                 </a>
@@ -78,18 +78,17 @@ export default function Navbar() {
 
                             <Link href="/tramites/">
                                 <a >
-                                    <li className={rute == "/tramites" && styles.current_path} >
+                                    <li className={rute == "/tramites"  ? styles.current_path : ""} >
                                         Trámites
                                     </li>
                                 </a>
                             </Link>
-                            <div className={'flex items-start ' +`${`${rute}`.split("/")[1] == "nosotros" && styles.current_path}` } >
+                            <div className={'flex items-start ' +`${`${rute}`.split("/")[1] == "nosotros"  ? styles.current_path : ""}` } >
                                 <Tooltip title="Nosotros">
                                     {nosotros.map((e, i) => (
                                         <Link key={i} href={`/nosotros${e.link}`}>
                                             <a >
                                                 <li  >
-                                                    {console.log(`${rute}`.split("/")[1] == "nosotros" )}
                                                     {e.name}
                                                 </li>
                                             </a>
@@ -99,7 +98,7 @@ export default function Navbar() {
                             </div>
 
                             {/* marco normativo */}
-                            <div className={'flex items-start ' +`${`${rute}`.split("/")[1] == "publicaciones" && styles.current_path}` } >
+                            <div className={'flex items-start ' +`${`${rute}`.split("/")[1] == "publicaciones"  ? styles.current_path : ""}` } >
                                 <Tooltip title="Marco Normativo">
 
                                     <Link href={`/marco-normativo/competencias/`}>
@@ -132,14 +131,14 @@ export default function Navbar() {
                                         <Tooltip title="Normativa" left={true}>
                                             <Link href={`/publicaciones/memorias`}>
                                                 <a >
-                                                    <li className={rute == "" && styles.current_path} >
+                                                    <li className={rute == ""  ? styles.current_path : ""} >
                                                         Memorias
                                                     </li>
                                                 </a>
                                             </Link>
                                             <Link href={`/publicaciones/otras`}>
                                                 <a >
-                                                    <li className={rute == "" && styles.current_path} >
+                                                    <li className={rute == ""  ? styles.current_path : ""} >
                                                         Otras Publicaciones
                                                     </li>
                                                 </a>
@@ -156,14 +155,14 @@ export default function Navbar() {
 
                             <Link href="/transparencia">
                                 <a >
-                                    <li className={rute == "/transparencia" && styles.current_path} >
+                                    <li className={rute == "/transparencia"  ? styles.current_path : ""} >
                                         Transparencia
                                     </li>
                                 </a>
                             </Link>
                             <Link href="/contacto">
                                 <a >
-                                    <li className={rute == "/contacto" && styles.current_path} >
+                                    <li className={rute == "/contacto"  ? styles.current_path : ""} >
                                         Contacto
                                     </li>
                                 </a>
