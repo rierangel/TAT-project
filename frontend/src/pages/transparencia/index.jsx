@@ -102,7 +102,7 @@ export default function Page() {
               </li>
 
               <li>
-                <Link href={"transparencia/9.7/descripción-de-formularios"}>
+                <Link href={"transparencia/9.7/descripcion-de-formularios"}>
 
                   <a >
                     <span>9.7</span>

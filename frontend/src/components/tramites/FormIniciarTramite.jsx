@@ -126,6 +126,13 @@ export default function IniciarTramite() {
         { value: 11, name: "PANAMÁ OESTE" }
     ]
 
+    const tipo_contrib = [
+        "Jurídico",
+        "Natural",
+        "Finca"
+        
+    ]
+
 
     const clearForm = (e) => {
         // formRef.current.reset()
@@ -195,11 +202,28 @@ export default function IniciarTramite() {
                                 type="text" id='AP_CONTRIBUYENTE_NOMBRE' name='AP_CONTRIBUYENTE_NOMBRE' />
                         </div>
                         <div className="form-control">
-                            <label htmlFor="AP_CONTRIBUYENTE_TIPO">Tipo Contribuyente</label>
+                            {/* <label htmlFor="AP_CONTRIBUYENTE_TIPO">Tipo Contribuyente</label>
                             <input maxLength="24" required
                                 defaultValue={data.AP_CONTRIBUYENTE_TIPO} onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
-                                type="text" id='AP_CONTRIBUYENTE_TIPO' name='AP_CONTRIBUYENTE_TIPO' />
+                                type="text" id='AP_CONTRIBUYENTE_TIPO' name='AP_CONTRIBUYENTE_TIPO' /> */}
+                        
+                        <div className="form-control">
+                            <label htmlFor="AP_CONTRIBUYENTE_TIPO">Tipo Contribuyente</label>
+                            <select required
+                                name="AP_CONTRIBUYENTE_TIPO"
+                                onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
+                                id="AP_CONTRIBUYENTE_TIPO">
+
+
+                                <option className='hidden' value="undefine" >Seleccione</option>
+                                {tipo_contrib.map((v, i) => (
+                                    <option key={i} value={v}>{v}</option>
+                                ))}
+                            </select>
                         </div>
+
+                    </div>
+                        
 
                     </div>
                     <div className="group-inline">

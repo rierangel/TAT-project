@@ -183,8 +183,8 @@ class A114_GastosDeRepresentaciónArchivos(models.Model):
 class A115_informesDeViajesNacionales(models.Model):
     titulo = models.CharField(max_length=200, blank=True, null=True)
     cargo = models.CharField(max_length=200, blank=True, null=True)
-    destino_participación = models.CharField(
-        max_length=200, blank=True, null=True)
+    destino = models.CharField(max_length=200, blank=True, null=True)
+    participación = models.CharField(max_length=200, blank=True, null=True)
     fecha_salida = models.DateField(max_length=200, blank=True, null=True)
     fecha_regreso = models.DateField(max_length=200, blank=True, null=True)
     costo = models.FloatField(blank=True)
@@ -209,7 +209,8 @@ class A115_informesDeViajesNacionalesResumen(models.Model):
 class A115_informesDeViajesInternacionales(models.Model):
     titulo = models.CharField(max_length=200, blank=True)
     cargo = models.CharField(max_length=200, blank=True)
-    destino_participación = models.CharField(max_length=200, blank=True)
+    destino = models.CharField(max_length=200, blank=True)
+    participación = models.CharField(max_length=200, blank=True)
     fecha_salida = models.DateField(max_length=200, blank=True)
     fecha_regreso = models.DateField(max_length=200, blank=True)
     costo = models.FloatField(blank=True)
@@ -271,7 +272,7 @@ class A262_AdjuntosDeSolicitudesResueltasYNegadas(models.Model):
 class A263_ParticipaciónCiudadana(models.Model):
     titulo = models.CharField(max_length=500)
     fecha = models.DateField()
-    archivo = models.FileField(upload_to="transparencias/263")
+    link = models.URLField(blank=True, null=True)
 
     @property
     def año(self):
@@ -281,13 +282,7 @@ class A263_ParticipaciónCiudadana(models.Model):
     def mes(self):
         return self.fecha.month
 
-    @property
-    def ver(self):
-        return self.archivo.url
 
-    @property
-    def descargar(self):
-        return self.pk
 
     def __str__(self):
         return self.titulo

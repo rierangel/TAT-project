@@ -40,7 +40,7 @@ export default function Index() {
           <div className='flex flex-col md:flex-row gap-3 md:gap-6'>
             <Link
               //  href={{ pathname: "/tramites", query: { id: "t-apelacion" } }}
-              href={"/tramites#"}
+              href={"/tramites#t-apelacion"}
 
             >
               <a className='btn w-full md:w-auto primary flex-center'>
