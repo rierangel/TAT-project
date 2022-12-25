@@ -4,10 +4,6 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
-
-
-
-
 const yo = `
 
 ░░░░░░░░░░░░▄▄▄▄▄▄▄░░░░░░░░░░ 
@@ -30,11 +26,7 @@ const yo = `
 ░░░░░░░░░░▀▄░░░░░░░▄▀░░░░░░░░
 ░░░░░░░░░░░░░▀▀▀▀▀░░░░░░░░░
 `
-
 console.log(yo);
-
-
-
 
 // Create a client
 const queryClient = new QueryClient()
