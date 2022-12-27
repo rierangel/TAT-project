@@ -1,15 +1,12 @@
-## Crea un usuario con pribilegios
+## Crea un usuario con permisos
 sudo su -
 passwd ubuntu
-
-ubuntu Añel*
-
+ubuntu pass
 adduser USERNAME
 
 ## configuracion de hostname
 
 - sudo hostnamectl set-hostname tatsite.arasait.com
-
 - hostnamectl set-hostname nombre.dominio.com
 
 ```yml
@@ -25,10 +22,8 @@ Architecture: x86-64
 ```
 
 # configuracion ngixn
-
 sudo nginx -t
 sudo systemctl restart nginx
-
 
 modifica
 `sudo nano /etc/nginx/sites-available/tatsite.arasait.com`
@@ -98,16 +93,11 @@ server {
 
 
 tatsite.arasait.com
-
-
 /etc/nginx/sites-available/tatsite.arasait.com
-
 copia la configuracion por default
 `sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/tatsite.arasait.com`
 
-
-
-habilita
+habilitar
 `sudo ln -s /etc/nginx/sites-available/tatsite.arasait.com /etc/nginx/sites-enabled`
 
 
@@ -119,7 +109,7 @@ sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled
 # configuracion gunicorn
 https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-20-04
 
-sudo nano /etc/systemd/system/gunicorn.service
+sudo vim /etc/systemd/system/gunicorn.service
 ```yml
 [Unit]
 Description=gunicorn daemon
@@ -156,7 +146,7 @@ PYTHONPATH=`pwd`/.. gunicorn --bind 0.0.0.0:8000 config.wsgi:application
 
 
 
-# configuracion
+# configuracion servicio nginx backend
 
 ```bash
 server {
